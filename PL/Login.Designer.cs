@@ -117,7 +117,7 @@
             Username_txb.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             Username_txb.Font = new Font("Segoe UI", 9F);
             Username_txb.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            Username_txb.Location = new Point(617, 221);
+            Username_txb.Location = new Point(617, 226);
             Username_txb.Margin = new Padding(3, 4, 3, 4);
             Username_txb.Name = "Username_txb";
             Username_txb.PasswordChar = '\0';
