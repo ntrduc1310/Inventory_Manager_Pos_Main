@@ -1,6 +1,7 @@
 using BL;
 using DL;
 using DTO;
+using Guna.UI2.WinForms;
 using Microsoft.Data.SqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 namespace PL
@@ -48,8 +49,14 @@ namespace PL
             }
 
         }
+       
 
         private void guna2TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2PictureBox1_Click(object sender, EventArgs e)
         {
 
         }
