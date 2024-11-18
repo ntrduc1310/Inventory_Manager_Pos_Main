@@ -13,19 +13,19 @@ using System.Windows.Forms;
 
 namespace PL
 {
-    public partial class SignUp : Form
+    public partial class SignIn : Form
     {
-        public SignUp()
+        public SignIn()
         {
             InitializeComponent();
         }
 
-        private void Username_txb_TextChanged(object sender, EventArgs e)
+        private void guna2PictureBox1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private async void Login_btn_Click(object sender, EventArgs e)
+        private async void SignIn_btn_Click(object sender, EventArgs e)
         {
 
             string username = Username_txb.Text;
@@ -64,10 +64,34 @@ namespace PL
 
         }
 
-        private void SignUp_Load(object sender, EventArgs e)
+        private void SignIn_label_Click(object sender, EventArgs e)
         {
+            // Tạo một instance của form SignUp
+            SignUp signUpForm = new SignUp();
 
+            // Hiển thị form SignUp
+            signUpForm.Show();
+
+            // Ẩn form SignIn
+            this.Hide();
         }
-    }
 
+        private void MyButton_MouseEnter(object sender, EventArgs e)
+        {
+            // Đổi màu Button khi di chuột vào
+            SignIn_label.BackColor = Color.LightBlue;
+            // Đổi con trỏ chuột thành hình tay
+            SignIn_label.Cursor = Cursors.Hand;
+        }
+
+        private void MyButton_MouseLeave(object sender, EventArgs e)
+        {
+            // Khôi phục màu Button khi di chuột ra
+            SignIn_label.BackColor = SystemColors.Control;
+            // Khôi phục con trỏ chuột mặc định
+            SignIn_label.Cursor = Cursors.Default;
+        }
+
+
+}
 }
