@@ -166,5 +166,9 @@ namespace PL
             return isValid;
         }
 
+        private void Username_txb_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

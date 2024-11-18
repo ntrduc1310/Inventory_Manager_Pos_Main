@@ -91,16 +91,6 @@ namespace PL
             // 
             // guna2PictureBox5
             // 
-            guna2PictureBox5.CustomizableEdges = customizableEdges1;
-            guna2PictureBox5.Image = Properties.Resources.reject;
-            guna2PictureBox5.ImageRotate = 0F;
-            guna2PictureBox5.Location = new Point(0, -2);
-            guna2PictureBox5.Name = "guna2PictureBox5";
-            guna2PictureBox5.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2PictureBox5.Size = new Size(37, 35);
-            guna2PictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
-            guna2PictureBox5.TabIndex = 36;
-            guna2PictureBox5.TabStop = false;
             // 
             // guna2HtmlLabel7
             // 
@@ -211,7 +201,6 @@ namespace PL
             Sign_Up.TabIndex = 26;
             Sign_Up.Text = "Sign Up";
             Sign_Up.TextAlignment = ContentAlignment.MiddleCenter;
-            Sign_Up.Click += Sign_Up_Click;
             // 
             // guna2PictureBox3
             // 
@@ -382,7 +371,6 @@ namespace PL
             guna2PictureBox7.ImageRotate = 0F;
             guna2PictureBox7.Location = new Point(909, 408);
             guna2PictureBox7.Name = "guna2PictureBox7";
-            guna2PictureBox7.ShadowDecoration.CustomizableEdges = customizableEdges22;
             guna2PictureBox7.Size = new Size(35, 30);
             guna2PictureBox7.SizeMode = PictureBoxSizeMode.StretchImage;
             guna2PictureBox7.TabIndex = 41;

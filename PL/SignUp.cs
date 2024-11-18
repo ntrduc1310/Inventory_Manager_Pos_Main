@@ -38,48 +38,40 @@ namespace PL
 
         private async void Login_btn_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             if (ValidateInputs())
             {
 
-                var username = Username_txb.Text.Trim();
-=======
-            
-            string username = Username_txb.Text;
-            string password = Password_txb.Text;
-            Account acc = new Account(username, password);
-            bool b = true;
-            try
-            {
-                b = await new LoginBL().LoginAsync(acc);
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show("...." + ex.Message);
->>>>>>> 34585bef0830b49c85e9e44e83e2399cb14919a7
-
-                var password = Password_txb.Text.Trim();
-
-                var email = Email_txb.Text.Trim();
-                Account acc = new Account(username, password);
-                bool b = await new LoginBL().LoginAsync(acc);
-                if (b)
+                try
                 {
-                    MessageBox.Show("Tài khoản đã tồn tại!");
-                }
-                else
-                {
-                    bool f = false;
-                    f = await new DL.SignUp().AddUserAsync(username, password, email);
-                    if (f)
+                    var password = Password_txb.Text.Trim();
+                    var email = Email_txb.Text.Trim();
+                    var username = Username_txb.Text.Trim();
+                    Account acc = new Account(username, password);
+                    bool b = await new LoginBL().LoginAsync(acc);
+                    if (b)
                     {
-                        MessageBox.Show("Đăng kí tài khoản thành công!");
+                        MessageBox.Show("Tài khoản đã tồn tại!");
                     }
                     else
                     {
-                        MessageBox.Show("Đăng kí tài khoản thất bại!");
+                        bool f = false;
+                        f = await new DL.SignUp().AddUserAsync(username, password, email);
+                        if (f)
+                        {
+                            MessageBox.Show("Đăng kí tài khoản thành công!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Đăng kí tài khoản thất bại!");
+
+                        }
+
 
                     }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("...." + ex.Message);
 
 
                 }
@@ -94,7 +86,6 @@ namespace PL
         {
 
         }
-<<<<<<< HEAD
         private bool isPasswordVisible = false;
         private void guna2PictureBox7_Click(object sender, EventArgs e)
         {
@@ -239,10 +230,11 @@ namespace PL
         }
 
         private void guna2HtmlLabel5_Click(object sender, EventArgs e)
-=======
+        {
+
+        }
 
         private void Sign_Up_Click(object sender, EventArgs e)
->>>>>>> 34585bef0830b49c85e9e44e83e2399cb14919a7
         {
 
         }
