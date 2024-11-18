@@ -11,7 +11,9 @@ namespace PL
         public Form1()
         {
             InitializeComponent();
+            guna2MessageDialog1.Parent = Main.Instance;
         }
+        
 
         private async void guna2Button1_Click(object sender, EventArgs e)
         {
