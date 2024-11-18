@@ -76,12 +76,7 @@
             guna2PictureBox7.CustomizableEdges = customizableEdges1;
             guna2PictureBox7.Image = Properties.Resources.hide;
             guna2PictureBox7.ImageRotate = 0F;
-<<<<<<< HEAD
-            guna2PictureBox7.Location = new Point(1151, 459);
-            guna2PictureBox7.Margin = new Padding(4);
-=======
             guna2PictureBox7.Location = new Point(943, 365);
->>>>>>> 34585bef0830b49c85e9e44e83e2399cb14919a7
             guna2PictureBox7.Name = "guna2PictureBox7";
             guna2PictureBox7.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2PictureBox7.Size = new Size(28, 30);
@@ -165,12 +160,7 @@
             // 
             guna2HtmlLabel4.BackColor = Color.Transparent;
             guna2HtmlLabel4.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-<<<<<<< HEAD
-            guna2HtmlLabel4.Location = new Point(827, 403);
-            guna2HtmlLabel4.Margin = new Padding(4);
-=======
             guna2HtmlLabel4.Location = new Point(662, 304);
->>>>>>> 34585bef0830b49c85e9e44e83e2399cb14919a7
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             guna2HtmlLabel4.Size = new Size(92, 30);
             guna2HtmlLabel4.TabIndex = 51;
@@ -180,12 +170,7 @@
             // 
             guna2HtmlLabel3.BackColor = Color.Transparent;
             guna2HtmlLabel3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-<<<<<<< HEAD
-            guna2HtmlLabel3.Location = new Point(827, 242);
-            guna2HtmlLabel3.Margin = new Padding(4);
-=======
             guna2HtmlLabel3.Location = new Point(658, 194);
->>>>>>> 34585bef0830b49c85e9e44e83e2399cb14919a7
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             guna2HtmlLabel3.Size = new Size(97, 30);
             guna2HtmlLabel3.TabIndex = 50;
@@ -255,23 +240,14 @@
             Password_txb.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             Password_txb.ForeColor = Color.Black;
             Password_txb.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-<<<<<<< HEAD
-            Password_txb.Location = new Point(807, 446);
-            Password_txb.Margin = new Padding(4, 5, 4, 5);
-=======
             Password_txb.Location = new Point(653, 357);
             Password_txb.Margin = new Padding(3, 4, 3, 4);
->>>>>>> 34585bef0830b49c85e9e44e83e2399cb14919a7
             Password_txb.Name = "Password_txb";
             Password_txb.PasswordChar = '*';
             Password_txb.PlaceholderText = "";
             Password_txb.SelectedText = "";
             Password_txb.ShadowDecoration.CustomizableEdges = customizableEdges10;
-<<<<<<< HEAD
-            Password_txb.Size = new Size(407, 65);
-=======
             Password_txb.Size = new Size(333, 52);
->>>>>>> 34585bef0830b49c85e9e44e83e2399cb14919a7
             Password_txb.TabIndex = 45;
             Password_txb.TextChanged += Password_txb_TextChanged;
             // 
@@ -289,23 +265,14 @@
             Username_txb.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             Username_txb.ForeColor = Color.Black;
             Username_txb.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-<<<<<<< HEAD
-            Username_txb.Location = new Point(807, 285);
-            Username_txb.Margin = new Padding(4, 5, 4, 5);
-=======
             Username_txb.Location = new Point(650, 226);
             Username_txb.Margin = new Padding(3, 4, 3, 4);
->>>>>>> 34585bef0830b49c85e9e44e83e2399cb14919a7
             Username_txb.Name = "Username_txb";
             Username_txb.PasswordChar = '\0';
             Username_txb.PlaceholderText = "";
             Username_txb.SelectedText = "";
             Username_txb.ShadowDecoration.CustomizableEdges = customizableEdges12;
-<<<<<<< HEAD
-            Username_txb.Size = new Size(397, 65);
-=======
             Username_txb.Size = new Size(333, 52);
->>>>>>> 34585bef0830b49c85e9e44e83e2399cb14919a7
             Username_txb.TabIndex = 44;
             // 
             // Sign_In
@@ -320,18 +287,10 @@
             Sign_In.FillColor = Color.SlateBlue;
             Sign_In.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Sign_In.ForeColor = Color.White;
-<<<<<<< HEAD
-            Sign_In.Location = new Point(848, 561);
-            Sign_In.Margin = new Padding(4);
-            Sign_In.Name = "Sign_In";
-            Sign_In.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            Sign_In.Size = new Size(309, 79);
-=======
             Sign_In.Location = new Point(658, 449);
             Sign_In.Name = "Sign_In";
             Sign_In.ShadowDecoration.CustomizableEdges = customizableEdges14;
             Sign_In.Size = new Size(326, 63);
->>>>>>> 34585bef0830b49c85e9e44e83e2399cb14919a7
             Sign_In.TabIndex = 43;
             Sign_In.Text = "Sign In";
             Sign_In.Click += SignIn_btn_Click;
