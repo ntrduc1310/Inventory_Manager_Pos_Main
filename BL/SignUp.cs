@@ -1,23 +1,22 @@
-﻿using System;
+﻿using DL;
+using DTO;
+using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DL;
-using DTO;
-using Microsoft.Data.SqlClient;
-
 
 namespace BL
 {
-    public class LoginBL
+    public class SignUp
     {
-        public Task<bool> LoginAsync(Account acc)
+        public Task<bool> SignUpAsync(string username, string password, string email)
         {
             try
             {
 
-                return (new LoginDL().LoginAsync(acc));
+                return (new DL.SignUp().AddUserAsync(username,password,email));
             }
             catch (SqlException)
             {
