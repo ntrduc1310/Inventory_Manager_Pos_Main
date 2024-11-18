@@ -27,7 +27,7 @@ namespace PL
 
         private async void Login_btn_Click(object sender, EventArgs e)
         {
-
+            
             string username = Username_txb.Text;
             string password = Password_txb.Text;
             Account acc = new Account(username, password);
@@ -65,6 +65,11 @@ namespace PL
         }
 
         private void SignUp_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Sign_Up_Click(object sender, EventArgs e)
         {
 
         }

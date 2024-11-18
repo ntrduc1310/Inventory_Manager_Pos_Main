@@ -76,21 +76,19 @@
             guna2PictureBox7.CustomizableEdges = customizableEdges1;
             guna2PictureBox7.Image = Properties.Resources.hide;
             guna2PictureBox7.ImageRotate = 0F;
-            guna2PictureBox7.Location = new Point(1179, 456);
-            guna2PictureBox7.Margin = new Padding(4);
+            guna2PictureBox7.Location = new Point(943, 365);
             guna2PictureBox7.Name = "guna2PictureBox7";
             guna2PictureBox7.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2PictureBox7.Size = new Size(35, 38);
+            guna2PictureBox7.Size = new Size(28, 30);
             guna2PictureBox7.SizeMode = PictureBoxSizeMode.StretchImage;
             guna2PictureBox7.TabIndex = 62;
             guna2PictureBox7.TabStop = false;
             // 
             // guna2Separator2
             // 
-            guna2Separator2.Location = new Point(1095, 162);
-            guna2Separator2.Margin = new Padding(4);
+            guna2Separator2.Location = new Point(876, 130);
             guna2Separator2.Name = "guna2Separator2";
-            guna2Separator2.Size = new Size(185, 14);
+            guna2Separator2.Size = new Size(148, 11);
             guna2Separator2.TabIndex = 58;
             // 
             // guna2HtmlLabel7
@@ -98,19 +96,17 @@
             guna2HtmlLabel7.BackColor = Color.Transparent;
             guna2HtmlLabel7.Font = new Font("Segoe UI Black", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel7.ForeColor = Color.DarkSlateBlue;
-            guna2HtmlLabel7.Location = new Point(96, 561);
-            guna2HtmlLabel7.Margin = new Padding(4);
+            guna2HtmlLabel7.Location = new Point(77, 449);
             guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            guna2HtmlLabel7.Size = new Size(513, 56);
+            guna2HtmlLabel7.Size = new Size(426, 47);
             guna2HtmlLabel7.TabIndex = 57;
             guna2HtmlLabel7.Text = "Inventory and Pos System";
             // 
             // guna2Separator1
             // 
-            guna2Separator1.Location = new Point(712, 162);
-            guna2Separator1.Margin = new Padding(4);
+            guna2Separator1.Location = new Point(570, 130);
             guna2Separator1.Name = "guna2Separator1";
-            guna2Separator1.Size = new Size(185, 14);
+            guna2Separator1.Size = new Size(148, 11);
             guna2Separator1.TabIndex = 56;
             // 
             // SignIn_label
@@ -118,10 +114,9 @@
             SignIn_label.BackColor = Color.Transparent;
             SignIn_label.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             SignIn_label.ForeColor = Color.SlateBlue;
-            SignIn_label.Location = new Point(1095, 661);
-            SignIn_label.Margin = new Padding(4);
+            SignIn_label.Location = new Point(850, 529);
             SignIn_label.Name = "SignIn_label";
-            SignIn_label.Size = new Size(145, 34);
+            SignIn_label.Size = new Size(122, 30);
             SignIn_label.TabIndex = 55;
             SignIn_label.Text = "Sign Up here";
             SignIn_label.Click += SignIn_label_Click;
@@ -134,10 +129,9 @@
             guna2HtmlLabel5.BackColor = Color.Transparent;
             guna2HtmlLabel5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel5.ForeColor = SystemColors.ControlDark;
-            guna2HtmlLabel5.Location = new Point(848, 661);
-            guna2HtmlLabel5.Margin = new Padding(4);
+            guna2HtmlLabel5.Location = new Point(675, 529);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            guna2HtmlLabel5.Size = new Size(205, 34);
+            guna2HtmlLabel5.Size = new Size(169, 30);
             guna2HtmlLabel5.TabIndex = 54;
             guna2HtmlLabel5.Text = "Can not Account?";
             // 
@@ -146,31 +140,28 @@
             guna2PictureBox4.CustomizableEdges = customizableEdges3;
             guna2PictureBox4.Image = Properties.Resources.user_gear;
             guna2PictureBox4.ImageRotate = 0F;
-            guna2PictureBox4.Location = new Point(942, 8);
-            guna2PictureBox4.Margin = new Padding(4);
+            guna2PictureBox4.Location = new Point(754, 6);
             guna2PictureBox4.Name = "guna2PictureBox4";
             guna2PictureBox4.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2PictureBox4.Size = new Size(157, 169);
+            guna2PictureBox4.Size = new Size(126, 135);
             guna2PictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             guna2PictureBox4.TabIndex = 53;
             guna2PictureBox4.TabStop = false;
             // 
             // guna2vSeparator1
             // 
-            guna2vSeparator1.Location = new Point(671, 132);
-            guna2vSeparator1.Margin = new Padding(4);
+            guna2vSeparator1.Location = new Point(537, 106);
             guna2vSeparator1.Name = "guna2vSeparator1";
-            guna2vSeparator1.Size = new Size(3, 516);
+            guna2vSeparator1.Size = new Size(2, 413);
             guna2vSeparator1.TabIndex = 52;
             // 
             // guna2HtmlLabel4
             // 
             guna2HtmlLabel4.BackColor = Color.Transparent;
             guna2HtmlLabel4.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            guna2HtmlLabel4.Location = new Point(827, 380);
-            guna2HtmlLabel4.Margin = new Padding(4);
+            guna2HtmlLabel4.Location = new Point(662, 304);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            guna2HtmlLabel4.Size = new Size(112, 34);
+            guna2HtmlLabel4.Size = new Size(92, 30);
             guna2HtmlLabel4.TabIndex = 51;
             guna2HtmlLabel4.Text = "Password";
             // 
@@ -178,18 +169,16 @@
             // 
             guna2HtmlLabel3.BackColor = Color.Transparent;
             guna2HtmlLabel3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            guna2HtmlLabel3.Location = new Point(822, 242);
-            guna2HtmlLabel3.Margin = new Padding(4);
+            guna2HtmlLabel3.Location = new Point(658, 194);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            guna2HtmlLabel3.Size = new Size(117, 34);
+            guna2HtmlLabel3.Size = new Size(97, 30);
             guna2HtmlLabel3.TabIndex = 50;
             guna2HtmlLabel3.Text = "Username";
             // 
             // guna2HtmlLabel2
             // 
             guna2HtmlLabel2.BackColor = Color.Transparent;
-            guna2HtmlLabel2.Location = new Point(753, 268);
-            guna2HtmlLabel2.Margin = new Padding(4);
+            guna2HtmlLabel2.Location = new Point(602, 214);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             guna2HtmlLabel2.Size = new Size(3, 2);
             guna2HtmlLabel2.TabIndex = 49;
@@ -201,10 +190,9 @@
             guna2HtmlLabel1.Enabled = false;
             guna2HtmlLabel1.Font = new Font("Segoe UI", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel1.ForeColor = Color.SlateBlue;
-            guna2HtmlLabel1.Location = new Point(913, 162);
-            guna2HtmlLabel1.Margin = new Padding(4);
+            guna2HtmlLabel1.Location = new Point(730, 130);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(171, 72);
+            guna2HtmlLabel1.Size = new Size(144, 61);
             guna2HtmlLabel1.TabIndex = 48;
             guna2HtmlLabel1.Text = "Sign In";
             guna2HtmlLabel1.TextAlignment = ContentAlignment.MiddleCenter;
@@ -215,11 +203,10 @@
             guna2PictureBox3.CustomizableEdges = customizableEdges5;
             guna2PictureBox3.Image = (Image)resources.GetObject("guna2PictureBox3.Image");
             guna2PictureBox3.ImageRotate = 0F;
-            guna2PictureBox3.Location = new Point(747, 291);
-            guna2PictureBox3.Margin = new Padding(4);
+            guna2PictureBox3.Location = new Point(598, 233);
             guna2PictureBox3.Name = "guna2PictureBox3";
             guna2PictureBox3.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            guna2PictureBox3.Size = new Size(52, 51);
+            guna2PictureBox3.Size = new Size(42, 41);
             guna2PictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             guna2PictureBox3.TabIndex = 47;
             guna2PictureBox3.TabStop = false;
@@ -230,11 +217,10 @@
             guna2PictureBox2.CustomizableEdges = customizableEdges7;
             guna2PictureBox2.Image = (Image)resources.GetObject("guna2PictureBox2.Image");
             guna2PictureBox2.ImageRotate = 0F;
-            guna2PictureBox2.Location = new Point(747, 446);
-            guna2PictureBox2.Margin = new Padding(4);
+            guna2PictureBox2.Location = new Point(598, 357);
             guna2PictureBox2.Name = "guna2PictureBox2";
             guna2PictureBox2.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2PictureBox2.Size = new Size(52, 51);
+            guna2PictureBox2.Size = new Size(42, 41);
             guna2PictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             guna2PictureBox2.TabIndex = 46;
             guna2PictureBox2.TabStop = false;
@@ -242,7 +228,7 @@
             // Password_txb
             // 
             Password_txb.AutoRoundedCorners = true;
-            Password_txb.BorderRadius = 31;
+            Password_txb.BorderRadius = 25;
             Password_txb.CustomizableEdges = customizableEdges9;
             Password_txb.DefaultText = "";
             Password_txb.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -252,20 +238,20 @@
             Password_txb.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             Password_txb.Font = new Font("Segoe UI", 9F);
             Password_txb.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            Password_txb.Location = new Point(816, 446);
-            Password_txb.Margin = new Padding(4, 5, 4, 5);
+            Password_txb.Location = new Point(653, 357);
+            Password_txb.Margin = new Padding(3, 4, 3, 4);
             Password_txb.Name = "Password_txb";
             Password_txb.PasswordChar = '\0';
             Password_txb.PlaceholderText = "";
             Password_txb.SelectedText = "";
             Password_txb.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            Password_txb.Size = new Size(416, 65);
+            Password_txb.Size = new Size(333, 52);
             Password_txb.TabIndex = 45;
             // 
             // Username_txb
             // 
             Username_txb.AutoRoundedCorners = true;
-            Username_txb.BorderRadius = 31;
+            Username_txb.BorderRadius = 25;
             Username_txb.CustomizableEdges = customizableEdges11;
             Username_txb.DefaultText = "";
             Username_txb.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -275,20 +261,20 @@
             Username_txb.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             Username_txb.Font = new Font("Segoe UI", 9F);
             Username_txb.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            Username_txb.Location = new Point(813, 282);
-            Username_txb.Margin = new Padding(4, 5, 4, 5);
+            Username_txb.Location = new Point(650, 226);
+            Username_txb.Margin = new Padding(3, 4, 3, 4);
             Username_txb.Name = "Username_txb";
             Username_txb.PasswordChar = '\0';
             Username_txb.PlaceholderText = "";
             Username_txb.SelectedText = "";
             Username_txb.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            Username_txb.Size = new Size(416, 65);
+            Username_txb.Size = new Size(333, 52);
             Username_txb.TabIndex = 44;
             // 
             // Sign_In
             // 
             Sign_In.AutoRoundedCorners = true;
-            Sign_In.BorderRadius = 38;
+            Sign_In.BorderRadius = 30;
             Sign_In.CustomizableEdges = customizableEdges13;
             Sign_In.DisabledState.BorderColor = Color.DarkGray;
             Sign_In.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -297,11 +283,10 @@
             Sign_In.FillColor = Color.SlateBlue;
             Sign_In.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Sign_In.ForeColor = Color.White;
-            Sign_In.Location = new Point(822, 561);
-            Sign_In.Margin = new Padding(4);
+            Sign_In.Location = new Point(658, 449);
             Sign_In.Name = "Sign_In";
             Sign_In.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            Sign_In.Size = new Size(407, 79);
+            Sign_In.Size = new Size(326, 63);
             Sign_In.TabIndex = 43;
             Sign_In.Text = "Sign In";
             Sign_In.Click += SignIn_btn_Click;
@@ -311,11 +296,10 @@
             guna2PictureBox1.CustomizableEdges = customizableEdges15;
             guna2PictureBox1.Image = Properties.Resources.computer_security_with_login_password_padlock_removebg_preview;
             guna2PictureBox1.ImageRotate = 0F;
-            guna2PictureBox1.Location = new Point(-13, 107);
-            guna2PictureBox1.Margin = new Padding(4);
+            guna2PictureBox1.Location = new Point(-77, 45);
             guna2PictureBox1.Name = "guna2PictureBox1";
             guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            guna2PictureBox1.Size = new Size(801, 541);
+            guna2PictureBox1.Size = new Size(641, 433);
             guna2PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             guna2PictureBox1.TabIndex = 42;
             guna2PictureBox1.TabStop = false;
@@ -324,9 +308,9 @@
             // 
             // SignIn
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1284, 730);
+            ClientSize = new Size(1027, 584);
             Controls.Add(guna2PictureBox7);
             Controls.Add(guna2Separator2);
             Controls.Add(guna2HtmlLabel7);
@@ -345,6 +329,7 @@
             Controls.Add(Username_txb);
             Controls.Add(Sign_In);
             Controls.Add(guna2PictureBox1);
+            Margin = new Padding(2);
             Name = "SignIn";
             Text = "SignIn";
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox7).EndInit();
