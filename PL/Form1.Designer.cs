@@ -50,14 +50,14 @@
             guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             guna2TextBox1.Font = new Font("Segoe UI", 9F);
             guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Location = new Point(158, 51);
-            guna2TextBox1.Margin = new Padding(4, 5, 4, 5);
+            guna2TextBox1.Location = new Point(126, 41);
+            guna2TextBox1.Margin = new Padding(3, 4, 3, 4);
             guna2TextBox1.Name = "guna2TextBox1";
             guna2TextBox1.PasswordChar = '\0';
             guna2TextBox1.PlaceholderText = "";
             guna2TextBox1.SelectedText = "";
             guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2TextBox1.Size = new Size(429, 90);
+            guna2TextBox1.Size = new Size(343, 72);
             guna2TextBox1.TabIndex = 0;
             guna2TextBox1.TextChanged += guna2TextBox1_TextChanged;
             // 
@@ -72,14 +72,14 @@
             guna2TextBox2.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             guna2TextBox2.Font = new Font("Segoe UI", 9F);
             guna2TextBox2.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox2.Location = new Point(158, 205);
-            guna2TextBox2.Margin = new Padding(4, 5, 4, 5);
+            guna2TextBox2.Location = new Point(126, 163);
+            guna2TextBox2.Margin = new Padding(3, 4, 3, 4);
             guna2TextBox2.Name = "guna2TextBox2";
             guna2TextBox2.PasswordChar = '\0';
             guna2TextBox2.PlaceholderText = "";
             guna2TextBox2.SelectedText = "";
             guna2TextBox2.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2TextBox2.Size = new Size(429, 90);
+            guna2TextBox2.Size = new Size(343, 72);
             guna2TextBox2.TabIndex = 1;
             // 
             // guna2Button1
@@ -91,22 +91,24 @@
             guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             guna2Button1.Font = new Font("Segoe UI", 9F);
             guna2Button1.ForeColor = Color.White;
-            guna2Button1.Location = new Point(240, 321);
+            guna2Button1.Location = new Point(192, 257);
+            guna2Button1.Margin = new Padding(2, 2, 2, 2);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            guna2Button1.Size = new Size(270, 68);
+            guna2Button1.Size = new Size(216, 54);
             guna2Button1.TabIndex = 2;
             guna2Button1.Text = "guna2Button1";
             guna2Button1.Click += guna2Button1_Click;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(640, 360);
             Controls.Add(guna2Button1);
             Controls.Add(guna2TextBox2);
             Controls.Add(guna2TextBox1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
