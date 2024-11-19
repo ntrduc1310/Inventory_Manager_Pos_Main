@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,9 +14,11 @@ namespace PL
     public partial class Main : Form
     {
         static Main _obj;
+       public Guna.UI2.WinForms.Guna2HtmlLabel username_lbl;
         public Main()
         {
             InitializeComponent();
+            username_lbl = guna2HtmlLabel1;
         }
         public static Main Instance
         {
@@ -33,6 +36,7 @@ namespace PL
         {
             _obj = this;
             btnMax.PerformClick();
+
         }
         public void AddControls(Form F)
         {
@@ -49,7 +53,17 @@ namespace PL
 
         private void btn_Users_Click(object sender, EventArgs e)
         {
-          
+
+        }
+
+        private void guna2PictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using BL;
 using DTO;
 using Microsoft.Data.SqlClient;
+using Microsoft.Identity.Client;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +23,7 @@ namespace PL
             InitializeComponent();
 
         }
-
+        
         private void guna2PictureBox1_Click(object? sender, EventArgs e)
         {
 
@@ -64,6 +65,8 @@ namespace PL
 
                 // Chuyển hướng đến form chính (FormMain)
                 Main mainForm = new Main();
+                string currenName = username;
+                mainForm.username_lbl.Text = currenName;
                 mainForm.Show();
                 this.Hide(); // Ẩn form đăng nhập
             }
