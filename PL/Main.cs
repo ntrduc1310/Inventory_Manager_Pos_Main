@@ -34,10 +34,22 @@ namespace PL
             _obj = this;
             btnMax.PerformClick();
         }
-
+        public void AddControls(Form F)
+        {
+            this.CenterPanel.Controls.Clear();
+            F.Dock = DockStyle.Fill;
+            F.TopLevel = false;
+            CenterPanel.Controls.Add(F);
+            F.Show();
+        }
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btn_Users_Click(object sender, EventArgs e)
+        {
+          
         }
     }
 }

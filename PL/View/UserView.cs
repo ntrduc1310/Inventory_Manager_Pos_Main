@@ -8,22 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PL
+namespace PL.View
 {
-    public partial class SampleView : Form1
-
+    public partial class UserView : SampleView
     {
-        public SampleView()
+        public UserView()
         {
             InitializeComponent();
         }
 
-        public virtual void btnAdd1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        public virtual void txtsearch_TextChanged(object sender, EventArgs e)
+        private void UserView_Load(object sender, EventArgs e)
         {
 
         }

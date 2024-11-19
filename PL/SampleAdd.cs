@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace PL
 {
-    public partial class SampleAdd : Form
+    public partial class SampleAdd : Form1
     {
         public SampleAdd()
         {

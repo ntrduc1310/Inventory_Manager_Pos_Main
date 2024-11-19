@@ -38,47 +38,57 @@ namespace PL
 
         private async void Login_btn_Click(object sender, EventArgs e)
         {
+            // Kiểm tra tính hợp lệ của dữ liệu đầu vào
             if (ValidateInputs())
             {
-
                 try
                 {
+                    // Lấy dữ liệu từ các TextBox
+                    var username = Username_txb.Text.Trim();
                     var password = Password_txb.Text.Trim();
                     var email = Email_txb.Text.Trim();
-                    var username = Username_txb.Text.Trim();
+
+                    // Tạo đối tượng Account
                     Account acc = new Account(username, password);
-                    bool b = await new LoginBL().LoginAsync(acc);
-                    if (b)
+
+                    // Kiểm tra xem tài khoản đã tồn tại hay chưa
+                    bool accountExists = await new LoginBL().LoginAsync(acc);
+                    if (accountExists)
                     {
-                        MessageBox.Show("Tài khoản đã tồn tại!");
+                        // Nếu tài khoản đã tồn tại
+                        MessageBox.Show("Tài khoản đã tồn tại! Vui lòng sử dụng tên người dùng khác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {
-                        bool f = false;
-                        f = await new DL.SignUp().AddUserAsync(username, password, email);
-                        if (f)
+                        // Nếu tài khoản chưa tồn tại, tiến hành đăng ký
+                        bool registrationSuccess = await new DL.SignUp().AddUserAsync(username, password, email);
+                        if (registrationSuccess)
                         {
-                            MessageBox.Show("Đăng kí tài khoản thành công!");
+                            // Hiển thị thông báo thành công
+                            MessageBox.Show("Đăng ký tài khoản thành công! Bạn sẽ được chuyển sang trang đăng nhập.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // Chuyển hướng sang form SignIn
+                            SignIn signInForm = new SignIn();
+                            signInForm.Show(); // Hiển thị form đăng nhập
+                            this.Hide(); // Ẩn form đăng ký
                         }
                         else
                         {
-                            MessageBox.Show("Đăng kí tài khoản thất bại!");
-
+                            // Nếu đăng ký thất bại
+                            MessageBox.Show("Đăng ký tài khoản thất bại! Vui lòng thử lại sau.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-
-
                     }
                 }
                 catch (SqlException ex)
                 {
-                    MessageBox.Show("...." + ex.Message);
-
-
+                    // Bắt lỗi kết nối cơ sở dữ liệu hoặc lỗi khác
+                    MessageBox.Show($"Lỗi khi kết nối cơ sở dữ liệu: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Vui lòng nhập đúng thông tin email và mật khẩu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                // Nếu thông tin đầu vào không hợp lệ
+                MessageBox.Show("Vui lòng nhập đúng thông tin tài khoản, mật khẩu và email.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

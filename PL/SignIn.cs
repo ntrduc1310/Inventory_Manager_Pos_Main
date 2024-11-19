@@ -30,51 +30,63 @@ namespace PL
 
         private async void SignIn_btn_Click(object sender, EventArgs e)
         {
-            // kiểm tra các textbox nhập hết chưa
+            // Kiểm tra các ô nhập liệu
             if (!ValidateInputs())
             {
                 MessageBox.Show("Vui lòng nhập đúng thông tin tài khoản và mật khẩu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // Thoát sớm nếu thông tin chưa hợp lệ
+            }
+
+            // Lấy thông tin từ TextBox
+            string username = Username_txb.Text.Trim();
+            string password = Password_txb.Text.Trim();
+
+            // Tạo đối tượng Account
+            Account acc = new Account(username, password);
+            bool loginSuccess = false;
+
+            try
+            {
+                // Gọi hàm LoginAsync trong lớp Business Logic
+                loginSuccess = await new LoginBL().LoginAsync(acc);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Lỗi kết nối cơ sở dữ liệu: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; // Thoát sớm nếu có lỗi SQL
+            }
+
+            // Kiểm tra kết quả đăng nhập
+            if (loginSuccess)
+            {
+                // Hiển thị thông báo thành công
+                MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Chuyển hướng đến form chính (FormMain)
+                Main mainForm = new Main();
+                mainForm.Show();
+                this.Hide(); // Ẩn form đăng nhập
             }
             else
             {
+                // Thông báo lỗi và cho phép người dùng chọn Retry hoặc Cancel
+                DialogResult result = MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng. Bạn có muốn thử lại?", "Lỗi", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
 
-
-
-                string username = Username_txb.Text;
-                string password = Password_txb.Text;
-                Account acc = new Account(username, password);
-                bool b = true;
-                try
+                if (result == DialogResult.Cancel)
                 {
-                    b = await new LoginBL().LoginAsync(acc);
-                }
-                catch (SqlException ex)
-                {
-                    MessageBox.Show("...." + ex.Message);
-
-                }
-                if (b)
-                {
-                    this.DialogResult = DialogResult.OK;
-                    MessageBox.Show("success");
-
+                    Application.Exit(); // Thoát ứng dụng nếu người dùng chọn Cancel
                 }
                 else
                 {
-                    DialogResult result = MessageBox.Show("Username or Password is wrong", "Error", MessageBoxButtons.RetryCancel);
-                    if (result == DialogResult.Cancel)
-                    {
-                        System.Windows.Forms.Application.Exit();
-                    }
-                    else
-                    {
-                        Username_txb.Clear();
-                        Password_txb.Clear();
-                    }
+                    // Xóa nội dung các ô nhập liệu để người dùng nhập lại
+                    Username_txb.Clear();
+                    Password_txb.Clear();
+                    Username_txb.Focus(); // Đặt con trỏ vào ô Username
                 }
             }
-
         }
+
+
 
         private void SignIn_label_Click(object sender, EventArgs e)
         {
@@ -169,6 +181,11 @@ namespace PL
         private void Username_txb_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void SignIn_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }
