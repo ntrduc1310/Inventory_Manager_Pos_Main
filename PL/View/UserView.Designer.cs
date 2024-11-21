@@ -59,6 +59,7 @@
             btnAdd1.DisabledState.CustomBorderColor = Color.DarkGray;
             btnAdd1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnAdd1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnAdd1.Location = new Point(38, 96);
             btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             // 
             // txtsearch

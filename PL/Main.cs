@@ -1,4 +1,5 @@
 ﻿using Guna.UI2.WinForms;
+using PL.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -53,7 +54,7 @@ namespace PL
 
         private void btn_Users_Click(object sender, EventArgs e)
         {
-
+            AddControls(new UserView());
         }
 
         private void guna2PictureBox1_Click(object sender, EventArgs e)
