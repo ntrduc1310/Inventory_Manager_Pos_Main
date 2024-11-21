@@ -16,10 +16,12 @@ namespace PL
     {
         static Main _obj;
        public Guna.UI2.WinForms.Guna2HtmlLabel username_lbl;
+        SignIn signIn = new SignIn();
         public Main()
         {
             InitializeComponent();
             username_lbl = guna2HtmlLabel1;
+
         }
         public static Main Instance
         {
@@ -37,6 +39,9 @@ namespace PL
         {
             _obj = this;
             btnMax.PerformClick();
+            _obj.Visible = false;
+            signIn.ShowDialog();
+
 
         }
         public void AddControls(Form F)

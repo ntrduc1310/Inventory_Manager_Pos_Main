@@ -23,7 +23,7 @@ namespace PL
             InitializeComponent();
 
         }
-        
+
         private void guna2PictureBox1_Click(object? sender, EventArgs e)
         {
 
@@ -63,11 +63,12 @@ namespace PL
                 // Hiển thị thông báo thành công
                 MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+
                 // Chuyển hướng đến form chính (FormMain)
                 Main mainForm = new Main();
                 string currenName = username;
                 mainForm.username_lbl.Text = currenName;
-                mainForm.Show();
+                mainForm.Visible = true;
                 this.Hide(); // Ẩn form đăng nhập
             }
             else
@@ -91,17 +92,7 @@ namespace PL
 
 
 
-        private void SignIn_label_Click(object sender, EventArgs e)
-        {
-            // Tạo một instance của form SignUp
-            SignUp signUpForm = new SignUp();
 
-            // Hiển thị form SignUp
-            signUpForm.Show();
-
-            // Ẩn form SignIn
-            this.Hide();
-        }
 
         private void MyButton_MouseEnter(object sender, EventArgs e)
         {
@@ -188,7 +179,12 @@ namespace PL
 
         private void SignIn_Load(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
