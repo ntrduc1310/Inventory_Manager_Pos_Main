@@ -15,7 +15,7 @@ namespace DL
             if (acc == null) throw new ArgumentNullException(nameof(acc));
 
             var dp = new DataProvider();
-            string sql = "SELECT COUNT(Username) FROM Users WHERE Username = @Username AND Password = @Password";
+            string sql = "SELECT COUNT(Username) FROM Admin WHERE Username = @Username AND Password = @Password";
 
             try
             {

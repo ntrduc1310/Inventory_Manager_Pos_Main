@@ -68,8 +68,9 @@ namespace PL
                 Main mainForm = new Main();
                 string currenName = username;
                 mainForm.username_lbl.Text = currenName;
-                mainForm.Visible = true;
-                this.Hide(); // Ẩn form đăng nhập
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+                // Ẩn form đăng nhập
             }
             else
             {

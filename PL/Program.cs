@@ -1,4 +1,4 @@
-namespace PL
+﻿namespace PL
 {
     internal static class Program
     {
@@ -11,7 +11,22 @@ namespace PL
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Main());
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            // Tạo instance của Form Login
+            SignIn loginForm = new SignIn();
+
+            // Hiển thị Form Login
+            if (loginForm.ShowDialog() == DialogResult.OK) // Đăng nhập thành công
+            {
+                Application.Run(new Main()); // Chạy Form Main
+            }
+            else
+            {
+                // Thoát ứng dụng nếu không đăng nhập
+                Application.Exit();
+            }
         }
     }
 }

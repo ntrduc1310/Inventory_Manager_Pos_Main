@@ -327,7 +327,7 @@
             btnExit.Margin = new Padding(4);
             btnExit.Name = "btnExit";
             btnExit.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            btnExit.Size = new Size(49, 34);
+            btnExit.Size = new Size(49, 43);
             btnExit.TabIndex = 64;
             btnExit.Click += btnExit_Click;
             // 
@@ -342,7 +342,7 @@
             btnMax.Margin = new Padding(4);
             btnMax.Name = "btnMax";
             btnMax.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            btnMax.Size = new Size(47, 34);
+            btnMax.Size = new Size(47, 43);
             btnMax.TabIndex = 65;
             // 
             // guna2ControlBox2
@@ -352,11 +352,11 @@
             guna2ControlBox2.CustomizableEdges = customizableEdges21;
             guna2ControlBox2.FillColor = Color.FromArgb(139, 152, 166);
             guna2ControlBox2.IconColor = Color.White;
-            guna2ControlBox2.Location = new Point(1131, 0);
+            guna2ControlBox2.Location = new Point(1123, 0);
             guna2ControlBox2.Margin = new Padding(4);
             guna2ControlBox2.Name = "guna2ControlBox2";
             guna2ControlBox2.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            guna2ControlBox2.Size = new Size(44, 34);
+            guna2ControlBox2.Size = new Size(52, 43);
             guna2ControlBox2.TabIndex = 66;
             // 
             // SignIn
@@ -385,6 +385,7 @@
             Controls.Add(Username_txb);
             Controls.Add(Sign_In);
             Controls.Add(guna2PictureBox1);
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
             Name = "SignIn";
             Text = "SignIn";
