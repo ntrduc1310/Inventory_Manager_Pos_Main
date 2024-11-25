@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PL.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,7 +21,6 @@ namespace PL
 
         public virtual void btnAdd1_Click(object sender, EventArgs e)
         {
-
         }
 
         public virtual void txtsearch_TextChanged(object sender, EventArgs e)

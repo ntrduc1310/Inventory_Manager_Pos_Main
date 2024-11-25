@@ -17,12 +17,27 @@ namespace PL
             InitializeComponent();
         }
 
-       public virtual void btn_close_Click(object sender, EventArgs e)
+        public virtual void btn_close_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
         public virtual void btn_save_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Username_txb_TextChanged(object sender, EventArgs e)
         {
 
         }
