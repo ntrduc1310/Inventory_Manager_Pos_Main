@@ -41,5 +41,10 @@ namespace PL
         {
 
         }
+
+        private void SampleAdd_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
