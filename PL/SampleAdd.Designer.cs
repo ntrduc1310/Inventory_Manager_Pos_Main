@@ -64,8 +64,6 @@
             guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             guna2Panel1.SuspendLayout();
             guna2Panel2.SuspendLayout();
-            guna2Panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).BeginInit();
             SuspendLayout();
             // 
             // guna2Panel1
@@ -172,145 +170,6 @@
             // 
             // Username_txb
             // 
-            Username_txb.AutoRoundedCorners = true;
-            Username_txb.BorderRadius = 25;
-            Username_txb.CustomizableEdges = customizableEdges30;
-            Username_txb.DefaultText = "";
-            Username_txb.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            Username_txb.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            Username_txb.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            Username_txb.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            Username_txb.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            Username_txb.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            Username_txb.ForeColor = Color.Black;
-            Username_txb.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            Username_txb.Location = new Point(35, 243);
-            Username_txb.Margin = new Padding(3, 4, 3, 4);
-            Username_txb.Name = "Username_txb";
-            Username_txb.PasswordChar = '\0';
-            Username_txb.PlaceholderText = "";
-            Username_txb.SelectedText = "";
-            Username_txb.ShadowDecoration.CustomizableEdges = customizableEdges31;
-            Username_txb.Size = new Size(233, 52);
-            Username_txb.TabIndex = 52;
-            Username_txb.TextChanged += Username_txb_TextChanged;
-            // 
-            // guna2HtmlLabel2
-            // 
-            guna2HtmlLabel2.BackColor = Color.Transparent;
-            guna2HtmlLabel2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            guna2HtmlLabel2.Location = new Point(50, 338);
-            guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(92, 30);
-            guna2HtmlLabel2.TabIndex = 53;
-            guna2HtmlLabel2.Text = "Password";
-            guna2HtmlLabel2.Click += guna2HtmlLabel2_Click;
-            // 
-            // guna2HtmlLabel4
-            // 
-            guna2HtmlLabel4.BackColor = Color.Transparent;
-            guna2HtmlLabel4.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            guna2HtmlLabel4.Location = new Point(372, 338);
-            guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            guna2HtmlLabel4.Size = new Size(62, 30);
-            guna2HtmlLabel4.TabIndex = 54;
-            guna2HtmlLabel4.Text = "Phone";
-            // 
-            // guna2HtmlLabel5
-            // 
-            guna2HtmlLabel5.BackColor = Color.Transparent;
-            guna2HtmlLabel5.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            guna2HtmlLabel5.Location = new Point(372, 209);
-            guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            guna2HtmlLabel5.Size = new Size(97, 30);
-            guna2HtmlLabel5.TabIndex = 55;
-            guna2HtmlLabel5.Text = "Username";
-            // 
-            // guna2TextBox1
-            // 
-            guna2TextBox1.AutoRoundedCorners = true;
-            guna2TextBox1.BorderRadius = 25;
-            guna2TextBox1.CustomizableEdges = customizableEdges32;
-            guna2TextBox1.DefaultText = "";
-            guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            guna2TextBox1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            guna2TextBox1.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            guna2TextBox1.ForeColor = Color.Black;
-            guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Location = new Point(351, 243);
-            guna2TextBox1.Margin = new Padding(3, 4, 3, 4);
-            guna2TextBox1.Name = "guna2TextBox1";
-            guna2TextBox1.PasswordChar = '\0';
-            guna2TextBox1.PlaceholderText = "";
-            guna2TextBox1.SelectedText = "";
-            guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges33;
-            guna2TextBox1.Size = new Size(233, 52);
-            guna2TextBox1.TabIndex = 56;
-            guna2TextBox1.TextChanged += guna2TextBox1_TextChanged;
-            // 
-            // guna2TextBox2
-            // 
-            guna2TextBox2.AutoRoundedCorners = true;
-            guna2TextBox2.BorderRadius = 25;
-            guna2TextBox2.CustomizableEdges = customizableEdges34;
-            guna2TextBox2.DefaultText = "";
-            guna2TextBox2.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            guna2TextBox2.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            guna2TextBox2.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox2.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox2.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            guna2TextBox2.ForeColor = Color.Black;
-            guna2TextBox2.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox2.Location = new Point(35, 372);
-            guna2TextBox2.Margin = new Padding(3, 4, 3, 4);
-            guna2TextBox2.Name = "guna2TextBox2";
-            guna2TextBox2.PasswordChar = '\0';
-            guna2TextBox2.PlaceholderText = "";
-            guna2TextBox2.SelectedText = "";
-            guna2TextBox2.ShadowDecoration.CustomizableEdges = customizableEdges35;
-            guna2TextBox2.Size = new Size(233, 52);
-            guna2TextBox2.TabIndex = 57;
-            // 
-            // guna2TextBox3
-            // 
-            guna2TextBox3.AutoRoundedCorners = true;
-            guna2TextBox3.BorderRadius = 25;
-            guna2TextBox3.CustomizableEdges = customizableEdges36;
-            guna2TextBox3.DefaultText = "";
-            guna2TextBox3.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            guna2TextBox3.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            guna2TextBox3.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox3.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox3.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            guna2TextBox3.ForeColor = Color.Black;
-            guna2TextBox3.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox3.Location = new Point(351, 372);
-            guna2TextBox3.Margin = new Padding(3, 4, 3, 4);
-            guna2TextBox3.Name = "guna2TextBox3";
-            guna2TextBox3.PasswordChar = '\0';
-            guna2TextBox3.PlaceholderText = "";
-            guna2TextBox3.SelectedText = "";
-            guna2TextBox3.ShadowDecoration.CustomizableEdges = customizableEdges37;
-            guna2TextBox3.Size = new Size(233, 52);
-            guna2TextBox3.TabIndex = 58;
-            // 
-            // guna2CirclePictureBox1
-            // 
-            guna2CirclePictureBox1.ImageRotate = 0F;
-            guna2CirclePictureBox1.Location = new Point(755, 218);
-            guna2CirclePictureBox1.Margin = new Padding(2);
-            guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            guna2CirclePictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges38;
-            guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            guna2CirclePictureBox1.Size = new Size(109, 109);
-            guna2CirclePictureBox1.TabIndex = 59;
-            guna2CirclePictureBox1.TabStop = false;
-            // 
             // SampleAdd
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -329,19 +188,12 @@
             Controls.Add(guna2Panel1);
             Name = "SampleAdd";
             Text = "SampleAdd";
-            Load += SampleAdd_Load;
             guna2Panel1.ResumeLayout(false);
             guna2Panel2.ResumeLayout(false);
-            guna2Panel2.PerformLayout();
-            guna2Panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
