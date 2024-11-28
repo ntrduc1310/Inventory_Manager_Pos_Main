@@ -147,7 +147,7 @@
         public Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         public Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private Guna.UI2.WinForms.Guna2Button btn_Close;
-        private Guna.UI2.WinForms.Guna2Button btn_Save;
+        public Guna.UI2.WinForms.Guna2Button btn_Close;
+        public Guna.UI2.WinForms.Guna2Button btn_Save;
     }
 }

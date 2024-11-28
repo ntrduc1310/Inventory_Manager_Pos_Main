@@ -30,6 +30,7 @@ namespace PL.View
         public override void btnAdd1_Click(object sender, EventArgs e)
         {
             MainClass.BlurBackground(new Model.UserAdd());
+            LoadData();
         }
 
         public override void txtsearch_TextChanged(object sender, EventArgs e)

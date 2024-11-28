@@ -31,5 +31,10 @@ namespace PL
         {
 
         }
+
+        public virtual void btn_Save_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
