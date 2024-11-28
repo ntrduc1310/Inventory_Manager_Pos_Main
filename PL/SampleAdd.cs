@@ -21,5 +21,15 @@ namespace PL
         {
 
         }
+
+        public virtual void btn_Close_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        public virtual void btn_Save_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

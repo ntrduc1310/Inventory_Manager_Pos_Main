@@ -52,16 +52,16 @@
             guna2Panel1.CustomizableEdges = customizableEdges5;
             guna2Panel1.Dock = DockStyle.Top;
             guna2Panel1.Location = new Point(0, 0);
-            guna2Panel1.Margin = new Padding(4);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            guna2Panel1.Size = new Size(1219, 260);
+            guna2Panel1.Size = new Size(975, 208);
             guna2Panel1.TabIndex = 0;
+            guna2Panel1.Paint += guna2Panel1_Paint;
             // 
             // txtsearch
             // 
             txtsearch.AutoRoundedCorners = true;
-            txtsearch.BorderRadius = 31;
+            txtsearch.BorderRadius = 24;
             txtsearch.CustomizableEdges = customizableEdges1;
             txtsearch.DefaultText = "";
             txtsearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -74,14 +74,14 @@
             txtsearch.IconLeft = (Image)resources.GetObject("txtsearch.IconLeft");
             txtsearch.IconLeftOffset = new Point(2, 0);
             txtsearch.IconLeftSize = new Size(30, 30);
-            txtsearch.Location = new Point(736, 144);
-            txtsearch.Margin = new Padding(4, 5, 4, 5);
+            txtsearch.Location = new Point(589, 115);
+            txtsearch.Margin = new Padding(3, 4, 3, 4);
             txtsearch.Name = "txtsearch";
             txtsearch.PasswordChar = '\0';
             txtsearch.PlaceholderText = "Search Here";
             txtsearch.SelectedText = "";
             txtsearch.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            txtsearch.Size = new Size(416, 64);
+            txtsearch.Size = new Size(333, 51);
             txtsearch.TabIndex = 3;
             txtsearch.TextOffset = new Point(10, 0);
             txtsearch.TextChanged += txtsearch_TextChanged;
@@ -90,7 +90,7 @@
             // 
             btnAdd1.Animated = true;
             btnAdd1.AutoRoundedCorners = true;
-            btnAdd1.BorderRadius = 43;
+            btnAdd1.BorderRadius = 34;
             btnAdd1.CustomizableEdges = customizableEdges3;
             btnAdd1.DisabledState.BorderColor = Color.DarkGray;
             btnAdd1.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -102,11 +102,10 @@
             btnAdd1.Image = (Image)resources.GetObject("btnAdd1.Image");
             btnAdd1.ImageOffset = new Point(-2, 0);
             btnAdd1.ImageSize = new Size(30, 30);
-            btnAdd1.Location = new Point(15, 131);
-            btnAdd1.Margin = new Padding(4);
+            btnAdd1.Location = new Point(12, 105);
             btnAdd1.Name = "btnAdd1";
             btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btnAdd1.Size = new Size(259, 88);
+            btnAdd1.Size = new Size(207, 70);
             btnAdd1.TabIndex = 2;
             btnAdd1.Text = "Add New";
             btnAdd1.Click += btnAdd1_Click;
@@ -115,10 +114,9 @@
             // 
             guna2HtmlLabel2.BackColor = Color.Transparent;
             guna2HtmlLabel2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel2.Location = new Point(736, 104);
-            guna2HtmlLabel2.Margin = new Padding(4);
+            guna2HtmlLabel2.Location = new Point(589, 83);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(63, 30);
+            guna2HtmlLabel2.Size = new Size(54, 25);
             guna2HtmlLabel2.TabIndex = 1;
             guna2HtmlLabel2.Text = "Search ";
             // 
@@ -127,22 +125,22 @@
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel1.ForeColor = SystemColors.ActiveCaptionText;
-            guna2HtmlLabel1.Location = new Point(48, 34);
-            guna2HtmlLabel1.Margin = new Padding(4);
+            guna2HtmlLabel1.Location = new Point(36, 56);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(71, 40);
+            guna2HtmlLabel1.Size = new Size(159, 33);
             guna2HtmlLabel1.TabIndex = 0;
-            guna2HtmlLabel1.Text = "Users";
+            guna2HtmlLabel1.Text = "Sample Header";
             guna2HtmlLabel1.Click += guna2HtmlLabel1_Click;
             // 
             // SampleView
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1219, 778);
+            ClientSize = new Size(975, 622);
             Controls.Add(guna2Panel1);
             Name = "SampleView";
             Text = "SampleView";
+            Load += SampleView_Load;
             guna2Panel1.ResumeLayout(false);
             guna2Panel1.PerformLayout();
             ResumeLayout(false);
@@ -150,10 +148,10 @@
 
         #endregion
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         public Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         public Guna.UI2.WinForms.Guna2Button btnAdd1;
         public Guna.UI2.WinForms.Guna2TextBox txtsearch;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        public Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
     }
 }
