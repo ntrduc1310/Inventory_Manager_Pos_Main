@@ -143,6 +143,7 @@
             CenterPanel.ShadowDecoration.CustomizableEdges = customizableEdges10;
             CenterPanel.Size = new Size(1331, 886);
             CenterPanel.TabIndex = 4;
+            CenterPanel.Paint += CenterPanel_Paint;
             // 
             // guna2Panel3
             // 

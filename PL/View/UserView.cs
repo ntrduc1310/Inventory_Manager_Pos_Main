@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Diagnostics;
+﻿using BL;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace PL.View
         public UserView()
         {
             InitializeComponent();
+            this.Load += loadUserstoGridview;
         }
 
         private void UserView_Load(object sender, EventArgs e)
@@ -29,8 +31,7 @@ namespace PL.View
         }
         public override void btnAdd1_Click(object sender, EventArgs e)
         {
-            MainClass.BlurBackground(new Model.UserAdd());
-            LoadData();
+
         }
 
         public override void txtsearch_TextChanged(object sender, EventArgs e)
@@ -38,22 +39,36 @@ namespace PL.View
             LoadData();
         }
 
-       
+
 
         private void LoadData()
         {
-            ListBox lb = new ListBox();
-            lb.Items.Add(dgvid);
-            lb.Items.Add(dgvName);
-            lb.Items.Add(dgvUsername);
-            lb.Items.Add(dgvPass);
-            lb.Items.Add(dgvPhone);
 
-            string qry = @"Select UserID, uName, uUserName, uPass, uPhone from USERS
-                Where uName  like '%" + txtsearch.Text + "%' order by userID desc";
+        }
 
-            MainClass.LoadData(qry,guna2DataGridView1,lb);
+        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
+        }
+
+        private void loadUserstoGridview(object sender,EventArgs e)
+        {
+            // Tắt tự động tạo cột
+            guna2DataGridView1.AutoGenerateColumns = false;
+
+            // Ánh xạ cột đã tạo sẵn đến trường dữ liệu
+            guna2DataGridView1.Columns["dgvName"].DataPropertyName = "Name";
+            guna2DataGridView1.Columns["dgvUsername"].DataPropertyName = "UserName";
+            guna2DataGridView1.Columns["dgvPhone"].DataPropertyName = "Phone";
+            var data = new LoadUserBL().loadUser();
+            if (data == null || data.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu để hiển thị.");
+            }
+            else
+            {
+                guna2DataGridView1.DataSource = data;
+            }
         }
     }
 }

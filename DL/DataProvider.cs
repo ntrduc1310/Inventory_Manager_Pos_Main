@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using Microsoft.Data.SqlClient;
+using System.Data;
 namespace DL
 {
     public class DataProvider
@@ -88,7 +89,37 @@ namespace DL
             }
         }
 
-        
+        public  DataTable LoadUserData(string query)
+        {
+
+            // Tạo đối tượng DataTable để chứa kết quả
+            DataTable dataTable = new DataTable();
+
+              using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.CommandType = CommandType.Text;
+
+                    try
+                    {
+                         conn.OpenAsync(); // Mở kết nối bất đồng bộ
+
+                        using (SqlDataReader reader =  cmd.ExecuteReader()) // Thực thi bất đồng bộ
+                        {
+                            dataTable.Load(reader); // Nạp dữ liệu vào DataTable
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+                        throw ex; // Giữ lại stack trace của lỗi
+                    }
+                    finally
+                    {
+                    Disconnect();
+                    }
+                }
+
+            return dataTable; // Trả về kết quả
+        }
 
     }
 }
