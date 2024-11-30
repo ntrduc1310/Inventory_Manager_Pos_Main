@@ -39,7 +39,7 @@ namespace PL
             btnMax.PerformClick();
             _obj.Visible = false;
         }
-        
+
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -83,7 +83,15 @@ namespace PL
 
         private void CenterPanel_Paint(object sender, PaintEventArgs e)
         {
+            CustomerView customerView = new CustomerView();
+            LoadFormIntoPanel(customerView, CenterPanel);
 
+        }
+
+        private void btn_Products_Click(object sender, EventArgs e)
+        {
+            ProductView productView = new ProductView();
+            LoadFormIntoPanel(productView, CenterPanel);
         }
     }
 }

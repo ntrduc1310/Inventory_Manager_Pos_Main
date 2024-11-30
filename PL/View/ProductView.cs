@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Diagnostics;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,23 +9,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PL.Model
+namespace PL.View
 {
-    public partial class CategoryAdd : SampleAdd
+    public partial class ProductView : SampleView
     {
-        public CategoryAdd()
+        public ProductView()
         {
             InitializeComponent();
         }
 
-        private void CategoryAdd_Load(object sender, EventArgs e)
+        private void ProductView_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

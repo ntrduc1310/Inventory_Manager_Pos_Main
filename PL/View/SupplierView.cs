@@ -8,21 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PL.Model
+namespace PL.View
 {
-    public partial class CategoryAdd : SampleAdd
+    public partial class SupplierView : SampleView
     {
-        public CategoryAdd()
+        public SupplierView()
         {
             InitializeComponent();
         }
 
-        private void CategoryAdd_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
+        private void SupplierView_Load(object sender, EventArgs e)
         {
 
         }

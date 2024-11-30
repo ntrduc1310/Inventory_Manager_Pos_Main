@@ -47,7 +47,7 @@
             // guna2Panel1
             // 
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges1;
-            guna2Panel1.Size = new Size(958, 229);
+            guna2Panel1.Size = new Size(1051, 223);
             // 
             // btnAdd1
             // 
@@ -70,6 +70,7 @@
             // 
             // guna2HtmlLabel1
             // 
+            guna2HtmlLabel1.Location = new Point(26, 54);
             guna2HtmlLabel1.Size = new Size(128, 33);
             guna2HtmlLabel1.Text = "Catelory List";
             // 
@@ -100,12 +101,12 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             guna2DataGridView1.GridColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.Location = new Point(26, 245);
+            guna2DataGridView1.Location = new Point(63, 229);
             guna2DataGridView1.Name = "guna2DataGridView1";
             guna2DataGridView1.ReadOnly = true;
             guna2DataGridView1.RowHeadersVisible = false;
             guna2DataGridView1.RowHeadersWidth = 51;
-            guna2DataGridView1.Size = new Size(909, 371);
+            guna2DataGridView1.Size = new Size(931, 393);
             guna2DataGridView1.TabIndex = 4;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -180,7 +181,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(958, 638);
+            ClientSize = new Size(1051, 653);
             Controls.Add(guna2DataGridView1);
             Name = "CategoryView";
             Text = "CategoryView";

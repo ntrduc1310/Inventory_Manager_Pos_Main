@@ -10,19 +10,14 @@ using System.Windows.Forms;
 
 namespace PL.Model
 {
-    public partial class CategoryAdd : SampleAdd
+    public partial class SupplierAdd : SampleAdd
     {
-        public CategoryAdd()
+        public SupplierAdd()
         {
             InitializeComponent();
         }
 
-        private void CategoryAdd_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
+        private void SupplierAdd_Load(object sender, EventArgs e)
         {
 
         }

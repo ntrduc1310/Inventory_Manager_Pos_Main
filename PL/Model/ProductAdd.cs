@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace PL.Model
 {
-    public partial class CategoryAdd : SampleAdd
+    public partial class ProductAdd : SampleAdd
     {
-        public CategoryAdd()
+        public ProductAdd()
         {
             InitializeComponent();
         }
 
-        private void CategoryAdd_Load(object sender, EventArgs e)
+        private void ProductAdd_Load(object sender, EventArgs e)
         {
 
         }
