@@ -53,12 +53,7 @@
             // 
             guna2Panel1.Margin = new Padding(4, 4, 4, 4);
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges1;
-<<<<<<< HEAD
             guna2Panel1.Size = new Size(1314, 260);
-            guna2Panel1.Paint += guna2Panel1_Paint;
-=======
-            guna2Panel1.Size = new Size(1051, 208);
->>>>>>> 26e82526e934b3b603e0db291b0cf254dce06e28
             // 
             // btnAdd1
             // 
@@ -71,12 +66,7 @@
             btnAdd1.Location = new Point(13, 115);
             btnAdd1.Margin = new Padding(4, 4, 4, 4);
             btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-<<<<<<< HEAD
             btnAdd1.Size = new Size(324, 110);
-            btnAdd1.Click += btnAdd1_Click_1;
-=======
-            btnAdd1.Size = new Size(214, 80);
->>>>>>> 26e82526e934b3b603e0db291b0cf254dce06e28
             // 
             // txtsearch
             // 
@@ -125,12 +115,8 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             guna2DataGridView1.GridColor = Color.FromArgb(231, 229, 255);
-<<<<<<< HEAD
-            guna2DataGridView1.Location = new Point(-24, 284);
+            guna2DataGridView1.Location = new Point(88, 309);
             guna2DataGridView1.Margin = new Padding(4);
-=======
-            guna2DataGridView1.Location = new Point(70, 247);
->>>>>>> 26e82526e934b3b603e0db291b0cf254dce06e28
             guna2DataGridView1.Name = "guna2DataGridView1";
             guna2DataGridView1.ReadOnly = true;
             guna2DataGridView1.RowHeadersVisible = false;

@@ -1,4 +1,5 @@
 ﻿using DTO;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,12 +24,21 @@ namespace DL
                     newEmployee.Password = password;
                     newEmployee.Phone = phone;
                     newEmployee.Picture = filepathPicture;
+                    bool exists = context.Employees.Any(a => a.UserName == name);
+                    if (!exists)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        // Thêm vào DbSet
+                        context.Employees.Add(newEmployee);
+                        var rowAffect = context.SaveChanges();
 
-                    // Thêm vào DbSet
-                    context.Employees.Add(newEmployee);
-                    var rowAffect = context.SaveChanges();
+                        return rowAffect > 0;
+                    }
 
-                    return rowAffect > 0;
+                    
                 }
             }
             catch (Exception ex)

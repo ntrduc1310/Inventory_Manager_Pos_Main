@@ -41,33 +41,7 @@ namespace PL
             btnMax.PerformClick();
             _obj.Visible = false;
         }
-
-<<<<<<< HEAD
-        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-
-            // Kích hoạt DoubleBuffered cho toàn bộ form
-            this.DoubleBuffered = true;
-            EnableDoubleBufferingForControls(this);
-        }
-
-        private void EnableDoubleBufferingForControls(Control control)
-        {
-            foreach (Control c in control.Controls)
-            {
-                typeof(Control).InvokeMember("DoubleBuffered",
-                    System.Reflection.BindingFlags.SetProperty | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic,
-                    null, c, new object[] { true });
-
-                // Đệ quy với các control con
-                if (c.Controls.Count > 0)
-                    EnableDoubleBufferingForControls(c);
-            }
-        }
-
-=======
->>>>>>> 26e82526e934b3b603e0db291b0cf254dce06e28
+        
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -143,18 +117,6 @@ namespace PL
             CustomerView customerView = new CustomerView();
             LoadFormIntoPanel(customerView, CenterPanel);
 
-        }
-
-<<<<<<< HEAD
-        private void guna2Panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-=======
-        private void btn_Products_Click(object sender, EventArgs e)
-        {
-            ProductView productView = new ProductView();
-            LoadFormIntoPanel(productView, CenterPanel);
->>>>>>> 26e82526e934b3b603e0db291b0cf254dce06e28
         }
     }
 }

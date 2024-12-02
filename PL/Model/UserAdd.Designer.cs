@@ -58,27 +58,16 @@
             // 
             // guna2Panel1
             // 
-<<<<<<< HEAD
-            guna2Panel1.Margin = new Padding(5);
-=======
-            guna2Panel1.Margin = new Padding(4, 4, 4, 4);
->>>>>>> 26e82526e934b3b603e0db291b0cf254dce06e28
+            guna2Panel1.Margin = new Padding(5, 5, 5, 5);
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges1;
             guna2Panel1.Size = new Size(999, 127);
             guna2Panel1.TabIndex = 6;
             // 
             // guna2HtmlLabel1
             // 
-<<<<<<< HEAD
-            guna2HtmlLabel1.Margin = new Padding(6);
-            guna2HtmlLabel1.Size = new Size(117, 40);
-            guna2HtmlLabel1.Text = "Add User";
-=======
-            guna2HtmlLabel1.Location = new Point(28, 29);
-            guna2HtmlLabel1.Margin = new Padding(5, 5, 5, 5);
-            guna2HtmlLabel1.Size = new Size(119, 33);
+            guna2HtmlLabel1.Margin = new Padding(6, 6, 6, 6);
+            guna2HtmlLabel1.Size = new Size(143, 40);
             guna2HtmlLabel1.Text = "UserDetails";
->>>>>>> 26e82526e934b3b603e0db291b0cf254dce06e28
             // 
             // btn_Close
             // 
@@ -104,22 +93,13 @@
             btn_Save.Location = new Point(36, 23);
             btn_Save.Margin = new Padding(2, 2, 2, 2);
             btn_Save.ShadowDecoration.CustomizableEdges = customizableEdges3;
-<<<<<<< HEAD
-            btn_Save.Click += btn_Save_Click;
-=======
-            btn_Save.Size = new Size(138, 43);
             btn_Save.Click += btn_Save_Click_1;
->>>>>>> 26e82526e934b3b603e0db291b0cf254dce06e28
             // 
             // guna2HtmlLabel2
             // 
             guna2HtmlLabel2.BackColor = Color.Transparent;
-<<<<<<< HEAD
             guna2HtmlLabel2.Location = new Point(86, 272);
-            guna2HtmlLabel2.Margin = new Padding(4);
-=======
-            guna2HtmlLabel2.Location = new Point(50, 210);
->>>>>>> 26e82526e934b3b603e0db291b0cf254dce06e28
+            guna2HtmlLabel2.Margin = new Padding(4, 4, 4, 4);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             guna2HtmlLabel2.Size = new Size(43, 22);
             guna2HtmlLabel2.TabIndex = 3;
@@ -179,12 +159,8 @@
             // guna2HtmlLabel3
             // 
             guna2HtmlLabel3.BackColor = Color.Transparent;
-<<<<<<< HEAD
             guna2HtmlLabel3.Location = new Point(564, 272);
-            guna2HtmlLabel3.Margin = new Padding(4);
-=======
-            guna2HtmlLabel3.Location = new Point(432, 210);
->>>>>>> 26e82526e934b3b603e0db291b0cf254dce06e28
+            guna2HtmlLabel3.Margin = new Padding(4, 4, 4, 4);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             guna2HtmlLabel3.Size = new Size(69, 22);
             guna2HtmlLabel3.TabIndex = 4;
@@ -218,12 +194,8 @@
             // guna2HtmlLabel4
             // 
             guna2HtmlLabel4.BackColor = Color.Transparent;
-<<<<<<< HEAD
             guna2HtmlLabel4.Location = new Point(86, 429);
-            guna2HtmlLabel4.Margin = new Padding(4);
-=======
-            guna2HtmlLabel4.Location = new Point(50, 335);
->>>>>>> 26e82526e934b3b603e0db291b0cf254dce06e28
+            guna2HtmlLabel4.Margin = new Padding(4, 4, 4, 4);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             guna2HtmlLabel4.Size = new Size(65, 22);
             guna2HtmlLabel4.TabIndex = 1;
@@ -257,23 +229,18 @@
             // guna2HtmlLabel5
             // 
             guna2HtmlLabel5.BackColor = Color.Transparent;
-<<<<<<< HEAD
             guna2HtmlLabel5.Location = new Point(564, 429);
-            guna2HtmlLabel5.Margin = new Padding(4);
-=======
-            guna2HtmlLabel5.Location = new Point(432, 335);
->>>>>>> 26e82526e934b3b603e0db291b0cf254dce06e28
+            guna2HtmlLabel5.Margin = new Padding(4, 4, 4, 4);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             guna2HtmlLabel5.Size = new Size(44, 22);
             guna2HtmlLabel5.TabIndex = 2;
             guna2HtmlLabel5.Text = "Phone";
             // 
-<<<<<<< HEAD
             // txtPic
             // 
             txtPic.ImageRotate = 0F;
             txtPic.Location = new Point(962, 192);
-            txtPic.Margin = new Padding(4);
+            txtPic.Margin = new Padding(4, 4, 4, 4);
             txtPic.Name = "txtPic";
             txtPic.ShadowDecoration.CustomizableEdges = customizableEdges12;
             txtPic.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -283,8 +250,6 @@
             txtPic.TabStop = false;
             txtPic.Click += btn_Browse_Click;
             // 
-=======
->>>>>>> 26e82526e934b3b603e0db291b0cf254dce06e28
             // btnBrowse
             // 
             btnBrowse.AutoRoundedCorners = true;
@@ -297,12 +262,8 @@
             btnBrowse.FillColor = Color.FromArgb(95, 71, 204);
             btnBrowse.Font = new Font("Segoe UI", 9F);
             btnBrowse.ForeColor = Color.White;
-<<<<<<< HEAD
             btnBrowse.Location = new Point(962, 471);
-            btnBrowse.Margin = new Padding(4);
-=======
-            btnBrowse.Location = new Point(769, 369);
->>>>>>> 26e82526e934b3b603e0db291b0cf254dce06e28
+            btnBrowse.Margin = new Padding(4, 4, 4, 4);
             btnBrowse.Name = "btnBrowse";
             btnBrowse.ShadowDecoration.CustomizableEdges = customizableEdges13;
             btnBrowse.Size = new Size(166, 55);

@@ -115,7 +115,7 @@ namespace PL.Model
                 }
                 else
                 {
-                    MessageBox.Show("Thêm người dùng thất bại.");
+                    MessageBox.Show("Người dùng đã tồn tại.");
                 }
             }
             catch (Exception ex)

@@ -33,7 +33,7 @@ namespace PL.Model
         }
         private void GetDetails()
         {
-            string qry = "Select * from Product where proID = " + Convert.ToString(cb_Product.SelectedValue); +"";
+            string qry = "Select * from Product where proID = " + Convert.ToString(cb_Product.SelectedValue)+"";
             //SqlCommand cmd = new SqlCommand(qry, MainClass.con);
             //SqlDataAdapter da = new SqlDataAdapter(cmd);
             //DataTable dt = new DataTable();
