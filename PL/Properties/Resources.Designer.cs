@@ -10,9 +10,8 @@
 
 namespace PL.Properties {
     using System;
-    using System.Drawing;
-
-
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -24,7 +23,7 @@ namespace PL.Properties {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
-        internal static Image userPic;
+        
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
@@ -167,6 +166,16 @@ namespace PL.Properties {
         internal static System.Drawing.Bitmap user_gear {
             get {
                 object obj = ResourceManager.GetObject("user-gear", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap woman_bag {
+            get {
+                object obj = ResourceManager.GetObject("woman-bag", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
