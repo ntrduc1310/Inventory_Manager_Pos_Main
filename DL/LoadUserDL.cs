@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -7,12 +8,16 @@ using System.Threading.Tasks;
 
 namespace DL
 {
-    public class LoadUserDL: DataProvider
+    public class LoadUserDL: DataProviderEntity
     {
-        public DataTable loadUser()
+        // Sử dụng Entity Framework để lấy danh sách người dùng
+        public List<Employees> LoadUsers()
         {
-            string query = "SELECT * FROM Employees";
-            return LoadUserData(query);
+            using (var context = new DataProviderEntity()) // DataProviderEntity là DbContext của bạn
+            {
+                // Truy vấn tất cả nhân viên
+                return context.Employees.ToList();
+            }
         }
     }
 }

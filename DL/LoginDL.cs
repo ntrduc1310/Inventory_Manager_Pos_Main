@@ -6,43 +6,21 @@ using System.Threading.Tasks;
 using DTO;
 using Microsoft.Data.SqlClient;
 using System.Configuration;
+using Microsoft.EntityFrameworkCore;
 namespace DL
 {
-    public class LoginDL : DataProvider
+    public class LoginDL : DataProviderEntity
     {
         public async Task<bool> LoginAsync(Account acc)
         {
             if (acc == null) throw new ArgumentNullException(nameof(acc));
 
-            var dp = new DataProvider();
-            string sql = "SELECT COUNT(Username) FROM Admin WHERE Username = @Username AND Password = @Password";
-
-            try
+            using (var context = new DataProviderEntity())
             {
-                await dp.ConnectAsync(); // Chờ kết nối thành công
+                // Kiểm tra tồn tại tài khoản
+                bool exists = await context.Admin.AnyAsync(a => a.Username == acc.Username && a.Password == acc.Password);
 
-                if (dp.conn == null || dp.conn.State != System.Data.ConnectionState.Open)
-                {
-                    throw new InvalidOperationException("The database connection is not open.");
-                }
-
-                using (SqlCommand cmd = new SqlCommand(sql, dp.conn))
-                {
-                    cmd.Parameters.AddWithValue("@Username", acc.Username ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Password", acc.Password ?? (object)DBNull.Value);
-
-                    object result = await cmd.ExecuteScalarAsync();
-                    int intResult = result != null ? Convert.ToInt32(result) : 0;
-                    return intResult > 0;
-                }
-            }
-            catch (SqlException)
-            {
-                throw; // Giữ lại stack trace gốc của lỗi SQL
-            }
-            finally
-            {
-                dp.Disconnect();
+                return exists;
             }
         }
 

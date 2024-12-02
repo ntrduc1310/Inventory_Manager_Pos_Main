@@ -58,16 +58,16 @@
             // 
             // guna2Panel1
             // 
-            guna2Panel1.Margin = new Padding(5, 5, 5, 5);
+            guna2Panel1.Margin = new Padding(5);
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges1;
             guna2Panel1.Size = new Size(1249, 159);
             guna2Panel1.TabIndex = 6;
             // 
             // guna2HtmlLabel1
             // 
-            guna2HtmlLabel1.Margin = new Padding(6, 6, 6, 6);
-            guna2HtmlLabel1.Size = new Size(143, 40);
-            guna2HtmlLabel1.Text = "UserDetails";
+            guna2HtmlLabel1.Margin = new Padding(6);
+            guna2HtmlLabel1.Size = new Size(117, 40);
+            guna2HtmlLabel1.Text = "Add User";
             // 
             // btn_Close
             // 
@@ -86,13 +86,13 @@
             btn_Save.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btn_Save.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btn_Save.ShadowDecoration.CustomizableEdges = customizableEdges3;
-            btn_Save.Click += btn_Save_Click_1;
+            btn_Save.Click += btn_Save_Click;
             // 
             // guna2HtmlLabel2
             // 
             guna2HtmlLabel2.BackColor = Color.Transparent;
             guna2HtmlLabel2.Location = new Point(86, 272);
-            guna2HtmlLabel2.Margin = new Padding(4, 4, 4, 4);
+            guna2HtmlLabel2.Margin = new Padding(4);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             guna2HtmlLabel2.Size = new Size(50, 27);
             guna2HtmlLabel2.TabIndex = 3;
@@ -153,7 +153,7 @@
             // 
             guna2HtmlLabel3.BackColor = Color.Transparent;
             guna2HtmlLabel3.Location = new Point(564, 272);
-            guna2HtmlLabel3.Margin = new Padding(4, 4, 4, 4);
+            guna2HtmlLabel3.Margin = new Padding(4);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             guna2HtmlLabel3.Size = new Size(82, 27);
             guna2HtmlLabel3.TabIndex = 4;
@@ -188,7 +188,7 @@
             // 
             guna2HtmlLabel4.BackColor = Color.Transparent;
             guna2HtmlLabel4.Location = new Point(86, 429);
-            guna2HtmlLabel4.Margin = new Padding(4, 4, 4, 4);
+            guna2HtmlLabel4.Margin = new Padding(4);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             guna2HtmlLabel4.Size = new Size(79, 27);
             guna2HtmlLabel4.TabIndex = 1;
@@ -223,7 +223,7 @@
             // 
             guna2HtmlLabel5.BackColor = Color.Transparent;
             guna2HtmlLabel5.Location = new Point(564, 429);
-            guna2HtmlLabel5.Margin = new Padding(4, 4, 4, 4);
+            guna2HtmlLabel5.Margin = new Padding(4);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             guna2HtmlLabel5.Size = new Size(53, 27);
             guna2HtmlLabel5.TabIndex = 2;
@@ -233,7 +233,7 @@
             // 
             txtPic.ImageRotate = 0F;
             txtPic.Location = new Point(962, 192);
-            txtPic.Margin = new Padding(4, 4, 4, 4);
+            txtPic.Margin = new Padding(4);
             txtPic.Name = "txtPic";
             txtPic.ShadowDecoration.CustomizableEdges = customizableEdges12;
             txtPic.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -256,7 +256,7 @@
             btnBrowse.Font = new Font("Segoe UI", 9F);
             btnBrowse.ForeColor = Color.White;
             btnBrowse.Location = new Point(962, 471);
-            btnBrowse.Margin = new Padding(4, 4, 4, 4);
+            btnBrowse.Margin = new Padding(4);
             btnBrowse.Name = "btnBrowse";
             btnBrowse.ShadowDecoration.CustomizableEdges = customizableEdges14;
             btnBrowse.Size = new Size(208, 69);

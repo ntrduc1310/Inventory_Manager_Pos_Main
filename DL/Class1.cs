@@ -1,7 +1,6 @@
-﻿namespace DL
-{
-    public class Class1
-    {
+﻿using DL;
 
-    }
+public class Class1
+{
+   
 }

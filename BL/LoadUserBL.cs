@@ -5,13 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using DL;
+using System.Runtime.Serialization;
+using DTO;
 namespace BL
 {
     public class LoadUserBL
     {
-        public DataTable loadUser()
+        public List<Employees> loadUser()
         {
-            return new LoadUserDL().loadUser();
+            return new LoadUserDL().LoadUsers();
         }
     }
 }

@@ -1,4 +1,9 @@
-﻿using System;
+﻿using BL;
+using DL;
+using Guna.UI2.WinForms;
+using Microsoft.VisualBasic.ApplicationServices;
+using PL.View;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,34 +12,79 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Collections;
-using System.IO;
-using BL;
-using Microsoft.VisualBasic.ApplicationServices;
-using PL.View;
+using System.Xml.Linq;
 
-namespace PL.Model
+namespace PL.Edit
 {
-    public partial class UserAdd : SampleAdd
+    public partial class editUserForm : Form
     {
-        public UserAdd()
+        public int userId;
+        // Thuộc tính để truy cập panelMain từ bên ngoài
+        // Khai báo sự kiện
+
+
+        public editUserForm(int id, string name, string username, string password, string phone, string piture)
         {
             InitializeComponent();
+
+            // Gán giá trị ban đầu cho các TextBox
+            userId = id;
+            txt_Name.Text = name;
+            txt_UserName.Text = username;
+            txt_Phone.Text = phone;
+            txt_Password.Text = password;
+            string imagePath = piture;
+            // Kiểm tra đường dẫn có hợp lệ không
+            if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
+            {
+                try
+                {
+                    // Tải hình ảnh và gán vào PictureBox
+                    txtPic.Image = Image.FromFile(imagePath);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+        
         }
-        public int id = 0;
-        public override void btn_Save_Click_1(object sender, EventArgs e)
-        {
-               
-        }
-        private void UserAdd_Load(object sender, EventArgs e)
+      
+
+
+        private void txtPic_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btn_Browse_Click(object sender, EventArgs e)
+        private void txt_UserName_TextChanged(object sender, EventArgs e)
         {
 
         }
+
+        private void btn_Close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
+        private void editUserForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_Name_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // lưu hình ảnh vào folder trả về đường dẫn
+
         private string filePathnew = null;
 
         private void loadImagesByPath()
@@ -92,30 +142,54 @@ namespace PL.Model
             return null; // Trường hợp không chọn file
         }
 
+
+        // sự kiện nhấn save
         private void btn_Save_Click(object sender, EventArgs e)
         {
             try
             {
                 // Thông tin cần cập nhật
+                int Id = userId; // Đảm bảo userId đã được gán giá trị     
                 string name = txt_Name.Text.Trim();
                 string userName = txt_UserName.Text.Trim();
                 string password = txt_Password.Text.Trim();
                 string phone = txt_Phone.Text.Trim();
+                if (string.IsNullOrEmpty(name))
+                {
+                    MessageBox.Show("Tên không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txt_Name.Focus();
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(userName))
+                {
+                    MessageBox.Show("Tên người dùng không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txt_UserName.Focus();
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(password))
+                {
+                    MessageBox.Show("Mật khẩu không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txt_Password.Focus();
+                    return;
+                }
 
                 // Lấy mảng byte từ PictureBox
                 string picture = SaveImageToFolder(filePathnew);
                 // Gọi hàm UpdateUser
-                bool result = new addUsersBL().AddUser(name,userName,password,phone,picture);
+                bool result = new UpdateUsersBL().UpdateUser(Id, name, userName, password, phone, picture);
+
                 if (result)
                 {
-                    MessageBox.Show("thêm người dùng thành công!");
+                    MessageBox.Show("Cập nhật thành công!");
                     UserView userView = new UserView();
                     Main.Instance.LoadFormIntoPanelCenter(userView);
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Thêm người dùng thất bại.");
+                    MessageBox.Show("Không có người dùng hoặc thông tin không được thay đổi.");
                 }
             }
             catch (Exception ex)
@@ -125,9 +199,7 @@ namespace PL.Model
 
         }
 
-
-
-        private void txt_UserName_TextChanged(object sender, EventArgs e)
+        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

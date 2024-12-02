@@ -62,12 +62,9 @@ namespace PL
             {
                 // Hiển thị thông báo thành công
                 MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
                 // Chuyển hướng đến form chính (FormMain)
-                Main mainForm = new Main();
                 string currenName = username;
-                mainForm.username_lbl.Text = currenName;
+                Main.Instance.username_lbl.Text = "Welcome to "+ currenName;
                 this.DialogResult = DialogResult.OK;
                 this.Close();
                 // Ẩn form đăng nhập

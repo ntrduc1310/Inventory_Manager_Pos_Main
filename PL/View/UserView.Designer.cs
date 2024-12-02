@@ -41,8 +41,10 @@
             dgvUsername = new DataGridViewTextBoxColumn();
             dgvPass = new DataGridViewTextBoxColumn();
             dgvPhone = new DataGridViewTextBoxColumn();
+            dgvPicture = new DataGridViewImageColumn();
             dgvEdit = new DataGridViewImageColumn();
             dgvDel = new DataGridViewImageColumn();
+            dgvPictureTemp = new DataGridViewTextBoxColumn();
             guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).BeginInit();
             SuspendLayout();
@@ -52,6 +54,7 @@
             guna2Panel1.Margin = new Padding(5);
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges1;
             guna2Panel1.Size = new Size(1314, 260);
+            guna2Panel1.Paint += guna2Panel1_Paint;
             // 
             // btnAdd1
             // 
@@ -65,6 +68,7 @@
             btnAdd1.Margin = new Padding(5);
             btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnAdd1.Size = new Size(324, 110);
+            btnAdd1.Click += btnAdd1_Click_1;
             // 
             // txtsearch
             // 
@@ -102,7 +106,7 @@
             guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             guna2DataGridView1.ColumnHeadersHeight = 35;
             guna2DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            guna2DataGridView1.Columns.AddRange(new DataGridViewColumn[] { dgvSr, dgvid, dgvName, dgvUsername, dgvPass, dgvPhone, dgvEdit, dgvDel });
+            guna2DataGridView1.Columns.AddRange(new DataGridViewColumn[] { dgvSr, dgvid, dgvName, dgvUsername, dgvPass, dgvPhone, dgvPicture, dgvEdit, dgvDel, dgvPictureTemp });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
@@ -112,7 +116,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             guna2DataGridView1.GridColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.Location = new Point(88, 309);
+            guna2DataGridView1.Location = new Point(-24, 284);
             guna2DataGridView1.Margin = new Padding(4);
             guna2DataGridView1.Name = "guna2DataGridView1";
             guna2DataGridView1.ReadOnly = true;
@@ -152,6 +156,7 @@
             dgvSr.MinimumWidth = 70;
             dgvSr.Name = "dgvSr";
             dgvSr.ReadOnly = true;
+            dgvSr.SortMode = DataGridViewColumnSortMode.NotSortable;
             dgvSr.Width = 70;
             // 
             // dgvid
@@ -160,6 +165,7 @@
             dgvid.MinimumWidth = 6;
             dgvid.Name = "dgvid";
             dgvid.ReadOnly = true;
+            dgvid.SortMode = DataGridViewColumnSortMode.NotSortable;
             dgvid.Visible = false;
             // 
             // dgvName
@@ -168,6 +174,7 @@
             dgvName.MinimumWidth = 6;
             dgvName.Name = "dgvName";
             dgvName.ReadOnly = true;
+            dgvName.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
             // dgvUsername
             // 
@@ -175,6 +182,7 @@
             dgvUsername.MinimumWidth = 6;
             dgvUsername.Name = "dgvUsername";
             dgvUsername.ReadOnly = true;
+            dgvUsername.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
             // dgvPass
             // 
@@ -182,6 +190,7 @@
             dgvPass.MinimumWidth = 6;
             dgvPass.Name = "dgvPass";
             dgvPass.ReadOnly = true;
+            dgvPass.SortMode = DataGridViewColumnSortMode.NotSortable;
             dgvPass.Visible = false;
             // 
             // dgvPhone
@@ -190,6 +199,16 @@
             dgvPhone.MinimumWidth = 6;
             dgvPhone.Name = "dgvPhone";
             dgvPhone.ReadOnly = true;
+            dgvPhone.SortMode = DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dgvPicture
+            // 
+            dgvPicture.HeaderText = "Picture";
+            dgvPicture.Image = Properties.Resources.user_gear;
+            dgvPicture.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvPicture.MinimumWidth = 8;
+            dgvPicture.Name = "dgvPicture";
+            dgvPicture.ReadOnly = true;
             // 
             // dgvEdit
             // 
@@ -214,6 +233,14 @@
             dgvDel.Name = "dgvDel";
             dgvDel.ReadOnly = true;
             dgvDel.Width = 50;
+            // 
+            // dgvPictureTemp
+            // 
+            dgvPictureTemp.HeaderText = "pathImage";
+            dgvPictureTemp.MinimumWidth = 8;
+            dgvPictureTemp.Name = "dgvPictureTemp";
+            dgvPictureTemp.ReadOnly = true;
+            dgvPictureTemp.Visible = false;
             // 
             // UserView
             // 
@@ -241,7 +268,9 @@
         private DataGridViewTextBoxColumn dgvUsername;
         private DataGridViewTextBoxColumn dgvPass;
         private DataGridViewTextBoxColumn dgvPhone;
+        private DataGridViewImageColumn dgvPicture;
         private DataGridViewImageColumn dgvEdit;
         private DataGridViewImageColumn dgvDel;
+        private DataGridViewTextBoxColumn dgvPictureTemp;
     }
 }

@@ -169,6 +169,7 @@
             guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges28;
             guna2Panel3.Size = new Size(370, 886);
             guna2Panel3.TabIndex = 4;
+            guna2Panel3.Paint += guna2Panel3_Paint;
             // 
             // btn_Users
             // 
