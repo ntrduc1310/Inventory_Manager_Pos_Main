@@ -12,6 +12,7 @@ using System.IO;
 using BL;
 using Microsoft.VisualBasic.ApplicationServices;
 using PL.View;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace PL.Model
 {
@@ -24,7 +25,7 @@ namespace PL.Model
         public int id = 0;
         public override void btn_Save_Click_1(object sender, EventArgs e)
         {
-               
+
         }
         private void UserAdd_Load(object sender, EventArgs e)
         {
@@ -94,35 +95,62 @@ namespace PL.Model
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
-            try
+            bool isvalid = false;
+            while (!isvalid)
             {
-                // Thông tin cần cập nhật
-                string name = txt_Name.Text.Trim();
-                string userName = txt_UserName.Text.Trim();
-                string password = txt_Password.Text.Trim();
-                string phone = txt_Phone.Text.Trim();
+                {
+                    try
+                    {
+                        // Thông tin cần cập nhật
+                        string name = txt_Name.Text.Trim();
+                        string userName = txt_UserName.Text.Trim();
+                        string password = txt_Password.Text.Trim();
+                        string phone = txt_Phone.Text.Trim();
+                        // Kiểm tra nếu trường không rỗng hoặc null
+                        if (string.IsNullOrEmpty(Name))
+                        {
+                            MessageBox.Show("Tên không được để trống.");
+                            return;
+                        }
 
-                // Lấy mảng byte từ PictureBox
-                string picture = SaveImageToFolder(filePathnew);
-                // Gọi hàm UpdateUser
-                bool result = new addUsersBL().AddUser(name,userName,password,phone,picture);
-                if (result)
-                {
-                    MessageBox.Show("thêm người dùng thành công!");
-                    UserView userView = new UserView();
-                    Main.Instance.LoadFormIntoPanelCenter(userView);
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Người dùng đã tồn tại.");
+                        if (string.IsNullOrEmpty(userName))
+                        {
+                            MessageBox.Show("Tên tài khoản không được để trống.");
+                            return;
+                        }
+
+                        if (string.IsNullOrEmpty(password))
+                        {
+                            MessageBox.Show("Mật khẩu không được để trống.");
+                            return;
+                        }
+
+                        // Tiến hành các xử lý tiếp theo nếu mọi trường hợp đều hợp lệ
+
+
+                        // Lấy mảng byte từ PictureBox
+                        string picture = SaveImageToFolder(filePathnew);
+                        // Gọi hàm UpdateUser
+                        bool result = new addUsersBL().AddUser(name, userName, password, phone, picture);
+                        if (result)
+                        {
+                            MessageBox.Show("thêm người dùng thành công!");
+                            UserView userView = new UserView();
+                            Main.Instance.LoadFormIntoPanelCenter(userView);
+                            this.Close();
+                            isvalid = true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Người dùng đã tồn tại.");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}");
+                    }
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}");
-            }
-
         }
 
 
@@ -130,6 +158,11 @@ namespace PL.Model
         private void txt_UserName_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_Close_Click_1(object sender, EventArgs e)
+        {
+            this.Close();   
         }
     }
 }

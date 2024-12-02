@@ -21,5 +21,10 @@ namespace PL.View
         {
 
         }
+
+        private void btnAdd1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

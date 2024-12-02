@@ -17,7 +17,7 @@ namespace PL
     {
         static Main _obj;
         public Guna.UI2.WinForms.Guna2HtmlLabel username_lbl;
-       
+
         public Main()
         {
             InitializeComponent();
@@ -41,7 +41,7 @@ namespace PL
             btnMax.PerformClick();
             _obj.Visible = false;
         }
-        
+
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -117,6 +117,17 @@ namespace PL
             CustomerView customerView = new CustomerView();
             LoadFormIntoPanel(customerView, CenterPanel);
 
+        }
+
+        private void guna2Panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            SupplierView supplierView = new SupplierView();
+            LoadFormIntoPanel(supplierView, CenterPanel);
         }
     }
 }

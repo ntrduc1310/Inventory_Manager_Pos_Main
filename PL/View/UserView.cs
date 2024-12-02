@@ -202,12 +202,7 @@ namespace PL.View
             }
         }
 
-        public void ReloadGridView()
-        {
-            gridViewUser.DataSource = new LoadUserBL().loadUser();
-            gridViewUser.Refresh();
-        }
-
+      
 
 
         public void loadUserstoGridview(object sender, EventArgs e)
@@ -223,6 +218,10 @@ namespace PL.View
         }
 
         private void btnAdd1_Click_1(object sender, EventArgs e)
+        {
+        }
+
+        private void btnAdd1_Click_2(object sender, EventArgs e)
         {
             UserAdd userAdd = new UserAdd();
             userAdd.ShowDialog();

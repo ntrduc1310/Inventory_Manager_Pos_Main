@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 using DTO;
+using DTO.Suppiler;
 
 namespace DL
 {
@@ -21,6 +22,8 @@ namespace DL
         // Định nghĩa các DbSet cho bảng
         public DbSet<Employees> Employees { get; set; }
         public DbSet<tableAmin> Admin { get; set; } 
+
+        public DbSet<TableSuppiler> Suppiler { get; set; }
 
         // Phương thức kiểm tra kết nối
         public bool CheckDatabaseConnection()

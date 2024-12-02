@@ -39,7 +39,7 @@
             dgvid = new DataGridViewTextBoxColumn();
             dgvName = new DataGridViewTextBoxColumn();
             dgvPhone = new DataGridViewTextBoxColumn();
-            dgvPass = new DataGridViewTextBoxColumn();
+            dgvAdress = new DataGridViewTextBoxColumn();
             dgvEmail = new DataGridViewTextBoxColumn();
             dgvEdit = new DataGridViewImageColumn();
             dgvDel = new DataGridViewImageColumn();
@@ -49,7 +49,7 @@
             // 
             // guna2Panel1
             // 
-            guna2Panel1.Margin = new Padding(5, 5, 5, 5);
+            guna2Panel1.Margin = new Padding(5);
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges1;
             guna2Panel1.Size = new Size(1314, 260);
             // 
@@ -61,10 +61,11 @@
             btnAdd1.DisabledState.CustomBorderColor = Color.DarkGray;
             btnAdd1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnAdd1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnAdd1.Location = new Point(19, 164);
-            btnAdd1.Margin = new Padding(5, 5, 5, 5);
+            btnAdd1.Location = new Point(79, 126);
+            btnAdd1.Margin = new Padding(5);
             btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnAdd1.Size = new Size(324, 110);
+            btnAdd1.Click += btnAdd1_Click_1;
             // 
             // txtsearch
             // 
@@ -75,15 +76,15 @@
             txtsearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtsearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtsearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtsearch.Location = new Point(920, 180);
+            txtsearch.Location = new Point(745, 156);
             txtsearch.Margin = new Padding(5, 6, 5, 6);
             txtsearch.ShadowDecoration.CustomizableEdges = customizableEdges3;
             txtsearch.Size = new Size(520, 80);
             // 
             // guna2HtmlLabel1
             // 
-            guna2HtmlLabel1.Location = new Point(56, 88);
-            guna2HtmlLabel1.Margin = new Padding(5, 5, 5, 5);
+            guna2HtmlLabel1.Location = new Point(79, 33);
+            guna2HtmlLabel1.Margin = new Padding(5);
             guna2HtmlLabel1.Size = new Size(154, 40);
             guna2HtmlLabel1.Text = "Supplier List ";
             // 
@@ -104,7 +105,7 @@
             guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             guna2DataGridView1.ColumnHeadersHeight = 35;
             guna2DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            guna2DataGridView1.Columns.AddRange(new DataGridViewColumn[] { dgvSr, dgvid, dgvName, dgvPhone, dgvPass, dgvEmail, dgvEdit, dgvDel });
+            guna2DataGridView1.Columns.AddRange(new DataGridViewColumn[] { dgvSr, dgvid, dgvName, dgvPhone, dgvAdress, dgvEmail, dgvEdit, dgvDel });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
@@ -115,7 +116,7 @@
             guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             guna2DataGridView1.GridColor = Color.FromArgb(231, 229, 255);
             guna2DataGridView1.Location = new Point(79, 286);
-            guna2DataGridView1.Margin = new Padding(4, 4, 4, 4);
+            guna2DataGridView1.Margin = new Padding(4);
             guna2DataGridView1.Name = "guna2DataGridView1";
             guna2DataGridView1.ReadOnly = true;
             guna2DataGridView1.RowHeadersVisible = false;
@@ -178,13 +179,13 @@
             dgvPhone.Name = "dgvPhone";
             dgvPhone.ReadOnly = true;
             // 
-            // dgvPass
+            // dgvAdress
             // 
-            dgvPass.HeaderText = "Pass";
-            dgvPass.MinimumWidth = 6;
-            dgvPass.Name = "dgvPass";
-            dgvPass.ReadOnly = true;
-            dgvPass.Visible = false;
+            dgvAdress.HeaderText = "Adress";
+            dgvAdress.MinimumWidth = 6;
+            dgvAdress.Name = "dgvAdress";
+            dgvAdress.ReadOnly = true;
+            dgvAdress.Visible = false;
             // 
             // dgvEmail
             // 
@@ -241,7 +242,7 @@
         private DataGridViewTextBoxColumn dgvid;
         private DataGridViewTextBoxColumn dgvName;
         private DataGridViewTextBoxColumn dgvPhone;
-        private DataGridViewTextBoxColumn dgvPass;
+        private DataGridViewTextBoxColumn dgvAdress;
         private DataGridViewTextBoxColumn dgvEmail;
         private DataGridViewImageColumn dgvEdit;
         private DataGridViewImageColumn dgvDel;

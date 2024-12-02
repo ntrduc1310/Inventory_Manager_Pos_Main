@@ -21,5 +21,10 @@ namespace PL.View
         private void ProductView_Load(object sender, EventArgs e)
         {
         }
+
+        private void btnAdd1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
