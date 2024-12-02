@@ -91,7 +91,7 @@ namespace PL.Model
                     {
                         MessageBox.Show("Nhà cung cấp đã tồn tại.");
                         // Yêu cầu người dùng nhập lại thông tin
-                        isValid = false; // Không hợp lệ, tiếp tục vòng lặp
+                        isValid = true; // Không hợp lệ, tiếp tục vòng lặp
                     }
                 }
                 catch (Exception ex)
@@ -100,5 +100,6 @@ namespace PL.Model
                 }
             }
         }
+     
     }
 }

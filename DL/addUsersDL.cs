@@ -25,7 +25,7 @@ namespace DL
                     newEmployee.Phone = phone;
                     newEmployee.Picture = filepathPicture;
                     bool exists = context.Employees.Any(a => a.UserName == name);
-                    if (!exists)
+                    if (exists)
                     {
                         return false;
                     }
