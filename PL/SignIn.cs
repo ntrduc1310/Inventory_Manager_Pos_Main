@@ -177,7 +177,23 @@ namespace PL
 
         private void SignIn_Load(object sender, EventArgs e)
         {
+            Username_txb.Text = "Ducci";  // Username mặc định
+            Password_txb.Text = "Ducci123";  // Password mặc định
+        }
+        private void Username_txb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SignIn_btn_Click(sender, e);  // Gọi sự kiện nhấn nút đăng nhập khi Enter được nhấn trong trường Username
+            }
+        }
 
+        private void Password_txb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SignIn_btn_Click(sender, e);  // Gọi sự kiện nhấn nút đăng nhập khi Enter được nhấn trong trường Password
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)

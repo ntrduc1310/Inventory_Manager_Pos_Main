@@ -7,6 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections;
+using System.IO;
+using Microsoft.VisualBasic.ApplicationServices;
+using BL;
+using DL;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using PL.View;
+using BL.Category;
+using DL.Category;
+using System.Xml.Linq;
 
 namespace PL.Model
 {
@@ -25,6 +35,62 @@ namespace PL.Model
         private void guna2HtmlLabel1_Click(object sender, EventArgs e)
         {
 
+        }
+
+
+
+        private async void btn_Save_Click_2(object sender, EventArgs e)
+        {
+            bool isValid = false;
+
+            while (!isValid)
+            {
+                try
+                {
+                    string Name = txt_Name.Text;
+                    string QuantityProducts = txt_QuantityProducts.Text; // Giả sử bạn có một trường nhập số lượng sản phẩm
+
+                    // Kiểm tra nếu trường không rỗng hoặc null
+                    if (string.IsNullOrEmpty(Name))
+                    {
+                        MessageBox.Show("Tên danh mục không được để trống.");
+                        return;
+                    }
+
+                    // Kiểm tra nếu số lượng không phải là số và không trống
+                    if (string.IsNullOrEmpty(QuantityProducts) || !int.TryParse(QuantityProducts, out int quantityProducts))
+                    {
+                        MessageBox.Show("Số lượng sản phẩm không hợp lệ.");
+                        return;
+                    }
+
+                    // Thêm danh mục và kiểm tra kết quả
+                    bool result = await new CategoryBL().AddCategory(Name, quantityProducts);
+                    if (result)
+                    {
+                        MessageBox.Show("Thêm danh mục thành công!");
+                        CategoryView CategoryView = new CategoryView(); // Mở trang danh mục
+                        Main.Instance.LoadFormIntoPanelCenter(CategoryView);
+                        this.Close();
+                        isValid = true; // Đánh dấu là hợp lệ và thoát khỏi vòng lặp
+                    }
+                    else
+                    {
+                        MessageBox.Show("Danh mục đã tồn tại.");
+                        // Yêu cầu người dùng nhập lại thông tin
+                        isValid = true; // Không hợp lệ, tiếp tục vòng lặp
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}");
+                }
+            }
+        }
+
+        private void btn_Close_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

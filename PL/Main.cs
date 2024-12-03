@@ -40,6 +40,8 @@ namespace PL
             _obj = this;
             btnMax.PerformClick();
             _obj.Visible = false;
+           
+            
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -123,11 +125,43 @@ namespace PL
         {
 
         }
+        private void btn_Purchases_Click(object sender, EventArgs e)
+        {
+            PurchaseView purchaseView = new PurchaseView();
+            LoadFormIntoPanel(purchaseView, CenterPanel);
+        }
 
-        private void guna2Button3_Click(object sender, EventArgs e)
+        private void btn_Category_Click(object sender, EventArgs e)
+        {
+            CategoryView categoryView = new CategoryView();
+            LoadFormIntoPanel(categoryView, CenterPanel);
+        }
+
+        private void btn_Supplier_Click(object sender, EventArgs e)
         {
             SupplierView supplierView = new SupplierView();
             LoadFormIntoPanel(supplierView, CenterPanel);
         }
+
+        private void btn_Customers_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Products_Click(object sender, EventArgs e)
+        {
+            ProductView productView = new ProductView();
+            LoadFormIntoPanel(productView, CenterPanel);
+        }
+
+        private void btn_Sales_Click(object sender, EventArgs e)
+        {
+
+
+        }
+        
+
+
+       
     }
 }

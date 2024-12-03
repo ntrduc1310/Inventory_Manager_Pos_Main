@@ -53,7 +53,9 @@
             // 
             // guna2HtmlLabel1
             // 
-            guna2HtmlLabel1.Size = new Size(177, 33);
+            guna2HtmlLabel1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel1.Location = new Point(63, 36);
+            guna2HtmlLabel1.Size = new Size(223, 39);
             guna2HtmlLabel1.Text = "Customer Details";
             // 
             // btn_Close
@@ -73,7 +75,6 @@
             btn_Save.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btn_Save.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btn_Save.ShadowDecoration.CustomizableEdges = customizableEdges3;
-         
             // 
             // txt_Phone
             // 

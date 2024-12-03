@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 using DTO;
 using DTO.Suppiler;
+using DTO.Category;
 
 namespace DL
 {
@@ -25,57 +26,65 @@ namespace DL
 
         public DbSet<TableSuppiler> Suppiler { get; set; }
 
+        public DbSet<TableCategory> Category { get; set; }  // Thêm DbSet cho Category
+
         // Phương thức kiểm tra kết nối
-        public bool CheckDatabaseConnection()
+        public bool CheckDatabaseConnection
         {
-            try
+            get
             {
-                // Kiểm tra kết nối cơ sở dữ liệu
-                return Database.CanConnect(); // Trả về true nếu có thể kết nối, false nếu không
-            }
-            catch (Exception ex)
-            {
-                // Xử lý lỗi nếu có
-                Console.WriteLine($"Lỗi khi kiểm tra kết nối cơ sở dữ liệu: {ex.Message}");
-                return false;
+                try
+                {
+                    // Kiểm tra kết nối cơ sở dữ liệu
+                    return Database.CanConnect(); // Trả về true nếu có thể kết nối, false nếu không
+                }
+                catch (Exception ex)
+                {
+                    // Xử lý lỗi nếu có
+                    Console.WriteLine($"Lỗi khi kiểm tra kết nối cơ sở dữ liệu: {ex.Message}");
+                    return false;
+                }
             }
         }
 
         // Phương thức kiểm tra ánh xạ
-        public bool CheckMapping()
+        public bool CheckMapping
         {
-            try
+            get
             {
-                // Kiểm tra ánh xạ bảng Employees
-                var model = Model;
-
-                // Kiểm tra xem bảng Employees có tồn tại trong ánh xạ không
-                var employeeEntity = model.FindEntityType(typeof(Employees));
-                if (employeeEntity == null)
+                try
                 {
-                    Console.WriteLine("Bảng 'Employees' không tồn tại trong ánh xạ.");
+                    // Kiểm tra ánh xạ bảng Employees
+                    var model = Model;
+
+                    // Kiểm tra xem bảng Employees có tồn tại trong ánh xạ không
+                    var employeeEntity = model.FindEntityType(typeof(Employees));
+                    if (employeeEntity == null)
+                    {
+                        Console.WriteLine("Bảng 'Employees' không tồn tại trong ánh xạ.");
+                        return false;
+                    }
+
+                    // Kiểm tra ánh xạ của các thuộc tính trong bảng Employees
+                    var properties = employeeEntity.GetProperties();
+                    foreach (var property in properties)
+                    {
+                        Console.WriteLine($"Thuộc tính: {property.Name}, Kiểu dữ liệu: {property.ClrType}");
+                    }
+
+                    // Nếu không có vấn đề, trả về true
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    // Xử lý lỗi nếu có
+                    Console.WriteLine($"Lỗi khi kiểm tra ánh xạ: {ex.Message}");
                     return false;
                 }
-
-                // Kiểm tra ánh xạ của các thuộc tính trong bảng Employees
-                var properties = employeeEntity.GetProperties();
-                foreach (var property in properties)
-                {
-                    Console.WriteLine($"Thuộc tính: {property.Name}, Kiểu dữ liệu: {property.ClrType}");
-                }
-
-                // Nếu không có vấn đề, trả về true
-                return true;
-            }
-            catch (Exception ex)
-            {
-                // Xử lý lỗi nếu có
-                Console.WriteLine($"Lỗi khi kiểm tra ánh xạ: {ex.Message}");
-                return false;
             }
         }
 
-        public bool check()
+        public bool Check()
         {
             using (var context = new DataProviderEntity())
             {

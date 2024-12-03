@@ -86,7 +86,9 @@
             // 
             // guna2HtmlLabel1
             // 
-            guna2HtmlLabel1.Size = new Size(171, 33);
+            guna2HtmlLabel1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel1.Location = new Point(63, 36);
+            guna2HtmlLabel1.Size = new Size(214, 39);
             guna2HtmlLabel1.Text = "Purchase Details";
             // 
             // btn_Close
@@ -186,6 +188,7 @@
             txtDate.BorderColor = Color.FromArgb(217, 221, 226);
             txtDate.BorderRadius = 26;
             txtDate.BorderThickness = 1;
+            txtDate.Checked = true;
             txtDate.CustomizableEdges = customizableEdges8;
             txtDate.FillColor = Color.White;
             txtDate.Font = new Font("Segoe UI", 9F);
@@ -414,6 +417,7 @@
             dgvSr.MinimumWidth = 100;
             dgvSr.Name = "dgvSr";
             dgvSr.ReadOnly = true;
+            dgvSr.Width = 125;
             // 
             // dgvid
             // 
