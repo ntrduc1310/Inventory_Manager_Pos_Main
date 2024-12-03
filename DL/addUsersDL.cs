@@ -10,41 +10,42 @@ namespace DL
 {
     public class addUsersDL
     {
-        public bool AddUsers(string name, string username,string password,string phone,string filepathPicture) 
+        public bool AddUsers(string name, string username, string password, string phone, string filepathPicture)
         {
             try
             {
                 using (var context = new DataProviderEntity())
                 {
-                    var newEmployee = new Employees();
-
-                    // Gán từng giá trị
-                    newEmployee.Name = name;
-                    newEmployee.UserName = username;
-                    newEmployee.Password = password;
-                    newEmployee.Phone = phone;
-                    newEmployee.Picture = filepathPicture;
-                    bool exists = context.Employees.Any(a => a.UserName == name);
+                    // Check if the username already exists
+                    bool exists = context.Employees.Any(a => a.UserName == username);
                     if (exists)
                     {
+                        // If username already exists, return false
                         return false;
                     }
-                    else
+
+                    // Create a new employee
+                    var newEmployee = new Employees
                     {
-                        // Thêm vào DbSet
-                        context.Employees.Add(newEmployee);
-                        var rowAffect = context.SaveChanges();
+                        Name = name,
+                        UserName = username,
+                        Password = password,
+                        Phone = phone,
+                        Picture = filepathPicture
+                    };
 
-                        return rowAffect > 0;
-                    }
+                    // Add and save the new employee
+                    context.Employees.Add(newEmployee);
+                    int rowsAffected = context.SaveChanges();
 
-                    
+                    return rowsAffected > 0; // Return true if save was successful
                 }
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw ex; // Re-throw exception for debugging
             }
         }
+
     }
 }
