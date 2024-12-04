@@ -1,5 +1,6 @@
 ﻿using BL;
 using BL.Category;
+using PL.Edit;
 using PL.Model;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,9 @@ namespace PL.View
         {
             InitializeComponent();
             this.Load += loadGridView;
+            guna2DataGridView1.CellFormatting += guna2DataGridView1_CellFormatting;
+            guna2DataGridView1.CellClick += guna2DataGridView1_CellClick;
+            guna2DataGridView1.CellClick += guna2DataGridView1_CellClick_delete;
         }
         private void loadGridView(object sender, EventArgs e)
         {
@@ -35,8 +39,6 @@ namespace PL.View
                 // Ánh xạ cột với dữ liệu từ cơ sở dữ liệu
                 guna2DataGridView1.Columns["dgvid"].DataPropertyName = "Id";
                 guna2DataGridView1.Columns["dgvName"].DataPropertyName = "Name";
-                guna2DataGridView1.Columns["dgvQuantityProducts"].DataPropertyName = "QuantityProducts";
-
 
                 // Đọc dữ liệu từ cơ sở dữ liệu
                 var data = await new CategoryBL().LoadCategory(); // Giả sử LoadCategory trả về danh sách các đối tượng Category
@@ -72,6 +74,61 @@ namespace PL.View
                 // Gán số thứ tự cho cột "#Sr"
                 e.Value = (e.RowIndex + 1).ToString();
             }
+        }
+        
+        private async void guna2DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Kiểm tra nếu click vào cột Edit
+            if (e.RowIndex >= 0 && guna2DataGridView1.Columns[e.ColumnIndex].Name == "dgvEdit")
+            {
+                // Lấy thông tin từ dòng hiện tại
+                int id = Convert.ToInt32(guna2DataGridView1.Rows[e.RowIndex].Cells["dgvid"].Value);
+                string name = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvName"].Value.ToString();
+
+                // Hiển thị form chỉnh sửa và truyền dữ liệu
+                PL.Edit.editCategoryForm editForm = new PL.Edit.editCategoryForm(id, name);
+                if (editForm.ShowDialog() == DialogResult.OK)
+                {
+                    // Load lại dữ liệu sau khi chỉnh sửa
+                    guna2DataGridView1.DataSource = await new CategoryBL().LoadCategory();
+                }
+            }
+        }
+
+        private async void guna2DataGridView1_CellClick_delete(object sender, DataGridViewCellEventArgs e)
+        {
+            // Kiểm tra nếu click vào cột Delete
+            if (e.RowIndex >= 0 && guna2DataGridView1.Columns[e.ColumnIndex].Name == "dgvDel")
+            {
+                // Hiển thị hộp thoại xác nhận trước khi xóa
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa danh mục này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes) // Nếu người dùng chọn "Yes"
+                {
+                    int id = Convert.ToInt32(guna2DataGridView1.Rows[e.RowIndex].Cells["dgvid"].Value);
+                    bool deleteResult = await new CategoryBL().DeleteCategory(id);
+
+                    if (deleteResult)
+                    {
+                        MessageBox.Show("Xóa danh mục thành công!");
+                        LoadCategoryToGridViewFunction();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa danh mục thất bại!");
+                    }
+                }
+                else
+                {
+                    // Nếu người dùng chọn "No", không thực hiện xóa
+                    MessageBox.Show("Hành động xóa đã bị hủy.");
+                }
+            }
+        }
+
+        public void loadCategoryToGridView(object sender, EventArgs e)
+        {
+            LoadCategoryToGridViewFunction();
         }
 
     }

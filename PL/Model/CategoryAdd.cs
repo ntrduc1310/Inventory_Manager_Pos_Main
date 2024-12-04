@@ -39,7 +39,7 @@ namespace PL.Model
 
 
 
-        private async void btn_Save_Click_2(object sender, EventArgs e)
+        private async void btn_Save_Click(object sender, EventArgs e)
         {
             bool isValid = false;
 
@@ -48,7 +48,6 @@ namespace PL.Model
                 try
                 {
                     string Name = txt_Name.Text;
-                    string QuantityProducts = txt_QuantityProducts.Text; // Giả sử bạn có một trường nhập số lượng sản phẩm
 
                     // Kiểm tra nếu trường không rỗng hoặc null
                     if (string.IsNullOrEmpty(Name))
@@ -57,15 +56,10 @@ namespace PL.Model
                         return;
                     }
 
-                    // Kiểm tra nếu số lượng không phải là số và không trống
-                    if (string.IsNullOrEmpty(QuantityProducts) || !int.TryParse(QuantityProducts, out int quantityProducts))
-                    {
-                        MessageBox.Show("Số lượng sản phẩm không hợp lệ.");
-                        return;
-                    }
+                   
 
                     // Thêm danh mục và kiểm tra kết quả
-                    bool result = await new CategoryBL().AddCategory(Name, quantityProducts);
+                    bool result = await new CategoryBL().AddCategory(Name);
                     if (result)
                     {
                         MessageBox.Show("Thêm danh mục thành công!");

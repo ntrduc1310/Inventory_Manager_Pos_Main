@@ -6,6 +6,7 @@ using DTO;
 using System.Threading.Tasks;
 using DTO.Category;
 using Microsoft.EntityFrameworkCore;
+using System.Numerics;
 
 namespace DL.Category
 {
@@ -19,7 +20,7 @@ namespace DL.Category
                 using (var context = new DataProviderEntity())
                 {
                     // Lấy tất cả các danh mục từ cơ sở dữ liệu
-                    return await context.Category.ToListAsync();
+                    return await context.Category1.ToListAsync();
                 }
             }
             catch (Exception ex)
@@ -30,7 +31,7 @@ namespace DL.Category
         }
 
         // Thêm Category
-        public async Task<bool> AddCategory(string name, int quantityProducts)
+        public async Task<bool> AddCategory(string name)
         {
             try
             {
@@ -39,18 +40,17 @@ namespace DL.Category
                     var newCategory = new DTO.Category.TableCategory
                     {
                         Name = name,
-                        QuantityProducts = quantityProducts
                     };
 
                     // Kiểm tra nếu tên danh mục đã tồn tại
-                    bool exists = await context.Category.AnyAsync(c => c.Name == name);
+                    bool exists = await context.Category1.AnyAsync(c => c.Name == name);
                     if (exists)
                     {
                         return false; // Trả về false nếu danh mục đã tồn tại
                     }
 
                     // Thêm danh mục vào DbSet
-                    context.Category.Add(newCategory);
+                    context.Category1.Add(newCategory);
 
                     // Lưu thay đổi bất đồng bộ và đợi kết quả
                     int rowAffect = await context.SaveChangesAsync(); // await kết quả của SaveChangesAsync()
@@ -60,7 +60,7 @@ namespace DL.Category
             }
             catch (Exception ex)
             {
-                // Xử lý lỗi và ném lại thông báo lỗi
+                // Xử lý lỗi và ném lại thông báo lỗi:)))))))
                 throw new Exception("Đã xảy ra lỗi khi thêm danh mục.", ex);
             }
         }
@@ -73,12 +73,12 @@ namespace DL.Category
                 using (var context = new DataProviderEntity())
                 {
                     // Sử dụng await để đợi kết quả trả về từ FirstOrDefaultAsync
-                    var categoryToDelete = await context.Category.FirstOrDefaultAsync(c => c.Id == categoryId);
+                    var categoryToDelete = await context.Category1.FirstOrDefaultAsync(c => c.Id == categoryId);
 
                     if (categoryToDelete != null)
                     {
                         // Xóa đối tượng Category
-                        context.Category.Remove(categoryToDelete);
+                        context.Category1.Remove(categoryToDelete);
 
                         // Lưu thay đổi vào cơ sở dữ liệu
                         int affectedRows = await context.SaveChangesAsync(); // Cần await với SaveChangesAsync để làm việc với bất đồng bộ
@@ -95,9 +95,45 @@ namespace DL.Category
             }
         }
 
-        public async Task<bool> UpdateCategory(int categoryId, string name, int quantityProducts)
+        public async Task<bool> UpdateCategory(int categoryId, string name)
         {
-            throw new NotImplementedException();
+            try
+            {
+                // Sử dụng DataProviderEntity để kết nối với cơ sở dữ liệu
+                using (var context = new DataProviderEntity())
+                {
+                    // Tìm người dùng có ID = id
+
+                    var user = context.Category1.Find(categoryId);
+
+                    // Kiểm tra nếu người dùng tồn tại
+                    if (user != null)
+                    {
+                        user.Name = string.IsNullOrEmpty(name) ? user.Name : name;
+                       
+                        // Lưu thay đổi vào cơ sở dữ liệu
+                        int rowsAffected = await context.SaveChangesAsync();
+                        Console.WriteLine($"Số bản ghi bị ảnh hưởng: {rowsAffected}");
+
+                        return rowsAffected > 0; // Trả về true nếu có thay đổi
+                    }
+                    else
+                    {
+                        // Ghi lại lỗi khi không tìm thấy người dùng
+                        Console.WriteLine($"Không tìm thấy người dùng với ID: {categoryId}");
+                        return false; // Trả về false khi không tìm thấy người dùng
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Ghi lại chi tiết lỗi vào console
+                Console.WriteLine($"Lỗi khi cập nhật người dùng: {ex.Message}");
+                Console.WriteLine($"Chi tiết lỗi: {ex.StackTrace}");
+
+                // Ném lại lỗi để dừng chương trình và dễ dàng kiểm soát lỗi
+                throw; // Ném lại lỗi để thông báo và dừng chương trình
+            }
         }
     }
 }

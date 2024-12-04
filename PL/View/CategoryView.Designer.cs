@@ -181,6 +181,7 @@
             dgvEdit.FillWeight = 50F;
             dgvEdit.HeaderText = "";
             dgvEdit.Image = Properties.Resources.nib;
+            dgvEdit.ImageLayout = DataGridViewImageCellLayout.Zoom;
             dgvEdit.MinimumWidth = 50;
             dgvEdit.Name = "dgvEdit";
             dgvEdit.ReadOnly = true;
@@ -192,6 +193,7 @@
             dgvDel.FillWeight = 50F;
             dgvDel.HeaderText = "";
             dgvDel.Image = Properties.Resources.delete;
+            dgvDel.ImageLayout = DataGridViewImageCellLayout.Zoom;
             dgvDel.MinimumWidth = 50;
             dgvDel.Name = "dgvDel";
             dgvDel.ReadOnly = true;

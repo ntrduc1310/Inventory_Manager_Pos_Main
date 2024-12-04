@@ -17,9 +17,9 @@ namespace BL.Category
 
         
         // Phương thức thêm mới Category
-        public async Task<bool> AddCategory(string Name, int QuantityProducts)
+        public async Task<bool> AddCategory(string Name)
         {
-            return await new CategoryDL().AddCategory(Name, QuantityProducts);
+            return await new CategoryDL().AddCategory(Name);
         }
 
         // Phương thức xóa Category theo ID
@@ -30,9 +30,9 @@ namespace BL.Category
      
 
         // Phương thức cập nhật thông tin Category
-        public async Task<bool> UpdateCategory(int CategoryId, string name, int QuantityProducts)
+        public async Task<bool> UpdateCategory(int CategoryId, string name)
         {
-            return await new CategoryDL().UpdateCategory(CategoryId, name, QuantityProducts);
+            return await new CategoryDL().UpdateCategory(CategoryId, name);
         }
     }
 }

@@ -20,13 +20,14 @@ namespace DL
             }
         }
 
+
         // Định nghĩa các DbSet cho bảng
         public DbSet<Employees> Employees { get; set; }
         public DbSet<tableAmin> Admin { get; set; } 
 
         public DbSet<TableSuppiler> Suppiler { get; set; }
 
-        public DbSet<TableCategory> Category { get; set; }  // Thêm DbSet cho Category
+        public DbSet<TableCategory> Category1 { get; set; }  // Thêm DbSet cho Category
 
         // Phương thức kiểm tra kết nối
         public bool CheckDatabaseConnection

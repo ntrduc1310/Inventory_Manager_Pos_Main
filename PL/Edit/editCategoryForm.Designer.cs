@@ -1,6 +1,6 @@
-﻿namespace PL
+﻿namespace PL.Edit
 {
-    partial class SampleAdd
+    partial class editCategoryForm
     {
         /// <summary>
         /// Required designer variable.
@@ -36,11 +36,15 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             btn_Close = new Guna.UI2.WinForms.Guna2Button();
             btn_Save = new Guna.UI2.WinForms.Guna2Button();
+            txt_Name = new Guna.UI2.WinForms.Guna2TextBox();
+            guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel1.SuspendLayout();
             guna2Panel2.SuspendLayout();
             SuspendLayout();
@@ -55,8 +59,8 @@
             guna2Panel1.Location = new Point(0, 0);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2Panel1.Size = new Size(945, 127);
-            guna2Panel1.TabIndex = 0;
+            guna2Panel1.Size = new Size(420, 127);
+            guna2Panel1.TabIndex = 1;
             // 
             // guna2HtmlLabel1
             // 
@@ -76,11 +80,11 @@
             guna2Panel2.CustomizableEdges = customizableEdges7;
             guna2Panel2.Dock = DockStyle.Bottom;
             guna2Panel2.FillColor = Color.Gainsboro;
-            guna2Panel2.Location = new Point(0, 449);
+            guna2Panel2.Location = new Point(0, 399);
             guna2Panel2.Name = "guna2Panel2";
             guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2Panel2.Size = new Size(945, 122);
-            guna2Panel2.TabIndex = 1;
+            guna2Panel2.Size = new Size(420, 122);
+            guna2Panel2.TabIndex = 2;
             // 
             // btn_Close
             // 
@@ -126,28 +130,68 @@
             btn_Save.Text = "Save";
             btn_Save.Click += btn_Save_Click;
             // 
-            // SampleAdd
+            // txt_Name
+            // 
+            txt_Name.AutoRoundedCorners = true;
+            txt_Name.BorderRadius = 26;
+            txt_Name.CustomizableEdges = customizableEdges9;
+            txt_Name.DefaultText = "";
+            txt_Name.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txt_Name.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txt_Name.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txt_Name.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txt_Name.FocusedState.BorderColor = Color.FromArgb(95, 71, 204);
+            txt_Name.Font = new Font("Segoe UI", 9F);
+            txt_Name.HoverState.BorderColor = Color.FromArgb(95, 71, 204);
+            txt_Name.Location = new Point(54, 250);
+            txt_Name.Margin = new Padding(3, 4, 3, 4);
+            txt_Name.Name = "txt_Name";
+            txt_Name.PasswordChar = '\0';
+            txt_Name.PlaceholderText = "";
+            txt_Name.SelectedText = "";
+            txt_Name.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            txt_Name.Size = new Size(313, 55);
+            txt_Name.TabIndex = 9;
+            txt_Name.Tag = "v";
+            txt_Name.TextOffset = new Point(10, 0);
+            // 
+            // guna2HtmlLabel2
+            // 
+            guna2HtmlLabel2.BackColor = Color.Transparent;
+            guna2HtmlLabel2.Location = new Point(64, 216);
+            guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            guna2HtmlLabel2.Size = new Size(43, 22);
+            guna2HtmlLabel2.TabIndex = 10;
+            guna2HtmlLabel2.Text = "Name";
+            // 
+            // editCategoryForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(945, 571);
+            ClientSize = new Size(420, 521);
+            Controls.Add(txt_Name);
+            Controls.Add(guna2HtmlLabel2);
             Controls.Add(guna2Panel2);
             Controls.Add(guna2Panel1);
-            Name = "SampleAdd";
-            Text = "SampleAdd";
-            Load += SampleAdd_Load;
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "editCategoryForm";
+            Text = "editCategoryForm";
+            Load += editCategoryForm_Load;
             guna2Panel1.ResumeLayout(false);
             guna2Panel1.PerformLayout();
             guna2Panel2.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         public Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         public Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        public Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         public Guna.UI2.WinForms.Guna2Button btn_Close;
         public Guna.UI2.WinForms.Guna2Button btn_Save;
-        public Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        public Guna.UI2.WinForms.Guna2TextBox txt_Name;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
     }
 }
