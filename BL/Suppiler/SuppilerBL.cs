@@ -23,5 +23,10 @@ namespace BL.Suppiler
         {
             return await new SuppilerDL().DeleteSuppiler(SuppilerId);
         }
+
+        public async Task<bool> UpdateSupplier(int id, string name, string email, string phone, string adress)
+        {
+            return await new SuppilerDL().UpdateSupplier(id,name,email,phone,adress);
+        }
     }
 }

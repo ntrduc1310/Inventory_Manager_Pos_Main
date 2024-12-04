@@ -14,6 +14,7 @@ using Microsoft.VisualBasic.ApplicationServices;
 using PL.View;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using DL;
+using System.Security.Cryptography;
 
 namespace PL.Model
 {
@@ -66,33 +67,58 @@ namespace PL.Model
         {
             if (path != null)
             {
-                // Lấy thư mục gốc của dự án bằng cách đi lên từ thư mục chứa tệp thực thi (EXE)
+                // Lấy thư mục gốc của dự án
                 string projectDirectory = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
 
-                // Đảm bảo rằng thư mục ImagesUsers đã tồn tại trong thư mục gốc
+                // Đảm bảo thư mục ImagesUsers tồn tại
                 string destinationFolder = Path.Combine(projectDirectory, "ImagesUsers");
-
-                // Kiểm tra nếu thư mục chưa tồn tại thì tạo mới
                 if (!Directory.Exists(destinationFolder))
                 {
                     Directory.CreateDirectory(destinationFolder);
                 }
 
-                // Tạo tên file mới để tránh trùng lặp
-                string fileName = Guid.NewGuid().ToString() + Path.GetExtension(path);
+                // Tính toán hash của file ảnh (Sử dụng SHA256)
+                string fileHash = CalculateFileHash(path);
 
-                // Đường dẫn file đích (lưu vào thư mục ImagesUsers ở thư mục gốc)
-                string destinationFilePath = Path.Combine(destinationFolder, fileName);
+                // Tạo đường dẫn đích với hash làm tên file
+                string destinationFilePath = Path.Combine(destinationFolder, fileHash + Path.GetExtension(path));
 
-                // Copy file vào thư mục ImagesUsers
+                // Kiểm tra nếu file đã tồn tại trong thư mục đích
+                if (File.Exists(destinationFilePath))
+                {
+                    // Nếu file đã tồn tại, không cần lưu lại nữa
+                    return destinationFilePath;
+                }
+
+                // Sao chép file vào thư mục đích
                 File.Copy(path, destinationFilePath);
 
                 // Trả về đường dẫn file đích
                 return destinationFilePath;
             }
 
-            return null; // Trường hợp không chọn file
+            return null; // Trường hợp không có file được chọn
         }
+
+        private string CalculateFileHash(string filePath)
+        {
+            using (var sha256 = SHA256.Create())
+            {
+                // Đọc file và tính toán hash
+                using (var fileStream = File.OpenRead(filePath))
+                {
+                    byte[] hashBytes = sha256.ComputeHash(fileStream);
+                    // Chuyển đổi hash thành chuỗi hex
+                    StringBuilder hashStringBuilder = new StringBuilder();
+                    foreach (byte b in hashBytes)
+                    {
+                        hashStringBuilder.Append(b.ToString("x2"));
+                    }
+                    return hashStringBuilder.ToString();
+                }
+            }
+        }
+
 
         private void btn_Save_Click(object sender, EventArgs e)
         {

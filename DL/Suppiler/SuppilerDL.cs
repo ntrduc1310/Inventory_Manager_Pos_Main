@@ -84,5 +84,49 @@ namespace DL.Suppiler
                 throw ex;
             }
         }
+
+
+        public async Task<bool> UpdateSupplier(int id, string name, string email, string phone, string address)
+        {
+            try
+            {
+                // Sử dụng DataProviderEntity để kết nối với cơ sở dữ liệu
+                using (var context = new DataProviderEntity())
+                {
+                    // Tìm nhà cung cấp có ID = id
+                    var supplier = await context.Suppiler.FindAsync(id);
+
+                    // Kiểm tra nếu nhà cung cấp tồn tại
+                    if (supplier != null)
+                    {
+                        // Cập nhật các trường nếu giá trị mới không rỗng hoặc null
+                        supplier.Name = !string.IsNullOrEmpty(name) ? name : supplier.Name;
+                        supplier.Email = !string.IsNullOrEmpty(email) ? email : supplier.Email;
+                        supplier.Phone = !string.IsNullOrEmpty(phone) ? phone : supplier.Phone;
+                        supplier.Adress = !string.IsNullOrEmpty(address) ? address : supplier.Adress;
+
+                        // Lưu thay đổi vào cơ sở dữ liệu
+                        int rowsAffected = await context.SaveChangesAsync();
+
+                        return rowsAffected > 0; // Trả về true nếu có thay đổi
+                    }
+                    else
+                    {
+                        // Ghi log hoặc hiển thị thông báo khi không tìm thấy
+                        Console.WriteLine($"Không tìm thấy nhà cung cấp với ID: {id}");
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log lỗi
+                Console.WriteLine($"Lỗi khi cập nhật nhà cung cấp: {ex.Message}");
+                throw ex;
+            }
+        }
+
+
+
     }
 }
