@@ -4,6 +4,8 @@ using System.Configuration;
 using DTO;
 using DTO.Suppiler;
 using DTO.Category;
+using DTO.Customer;
+
 
 namespace DL
 {
@@ -27,7 +29,8 @@ namespace DL
 
         public DbSet<TableSuppiler> Suppiler { get; set; }
 
-        public DbSet<TableCategory> Category1 { get; set; }  // Thêm DbSet cho Category
+        public DbSet<TableCategory> Category { get; set; }  
+        public DbSet<TableCustomer> Customer { get; set; }
 
         // Phương thức kiểm tra kết nối
         public bool CheckDatabaseConnection

@@ -21,5 +21,3 @@ namespace DTO.Category
     }
 }
 
-//có rồi tạo làm gì 
-//:)))kh có thấy rõ

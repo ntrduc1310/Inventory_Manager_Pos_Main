@@ -44,6 +44,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             txt_Name = new Guna.UI2.WinForms.Guna2TextBox();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -57,6 +58,7 @@
             btnBrowse = new Guna.UI2.WinForms.Guna2Button();
             txtPic = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             guna2Panel1.SuspendLayout();
+            guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtPic).BeginInit();
             SuspendLayout();
             // 
@@ -91,11 +93,17 @@
             btn_Save.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btn_Save.ShadowDecoration.CustomizableEdges = customizableEdges3;
             // 
+            // guna2Panel2
+            // 
+            guna2Panel2.Location = new Point(0, 502);
+            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2Panel2.Size = new Size(999, 122);
+            // 
             // txt_Name
             // 
             txt_Name.AutoRoundedCorners = true;
             txt_Name.BorderRadius = 26;
-            txt_Name.CustomizableEdges = customizableEdges4;
+            txt_Name.CustomizableEdges = customizableEdges5;
             txt_Name.DefaultText = "";
             txt_Name.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txt_Name.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -110,7 +118,7 @@
             txt_Name.PasswordChar = '\0';
             txt_Name.PlaceholderText = "";
             txt_Name.SelectedText = "";
-            txt_Name.ShadowDecoration.CustomizableEdges = customizableEdges5;
+            txt_Name.ShadowDecoration.CustomizableEdges = customizableEdges6;
             txt_Name.Size = new Size(242, 55);
             txt_Name.TabIndex = 10;
             txt_Name.Tag = "v";
@@ -138,8 +146,8 @@
             // 
             cb_Category.AutoRoundedCorners = true;
             cb_Category.BackColor = Color.Transparent;
-            cb_Category.BorderRadius = 17;
-            cb_Category.CustomizableEdges = customizableEdges6;
+            cb_Category.BorderRadius = 27;
+            cb_Category.CustomizableEdges = customizableEdges7;
             cb_Category.DrawMode = DrawMode.OwnerDrawFixed;
             cb_Category.DropDownStyle = ComboBoxStyle.DropDownList;
             cb_Category.FocusedColor = Color.FromArgb(95, 71, 204);
@@ -147,18 +155,18 @@
             cb_Category.Font = new Font("Segoe UI", 10F);
             cb_Category.ForeColor = Color.Gray;
             cb_Category.HoverState.BorderColor = Color.FromArgb(96, 71, 204);
-            cb_Category.ItemHeight = 30;
-            cb_Category.Location = new Point(396, 220);
+            cb_Category.ItemHeight = 50;
+            cb_Category.Location = new Point(396, 219);
             cb_Category.Name = "cb_Category";
-            cb_Category.ShadowDecoration.CustomizableEdges = customizableEdges7;
-            cb_Category.Size = new Size(242, 36);
+            cb_Category.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            cb_Category.Size = new Size(242, 56);
             cb_Category.TabIndex = 13;
             // 
             // txt_Barcode
             // 
             txt_Barcode.AutoRoundedCorners = true;
             txt_Barcode.BorderRadius = 26;
-            txt_Barcode.CustomizableEdges = customizableEdges8;
+            txt_Barcode.CustomizableEdges = customizableEdges9;
             txt_Barcode.DefaultText = "";
             txt_Barcode.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txt_Barcode.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -173,7 +181,7 @@
             txt_Barcode.PasswordChar = '\0';
             txt_Barcode.PlaceholderText = "";
             txt_Barcode.SelectedText = "";
-            txt_Barcode.ShadowDecoration.CustomizableEdges = customizableEdges9;
+            txt_Barcode.ShadowDecoration.CustomizableEdges = customizableEdges10;
             txt_Barcode.Size = new Size(242, 55);
             txt_Barcode.TabIndex = 14;
             txt_Barcode.Tag = "v";
@@ -192,7 +200,7 @@
             // 
             txt_Cost.AutoRoundedCorners = true;
             txt_Cost.BorderRadius = 26;
-            txt_Cost.CustomizableEdges = customizableEdges10;
+            txt_Cost.CustomizableEdges = customizableEdges11;
             txt_Cost.DefaultText = "";
             txt_Cost.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txt_Cost.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -207,7 +215,7 @@
             txt_Cost.PasswordChar = '\0';
             txt_Cost.PlaceholderText = "";
             txt_Cost.SelectedText = "";
-            txt_Cost.ShadowDecoration.CustomizableEdges = customizableEdges11;
+            txt_Cost.ShadowDecoration.CustomizableEdges = customizableEdges12;
             txt_Cost.Size = new Size(116, 55);
             txt_Cost.TabIndex = 16;
             txt_Cost.Tag = "v";
@@ -226,7 +234,7 @@
             // 
             txt_Price.AutoRoundedCorners = true;
             txt_Price.BorderRadius = 26;
-            txt_Price.CustomizableEdges = customizableEdges12;
+            txt_Price.CustomizableEdges = customizableEdges13;
             txt_Price.DefaultText = "";
             txt_Price.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txt_Price.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -241,7 +249,7 @@
             txt_Price.PasswordChar = '\0';
             txt_Price.PlaceholderText = "";
             txt_Price.SelectedText = "";
-            txt_Price.ShadowDecoration.CustomizableEdges = customizableEdges13;
+            txt_Price.ShadowDecoration.CustomizableEdges = customizableEdges14;
             txt_Price.Size = new Size(116, 55);
             txt_Price.TabIndex = 18;
             txt_Price.Tag = "v";
@@ -260,7 +268,7 @@
             // 
             btnBrowse.AutoRoundedCorners = true;
             btnBrowse.BorderRadius = 26;
-            btnBrowse.CustomizableEdges = customizableEdges14;
+            btnBrowse.CustomizableEdges = customizableEdges15;
             btnBrowse.DisabledState.BorderColor = Color.DarkGray;
             btnBrowse.DisabledState.CustomBorderColor = Color.DarkGray;
             btnBrowse.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -270,7 +278,7 @@
             btnBrowse.ForeColor = Color.White;
             btnBrowse.Location = new Point(744, 337);
             btnBrowse.Name = "btnBrowse";
-            btnBrowse.ShadowDecoration.CustomizableEdges = customizableEdges15;
+            btnBrowse.ShadowDecoration.CustomizableEdges = customizableEdges16;
             btnBrowse.Size = new Size(166, 55);
             btnBrowse.TabIndex = 20;
             btnBrowse.Text = "Browse";
@@ -281,7 +289,7 @@
             txtPic.ImageRotate = 0F;
             txtPic.Location = new Point(744, 133);
             txtPic.Name = "txtPic";
-            txtPic.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            txtPic.ShadowDecoration.CustomizableEdges = customizableEdges17;
             txtPic.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             txtPic.Size = new Size(185, 178);
             txtPic.SizeMode = PictureBoxSizeMode.Zoom;
@@ -308,6 +316,7 @@
             Name = "ProductAdd";
             Text = "ProductAdd";
             Load += ProductAdd_Load;
+            Controls.SetChildIndex(guna2Panel2, 0);
             Controls.SetChildIndex(guna2Panel1, 0);
             Controls.SetChildIndex(guna2HtmlLabel2, 0);
             Controls.SetChildIndex(txt_Name, 0);
@@ -323,6 +332,7 @@
             Controls.SetChildIndex(btnBrowse, 0);
             guna2Panel1.ResumeLayout(false);
             guna2Panel1.PerformLayout();
+            guna2Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)txtPic).EndInit();
             ResumeLayout(false);
             PerformLayout();

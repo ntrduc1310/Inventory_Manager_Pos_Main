@@ -68,6 +68,7 @@ namespace PL.View
             btnAdd1.Margin = new Padding(4);
             btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnAdd1.Size = new Size(259, 88);
+            btnAdd1.Click += btnAdd1_Click_1;
             // 
             // txtsearch
             // 
@@ -226,7 +227,6 @@ namespace PL.View
             Controls.Add(guna2DataGridView1);
             Name = "CustomerView";
             Text = "CustomerView";
-            Load += CustomerView_Load;
             Controls.SetChildIndex(guna2Panel1, 0);
             Controls.SetChildIndex(guna2DataGridView1, 0);
             guna2Panel1.ResumeLayout(false);

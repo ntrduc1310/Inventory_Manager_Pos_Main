@@ -37,13 +37,13 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -65,7 +65,7 @@
             guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             btnExit = new Guna.UI2.WinForms.Guna2ControlBox();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            CB_Themes = new Guna.UI2.WinForms.Guna2ComboBox();
+            guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             CenterPanel = new Guna.UI2.WinForms.Guna2Panel();
             btn_Customer = new Guna.UI2.WinForms.Guna2Panel();
             btn_Supplier = new Guna.UI2.WinForms.Guna2Button();
@@ -79,6 +79,7 @@
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)guna2PictureBox2).BeginInit();
             btn_Customer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             SuspendLayout();
@@ -124,7 +125,7 @@
             // 
             // guna2Panel1
             // 
-            guna2Panel1.Controls.Add(CB_Themes);
+            guna2Panel1.Controls.Add(guna2PictureBox2);
             guna2Panel1.Controls.Add(btnExit);
             guna2Panel1.Controls.Add(btnMax);
             guna2Panel1.Controls.Add(guna2ControlBox2);
@@ -136,24 +137,20 @@
             guna2Panel1.Size = new Size(1370, 88);
             guna2Panel1.TabIndex = 3;
             // 
-            // CB_Themes
+            // guna2PictureBox2
             // 
-            CB_Themes.AutoRoundedCorners = true;
-            CB_Themes.BackColor = Color.Transparent;
-            CB_Themes.BorderRadius = 17;
-            CB_Themes.CustomizableEdges = customizableEdges7;
-            CB_Themes.DrawMode = DrawMode.OwnerDrawFixed;
-            CB_Themes.DropDownStyle = ComboBoxStyle.DropDownList;
-            CB_Themes.FocusedColor = Color.FromArgb(94, 148, 255);
-            CB_Themes.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            CB_Themes.Font = new Font("Segoe UI", 10F);
-            CB_Themes.ForeColor = Color.FromArgb(68, 88, 112);
-            CB_Themes.ItemHeight = 30;
-            CB_Themes.Location = new Point(890, 27);
-            CB_Themes.Name = "CB_Themes";
-            CB_Themes.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            CB_Themes.Size = new Size(177, 36);
-            CB_Themes.TabIndex = 3;
+            guna2PictureBox2.BackColor = Color.Transparent;
+            guna2PictureBox2.CustomizableEdges = customizableEdges7;
+            guna2PictureBox2.Image = (Image)resources.GetObject("guna2PictureBox2.Image");
+            guna2PictureBox2.ImageRotate = 0F;
+            guna2PictureBox2.Location = new Point(-12, 0);
+            guna2PictureBox2.Name = "guna2PictureBox2";
+            guna2PictureBox2.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            guna2PictureBox2.Size = new Size(128, 93);
+            guna2PictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            guna2PictureBox2.TabIndex = 3;
+            guna2PictureBox2.TabStop = false;
+            guna2PictureBox2.Click += guna2PictureBox2_Click;
             // 
             // CenterPanel
             // 
@@ -211,7 +208,7 @@
             btn_Supplier.ImageAlign = HorizontalAlignment.Left;
             btn_Supplier.ImageOffset = new Point(0, -2);
             btn_Supplier.ImageSize = new Size(30, 30);
-            btn_Supplier.Location = new Point(49, 374);
+            btn_Supplier.Location = new Point(49, 380);
             btn_Supplier.Name = "btn_Supplier";
             btn_Supplier.ShadowDecoration.CustomizableEdges = customizableEdges14;
             btn_Supplier.Size = new Size(202, 52);
@@ -238,7 +235,7 @@
             btn_Users.ImageAlign = HorizontalAlignment.Left;
             btn_Users.ImageOffset = new Point(0, -2);
             btn_Users.ImageSize = new Size(30, 30);
-            btn_Users.Location = new Point(49, 658);
+            btn_Users.Location = new Point(49, 657);
             btn_Users.Name = "btn_Users";
             btn_Users.ShadowDecoration.CustomizableEdges = customizableEdges16;
             btn_Users.Size = new Size(202, 52);
@@ -265,7 +262,7 @@
             btn_Sales.ImageAlign = HorizontalAlignment.Left;
             btn_Sales.ImageOffset = new Point(0, -2);
             btn_Sales.ImageSize = new Size(30, 30);
-            btn_Sales.Location = new Point(49, 586);
+            btn_Sales.Location = new Point(49, 593);
             btn_Sales.Name = "btn_Sales";
             btn_Sales.ShadowDecoration.CustomizableEdges = customizableEdges18;
             btn_Sales.Size = new Size(202, 52);
@@ -292,7 +289,7 @@
             btn_Customers.ImageAlign = HorizontalAlignment.Left;
             btn_Customers.ImageOffset = new Point(0, -2);
             btn_Customers.ImageSize = new Size(30, 30);
-            btn_Customers.Location = new Point(49, 514);
+            btn_Customers.Location = new Point(49, 521);
             btn_Customers.Name = "btn_Customers";
             btn_Customers.ShadowDecoration.CustomizableEdges = customizableEdges20;
             btn_Customers.Size = new Size(202, 52);
@@ -319,7 +316,7 @@
             btn_Purchases.ImageAlign = HorizontalAlignment.Left;
             btn_Purchases.ImageOffset = new Point(0, -2);
             btn_Purchases.ImageSize = new Size(30, 30);
-            btn_Purchases.Location = new Point(49, 442);
+            btn_Purchases.Location = new Point(49, 450);
             btn_Purchases.Name = "btn_Purchases";
             btn_Purchases.ShadowDecoration.CustomizableEdges = customizableEdges22;
             btn_Purchases.Size = new Size(202, 52);
@@ -399,7 +396,7 @@
             btn_Category.ImageAlign = HorizontalAlignment.Left;
             btn_Category.ImageOffset = new Point(0, -2);
             btn_Category.ImageSize = new Size(30, 30);
-            btn_Category.Location = new Point(49, 247);
+            btn_Category.Location = new Point(49, 249);
             btn_Category.Name = "btn_Category";
             btn_Category.ShadowDecoration.CustomizableEdges = customizableEdges28;
             btn_Category.Size = new Size(202, 52);
@@ -450,6 +447,7 @@
             Text = "Main";
             Load += Main_Load;
             guna2Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)guna2PictureBox2).EndInit();
             btn_Customer.ResumeLayout(false);
             btn_Customer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
@@ -474,6 +472,6 @@
         private Guna.UI2.WinForms.Guna2Button btn_Sales;
         private Guna.UI2.WinForms.Guna2Button btn_Users;
         private Guna.UI2.WinForms.Guna2Button btn_Supplier;
-        private Guna.UI2.WinForms.Guna2ComboBox CB_Themes;
+        public Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
     }
 }

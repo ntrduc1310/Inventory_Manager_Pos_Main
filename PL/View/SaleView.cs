@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PL.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +19,17 @@ namespace PL.View
         }
 
         private void SaleView_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAdd1_Click_1(object sender, EventArgs e)
+        {
+            SaleAdd saleAdd = new SaleAdd();
+            saleAdd.ShowDialog();
+        }
+
+        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

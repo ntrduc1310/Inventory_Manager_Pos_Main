@@ -20,7 +20,7 @@ namespace DL.Category
                 using (var context = new DataProviderEntity())
                 {
                     // Lấy tất cả các danh mục từ cơ sở dữ liệu
-                    return await context.Category1.ToListAsync();
+                    return await context.Category.ToListAsync();
                 }
             }
             catch (Exception ex)
@@ -43,14 +43,14 @@ namespace DL.Category
                     };
 
                     // Kiểm tra nếu tên danh mục đã tồn tại
-                    bool exists = await context.Category1.AnyAsync(c => c.Name == name);
+                    bool exists = await context.Category.AnyAsync(c => c.Name == name);
                     if (exists)
                     {
                         return false; // Trả về false nếu danh mục đã tồn tại
                     }
 
                     // Thêm danh mục vào DbSet
-                    context.Category1.Add(newCategory);
+                    context.Category.Add(newCategory);
 
                     // Lưu thay đổi bất đồng bộ và đợi kết quả
                     int rowAffect = await context.SaveChangesAsync(); // await kết quả của SaveChangesAsync()
@@ -73,12 +73,12 @@ namespace DL.Category
                 using (var context = new DataProviderEntity())
                 {
                     // Sử dụng await để đợi kết quả trả về từ FirstOrDefaultAsync
-                    var categoryToDelete = await context.Category1.FirstOrDefaultAsync(c => c.Id == categoryId);
+                    var categoryToDelete = await context.Category.FirstOrDefaultAsync(c => c.Id == categoryId);
 
                     if (categoryToDelete != null)
                     {
                         // Xóa đối tượng Category
-                        context.Category1.Remove(categoryToDelete);
+                        context.Category.Remove(categoryToDelete);
 
                         // Lưu thay đổi vào cơ sở dữ liệu
                         int affectedRows = await context.SaveChangesAsync(); // Cần await với SaveChangesAsync để làm việc với bất đồng bộ
@@ -104,7 +104,7 @@ namespace DL.Category
                 {
                     // Tìm người dùng có ID = id
 
-                    var user = context.Category1.Find(categoryId);
+                    var user = context.Category.Find(categoryId);
 
                     // Kiểm tra nếu người dùng tồn tại
                     if (user != null)

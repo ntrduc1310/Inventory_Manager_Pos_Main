@@ -100,7 +100,7 @@
             txt_Name.Margin = new Padding(3, 4, 3, 4);
             txt_Name.Name = "txt_Name";
             txt_Name.PasswordChar = '\0';
-            txt_Name.PlaceholderText = "";
+            txt_Name.PlaceholderText = "Edit Name";
             txt_Name.SelectedText = "";
             txt_Name.ShadowDecoration.CustomizableEdges = customizableEdges6;
             txt_Name.Size = new Size(313, 55);

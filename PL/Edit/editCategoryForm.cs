@@ -68,5 +68,10 @@ namespace PL.Edit
         {
             this.Close();
         }
+
+        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

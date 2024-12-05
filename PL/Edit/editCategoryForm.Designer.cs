@@ -59,19 +59,20 @@
             guna2Panel1.Location = new Point(0, 0);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2Panel1.Size = new Size(420, 127);
+            guna2Panel1.Size = new Size(449, 127);
             guna2Panel1.TabIndex = 1;
             // 
             // guna2HtmlLabel1
             // 
             guna2HtmlLabel1.BackColor = Color.Transparent;
-            guna2HtmlLabel1.Font = new Font("Segoe UI", 14F);
+            guna2HtmlLabel1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel1.ForeColor = SystemColors.ButtonHighlight;
             guna2HtmlLabel1.Location = new Point(35, 36);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(159, 33);
+            guna2HtmlLabel1.Size = new Size(178, 39);
             guna2HtmlLabel1.TabIndex = 0;
-            guna2HtmlLabel1.Text = "Sample Header";
+            guna2HtmlLabel1.Text = "Edit Category";
+            guna2HtmlLabel1.Click += guna2HtmlLabel1_Click;
             // 
             // guna2Panel2
             // 
@@ -83,7 +84,7 @@
             guna2Panel2.Location = new Point(0, 399);
             guna2Panel2.Name = "guna2Panel2";
             guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2Panel2.Size = new Size(420, 122);
+            guna2Panel2.Size = new Size(449, 122);
             guna2Panel2.TabIndex = 2;
             // 
             // btn_Close
@@ -168,13 +169,14 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(420, 521);
+            ClientSize = new Size(449, 521);
             Controls.Add(txt_Name);
             Controls.Add(guna2HtmlLabel2);
             Controls.Add(guna2Panel2);
             Controls.Add(guna2Panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "editCategoryForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "editCategoryForm";
             Load += editCategoryForm_Load;
             guna2Panel1.ResumeLayout(false);
