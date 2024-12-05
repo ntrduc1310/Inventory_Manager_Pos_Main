@@ -1,6 +1,7 @@
 ﻿using BL;
 using DL;
 using Guna.UI2.WinForms;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.VisualBasic.ApplicationServices;
 using PL.View;
 using System;
@@ -146,55 +147,61 @@ namespace PL.Edit
         // sự kiện nhấn save
         private void btn_Save_Click(object sender, EventArgs e)
         {
-            try
+            bool isValid = false;
+            while (!isValid)
             {
-                // Thông tin cần cập nhật
-                int Id = userId; // Đảm bảo userId đã được gán giá trị     
-                string name = txt_Name.Text.Trim();
-                string userName = txt_UserName.Text.Trim();
-                string password = txt_Password.Text.Trim();
-                string phone = txt_Phone.Text.Trim();
-                if (string.IsNullOrEmpty(name))
+                try
                 {
-                    MessageBox.Show("Tên không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txt_Name.Focus();
-                    return;
-                }
+                    // Thông tin cần cập nhật
+                    int Id = userId; // Đảm bảo userId đã được gán giá trị     
+                    string name = txt_Name.Text.Trim();
+                    string userName = txt_UserName.Text.Trim();
+                    string password = txt_Password.Text.Trim();
+                    string phone = txt_Phone.Text.Trim();
+                    if (string.IsNullOrEmpty(name))
+                    {
+                        MessageBox.Show("Tên không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txt_Name.Focus();
+                        return;
+                    }
 
-                if (string.IsNullOrEmpty(userName))
-                {
-                    MessageBox.Show("Tên người dùng không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txt_UserName.Focus();
-                    return;
-                }
+                    if (string.IsNullOrEmpty(userName))
+                    {
+                        MessageBox.Show("Tên người dùng không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txt_UserName.Focus();
+                        return;
+                    }
 
-                if (string.IsNullOrEmpty(password))
-                {
-                    MessageBox.Show("Mật khẩu không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txt_Password.Focus();
-                    return;
-                }
+                    if (string.IsNullOrEmpty(password))
+                    {
+                        MessageBox.Show("Mật khẩu không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txt_Password.Focus();
+                        return;
+                    }
 
-                // Lấy mảng byte từ PictureBox
-                string picture = SaveImageToFolder(filePathnew);
-                // Gọi hàm UpdateUser
-                bool result = new UpdateUsersBL().UpdateUser(Id, name, userName, password, phone, picture);
+                    // Lấy mảng byte từ PictureBox
+                    string picture = SaveImageToFolder(filePathnew);
+                    // Gọi hàm UpdateUser
+                    bool result = new UpdateUsersBL().UpdateUser(Id, name, userName, password, phone, picture);
 
-                if (result)
-                {
-                    MessageBox.Show("Cập nhật thành công!");
-                    UserView userView = new UserView();
-                    Main.Instance.LoadFormIntoPanelCenter(userView);
-                    this.Close();
+                    if (result)
+                    {
+                        MessageBox.Show("Cập nhật thành công!");
+                        UserView userView = new UserView();
+                        Main.Instance.LoadFormIntoPanelCenter(userView);
+                        this.Close();
+                        isValid = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không có người dùng hoặc thông tin không được thay đổi.");
+                        isValid = true;
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Không có người dùng hoặc thông tin không được thay đổi.");
+                    MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}");
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}");
             }
 
         }
