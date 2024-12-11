@@ -1,5 +1,6 @@
 ﻿using Guna.UI2.WinForms;
 using PL.Edit;
+using PL.Model;
 using PL.View;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization;
 
 namespace PL
 {
@@ -40,8 +42,9 @@ namespace PL
             _obj = this;
             btnMax.PerformClick();
             _obj.Visible = false;
-           
-            
+            btn_DashBoard.PerformClick();
+
+
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -116,8 +119,8 @@ namespace PL
 
         private void CenterPanel_Paint(object sender, PaintEventArgs e)
         {
-            CustomerView customerView = new CustomerView();
-            LoadFormIntoPanel(customerView, CenterPanel);
+            DashBoard dashboard = new DashBoard();
+            LoadFormIntoPanelCenter(dashboard);
 
         }
 
@@ -145,7 +148,8 @@ namespace PL
 
         private void btn_Customers_Click(object sender, EventArgs e)
         {
-
+            CustomerView customView = new CustomerView();
+            LoadFormIntoPanel(customView, CenterPanel);
         }
 
         private void btn_Products_Click(object sender, EventArgs e)
@@ -156,12 +160,20 @@ namespace PL
 
         private void btn_Sales_Click(object sender, EventArgs e)
         {
-
+            SaleView saleView = new SaleView();
+            LoadFormIntoPanel(saleView, CenterPanel);
 
         }
-        
 
+        private void guna2PictureBox2_Click(object sender, EventArgs e)
+        {
 
-       
+        }
+
+        private void btn_Home_Click(object sender, EventArgs e)
+        {
+            DashBoard dashboard = new DashBoard();
+            LoadFormIntoPanelCenter(dashboard);
+        }
     }
 }

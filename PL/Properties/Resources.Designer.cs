@@ -113,6 +113,16 @@ namespace PL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_distributor_64 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-distributor-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_home_104 {
             get {
                 object obj = ResourceManager.GetObject("icons8-home-104", resourceCulture);
@@ -156,6 +166,16 @@ namespace PL.Properties {
         internal static System.Drawing.Bitmap reject {
             get {
                 object obj = ResourceManager.GetObject("reject", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2024_12_05_170206_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot_2024-12-05_170206-removebg-preview", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

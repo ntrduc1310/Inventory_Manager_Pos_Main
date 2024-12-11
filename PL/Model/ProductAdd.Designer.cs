@@ -45,6 +45,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+<<<<<<< HEAD
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -53,6 +54,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+=======
+>>>>>>> 1b1984b20cccbd96ba83bb8c828b658b38eee44b
             txt_Name = new Guna.UI2.WinForms.Guna2TextBox();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -119,10 +122,20 @@
             guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2Panel2.Size = new Size(1249, 152);
             // 
+            // guna2Panel2
+            // 
+            guna2Panel2.Location = new Point(0, 502);
+            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2Panel2.Size = new Size(999, 122);
+            // 
             // txt_Name
             // 
             txt_Name.AutoRoundedCorners = true;
+<<<<<<< HEAD
             txt_Name.BorderRadius = 33;
+=======
+            txt_Name.BorderRadius = 26;
+>>>>>>> 1b1984b20cccbd96ba83bb8c828b658b38eee44b
             txt_Name.CustomizableEdges = customizableEdges5;
             txt_Name.DefaultText = "";
             txt_Name.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -139,7 +152,11 @@
             txt_Name.PlaceholderText = "";
             txt_Name.SelectedText = "";
             txt_Name.ShadowDecoration.CustomizableEdges = customizableEdges6;
+<<<<<<< HEAD
             txt_Name.Size = new Size(302, 69);
+=======
+            txt_Name.Size = new Size(242, 55);
+>>>>>>> 1b1984b20cccbd96ba83bb8c828b658b38eee44b
             txt_Name.TabIndex = 10;
             txt_Name.Tag = "v";
             txt_Name.TextOffset = new Point(10, 0);
@@ -168,7 +185,11 @@
             // 
             cb_Category.AutoRoundedCorners = true;
             cb_Category.BackColor = Color.Transparent;
+<<<<<<< HEAD
             cb_Category.BorderRadius = 17;
+=======
+            cb_Category.BorderRadius = 27;
+>>>>>>> 1b1984b20cccbd96ba83bb8c828b658b38eee44b
             cb_Category.CustomizableEdges = customizableEdges7;
             cb_Category.DrawMode = DrawMode.OwnerDrawFixed;
             cb_Category.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -177,19 +198,31 @@
             cb_Category.Font = new Font("Segoe UI", 10F);
             cb_Category.ForeColor = Color.Gray;
             cb_Category.HoverState.BorderColor = Color.FromArgb(96, 71, 204);
+<<<<<<< HEAD
             cb_Category.ItemHeight = 30;
             cb_Category.Location = new Point(495, 226);
             cb_Category.Margin = new Padding(4);
             cb_Category.Name = "cb_Category";
             cb_Category.ShadowDecoration.CustomizableEdges = customizableEdges8;
             cb_Category.Size = new Size(302, 36);
+=======
+            cb_Category.ItemHeight = 50;
+            cb_Category.Location = new Point(396, 219);
+            cb_Category.Name = "cb_Category";
+            cb_Category.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            cb_Category.Size = new Size(242, 56);
+>>>>>>> 1b1984b20cccbd96ba83bb8c828b658b38eee44b
             cb_Category.TabIndex = 13;
             cb_Category.SelectedIndexChanged += cb_Category_SelectedIndexChanged;
             // 
             // txt_Barcode
             // 
             txt_Barcode.AutoRoundedCorners = true;
+<<<<<<< HEAD
             txt_Barcode.BorderRadius = 33;
+=======
+            txt_Barcode.BorderRadius = 26;
+>>>>>>> 1b1984b20cccbd96ba83bb8c828b658b38eee44b
             txt_Barcode.CustomizableEdges = customizableEdges9;
             txt_Barcode.DefaultText = "";
             txt_Barcode.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -206,7 +239,11 @@
             txt_Barcode.PlaceholderText = "";
             txt_Barcode.SelectedText = "";
             txt_Barcode.ShadowDecoration.CustomizableEdges = customizableEdges10;
+<<<<<<< HEAD
             txt_Barcode.Size = new Size(302, 69);
+=======
+            txt_Barcode.Size = new Size(242, 55);
+>>>>>>> 1b1984b20cccbd96ba83bb8c828b658b38eee44b
             txt_Barcode.TabIndex = 14;
             txt_Barcode.Tag = "v";
             txt_Barcode.TextOffset = new Point(10, 0);
@@ -224,7 +261,11 @@
             // txt_Cost
             // 
             txt_Cost.AutoRoundedCorners = true;
+<<<<<<< HEAD
             txt_Cost.BorderRadius = 24;
+=======
+            txt_Cost.BorderRadius = 26;
+>>>>>>> 1b1984b20cccbd96ba83bb8c828b658b38eee44b
             txt_Cost.CustomizableEdges = customizableEdges11;
             txt_Cost.DefaultText = "";
             txt_Cost.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -241,7 +282,11 @@
             txt_Cost.PlaceholderText = "";
             txt_Cost.SelectedText = "";
             txt_Cost.ShadowDecoration.CustomizableEdges = customizableEdges12;
+<<<<<<< HEAD
             txt_Cost.Size = new Size(115, 51);
+=======
+            txt_Cost.Size = new Size(116, 55);
+>>>>>>> 1b1984b20cccbd96ba83bb8c828b658b38eee44b
             txt_Cost.TabIndex = 16;
             txt_Cost.Tag = "v";
             txt_Cost.TextOffset = new Point(10, 0);
@@ -259,7 +304,11 @@
             // txt_Price
             // 
             txt_Price.AutoRoundedCorners = true;
+<<<<<<< HEAD
             txt_Price.BorderRadius = 24;
+=======
+            txt_Price.BorderRadius = 26;
+>>>>>>> 1b1984b20cccbd96ba83bb8c828b658b38eee44b
             txt_Price.CustomizableEdges = customizableEdges13;
             txt_Price.DefaultText = "";
             txt_Price.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -276,7 +325,11 @@
             txt_Price.PlaceholderText = "";
             txt_Price.SelectedText = "";
             txt_Price.ShadowDecoration.CustomizableEdges = customizableEdges14;
+<<<<<<< HEAD
             txt_Price.Size = new Size(115, 51);
+=======
+            txt_Price.Size = new Size(116, 55);
+>>>>>>> 1b1984b20cccbd96ba83bb8c828b658b38eee44b
             txt_Price.TabIndex = 18;
             txt_Price.Tag = "v";
             txt_Price.TextOffset = new Point(10, 0);
@@ -294,7 +347,11 @@
             // btnBrowse
             // 
             btnBrowse.AutoRoundedCorners = true;
+<<<<<<< HEAD
             btnBrowse.BorderRadius = 33;
+=======
+            btnBrowse.BorderRadius = 26;
+>>>>>>> 1b1984b20cccbd96ba83bb8c828b658b38eee44b
             btnBrowse.CustomizableEdges = customizableEdges15;
             btnBrowse.DisabledState.BorderColor = Color.DarkGray;
             btnBrowse.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -307,7 +364,11 @@
             btnBrowse.Margin = new Padding(4);
             btnBrowse.Name = "btnBrowse";
             btnBrowse.ShadowDecoration.CustomizableEdges = customizableEdges16;
+<<<<<<< HEAD
             btnBrowse.Size = new Size(208, 69);
+=======
+            btnBrowse.Size = new Size(166, 55);
+>>>>>>> 1b1984b20cccbd96ba83bb8c828b658b38eee44b
             btnBrowse.TabIndex = 20;
             btnBrowse.Text = "Browse";
             btnBrowse.Click += btnBrowse_Click;

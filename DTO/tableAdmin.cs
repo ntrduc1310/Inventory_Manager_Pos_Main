@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace DTO
 {
     [Table("Admin")]
-    public class tableAmin
+    public class tableAdmin
     {
         [Key]
         public string id { get; set; }

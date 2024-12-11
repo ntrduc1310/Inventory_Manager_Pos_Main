@@ -14,10 +14,10 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace PL.Edit
 {
-    public partial class EditSupplier : Form
+    public partial class editSupplierForm : Form
     {
         int userId;
-        public EditSupplier(int id, string name, string email, string phone, string adress)
+        public editSupplierForm(int id, string name, string email, string phone, string adress)
         {
             InitializeComponent();
             userId = id;

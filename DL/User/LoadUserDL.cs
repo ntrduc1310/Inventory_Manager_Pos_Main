@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DL
+namespace DL.User
 {
-    public class LoadUserDL: DataProviderEntity
+    public class LoadUserDL : DataProviderEntity
     {
         // Sử dụng Entity Framework để lấy danh sách người dùng
         public List<Employees> LoadUsers()

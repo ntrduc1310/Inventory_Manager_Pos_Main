@@ -7,7 +7,8 @@ using System.Data;
 using DL;
 using System.Runtime.Serialization;
 using DTO;
-namespace BL
+using DL.User;
+namespace BL.User
 {
     public class LoadUserBL
     {

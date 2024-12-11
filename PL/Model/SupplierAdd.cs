@@ -100,6 +100,10 @@ namespace PL.Model
                 }
             }
         }
-     
+
+        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

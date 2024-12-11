@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace DL
+namespace DL.User
 {
     public class updateUser
     {

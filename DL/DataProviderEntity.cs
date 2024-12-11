@@ -4,6 +4,8 @@ using System.Configuration;
 using DTO;
 using DTO.Suppiler;
 using DTO.Category;
+using DTO.Customer;
+
 
 namespace DL
 {
@@ -23,12 +25,17 @@ namespace DL
 
         // Định nghĩa các DbSet cho bảng
         public DbSet<Employees> Employees { get; set; }
-        public DbSet<tableAmin> Admin { get; set; } 
+        public DbSet<tableAdmin> Admin { get; set; } 
 
         public DbSet<TableSuppiler> Suppiler { get; set; }
 
+<<<<<<< HEAD
         public DbSet<TableCategory> Category1 { get; set; }  // Thêm DbSet cho Category
         public DbSet<DTO.Products.Products> Products { get; set; }
+=======
+        public DbSet<TableCategory> Category { get; set; }  
+        public DbSet<TableCustomer> Customer { get; set; }
+>>>>>>> 1b1984b20cccbd96ba83bb8c828b658b38eee44b
 
         // Phương thức kiểm tra kết nối
         public bool CheckDatabaseConnection

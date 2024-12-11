@@ -47,6 +47,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
@@ -76,6 +77,7 @@
             dgvEdit = new DataGridViewImageColumn();
             dgvDel = new DataGridViewImageColumn();
             guna2Panel1.SuspendLayout();
+            guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -109,12 +111,18 @@
             btn_Save.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btn_Save.ShadowDecoration.CustomizableEdges = customizableEdges3;
             // 
+            // guna2Panel2
+            // 
+            guna2Panel2.Location = new Point(0, 651);
+            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2Panel2.Size = new Size(1029, 122);
+            // 
             // cb_Supplier
             // 
             cb_Supplier.AutoRoundedCorners = true;
             cb_Supplier.BackColor = Color.Transparent;
-            cb_Supplier.BorderRadius = 17;
-            cb_Supplier.CustomizableEdges = customizableEdges4;
+            cb_Supplier.BorderRadius = 27;
+            cb_Supplier.CustomizableEdges = customizableEdges5;
             cb_Supplier.DrawMode = DrawMode.OwnerDrawFixed;
             cb_Supplier.DropDownStyle = ComboBoxStyle.DropDownList;
             cb_Supplier.FocusedColor = Color.FromArgb(95, 71, 204);
@@ -122,11 +130,11 @@
             cb_Supplier.Font = new Font("Segoe UI", 10F);
             cb_Supplier.ForeColor = Color.Gray;
             cb_Supplier.HoverState.BorderColor = Color.FromArgb(96, 71, 204);
-            cb_Supplier.ItemHeight = 30;
-            cb_Supplier.Location = new Point(344, 171);
+            cb_Supplier.ItemHeight = 50;
+            cb_Supplier.Location = new Point(344, 168);
             cb_Supplier.Name = "cb_Supplier";
-            cb_Supplier.ShadowDecoration.CustomizableEdges = customizableEdges5;
-            cb_Supplier.Size = new Size(242, 36);
+            cb_Supplier.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            cb_Supplier.Size = new Size(242, 56);
             cb_Supplier.TabIndex = 1;
             // 
             // guna2HtmlLabel3
@@ -151,7 +159,7 @@
             // 
             txt_Barcode.AutoRoundedCorners = true;
             txt_Barcode.BorderRadius = 26;
-            txt_Barcode.CustomizableEdges = customizableEdges6;
+            txt_Barcode.CustomizableEdges = customizableEdges7;
             txt_Barcode.DefaultText = "";
             txt_Barcode.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txt_Barcode.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -166,7 +174,7 @@
             txt_Barcode.PasswordChar = '\0';
             txt_Barcode.PlaceholderText = "";
             txt_Barcode.SelectedText = "";
-            txt_Barcode.ShadowDecoration.CustomizableEdges = customizableEdges7;
+            txt_Barcode.ShadowDecoration.CustomizableEdges = customizableEdges8;
             txt_Barcode.Size = new Size(242, 55);
             txt_Barcode.TabIndex = 2;
             txt_Barcode.Tag = "v";
@@ -184,12 +192,12 @@
             // txtDate
             // 
             txtDate.AutoRoundedCorners = true;
-            txtDate.BackColor = Color.FromArgb(239, 243, 248);
-            txtDate.BorderColor = Color.FromArgb(217, 221, 226);
+            txtDate.BackColor = Color.Transparent;
+            txtDate.BorderColor = Color.Transparent;
             txtDate.BorderRadius = 26;
             txtDate.BorderThickness = 1;
             txtDate.Checked = true;
-            txtDate.CustomizableEdges = customizableEdges8;
+            txtDate.CustomizableEdges = customizableEdges9;
             txtDate.FillColor = Color.White;
             txtDate.Font = new Font("Segoe UI", 9F);
             txtDate.Format = DateTimePickerFormat.Short;
@@ -197,17 +205,17 @@
             txtDate.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             txtDate.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             txtDate.Name = "txtDate";
-            txtDate.ShadowDecoration.CustomizableEdges = customizableEdges9;
+            txtDate.ShadowDecoration.CustomizableEdges = customizableEdges10;
             txtDate.Size = new Size(232, 54);
             txtDate.TabIndex = 0;
-            txtDate.Value = new DateTime(2024, 11, 30, 22, 11, 1, 521);
+            txtDate.Value = new DateTime(2024, 12, 5, 0, 0, 0, 0);
             // 
             // cb_Product
             // 
             cb_Product.AutoRoundedCorners = true;
             cb_Product.BackColor = Color.Transparent;
-            cb_Product.BorderRadius = 17;
-            cb_Product.CustomizableEdges = customizableEdges10;
+            cb_Product.BorderRadius = 27;
+            cb_Product.CustomizableEdges = customizableEdges11;
             cb_Product.DrawMode = DrawMode.OwnerDrawFixed;
             cb_Product.DropDownStyle = ComboBoxStyle.DropDownList;
             cb_Product.FocusedColor = Color.FromArgb(95, 71, 204);
@@ -215,11 +223,11 @@
             cb_Product.Font = new Font("Segoe UI", 10F);
             cb_Product.ForeColor = Color.Gray;
             cb_Product.HoverState.BorderColor = Color.FromArgb(96, 71, 204);
-            cb_Product.ItemHeight = 30;
+            cb_Product.ItemHeight = 50;
             cb_Product.Location = new Point(344, 272);
             cb_Product.Name = "cb_Product";
-            cb_Product.ShadowDecoration.CustomizableEdges = customizableEdges11;
-            cb_Product.Size = new Size(242, 36);
+            cb_Product.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            cb_Product.Size = new Size(242, 56);
             cb_Product.TabIndex = 3;
             cb_Product.SelectedIndexChanged += cb_Product_SelectedIndexChanged;
             // 
@@ -236,7 +244,7 @@
             // 
             txt_Qty.AutoRoundedCorners = true;
             txt_Qty.BorderRadius = 26;
-            txt_Qty.CustomizableEdges = customizableEdges12;
+            txt_Qty.CustomizableEdges = customizableEdges13;
             txt_Qty.DefaultText = "";
             txt_Qty.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txt_Qty.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -251,7 +259,7 @@
             txt_Qty.PasswordChar = '\0';
             txt_Qty.PlaceholderText = "";
             txt_Qty.SelectedText = "";
-            txt_Qty.ShadowDecoration.CustomizableEdges = customizableEdges13;
+            txt_Qty.ShadowDecoration.CustomizableEdges = customizableEdges14;
             txt_Qty.Size = new Size(144, 55);
             txt_Qty.TabIndex = 4;
             txt_Qty.Tag = "v";
@@ -270,7 +278,7 @@
             // 
             txt_Cost.AutoRoundedCorners = true;
             txt_Cost.BorderRadius = 26;
-            txt_Cost.CustomizableEdges = customizableEdges14;
+            txt_Cost.CustomizableEdges = customizableEdges15;
             txt_Cost.DefaultText = "";
             txt_Cost.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txt_Cost.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -285,7 +293,7 @@
             txt_Cost.PasswordChar = '\0';
             txt_Cost.PlaceholderText = "";
             txt_Cost.SelectedText = "";
-            txt_Cost.ShadowDecoration.CustomizableEdges = customizableEdges15;
+            txt_Cost.ShadowDecoration.CustomizableEdges = customizableEdges16;
             txt_Cost.Size = new Size(144, 55);
             txt_Cost.TabIndex = 5;
             txt_Cost.Tag = "v";
@@ -304,7 +312,7 @@
             // 
             txt_Amount.AutoRoundedCorners = true;
             txt_Amount.BorderRadius = 26;
-            txt_Amount.CustomizableEdges = customizableEdges16;
+            txt_Amount.CustomizableEdges = customizableEdges17;
             txt_Amount.DefaultText = "";
             txt_Amount.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txt_Amount.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -319,7 +327,7 @@
             txt_Amount.PasswordChar = '\0';
             txt_Amount.PlaceholderText = "";
             txt_Amount.SelectedText = "";
-            txt_Amount.ShadowDecoration.CustomizableEdges = customizableEdges17;
+            txt_Amount.ShadowDecoration.CustomizableEdges = customizableEdges18;
             txt_Amount.Size = new Size(144, 55);
             txt_Amount.TabIndex = 6;
             txt_Amount.Tag = "v";
@@ -338,7 +346,8 @@
             // 
             btn_Add.AutoRoundedCorners = true;
             btn_Add.BorderRadius = 26;
-            btn_Add.CustomizableEdges = customizableEdges18;
+            customizableEdges19.TopRight = false;
+            btn_Add.CustomizableEdges = customizableEdges19;
             btn_Add.DisabledState.BorderColor = Color.DarkGray;
             btn_Add.DisabledState.CustomBorderColor = Color.DarkGray;
             btn_Add.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -348,7 +357,7 @@
             btn_Add.ForeColor = Color.White;
             btn_Add.Location = new Point(783, 168);
             btn_Add.Name = "btn_Add";
-            btn_Add.ShadowDecoration.CustomizableEdges = customizableEdges19;
+            btn_Add.ShadowDecoration.CustomizableEdges = customizableEdges20;
             btn_Add.Size = new Size(144, 55);
             btn_Add.TabIndex = 7;
             btn_Add.Text = "Add";
@@ -515,6 +524,7 @@
             Name = "PurchaseAdd";
             Text = "PurchaseAdd";
             Load += PurchaseAdd_Load;
+            Controls.SetChildIndex(guna2Panel2, 0);
             Controls.SetChildIndex(guna2HtmlLabel2, 0);
             Controls.SetChildIndex(guna2HtmlLabel3, 0);
             Controls.SetChildIndex(cb_Supplier, 0);
@@ -534,6 +544,7 @@
             Controls.SetChildIndex(guna2Panel1, 0);
             guna2Panel1.ResumeLayout(false);
             guna2Panel1.PerformLayout();
+            guna2Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
