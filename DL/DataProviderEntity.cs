@@ -37,9 +37,6 @@ namespace DL
         public DbSet<DTO.Products.Products> Products { get; set; }
 
 
-        public DbSet<DTO.Products.Products> Products { get; set; }
-        public DbSet<TableCategory> Category { get; set; }  
-        public DbSet<TableCustomer> Customer { get; set; }
 
         // Phương thức kiểm tra kết nối
         public bool CheckDatabaseConnection
