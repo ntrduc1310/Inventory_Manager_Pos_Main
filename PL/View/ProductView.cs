@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -58,7 +59,7 @@ namespace PL.View
                 decimal costPrice = (decimal)guna2DataGridView1.Rows[e.RowIndex].Cells["dgvSalePrice"].Value;
                 decimal discount = (decimal)guna2DataGridView1.Rows[e.RowIndex].Cells["dgvDiscount"].Value;
                 string description = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvDescription"].Value.ToString();
-                string image = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvImage"].Value.ToString();
+                string image = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvImage"].Value?.ToString() ?? "Default Value" ;
 
                 // Hiển thị form chỉnh sửa và truyền dữ liệu
                 PL.Edit.editProductsForm editProductsForm = new PL.Edit.editProductsForm(id, name, barcode, categoryID, quantityInStock, price, costPrice, discount, supplierId, description, image);

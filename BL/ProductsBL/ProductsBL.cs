@@ -49,5 +49,9 @@ namespace BL.ProductsBL
         {
             return await new ProductsDL().GetSupplierNameById(employeeId);
         }
+        public async Task<bool> addQuantityCategory(int categoryId, int quantity)
+        {
+            return await new ProductsDL().addQuantityCategory(categoryId, quantity);
+        }
     }
 }

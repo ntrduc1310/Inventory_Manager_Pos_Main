@@ -223,7 +223,8 @@ namespace PL.Model
                     bool result = await new BL.ProductsBL.ProductsBL().AddProducts(name, barcode, categoryId, quantity, salePrice, cost, discount, supplierId, description, image);
                     if (result)
                     {
-                        MessageBox.Show("thêm người dùng thành công!");
+                        MessageBox.Show("thêm sản phẩm thành công!");
+                        bool updateCat = await new ProductsBL().addQuantityCategory(categoryId,1);
                         ProductView productView = new ProductView();
                         Main.Instance.LoadFormIntoPanelCenter(productView);
                         this.Close();
@@ -231,7 +232,7 @@ namespace PL.Model
                     }
                     else
                     {
-                        MessageBox.Show("Người dùng đã tồn tại.");
+                        MessageBox.Show("Sản Phẩm đã tồn tại.");
                         isValid = true;
                     }
                 }
