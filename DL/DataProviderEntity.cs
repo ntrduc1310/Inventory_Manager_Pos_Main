@@ -29,13 +29,7 @@ namespace DL
 
         public DbSet<TableSuppiler> Suppiler { get; set; }
 
-<<<<<<< HEAD
         public DbSet<TableCategory> Category1 { get; set; }  // Thêm DbSet cho Category
-        public DbSet<DTO.Products.Products> Products { get; set; }
-=======
-        public DbSet<TableCategory> Category { get; set; }  
-        public DbSet<TableCustomer> Customer { get; set; }
->>>>>>> 1b1984b20cccbd96ba83bb8c828b658b38eee44b
 
         // Phương thức kiểm tra kết nối
         public bool CheckDatabaseConnection
