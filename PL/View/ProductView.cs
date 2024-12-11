@@ -33,7 +33,7 @@ namespace PL.View
 
         private void btnAdd1_Click_1(object sender, EventArgs e)
         {
-            ProductAdd productAdd = new ProductAdd();   
+            ProductAdd productAdd = new ProductAdd();
             productAdd.ShowDialog();
 
         }
@@ -51,7 +51,7 @@ namespace PL.View
                 int id = Convert.ToInt32(guna2DataGridView1.Rows[e.RowIndex].Cells["dgvid"].Value);
                 string name = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvName"].Value.ToString();
                 string barcode = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvBarcode"].Value.ToString();
-                int categoryID = (int) guna2DataGridView1.Rows[e.RowIndex].Cells["dgvCatID"].Value;
+                int categoryID = (int)guna2DataGridView1.Rows[e.RowIndex].Cells["dgvCatID"].Value;
                 int supplierId = (int)guna2DataGridView1.Rows[e.RowIndex].Cells["dgvSupplierID"].Value;
                 int quantityInStock = (int)guna2DataGridView1.Rows[e.RowIndex].Cells["dgvQuantityInStock"].Value;
                 decimal price = (decimal)guna2DataGridView1.Rows[e.RowIndex].Cells["dgvCost"].Value;
@@ -157,7 +157,7 @@ namespace PL.View
                                 Console.WriteLine($"No image found at path: {imagePath}");
                             }
                         }
-                        
+
                     }
                     catch (Exception ex)
                     {
@@ -172,9 +172,9 @@ namespace PL.View
                     {
                         if (e.ColumnIndex == guna2DataGridView1.Columns["dgvCategory"].Index)
                         {
-                            int id =(int) guna2DataGridView1.Rows[e.RowIndex].Cells["dgvCatID"].Value;
+                            int id = (int)guna2DataGridView1.Rows[e.RowIndex].Cells["dgvCatID"].Value;
 
-                            if (id !=0)
+                            if (id != 0)
                             {
                                 string categoryName = await new ProductsBL().GetCategoryNameById(id);
                                 guna2DataGridView1.Rows[e.RowIndex].Cells["dgvCategory"].Value = categoryName; // Gán giá trị hiển thị vào e.Value
@@ -210,6 +210,9 @@ namespace PL.View
             }
         }
 
+        private void guna2DataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
 
+        }
     }
 }
