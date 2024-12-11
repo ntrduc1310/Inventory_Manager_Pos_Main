@@ -202,7 +202,7 @@ namespace PL.View
             }
         }
 
-      
+
 
 
         public void loadUserstoGridview(object sender, EventArgs e)
@@ -225,6 +225,11 @@ namespace PL.View
         {
             UserAdd userAdd = new UserAdd();
             userAdd.ShowDialog();
+        }
+
+        private void guna2Panel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

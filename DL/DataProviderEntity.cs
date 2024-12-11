@@ -28,6 +28,7 @@ namespace DL
         public DbSet<TableSuppiler> Suppiler { get; set; }
 
         public DbSet<TableCategory> Category1 { get; set; }  // Thêm DbSet cho Category
+        public DbSet<DTO.Products.Products> Products { get; set; }
 
         // Phương thức kiểm tra kết nối
         public bool CheckDatabaseConnection
