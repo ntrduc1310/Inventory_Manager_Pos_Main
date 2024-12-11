@@ -30,7 +30,7 @@ namespace DL
         public DbSet<TableSuppiler> Suppiler { get; set; }
 
         public DbSet<TableCategory> Category1 { get; set; }  // Thêm DbSet cho Category
-<<<<<<< HEAD
+
         public DbSet<DTO.Products.Products> Products { get; set; }
         public DbSet<TableCategory> Category { get; set; }  
         public DbSet<TableCustomer> Customer { get; set; }
