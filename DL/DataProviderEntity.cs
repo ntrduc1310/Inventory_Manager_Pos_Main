@@ -5,6 +5,7 @@ using DTO;
 using DTO.Suppiler;
 using DTO.Category;
 using DTO.Customer;
+using System.Security.Cryptography.X509Certificates;
 
 
 namespace DL
@@ -29,7 +30,12 @@ namespace DL
 
         public DbSet<TableSuppiler> Suppiler { get; set; }
 
-        public DbSet<TableCategory> Category1 { get; set; }  // Thêm DbSet cho Category
+        public DbSet<TableCategory> Category { get; set; }  // Thêm DbSet cho Category
+
+        public DbSet<TableCustomer> Customer { get; set; }
+
+        public DbSet<DTO.Products.Products> Products { get; set; }
+
 
         public DbSet<DTO.Products.Products> Products { get; set; }
         public DbSet<TableCategory> Category { get; set; }  

@@ -131,7 +131,12 @@
             // txt_Name
             // 
             txt_Name.AutoRoundedCorners = true;
+<<<<<<< HEAD
             txt_Name.BorderRadius = 21;
+=======
+            txt_Name.BorderRadius = 33;
+            txt_Name.BorderRadius = 26;
+>>>>>>> e1edd51dd3964979a2e8ebc836e37fc628169310
             txt_Name.CustomizableEdges = customizableEdges5;
             txt_Name.DefaultText = "";
             txt_Name.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -148,7 +153,12 @@
             txt_Name.PlaceholderText = "";
             txt_Name.SelectedText = "";
             txt_Name.ShadowDecoration.CustomizableEdges = customizableEdges6;
+<<<<<<< HEAD
             txt_Name.Size = new Size(239, 44);
+=======
+            txt_Name.Size = new Size(302, 69);
+            txt_Name.Size = new Size(242, 55);
+>>>>>>> e1edd51dd3964979a2e8ebc836e37fc628169310
             txt_Name.TabIndex = 10;
             txt_Name.Tag = "v";
             txt_Name.TextOffset = new Point(10, 0);
@@ -175,6 +185,10 @@
             // 
             cb_Category.AutoRoundedCorners = true;
             cb_Category.BackColor = Color.Transparent;
+<<<<<<< HEAD
+=======
+            cb_Category.BorderRadius = 17;
+>>>>>>> e1edd51dd3964979a2e8ebc836e37fc628169310
             cb_Category.BorderRadius = 27;
             cb_Category.CustomizableEdges = customizableEdges7;
             cb_Category.DrawMode = DrawMode.OwnerDrawFixed;
@@ -184,6 +198,15 @@
             cb_Category.Font = new Font("Segoe UI", 10F);
             cb_Category.ForeColor = Color.Gray;
             cb_Category.HoverState.BorderColor = Color.FromArgb(96, 71, 204);
+<<<<<<< HEAD
+=======
+            cb_Category.ItemHeight = 30;
+            cb_Category.Location = new Point(495, 226);
+            cb_Category.Margin = new Padding(4);
+            cb_Category.Name = "cb_Category";
+            cb_Category.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            cb_Category.Size = new Size(302, 36);
+>>>>>>> e1edd51dd3964979a2e8ebc836e37fc628169310
             cb_Category.ItemHeight = 50;
             cb_Category.Location = new Point(396, 175);
             cb_Category.Name = "cb_Category";
@@ -195,7 +218,12 @@
             // txt_Barcode
             // 
             txt_Barcode.AutoRoundedCorners = true;
+<<<<<<< HEAD
             txt_Barcode.BorderRadius = 21;
+=======
+            txt_Barcode.BorderRadius = 33;
+            txt_Barcode.BorderRadius = 26;
+>>>>>>> e1edd51dd3964979a2e8ebc836e37fc628169310
             txt_Barcode.CustomizableEdges = customizableEdges9;
             txt_Barcode.DefaultText = "";
             txt_Barcode.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -212,7 +240,12 @@
             txt_Barcode.PlaceholderText = "";
             txt_Barcode.SelectedText = "";
             txt_Barcode.ShadowDecoration.CustomizableEdges = customizableEdges10;
+<<<<<<< HEAD
             txt_Barcode.Size = new Size(239, 44);
+=======
+            txt_Barcode.Size = new Size(302, 69);
+            txt_Barcode.Size = new Size(242, 55);
+>>>>>>> e1edd51dd3964979a2e8ebc836e37fc628169310
             txt_Barcode.TabIndex = 14;
             txt_Barcode.Tag = "v";
             txt_Barcode.TextOffset = new Point(10, 0);
@@ -229,7 +262,12 @@
             // txt_Cost
             // 
             txt_Cost.AutoRoundedCorners = true;
+<<<<<<< HEAD
             txt_Cost.BorderRadius = 21;
+=======
+            txt_Cost.BorderRadius = 24;
+            txt_Cost.BorderRadius = 26;
+>>>>>>> e1edd51dd3964979a2e8ebc836e37fc628169310
             txt_Cost.CustomizableEdges = customizableEdges11;
             txt_Cost.DefaultText = "";
             txt_Cost.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -246,7 +284,12 @@
             txt_Cost.PlaceholderText = "";
             txt_Cost.SelectedText = "";
             txt_Cost.ShadowDecoration.CustomizableEdges = customizableEdges12;
+<<<<<<< HEAD
             txt_Cost.Size = new Size(101, 44);
+=======
+            txt_Cost.Size = new Size(115, 51);
+            txt_Cost.Size = new Size(116, 55);
+>>>>>>> e1edd51dd3964979a2e8ebc836e37fc628169310
             txt_Cost.TabIndex = 16;
             txt_Cost.Tag = "v";
             txt_Cost.TextOffset = new Point(10, 0);
@@ -263,7 +306,12 @@
             // txt_Price
             // 
             txt_Price.AutoRoundedCorners = true;
+<<<<<<< HEAD
             txt_Price.BorderRadius = 21;
+=======
+            txt_Price.BorderRadius = 24;
+            txt_Price.BorderRadius = 26;
+>>>>>>> e1edd51dd3964979a2e8ebc836e37fc628169310
             txt_Price.CustomizableEdges = customizableEdges13;
             txt_Price.DefaultText = "";
             txt_Price.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -280,7 +328,12 @@
             txt_Price.PlaceholderText = "";
             txt_Price.SelectedText = "";
             txt_Price.ShadowDecoration.CustomizableEdges = customizableEdges14;
+<<<<<<< HEAD
             txt_Price.Size = new Size(101, 44);
+=======
+            txt_Price.Size = new Size(115, 51);
+            txt_Price.Size = new Size(116, 55);
+>>>>>>> e1edd51dd3964979a2e8ebc836e37fc628169310
             txt_Price.TabIndex = 18;
             txt_Price.Tag = "v";
             txt_Price.TextOffset = new Point(10, 0);
@@ -297,7 +350,12 @@
             // btnBrowse
             // 
             btnBrowse.AutoRoundedCorners = true;
+<<<<<<< HEAD
             btnBrowse.BorderRadius = 21;
+=======
+            btnBrowse.BorderRadius = 33;
+            btnBrowse.BorderRadius = 26;
+>>>>>>> e1edd51dd3964979a2e8ebc836e37fc628169310
             btnBrowse.CustomizableEdges = customizableEdges15;
             btnBrowse.DisabledState.BorderColor = Color.DarkGray;
             btnBrowse.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -309,7 +367,12 @@
             btnBrowse.Location = new Point(762, 336);
             btnBrowse.Name = "btnBrowse";
             btnBrowse.ShadowDecoration.CustomizableEdges = customizableEdges16;
+<<<<<<< HEAD
             btnBrowse.Size = new Size(133, 44);
+=======
+            btnBrowse.Size = new Size(208, 69);
+            btnBrowse.Size = new Size(166, 55);
+>>>>>>> e1edd51dd3964979a2e8ebc836e37fc628169310
             btnBrowse.TabIndex = 20;
             btnBrowse.Text = "Browse";
             btnBrowse.Click += btnBrowse_Click;
