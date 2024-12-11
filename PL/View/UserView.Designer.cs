@@ -53,7 +53,6 @@
             // 
             guna2Panel1.Margin = new Padding(5, 5, 5, 5);
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges1;
-<<<<<<< HEAD
             guna2Panel1.Size = new Size(1314, 251);
             guna2Panel1.Paint += guna2Panel1_Paint_1;
             // 
@@ -64,19 +63,16 @@
             // 
             // btnAdd1
             // 
-=======
             guna2Panel1.Size = new Size(1051, 201);
             // 
             // btnAdd1
             // 
             btnAdd1.BorderRadius = 43;
->>>>>>> c9753494fa8812743940e041db76009074a677d9
             btnAdd1.DialogResult = DialogResult.None;
             btnAdd1.DisabledState.BorderColor = Color.DarkGray;
             btnAdd1.DisabledState.CustomBorderColor = Color.DarkGray;
             btnAdd1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnAdd1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-<<<<<<< HEAD
             btnAdd1.Location = new Point(79, 114);
             btnAdd1.Margin = new Padding(5, 5, 5, 5);
             btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges2;
@@ -85,12 +81,10 @@
             btnAdd1.Location = new Point(63, 123);
             btnAdd1.Margin = new Padding(4);
             btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-=======
             btnAdd1.Location = new Point(63, 91);
             btnAdd1.Margin = new Padding(4);
             btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnAdd1.Size = new Size(259, 88);
->>>>>>> c9753494fa8812743940e041db76009074a677d9
             btnAdd1.Click += btnAdd1_Click_2;
             // 
             // txtsearch
@@ -102,12 +96,9 @@
             txtsearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtsearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtsearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-<<<<<<< HEAD
             txtsearch.Location = new Point(920, 180);
             txtsearch.Margin = new Padding(5, 6, 5, 6);
             txtsearch.Location = new Point(578, 123);
-=======
->>>>>>> c9753494fa8812743940e041db76009074a677d9
             txtsearch.Margin = new Padding(4, 5, 4, 5);
             txtsearch.ShadowDecoration.CustomizableEdges = customizableEdges3;
             txtsearch.Size = new Size(520, 80);
@@ -115,7 +106,6 @@
             // guna2HtmlLabel1
             // 
             guna2HtmlLabel1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-<<<<<<< HEAD
             guna2HtmlLabel1.Location = new Point(79, 45);
             guna2HtmlLabel1.Margin = new Padding(5, 5, 5, 5);
             guna2HtmlLabel1.Size = new Size(143, 47);
@@ -123,11 +113,9 @@
             guna2HtmlLabel1.Location = new Point(63, 63);
             guna2HtmlLabel1.Margin = new Padding(4);
             guna2HtmlLabel1.Size = new Size(167, 52);
-=======
             guna2HtmlLabel1.Location = new Point(63, 36);
             guna2HtmlLabel1.Margin = new Padding(4);
             guna2HtmlLabel1.Size = new Size(124, 39);
->>>>>>> c9753494fa8812743940e041db76009074a677d9
             guna2HtmlLabel1.Text = "UserView";
             // 
             // guna2HtmlLabel2
@@ -168,13 +156,10 @@
             guna2DataGridView1.RowHeadersVisible = false;
             guna2DataGridView1.RowHeadersWidth = 51;
             guna2DataGridView1.RowTemplate.Height = 35;
-<<<<<<< HEAD
             guna2DataGridView1.Size = new Size(1136, 464);
 
             guna2DataGridView1.Size = new Size(931, 393);
-=======
             guna2DataGridView1.Size = new Size(909, 371);
->>>>>>> c9753494fa8812743940e041db76009074a677d9
             guna2DataGridView1.TabIndex = 1;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
