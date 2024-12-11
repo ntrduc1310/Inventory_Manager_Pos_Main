@@ -98,7 +98,7 @@ namespace PL.View
                 // Lấy giá trị từ cột dgvPicture
                 
                 // Hiển thị form chỉnh sửa và truyền dữ liệu
-                EditSupplier editForm =new EditSupplier(id, name,email,phone,adress);
+                editSupplierForm editForm =new editSupplierForm(id, name,email,phone,adress);
                 if (editForm.ShowDialog() == DialogResult.OK)
                 {
                     SupplierView supplierView = new SupplierView();

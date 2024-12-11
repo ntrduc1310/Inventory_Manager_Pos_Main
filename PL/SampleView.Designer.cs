@@ -61,6 +61,7 @@
             // txtsearch
             // 
             txtsearch.AutoRoundedCorners = true;
+            txtsearch.BorderColor = Color.Transparent;
             txtsearch.BorderRadius = 24;
             txtsearch.CustomizableEdges = customizableEdges1;
             txtsearch.DefaultText = "";
@@ -74,11 +75,11 @@
             txtsearch.IconLeft = (Image)resources.GetObject("txtsearch.IconLeft");
             txtsearch.IconLeftOffset = new Point(2, 0);
             txtsearch.IconLeftSize = new Size(30, 30);
-            txtsearch.Location = new Point(589, 115);
+            txtsearch.Location = new Point(589, 123);
             txtsearch.Margin = new Padding(3, 4, 3, 4);
             txtsearch.Name = "txtsearch";
             txtsearch.PasswordChar = '\0';
-            txtsearch.PlaceholderText = "Search Here";
+            txtsearch.PlaceholderText = "Type into search";
             txtsearch.SelectedText = "";
             txtsearch.ShadowDecoration.CustomizableEdges = customizableEdges2;
             txtsearch.Size = new Size(333, 51);
@@ -90,7 +91,8 @@
             // 
             btnAdd1.Animated = true;
             btnAdd1.AutoRoundedCorners = true;
-            btnAdd1.BorderRadius = 34;
+            btnAdd1.BorderRadius = 31;
+            customizableEdges3.TopRight = false;
             btnAdd1.CustomizableEdges = customizableEdges3;
             btnAdd1.DisabledState.BorderColor = Color.DarkGray;
             btnAdd1.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -102,10 +104,10 @@
             btnAdd1.Image = (Image)resources.GetObject("btnAdd1.Image");
             btnAdd1.ImageOffset = new Point(-2, 0);
             btnAdd1.ImageSize = new Size(30, 30);
-            btnAdd1.Location = new Point(12, 105);
+            btnAdd1.Location = new Point(36, 110);
             btnAdd1.Name = "btnAdd1";
             btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btnAdd1.Size = new Size(207, 70);
+            btnAdd1.Size = new Size(188, 64);
             btnAdd1.TabIndex = 2;
             btnAdd1.Text = "Add New";
             btnAdd1.Click += btnAdd1_Click;
@@ -113,10 +115,10 @@
             // guna2HtmlLabel2
             // 
             guna2HtmlLabel2.BackColor = Color.Transparent;
-            guna2HtmlLabel2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel2.Location = new Point(589, 83);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(54, 25);
+            guna2HtmlLabel2.Size = new Size(74, 33);
             guna2HtmlLabel2.TabIndex = 1;
             guna2HtmlLabel2.Text = "Search ";
             // 

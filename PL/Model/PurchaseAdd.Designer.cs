@@ -346,6 +346,7 @@
             // 
             btn_Add.AutoRoundedCorners = true;
             btn_Add.BorderRadius = 26;
+            customizableEdges19.TopRight = false;
             btn_Add.CustomizableEdges = customizableEdges19;
             btn_Add.DisabledState.BorderColor = Color.DarkGray;
             btn_Add.DisabledState.CustomBorderColor = Color.DarkGray;
