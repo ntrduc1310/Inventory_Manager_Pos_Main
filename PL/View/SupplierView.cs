@@ -96,9 +96,9 @@ namespace PL.View
                 string adress = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvAdress"].Value.ToString();
                 // Lấy hình ảnh từ cột dgvPicture
                 // Lấy giá trị từ cột dgvPicture
-                
+
                 // Hiển thị form chỉnh sửa và truyền dữ liệu
-                editSupplierForm editForm =new editSupplierForm(id, name,email,phone,adress);
+                editSupplierForm editForm = new editSupplierForm(id, name, email, phone, adress);
                 if (editForm.ShowDialog() == DialogResult.OK)
                 {
                     SupplierView supplierView = new SupplierView();
@@ -137,6 +137,11 @@ namespace PL.View
                     MessageBox.Show("Hành động xóa đã bị hủy.");
                 }
             }
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
