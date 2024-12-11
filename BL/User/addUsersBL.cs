@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DL.User;
 
-namespace BL
+namespace BL.User
 {
     public class addUsersBL
     {

@@ -1,11 +1,12 @@
 ﻿using DL;
+using DL.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BL
+namespace BL.User
 {
     public class UpdateUsersBL
     {

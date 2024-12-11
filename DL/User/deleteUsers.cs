@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DL
+namespace DL.User
 {
     public class deleteUsers
     {

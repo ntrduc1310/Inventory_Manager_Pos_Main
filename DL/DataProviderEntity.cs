@@ -25,7 +25,7 @@ namespace DL
 
         // Định nghĩa các DbSet cho bảng
         public DbSet<Employees> Employees { get; set; }
-        public DbSet<tableAmin> Admin { get; set; } 
+        public DbSet<tableAdmin> Admin { get; set; } 
 
         public DbSet<TableSuppiler> Suppiler { get; set; }
 
