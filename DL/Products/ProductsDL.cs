@@ -152,7 +152,7 @@ namespace DL.Products
         {
             using (var context = new DataProviderEntity())
             {
-                var category = await context.Category1.FindAsync(id);
+                var category = await context.Category.FindAsync(id);
                 if (category != null)
                 {
                     // Kiểm tra nếu Name không null trước khi trả về
@@ -167,7 +167,7 @@ namespace DL.Products
             using (var context = new DataProviderEntity())
             {
                 // Lấy danh sách tên danh mục từ cơ sở dữ liệu
-                var categoryNames = await context.Category1
+                var categoryNames = await context.Category
                                                 .ToListAsync();
 
                 // Trả về danh sách categoryNames
@@ -193,7 +193,7 @@ namespace DL.Products
             using (var context = new DataProviderEntity())
             {
                 // Lấy tên danh mục từ cơ sở dữ liệu theo ID
-                var categoryName = await context.Category1
+                var categoryName = await context.Category
                                                 .Where(c => c.Id == categoryId)
                                                 .Select(c => c.Name)
                                                 .FirstOrDefaultAsync();

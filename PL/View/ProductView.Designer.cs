@@ -61,35 +61,26 @@
             // 
             // guna2Panel1
             // 
-<<<<<<< HEAD
             guna2Panel1.Margin = new Padding(5);
-=======
             guna2Panel1.Margin = new Padding(4);
->>>>>>> 1b1984b20cccbd96ba83bb8c828b658b38eee44b
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges1;
             guna2Panel1.Size = new Size(1314, 260);
             // 
             // btnAdd1
             // 
-<<<<<<< HEAD
             btnAdd1.BorderRadius = 54;
-=======
->>>>>>> 1b1984b20cccbd96ba83bb8c828b658b38eee44b
             btnAdd1.DialogResult = DialogResult.None;
             btnAdd1.DisabledState.BorderColor = Color.DarkGray;
             btnAdd1.DisabledState.CustomBorderColor = Color.DarkGray;
             btnAdd1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnAdd1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-<<<<<<< HEAD
             btnAdd1.Location = new Point(79, 114);
             btnAdd1.Margin = new Padding(5);
             btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnAdd1.Size = new Size(324, 110);
-=======
             btnAdd1.Location = new Point(63, 124);
             btnAdd1.Margin = new Padding(4);
             btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges2;
->>>>>>> 1b1984b20cccbd96ba83bb8c828b658b38eee44b
             btnAdd1.Click += btnAdd1_Click_1;
             // 
             // txtsearch
@@ -101,29 +92,23 @@
             txtsearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtsearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtsearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-<<<<<<< HEAD
             txtsearch.Location = new Point(746, 144);
             txtsearch.Margin = new Padding(5, 6, 5, 6);
-=======
             txtsearch.Location = new Point(578, 123);
             txtsearch.Margin = new Padding(4, 5, 4, 5);
->>>>>>> 1b1984b20cccbd96ba83bb8c828b658b38eee44b
             txtsearch.ShadowDecoration.CustomizableEdges = customizableEdges3;
             txtsearch.Size = new Size(520, 80);
             // 
             // guna2HtmlLabel1
             // 
-<<<<<<< HEAD
             guna2HtmlLabel1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel1.Location = new Point(79, 45);
             guna2HtmlLabel1.Margin = new Padding(5);
             guna2HtmlLabel1.Size = new Size(182, 47);
-=======
             guna2HtmlLabel1.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel1.Location = new Point(63, 58);
             guna2HtmlLabel1.Margin = new Padding(4);
             guna2HtmlLabel1.Size = new Size(211, 52);
->>>>>>> 1b1984b20cccbd96ba83bb8c828b658b38eee44b
             guna2HtmlLabel1.Text = "Product List";
             // 
             // guna2HtmlLabel2

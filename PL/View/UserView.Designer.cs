@@ -51,9 +51,9 @@
             // 
             // guna2Panel1
             // 
-            guna2Panel1.Margin = new Padding(5, 5, 5, 5);
+            guna2Panel1.Margin = new Padding(5);
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges1;
-            guna2Panel1.Size = new Size(1051, 201);
+            guna2Panel1.Size = new Size(1314, 201);
             // 
             // btnAdd1
             // 
@@ -64,7 +64,6 @@
             btnAdd1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnAdd1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnAdd1.Location = new Point(63, 91);
-            btnAdd1.Margin = new Padding(4);
             btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnAdd1.Size = new Size(259, 88);
             btnAdd1.Click += btnAdd1_Click_2;
@@ -78,7 +77,7 @@
             txtsearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtsearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtsearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtsearch.Margin = new Padding(4, 5, 4, 5);
+            txtsearch.Location = new Point(702, 99);
             txtsearch.ShadowDecoration.CustomizableEdges = customizableEdges3;
             txtsearch.Size = new Size(520, 80);
             // 
@@ -87,12 +86,13 @@
             guna2HtmlLabel1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel1.Location = new Point(63, 36);
             guna2HtmlLabel1.Margin = new Padding(4);
-            guna2HtmlLabel1.Size = new Size(124, 39);
+            guna2HtmlLabel1.Size = new Size(143, 47);
             guna2HtmlLabel1.Text = "UserView";
             // 
             // guna2HtmlLabel2
             // 
             guna2HtmlLabel2.Location = new Point(578, 85);
+            guna2HtmlLabel2.Size = new Size(90, 40);
             // 
             // guna2DataGridView1
             // 
@@ -121,14 +121,14 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             guna2DataGridView1.GridColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.Location = new Point(79, 286);
-            guna2DataGridView1.Margin = new Padding(5, 5, 5, 5);
+            guna2DataGridView1.Location = new Point(87, 251);
+            guna2DataGridView1.Margin = new Padding(5);
             guna2DataGridView1.Name = "guna2DataGridView1";
             guna2DataGridView1.ReadOnly = true;
             guna2DataGridView1.RowHeadersVisible = false;
             guna2DataGridView1.RowHeadersWidth = 51;
             guna2DataGridView1.RowTemplate.Height = 35;
-            guna2DataGridView1.Size = new Size(909, 371);
+            guna2DataGridView1.Size = new Size(1164, 491);
             guna2DataGridView1.TabIndex = 1;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
