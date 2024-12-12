@@ -39,6 +39,7 @@ namespace PL.View
                 // Ánh xạ cột với dữ liệu từ cơ sở dữ liệu
                 guna2DataGridView1.Columns["dgvid"].DataPropertyName = "Id";
                 guna2DataGridView1.Columns["dgvName"].DataPropertyName = "Name";
+                guna2DataGridView1.Columns["dgvQuantityProducts"].DataPropertyName = "QuantityProducts";
 
                 // Đọc dữ liệu từ cơ sở dữ liệu
                 var data = await new CategoryBL().LoadCategory(); // Giả sử LoadCategory trả về danh sách các đối tượng Category

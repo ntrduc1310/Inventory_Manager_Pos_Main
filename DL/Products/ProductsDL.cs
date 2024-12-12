@@ -218,7 +218,32 @@ namespace DL.Products
 
 
 
+        public async Task<bool> addQuantityCategory(int categoryId,int quantity)
+        {
+            using (var context = new DataProviderEntity())
+            {
 
+                // Tìm sản phẩm theo ID
+                var category = context.Category.FirstOrDefault(p => p.Id == categoryId);
+
+                if (category != null)
+                {
+                    // Cập nhật số lượng
+                    category.QuantityProducts += quantity;
+
+                    // Lưu thay đổi
+                    context.SaveChanges();
+
+                    Console.WriteLine($"Cập nhật thành công. Số lượng mới: {category.QuantityProducts}");
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("Không tìm thấy sản phẩm với ID được cung cấp.");
+                    return false;
+                }
+            }
+        }
 
 
     }
