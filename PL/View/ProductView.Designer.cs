@@ -61,27 +61,17 @@
             // 
             // guna2Panel1
             // 
-            guna2Panel1.Margin = new Padding(5);
             guna2Panel1.Margin = new Padding(4);
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges1;
             guna2Panel1.Size = new Size(1051, 208);
             // 
             // btnAdd1
             // 
-            btnAdd1.BorderRadius = 43;
-            btnAdd1.BorderRadius = 54;
             btnAdd1.DialogResult = DialogResult.None;
             btnAdd1.DisabledState.BorderColor = Color.DarkGray;
             btnAdd1.DisabledState.CustomBorderColor = Color.DarkGray;
             btnAdd1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnAdd1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnAdd1.Location = new Point(50, 99);
-            btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            btnAdd1.Size = new Size(259, 88);
-            btnAdd1.Location = new Point(79, 114);
-            btnAdd1.Margin = new Padding(5);
-            btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            btnAdd1.Size = new Size(324, 110);
             btnAdd1.Location = new Point(63, 124);
             btnAdd1.Margin = new Padding(4);
             btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges2;
@@ -96,9 +86,6 @@
             txtsearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtsearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtsearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtsearch.Location = new Point(462, 98);
-            txtsearch.Location = new Point(746, 144);
-            txtsearch.Margin = new Padding(5, 6, 5, 6);
             txtsearch.Location = new Point(578, 123);
             txtsearch.Margin = new Padding(4, 5, 4, 5);
             txtsearch.ShadowDecoration.CustomizableEdges = customizableEdges3;
@@ -106,19 +93,16 @@
             // 
             // guna2HtmlLabel1
             // 
-            guna2HtmlLabel1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel1.Location = new Point(79, 45);
-            guna2HtmlLabel1.Margin = new Padding(5);
-            guna2HtmlLabel1.Size = new Size(182, 47);
             guna2HtmlLabel1.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel1.Location = new Point(50, 46);
+            guna2HtmlLabel1.Location = new Point(63, 58);
+            guna2HtmlLabel1.Margin = new Padding(5);
             guna2HtmlLabel1.Size = new Size(211, 52);
             guna2HtmlLabel1.Text = "Product List";
             // 
             // guna2HtmlLabel2
             // 
-            guna2HtmlLabel2.Location = new Point(462, 66);
-            guna2HtmlLabel2.Margin = new Padding(2, 2, 2, 2);
+            guna2HtmlLabel2.Location = new Point(578, 85);
+            guna2HtmlLabel2.Margin = new Padding(2);
             // 
             // guna2DataGridView1
             // 
@@ -185,6 +169,7 @@
             // 
             dgvSr.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             dgvSr.FillWeight = 70F;
+            dgvSr.Frozen = true;
             dgvSr.HeaderText = "Sr#";
             dgvSr.MinimumWidth = 70;
             dgvSr.Name = "dgvSr";
@@ -193,74 +178,88 @@
             // 
             // dgvid
             // 
+            dgvid.FillWeight = 70F;
             dgvid.HeaderText = "id";
-            dgvid.MinimumWidth = 6;
+            dgvid.MinimumWidth = 70;
             dgvid.Name = "dgvid";
             dgvid.ReadOnly = true;
             dgvid.Visible = false;
-            dgvid.Width = 61;
+            dgvid.Width = 70;
             // 
             // dgvName
             // 
+            dgvName.FillWeight = 70F;
+            dgvName.Frozen = true;
             dgvName.HeaderText = "Name";
-            dgvName.MinimumWidth = 20;
+            dgvName.MinimumWidth = 70;
             dgvName.Name = "dgvName";
             dgvName.ReadOnly = true;
             dgvName.Width = 76;
             // 
             // dgvcatID
             // 
+            dgvcatID.FillWeight = 70F;
             dgvcatID.HeaderText = "catID";
-            dgvcatID.MinimumWidth = 6;
+            dgvcatID.MinimumWidth = 70;
             dgvcatID.Name = "dgvcatID";
             dgvcatID.ReadOnly = true;
             dgvcatID.Visible = false;
-            dgvcatID.Width = 87;
+            dgvcatID.Width = 71;
             // 
             // dgvCategory
             // 
+            dgvCategory.FillWeight = 70F;
+            dgvCategory.Frozen = true;
             dgvCategory.HeaderText = "Category";
-            dgvCategory.MinimumWidth = 50;
+            dgvCategory.MinimumWidth = 70;
             dgvCategory.Name = "dgvCategory";
             dgvCategory.ReadOnly = true;
             dgvCategory.Width = 96;
             // 
             // dgvBarcode
             // 
+            dgvBarcode.FillWeight = 70F;
+            dgvBarcode.Frozen = true;
             dgvBarcode.HeaderText = "Barcode";
-            dgvBarcode.MinimumWidth = 50;
+            dgvBarcode.MinimumWidth = 70;
             dgvBarcode.Name = "dgvBarcode";
             dgvBarcode.ReadOnly = true;
             dgvBarcode.Width = 91;
             // 
             // dgvCost
             // 
+            dgvCost.FillWeight = 70F;
+            dgvCost.Frozen = true;
             dgvCost.HeaderText = "Cost";
-            dgvCost.MinimumWidth = 6;
+            dgvCost.MinimumWidth = 70;
             dgvCost.Name = "dgvCost";
             dgvCost.ReadOnly = true;
-            dgvCost.Width = 65;
+            dgvCost.Width = 70;
             // 
             // dgvSalePrice
             // 
+            dgvSalePrice.FillWeight = 70F;
+            dgvSalePrice.Frozen = true;
             dgvSalePrice.HeaderText = "SalePrice";
-            dgvSalePrice.MinimumWidth = 6;
+            dgvSalePrice.MinimumWidth = 70;
             dgvSalePrice.Name = "dgvSalePrice";
             dgvSalePrice.ReadOnly = true;
             dgvSalePrice.Width = 96;
             // 
             // dgvQuantityInStock
             // 
+            dgvQuantityInStock.FillWeight = 70F;
             dgvQuantityInStock.HeaderText = "Quantity";
-            dgvQuantityInStock.MinimumWidth = 8;
+            dgvQuantityInStock.MinimumWidth = 70;
             dgvQuantityInStock.Name = "dgvQuantityInStock";
             dgvQuantityInStock.ReadOnly = true;
             dgvQuantityInStock.Width = 92;
             // 
             // dgvDiscount
             // 
+            dgvDiscount.FillWeight = 70F;
             dgvDiscount.HeaderText = "Discount";
-            dgvDiscount.MinimumWidth = 8;
+            dgvDiscount.MinimumWidth = 70;
             dgvDiscount.Name = "dgvDiscount";
             dgvDiscount.ReadOnly = true;
             dgvDiscount.Width = 94;
@@ -272,20 +271,22 @@
             dgvSupplierID.Name = "dgvSupplierID";
             dgvSupplierID.ReadOnly = true;
             dgvSupplierID.Visible = false;
-            dgvSupplierID.Width = 129;
+            dgvSupplierID.Width = 106;
             // 
             // dgvSupplier
             // 
+            dgvSupplier.FillWeight = 70F;
             dgvSupplier.HeaderText = "Supplier";
-            dgvSupplier.MinimumWidth = 8;
+            dgvSupplier.MinimumWidth = 70;
             dgvSupplier.Name = "dgvSupplier";
             dgvSupplier.ReadOnly = true;
             dgvSupplier.Width = 91;
             // 
             // dgvDescription
             // 
+            dgvDescription.FillWeight = 70F;
             dgvDescription.HeaderText = "Description";
-            dgvDescription.MinimumWidth = 8;
+            dgvDescription.MinimumWidth = 70;
             dgvDescription.Name = "dgvDescription";
             dgvDescription.ReadOnly = true;
             dgvDescription.Width = 112;
@@ -297,7 +298,7 @@
             dgvImage.Name = "dgvImage";
             dgvImage.ReadOnly = true;
             dgvImage.Visible = false;
-            dgvImage.Width = 96;
+            dgvImage.Width = 78;
             // 
             // dgvImageShow
             // 
@@ -332,7 +333,7 @@
             dgvActive.Name = "dgvActive";
             dgvActive.ReadOnly = true;
             dgvActive.Visible = false;
-            dgvActive.Width = 94;
+            dgvActive.Width = 77;
             // 
             // dgvEdit
             // 
