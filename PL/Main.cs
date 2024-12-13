@@ -23,7 +23,7 @@ namespace PL
         public Main()
         {
             InitializeComponent();
-            username_lbl = guna2HtmlLabel1;
+            username_lbl = LabelName;
         }
         public static Main Instance
         {

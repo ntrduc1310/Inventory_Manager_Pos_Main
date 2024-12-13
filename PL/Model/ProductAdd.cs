@@ -101,7 +101,7 @@ namespace PL.Model
             if (path != null)
             {
                 // Lấy thư mục gốc của dự án
-                string projectDirectory = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
+                string projectDirectory = Directory.GetParent(Directory.GetParent(Application.StartupPath).FullName).FullName;
 
                 // Đảm bảo thư mục ImagesUsers tồn tại
                 string destinationFolder = Path.Combine(projectDirectory, "ImagesUsers");

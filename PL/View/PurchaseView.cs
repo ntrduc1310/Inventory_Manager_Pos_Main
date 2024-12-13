@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PL.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,7 +25,8 @@ namespace PL.View
 
         private void btnAdd1_Click_1(object sender, EventArgs e)
         {
-
+            PurchaseAdd purchaseAdd = new PurchaseAdd();
+            purchaseAdd.ShowDialog();
         }
     }
 }

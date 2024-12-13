@@ -73,7 +73,7 @@
             btn_Products = new Guna.UI2.WinForms.Guna2Button();
             btn_DashBoard = new Guna.UI2.WinForms.Guna2Button();
             btn_Category = new Guna.UI2.WinForms.Guna2Button();
-            guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            LabelName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             guna2Panel1.SuspendLayout();
             btn_Customer.SuspendLayout();
@@ -154,7 +154,7 @@
             btn_Customer.Controls.Add(btn_Products);
             btn_Customer.Controls.Add(btn_DashBoard);
             btn_Customer.Controls.Add(btn_Category);
-            btn_Customer.Controls.Add(guna2HtmlLabel1);
+            btn_Customer.Controls.Add(LabelName);
             btn_Customer.Controls.Add(guna2PictureBox1);
             customizableEdges29.BottomLeft = false;
             customizableEdges29.BottomRight = false;
@@ -385,17 +385,17 @@
             btn_Category.Text = "Category";
             btn_Category.Click += btn_Category_Click;
             // 
-            // guna2HtmlLabel1
+            // LabelName
             // 
-            guna2HtmlLabel1.BackColor = Color.Transparent;
-            guna2HtmlLabel1.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel1.ForeColor = SystemColors.ControlLightLight;
-            guna2HtmlLabel1.Location = new Point(108, 148);
-            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(88, 27);
-            guna2HtmlLabel1.TabIndex = 2;
-            guna2HtmlLabel1.Text = "Username";
-            guna2HtmlLabel1.Click += guna2HtmlLabel1_Click;
+            LabelName.BackColor = Color.Transparent;
+            LabelName.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LabelName.ForeColor = SystemColors.ControlLightLight;
+            LabelName.Location = new Point(108, 148);
+            LabelName.Name = "LabelName";
+            LabelName.Size = new Size(88, 27);
+            LabelName.TabIndex = 2;
+            LabelName.Text = "Username";
+            LabelName.Click += guna2HtmlLabel1_Click;
             // 
             // guna2PictureBox1
             // 
@@ -442,7 +442,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Panel CenterPanel;
         private Guna.UI2.WinForms.Guna2Panel btn_Customer;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel LabelName;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2Button btn_Customers;
         private Guna.UI2.WinForms.Guna2Button btn_Purchases;
