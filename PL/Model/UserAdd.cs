@@ -133,6 +133,7 @@ namespace PL.Model
                     string userName = txt_UserName.Text.Trim();
                     string password = txt_Password.Text.Trim();
                     string phone = txt_Phone.Text.Trim();
+                    string role = txt_Role.Text.Trim();
                     // Kiểm tra nếu trường không rỗng hoặc null
                     if (string.IsNullOrEmpty(Name))
                     {
@@ -158,7 +159,7 @@ namespace PL.Model
                     // Lấy mảng byte từ PictureBox
                     string picture = SaveImageToFolder(filePathnew);
                     // Gọi hàm UpdateUser
-                    bool result = new addUsersBL().AddUser(name, userName, password, phone, picture);
+                    bool result = new addUsersBL().AddUser(name, userName, password, phone, picture,role);
                     if (result)
                     {
                         MessageBox.Show("thêm người dùng thành công!");
@@ -190,6 +191,16 @@ namespace PL.Model
         private void btn_Close_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

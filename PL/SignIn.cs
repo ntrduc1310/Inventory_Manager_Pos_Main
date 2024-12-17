@@ -42,14 +42,13 @@ namespace PL
             string username = Username_txb.Text.Trim();
             string password = Password_txb.Text.Trim();
 
-            // Tạo đối tượng Account
-            Account acc = new Account(username, password);
+            
             bool loginSuccess = false;
 
             try
             {
                 // Gọi hàm LoginAsync trong lớp Business Logic
-                loginSuccess = await new LoginBL().LoginAsync(acc);
+                loginSuccess = await new LoginBL().LoginAsync(username, password);
             }
             catch (SqlException ex)
             {
@@ -61,13 +60,28 @@ namespace PL
             if (loginSuccess)
             {
                 // Hiển thị thông báo thành công
-                MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                // Chuyển hướng đến form chính (FormMain)
-                string currenName = username;
-                Main.Instance.username_lbl.Text = "Welcome to "+ currenName;
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-                // Ẩn form đăng nhập
+               DialogResult result = MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               if(result == DialogResult.OK)
+                {
+                    string currentName = username;
+                    Main main = new Main();
+                    main.username_lbl.Text = currentName;
+                    string imagePath = await new LoginBL().GetImagePathByUsernamePasssword(username, password);
+                    if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
+                    {
+                        try
+                        {
+                            // Tải hình ảnh và gán vào PictureBox
+                            main.pictureBox.Image = Image.FromFile(imagePath);
+                        }
+                        catch (Exception ex)
+                        {
+                            throw ex;
+                        }
+                    }
+                    main.ShowDialog();
+                    this.Close();
+                }    
             }
             else
             {
@@ -177,8 +191,8 @@ namespace PL
 
         private void SignIn_Load(object sender, EventArgs e)
         {
-            Username_txb.Text = "Ducci";  // Username mặc định
-            Password_txb.Text = "Ducci123";  // Password mặc định
+            Username_txb.Text = "huynh";  // Username mặc định
+            Password_txb.Text = "123Dien*";  // Password mặc định
         }
         private void Username_txb_KeyDown(object sender, KeyEventArgs e)
         {

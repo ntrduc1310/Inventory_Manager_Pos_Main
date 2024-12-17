@@ -12,7 +12,7 @@ namespace BL.User
 {
     public class LoadUserBL
     {
-        public List<Employees> loadUser()
+        public List<Users> loadUser()
         {
             return new LoadUserDL().LoadUsers();
         }

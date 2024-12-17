@@ -5,7 +5,7 @@ namespace DL.User
 {
     public class updateUser
     {
-        public bool UpdateUser(int id, string name, string userName, string password, string phone, string picture)
+        public bool UpdateUser(int id, string name, string userName, string password, string phone, string picture,string role)
         {
             try
             {
@@ -14,7 +14,7 @@ namespace DL.User
                 {
                     // Tìm người dùng có ID = id
 
-                    var user = context.Employees.Find(id);
+                    var user = context.Users.Find(id);
 
                     // Kiểm tra nếu người dùng tồn tại
                     if (user != null)
@@ -27,6 +27,7 @@ namespace DL.User
                         user.Password = string.IsNullOrEmpty(password) ? user.Password : password;
                         user.Phone = string.IsNullOrEmpty(phone) ? user.Phone : phone;
                         user.Picture = string.IsNullOrEmpty(picture) ? user.Picture : picture;  // Nếu picture null, giữ nguyên giá trị cũ
+                        user.Role = string.IsNullOrEmpty(role) ? user.Role : role;  // Nếu picture null, giữ nguyên giá trị cũ
 
                         // Ghi nhận sau khi cập nhật
                         Console.WriteLine($"Sau khi cập nhật: Name = {user.Name}, UserName = {user.UserName}, Phone = {user.Phone}");

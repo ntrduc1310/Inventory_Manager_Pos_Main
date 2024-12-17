@@ -10,14 +10,14 @@ namespace DL.User
 {
     public class addUsersDL
     {
-        public bool AddUsers(string name, string username, string password, string phone, string filepathPicture)
+        public bool AddUsers(string name, string username, string password, string phone, string filepathPicture, string role)
         {
             try
             {
                 using (var context = new DataProviderEntity())
                 {
                     // Check if the username already exists
-                    bool exists = context.Employees.Any(a => a.UserName == username);
+                    bool exists = context.Users.Any(a => a.UserName == username);
                     if (exists)
                     {
                         // If username already exists, return false
@@ -25,17 +25,18 @@ namespace DL.User
                     }
 
                     // Create a new employee
-                    var newEmployee = new Employees
+                    var newEmployee = new Users
                     {
                         Name = name,
                         UserName = username,
                         Password = password,
                         Phone = phone,
-                        Picture = filepathPicture
+                        Picture = filepathPicture,
+                        Role = role
                     };
 
                     // Add and save the new employee
-                    context.Employees.Add(newEmployee);
+                    context.Users.Add(newEmployee);
                     int rowsAffected = context.SaveChanges();
 
                     return rowsAffected > 0; // Return true if save was successful

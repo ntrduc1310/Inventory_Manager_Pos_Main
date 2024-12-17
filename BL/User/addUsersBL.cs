@@ -10,9 +10,9 @@ namespace BL.User
 {
     public class addUsersBL
     {
-        public bool AddUser(string name,string username, string password,string phone,string filepathPicture )
+        public bool AddUser(string name,string username, string password,string phone,string filepathPicture,string role )
         {
-            return new addUsersDL().AddUsers(name,username,password,phone,filepathPicture);
+            return new addUsersDL().AddUsers(name,username,password,phone,filepathPicture,role);
         }
     }
 }

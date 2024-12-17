@@ -19,11 +19,14 @@ namespace PL
     {
         static Main _obj;
         public Guna.UI2.WinForms.Guna2HtmlLabel username_lbl;
+        public Guna.UI2.WinForms.Guna2PictureBox pictureBox;
 
         public Main()
         {
+
             InitializeComponent();
             username_lbl = LabelName;
+            pictureBox = guna2PictureBox1;
         }
         public static Main Instance
         {
@@ -37,14 +40,22 @@ namespace PL
             }
         }
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000; // WS_EX_COMPOSITED: Kích hoạt giao diện hợp nhất để giảm nhấp nháy
+                return cp;
+            }
+        }
+
         private void Main_Load(object sender, EventArgs e)
         {
             _obj = this;
             btnMax.PerformClick();
             _obj.Visible = false;
             btn_DashBoard.PerformClick();
-
-
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -98,6 +109,7 @@ namespace PL
             form.BringToFront();
             form.Show();
             CenterPanel.Visible = true;
+            CenterPanel.ResumeLayout();
         }
 
 
@@ -115,6 +127,11 @@ namespace PL
         private void guna2HtmlLabel1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void showLabelUsername(string name)
+        {
+            LabelName.Text = name;
         }
 
         private void CenterPanel_Paint(object sender, PaintEventArgs e)
@@ -174,6 +191,11 @@ namespace PL
         {
             DashBoard dashboard = new DashBoard();
             LoadFormIntoPanelCenter(dashboard);
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -87,6 +87,8 @@ namespace PL.View
                     if (deleteResult)
                     {
                         MessageBox.Show("Xóa danh mục thành công!");
+                        int categoryId = Convert.ToInt32(guna2DataGridView1.Rows[e.RowIndex].Cells["dgvcatID"].Value);
+                        bool updateCat = await new ProductsBL().subtractQuantityCategory(categoryId, 1);
                         ProductView productView = new ProductView();
                         Main.Instance.LoadFormIntoPanelCenter(productView);
                     }
@@ -212,6 +214,16 @@ namespace PL.View
         }
 
         private void guna2DataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtsearch_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

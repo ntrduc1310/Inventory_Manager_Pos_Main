@@ -17,12 +17,12 @@ namespace DL.User
                 using (var context = new DataProviderEntity())
                 {
                     // Sử dụng await để đợi kết quả trả về từ FirstOrDefaultAsync
-                    var employeeToDelete = await context.Employees.FirstOrDefaultAsync(e => e.Id == employeeIdToDelete);
+                    var employeeToDelete = await context.Users.FirstOrDefaultAsync(e => e.Id == employeeIdToDelete);
 
                     if (employeeToDelete != null)
                     {
                         // Xóa đối tượng Employee
-                        context.Employees.Remove(employeeToDelete);
+                        context.Users.Remove(employeeToDelete);
 
                         // Lưu thay đổi vào cơ sở dữ liệu
                         int affectedRows = await context.SaveChangesAsync(); // Cần await với SaveChangesAsync để làm việc với bất đồng bộ

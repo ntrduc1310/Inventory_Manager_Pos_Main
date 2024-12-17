@@ -159,6 +159,7 @@ namespace PL.Edit
                     string userName = txt_UserName.Text.Trim();
                     string password = txt_Password.Text.Trim();
                     string phone = txt_Phone.Text.Trim();
+                    string role = txt_Role.Text.Trim();
                     if (string.IsNullOrEmpty(name))
                     {
                         MessageBox.Show("Tên không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -180,10 +181,17 @@ namespace PL.Edit
                         return;
                     }
 
+                    if (string.IsNullOrEmpty(role))
+                    {
+                        MessageBox.Show("Mật khẩu không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txt_Password.Focus();
+                        return;
+                    }
+
                     // Lấy mảng byte từ PictureBox
                     string picture = SaveImageToFolder(filePathnew);
                     // Gọi hàm UpdateUser
-                    bool result = new UpdateUsersBL().UpdateUser(Id, name, userName, password, phone, picture);
+                    bool result = new UpdateUsersBL().UpdateUser(Id, name, userName, password, phone, picture,role);
 
                     if (result)
                     {

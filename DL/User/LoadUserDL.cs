@@ -11,12 +11,12 @@ namespace DL.User
     public class LoadUserDL : DataProviderEntity
     {
         // Sử dụng Entity Framework để lấy danh sách người dùng
-        public List<Employees> LoadUsers()
+        public List<Users> LoadUsers()
         {
             using (var context = new DataProviderEntity()) // DataProviderEntity là DbContext của bạn
             {
                 // Truy vấn tất cả nhân viên
-                return context.Employees.ToList();
+                return context.Users.ToList();
             }
         }
     }

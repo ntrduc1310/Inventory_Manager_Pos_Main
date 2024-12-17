@@ -4,8 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DTO
 {
-    [Table("Employees")]  // Đảm bảo rằng tên bảng là đúng
-    public class Employees
+    [Table("Users")]  // Đảm bảo rằng tên bảng là đúng
+    public class Users
     {
         [Key]
         public int Id { get; set; }
@@ -19,5 +19,7 @@ namespace DTO
         public string? Phone { get; set; }
 
         public string? Picture { get; set; }  // Sửa từ Piture thành Picture
+
+        public string Role { get; set; }
     }
 }

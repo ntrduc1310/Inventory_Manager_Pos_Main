@@ -24,16 +24,16 @@ namespace PL.Model
             //string qry2 = "Select proID 'id', supName 'name' from Supplier";
         }
 
-        private void cb_Product_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cb_Product.SelectedIndex != -1)
-            {
-                GetDetails();
-            }
-        }
+        //private void cb_Product_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (cb_Product.SelectedIndex != -1)
+        //    {
+        //        GetDetails();
+        //    }
+        //}
         private void GetDetails()
         {
-            string qry = "Select * from Product where proID = " + Convert.ToString(cb_Product.SelectedValue)+"";
+            //string qry = "Select * from Product where proID = " + Convert.ToString(cb_Product.SelectedValue) + "";
             //SqlCommand cmd = new SqlCommand(qry, MainClass.con);
             //SqlDataAdapter da = new SqlDataAdapter(cmd);
             //DataTable dt = new DataTable();
@@ -42,6 +42,21 @@ namespace PL.Model
             //if (dt.Rows.Count > 0)
             //{
             //txtCost.Text = dt.Rows[0]["pCost"].ToString();
+        }
+
+
+      
+
+
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2Panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

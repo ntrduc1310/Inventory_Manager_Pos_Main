@@ -11,20 +11,32 @@ namespace DL
 {
     public class LoginDL : DataProviderEntity
     {
-        public async Task<bool> LoginAsync(Account acc)
+        public async Task<bool> LoginAsync(string username, string password)
         {
-            if (acc == null) throw new ArgumentNullException(nameof(acc));
+            if (username == null || password == null) throw new ArgumentNullException(nameof(username));
 
             using (var context = new DataProviderEntity())
             {
                 // Kiểm tra tồn tại tài khoản
-                bool exists = await context.Admin.AnyAsync(a => a.Username == acc.Username && a.Password == acc.Password);
+                bool exists = await context.Users.AnyAsync(a => a.UserName == username && a.Password == password);
 
                 return exists;
             }
         }
 
+        public async Task<string> GetImagePathByUsernamePasssword(string username, string password)
+        {
+            using (var context = new DataProviderEntity())
+            {
+                // Lấy tên danh mục từ cơ sở dữ liệu theo ID
+                var user = await context.Users
+                                                .Where(c => c.UserName == username && c.Password == password)
+                                                .Select(c => c.Picture)
+                                                .FirstOrDefaultAsync();
 
+                return user ?? "Unknown"; // Trả về tên nếu tìm thấy, nếu không trả về "Unknown"
+            }
+        }
 
     }
 }

@@ -18,6 +18,14 @@ namespace DL.Products
                 return await context.Products.ToListAsync();
             }
         }
+
+        public async Task<DTO.Products.Products> getProducts(int productId)
+        {
+            using (var context = new DataProviderEntity()) // DataProviderEntity là DbContext của bạn
+            {
+                return await context.Products.FirstOrDefaultAsync(p => p.ProductID == productId);
+            }
+        }
         public async Task<bool> AddProducts(string name, string barcode, int categoryID, int quantityInStock, decimal price, decimal costPrice, decimal discount, int supplierId, string description, string image)
         {
             try
@@ -230,6 +238,34 @@ namespace DL.Products
                 {
                     // Cập nhật số lượng
                     category.QuantityProducts += quantity;
+
+                    // Lưu thay đổi
+                    context.SaveChanges();
+
+                    Console.WriteLine($"Cập nhật thành công. Số lượng mới: {category.QuantityProducts}");
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("Không tìm thấy sản phẩm với ID được cung cấp.");
+                    return false;
+                }
+            }
+        }
+
+
+        public async Task<bool> subtractQuantityCategory(int categoryId, int quantity)
+        {
+            using (var context = new DataProviderEntity())
+            {
+
+                // Tìm sản phẩm theo ID
+                var category = context.Category.FirstOrDefault(p => p.Id == categoryId);
+
+                if (category != null)
+                {
+                    // Cập nhật số lượng
+                    category.QuantityProducts -= quantity;
 
                     // Lưu thay đổi
                     context.SaveChanges();

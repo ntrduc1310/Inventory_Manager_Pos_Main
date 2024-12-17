@@ -12,17 +12,21 @@ namespace BL
 {
     public class LoginBL
     {
-        public Task<bool> LoginAsync(Account acc)
+        public Task<bool> LoginAsync(string username, string password)
         {
             try
             {
 
-                return (new LoginDL().LoginAsync(acc));
+                return (new LoginDL().LoginAsync(username, password));
             }
             catch (SqlException)
             {
                 throw;
             }
+        }
+        public async Task<string> GetImagePathByUsernamePasssword(string username, string password)
+        {
+            return await new LoginDL().GetImagePathByUsernamePasssword(username, password);
         }
     }
 }

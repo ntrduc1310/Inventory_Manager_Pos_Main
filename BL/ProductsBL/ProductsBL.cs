@@ -53,5 +53,15 @@ namespace BL.ProductsBL
         {
             return await new ProductsDL().addQuantityCategory(categoryId, quantity);
         }
+
+        public async Task<bool> subtractQuantityCategory(int categoryId, int quantity)
+        {
+            return await new ProductsDL().subtractQuantityCategory(categoryId, quantity);
+        }
+
+        public async Task<DTO.Products.Products> getProducts(int productId)
+        {
+            return await new ProductsDL().getProducts(productId);
+        }
     }
 }

@@ -14,19 +14,22 @@
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            // Tạo instance của Form Login
-            SignIn loginForm = new SignIn();
+            //// Tạo instance của Form Login
+            //SignIn loginForm = new SignIn();
 
-            // Hiển thị Form Login
-            if (loginForm.ShowDialog() == DialogResult.OK) // Đăng nhập thành công
-            {
-                Application.Run(new Main()); // Chạy Form Main
-            }
-            else
-            {
-                // Thoát ứng dụng nếu không đăng nhập
-                Application.Exit();
-            }
+            //// Hiển thị Form Login
+            //if (loginForm.ShowDialog() == DialogResult.OK) // Đăng nhập thành công
+            //{
+            //    Application.Run(new Main()); 
+            //}
+            //else
+            //{
+            //    // Thoát ứng dụng nếu không đăng nhập
+            //    Application.Exit();
+            //}
+            SignIn loginForm = new SignIn();
+            loginForm.ShowDialog();
+
         }
     }
 }

@@ -6,6 +6,7 @@ using DTO.Suppiler;
 using DTO.Category;
 using DTO.Customer;
 using System.Security.Cryptography.X509Certificates;
+using DTO.Purchase;
 
 
 namespace DL
@@ -25,8 +26,7 @@ namespace DL
 
 
         // Định nghĩa các DbSet cho bảng
-        public DbSet<Employees> Employees { get; set; }
-        public DbSet<tableAdmin> Admin { get; set; } 
+        public DbSet<Users> Users { get; set; }
 
         public DbSet<TableSuppiler> Suppiler { get; set; }
 
@@ -35,6 +35,8 @@ namespace DL
         public DbSet<TableCustomer> Customer { get; set; }
 
         public DbSet<DTO.Products.Products> Products { get; set; }
+
+        public DbSet<PurchaseClass> Purchase {  get; set; }
 
 
 
@@ -68,7 +70,7 @@ namespace DL
                     var model = Model;
 
                     // Kiểm tra xem bảng Employees có tồn tại trong ánh xạ không
-                    var employeeEntity = model.FindEntityType(typeof(Employees));
+                    var employeeEntity = model.FindEntityType(typeof(Users));
                     if (employeeEntity == null)
                     {
                         Console.WriteLine("Bảng 'Employees' không tồn tại trong ánh xạ.");
@@ -99,9 +101,9 @@ namespace DL
             using (var context = new DataProviderEntity())
             {
                 // Gọi phương thức GetEmployeeCount để lấy số lượng nhân viên
-                int employeeCount = context.Employees.Count();
+                int employeeCount = context.Users.Count();
                 Console.WriteLine($"Số lượng nhân viên trong cơ sở dữ liệu: {employeeCount}");
-                var employees = context.Employees.ToList();
+                var employees = context.Users.ToList();
 
                 foreach (var employee in employees)
                 {

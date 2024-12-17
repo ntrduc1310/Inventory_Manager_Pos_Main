@@ -41,17 +41,21 @@
             dgvSupplier = new DataGridViewTextBoxColumn();
             dgvSupID = new DataGridViewTextBoxColumn();
             dgvAmount = new DataGridViewTextBoxColumn();
-            dgvEdit = new DataGridViewImageColumn();
-            dgvDel = new DataGridViewImageColumn();
+            dgvCreatedBy = new DataGridViewTextBoxColumn();
+            dgvStatus = new DataGridViewTextBoxColumn();
+            dgvAllInformation = new DataGridViewImageColumn();
+            dgvAccepted = new DataGridViewImageColumn();
+            dgvDontAccepted = new DataGridViewImageColumn();
             guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).BeginInit();
             SuspendLayout();
             // 
             // guna2Panel1
             // 
-            guna2Panel1.Margin = new Padding(4);
+            guna2Panel1.Margin = new Padding(5);
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges1;
-            guna2Panel1.Size = new Size(1051, 208);
+            guna2Panel1.Size = new Size(1314, 260);
+            guna2Panel1.Paint += guna2Panel1_Paint;
             // 
             // btnAdd1
             // 
@@ -60,36 +64,37 @@
             btnAdd1.DisabledState.CustomBorderColor = Color.DarkGray;
             btnAdd1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnAdd1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnAdd1.Location = new Point(63, 123);
-            btnAdd1.Margin = new Padding(4);
+            btnAdd1.Location = new Point(79, 154);
+            btnAdd1.Margin = new Padding(5);
             btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnAdd1.Click += btnAdd1_Click_1;
             // 
             // txtsearch
             // 
-            txtsearch.BorderRadius = 31;
+            txtsearch.BorderRadius = 39;
             txtsearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtsearch.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtsearch.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtsearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtsearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtsearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtsearch.Location = new Point(578, 123);
-            txtsearch.Margin = new Padding(4, 5, 4, 5);
+            txtsearch.Location = new Point(722, 154);
+            txtsearch.Margin = new Padding(5, 6, 5, 6);
             txtsearch.ShadowDecoration.CustomizableEdges = customizableEdges3;
-            txtsearch.Size = new Size(416, 64);
+            txtsearch.Size = new Size(520, 80);
             // 
             // guna2HtmlLabel1
             // 
             guna2HtmlLabel1.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel1.Location = new Point(63, 58);
-            guna2HtmlLabel1.Margin = new Padding(4);
-            guna2HtmlLabel1.Size = new Size(229, 52);
+            guna2HtmlLabel1.Location = new Point(79, 72);
+            guna2HtmlLabel1.Size = new Size(273, 62);
             guna2HtmlLabel1.Text = "Purchase List ";
             // 
             // guna2HtmlLabel2
             // 
-            guna2HtmlLabel2.Location = new Point(578, 85);
+            guna2HtmlLabel2.Location = new Point(722, 106);
+            guna2HtmlLabel2.Margin = new Padding(6);
+            guna2HtmlLabel2.Size = new Size(90, 40);
             // 
             // guna2DataGridView1
             // 
@@ -108,7 +113,7 @@
             guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             guna2DataGridView1.ColumnHeadersHeight = 35;
             guna2DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            guna2DataGridView1.Columns.AddRange(new DataGridViewColumn[] { dgvSr, dgvid, dgvDate, dgvSupplier, dgvSupID, dgvAmount, dgvEdit, dgvDel });
+            guna2DataGridView1.Columns.AddRange(new DataGridViewColumn[] { dgvSr, dgvid, dgvDate, dgvSupplier, dgvSupID, dgvAmount, dgvCreatedBy, dgvStatus, dgvAllInformation, dgvAccepted, dgvDontAccepted });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
@@ -118,13 +123,14 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             guna2DataGridView1.GridColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.Location = new Point(63, 229);
+            guna2DataGridView1.Location = new Point(79, 286);
+            guna2DataGridView1.Margin = new Padding(4);
             guna2DataGridView1.Name = "guna2DataGridView1";
             guna2DataGridView1.ReadOnly = true;
             guna2DataGridView1.RowHeadersVisible = false;
             guna2DataGridView1.RowHeadersWidth = 51;
             guna2DataGridView1.RowTemplate.Height = 35;
-            guna2DataGridView1.Size = new Size(931, 393);
+            guna2DataGridView1.Size = new Size(1164, 491);
             guna2DataGridView1.TabIndex = 3;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -147,6 +153,7 @@
             guna2DataGridView1.ThemeStyle.RowsStyle.Height = 35;
             guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            guna2DataGridView1.CellContentClick += guna2DataGridView1_CellContentClick;
             // 
             // dgvSr
             // 
@@ -168,14 +175,14 @@
             // 
             // dgvDate
             // 
-            dgvDate.HeaderText = "Date";
+            dgvDate.HeaderText = "Ngày";
             dgvDate.MinimumWidth = 100;
             dgvDate.Name = "dgvDate";
             dgvDate.ReadOnly = true;
             // 
             // dgvSupplier
             // 
-            dgvSupplier.HeaderText = "Supplier";
+            dgvSupplier.HeaderText = "Nhà cung cấp";
             dgvSupplier.MinimumWidth = 100;
             dgvSupplier.Name = "dgvSupplier";
             dgvSupplier.ReadOnly = true;
@@ -190,40 +197,59 @@
             // 
             // dgvAmount
             // 
-            dgvAmount.HeaderText = "Amount";
+            dgvAmount.HeaderText = "Tổng tiền";
             dgvAmount.MinimumWidth = 100;
             dgvAmount.Name = "dgvAmount";
             dgvAmount.ReadOnly = true;
             // 
-            // dgvEdit
+            // dgvCreatedBy
             // 
-            dgvEdit.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dgvEdit.FillWeight = 50F;
-            dgvEdit.HeaderText = "";
-            dgvEdit.Image = Properties.Resources.nib;
-            dgvEdit.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            dgvEdit.MinimumWidth = 50;
-            dgvEdit.Name = "dgvEdit";
-            dgvEdit.ReadOnly = true;
-            dgvEdit.Width = 50;
+            dgvCreatedBy.HeaderText = "Người tạo";
+            dgvCreatedBy.MinimumWidth = 8;
+            dgvCreatedBy.Name = "dgvCreatedBy";
+            dgvCreatedBy.ReadOnly = true;
             // 
-            // dgvDel
+            // dgvStatus
             // 
-            dgvDel.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dgvDel.FillWeight = 50F;
-            dgvDel.HeaderText = "";
-            dgvDel.Image = Properties.Resources.delete;
-            dgvDel.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            dgvDel.MinimumWidth = 50;
-            dgvDel.Name = "dgvDel";
-            dgvDel.ReadOnly = true;
-            dgvDel.Width = 50;
+            dgvStatus.HeaderText = "Trạng thái";
+            dgvStatus.MinimumWidth = 8;
+            dgvStatus.Name = "dgvStatus";
+            dgvStatus.ReadOnly = true;
+            // 
+            // dgvAllInformation
+            // 
+            dgvAllInformation.HeaderText = "";
+            dgvAllInformation.Image = Properties.Resources.z6133017756528_ce527a37a62d001048a21291b92bdd10;
+            dgvAllInformation.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvAllInformation.MinimumWidth = 8;
+            dgvAllInformation.Name = "dgvAllInformation";
+            dgvAllInformation.ReadOnly = true;
+            dgvAllInformation.Resizable = DataGridViewTriState.True;
+            dgvAllInformation.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
+            // dgvAccepted
+            // 
+            dgvAccepted.HeaderText = "";
+            dgvAccepted.Image = Properties.Resources.icons8_task_completed_50;
+            dgvAccepted.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvAccepted.MinimumWidth = 8;
+            dgvAccepted.Name = "dgvAccepted";
+            dgvAccepted.ReadOnly = true;
+            // 
+            // dgvDontAccepted
+            // 
+            dgvDontAccepted.HeaderText = "";
+            dgvDontAccepted.Image = Properties.Resources.icons8_no_50;
+            dgvDontAccepted.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvDontAccepted.MinimumWidth = 8;
+            dgvDontAccepted.Name = "dgvDontAccepted";
+            dgvDontAccepted.ReadOnly = true;
             // 
             // PurchaseView
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1051, 653);
+            ClientSize = new Size(1314, 816);
             Controls.Add(guna2DataGridView1);
             Name = "PurchaseView";
             Text = "PurchaseView";
@@ -245,7 +271,10 @@
         private DataGridViewTextBoxColumn dgvSupplier;
         private DataGridViewTextBoxColumn dgvSupID;
         private DataGridViewTextBoxColumn dgvAmount;
-        private DataGridViewImageColumn dgvEdit;
-        private DataGridViewImageColumn dgvDel;
+        private DataGridViewTextBoxColumn dgvCreatedBy;
+        private DataGridViewTextBoxColumn dgvStatus;
+        private DataGridViewImageColumn dgvAllInformation;
+        private DataGridViewImageColumn dgvAccepted;
+        private DataGridViewImageColumn dgvDontAccepted;
     }
 }
