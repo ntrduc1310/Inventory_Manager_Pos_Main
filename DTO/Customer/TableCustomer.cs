@@ -11,7 +11,7 @@ namespace DTO.Customer
     public class TableCustomer
     {
         [Key]
-        public int Id { get; set; } // Khóa chính
+        public int CustomerID { get; set; } // Khóa chính
 
       
         public string Name { get; set; } // Tên khách hàng

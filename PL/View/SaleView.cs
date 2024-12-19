@@ -25,7 +25,7 @@ namespace PL.View
 
         private void btnAdd1_Click_1(object sender, EventArgs e)
         {
-            SaleAdd saleAdd = new SaleAdd();
+            SaleAddProduct saleAdd = new SaleAddProduct();
             saleAdd.ShowDialog();
         }
 

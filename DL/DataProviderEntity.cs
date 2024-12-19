@@ -7,6 +7,7 @@ using DTO.Category;
 using DTO.Customer;
 using System.Security.Cryptography.X509Certificates;
 using DTO.Purchase;
+using DTO.Sale;
 
 
 namespace DL
@@ -37,6 +38,12 @@ namespace DL
         public DbSet<DTO.Products.Products> Products { get; set; }
 
         public DbSet<PurchaseClass> Purchase {  get; set; }
+
+        public DbSet<SaleClass> Sale { get; set; }
+
+        public DbSet<SaleDetail> SaleDetail { get; set; }
+
+       
 
 
 

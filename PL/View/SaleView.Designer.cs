@@ -166,14 +166,14 @@
             // 
             // dgvDate
             // 
-            dgvDate.HeaderText = "Date";
+            dgvDate.HeaderText = "Ngày";
             dgvDate.MinimumWidth = 100;
             dgvDate.Name = "dgvDate";
             dgvDate.ReadOnly = true;
             // 
             // dgvCustomer
             // 
-            dgvCustomer.HeaderText = "Customer";
+            dgvCustomer.HeaderText = "Nhà Cung Cấp ";
             dgvCustomer.MinimumWidth = 100;
             dgvCustomer.Name = "dgvCustomer";
             dgvCustomer.ReadOnly = true;
@@ -188,7 +188,7 @@
             // 
             // dgvAmount
             // 
-            dgvAmount.HeaderText = "Amount";
+            dgvAmount.HeaderText = "Tổng tiền ";
             dgvAmount.MinimumWidth = 100;
             dgvAmount.Name = "dgvAmount";
             dgvAmount.ReadOnly = true;

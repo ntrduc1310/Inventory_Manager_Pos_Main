@@ -24,6 +24,7 @@ namespace PL.Model
         public UserAdd()
         {
             InitializeComponent();
+            cb_Role.Items.AddRange(new string[] { "Quản lý", "Nhân viên", "Khách hàng"});
         }
         public int id = 0;
         public override void btn_Save_Click_1(object sender, EventArgs e)
@@ -142,7 +143,7 @@ namespace PL.Model
                     string userName = txt_UserName.Text.Trim();
                     string password = txt_Password.Text.Trim();
                     string phone = txt_Phone.Text.Trim();
-                    string role = txt_Role.Text.Trim();
+                    string role = cb_Role.Text;
                     // Kiểm tra nếu trường không rỗng hoặc null
                     if (string.IsNullOrEmpty(Name))
                     {
@@ -168,7 +169,7 @@ namespace PL.Model
                     // Lấy mảng byte từ PictureBox
                     string picture = SaveImageToFolder(filePathnew);
                     // Gọi hàm UpdateUser
-                    bool result = new addUsersBL().AddUser(name, userName, password, phone, picture,role);
+                    bool result = new addUsersBL().AddUser(name, userName, password, phone, picture, role);
                     if (result)
                     {
                         MessageBox.Show("thêm người dùng thành công!");
@@ -208,6 +209,11 @@ namespace PL.Model
         }
 
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cb_CreatedBy_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

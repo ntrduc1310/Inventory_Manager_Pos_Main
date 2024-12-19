@@ -40,6 +40,10 @@ namespace BL.ProductsBL
             return await new ProductsDL().LoadSupplierIntoComboBox();
         }
 
+        public async Task<List<DTO.Products.Products>> LoadProductsFromCustomer(int customerId)
+        {
+            return await new ProductsDL().LoadProductsFromCustomer(customerId);
+        }
         public async Task<string> GetCategoryNameById(int categoryId)
         {
             return await new ProductsDL().GetCategoryNameById(categoryId);
@@ -58,6 +62,7 @@ namespace BL.ProductsBL
         {
             return await new ProductsDL().subtractQuantityCategory(categoryId, quantity);
         }
+
 
         public async Task<DTO.Products.Products> getProducts(int productId)
         {

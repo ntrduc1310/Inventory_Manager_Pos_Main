@@ -253,9 +253,25 @@ namespace PL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+<<<<<<< HEAD
         internal static System.Drawing.Bitmap z6133017756528_ce527a37a62d001048a21291b92bdd101 {
             get {
                 object obj = ResourceManager.GetObject("z6133017756528_ce527a37a62d001048a21291b92bdd101", resourceCulture);
+=======
+        internal static System.Drawing.Bitmap z6147039092675_2b418c28f01e35951760454c1a1d3309 {
+            get {
+                object obj = ResourceManager.GetObject("z6147039092675_2b418c28f01e35951760454c1a1d3309", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap z6147039092781_0934f9c304b863b2c298d7f2e44baba5 {
+            get {
+                object obj = ResourceManager.GetObject("z6147039092781_0934f9c304b863b2c298d7f2e44baba5", resourceCulture);
+>>>>>>> a696e468949bcb5cfa132243f31b91fa3735b31c
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -62,9 +62,13 @@
             // 
             // guna2Panel1
             // 
+<<<<<<< HEAD
             guna2Panel1.Margin = new Padding(5);
+=======
+            guna2Panel1.Margin = new Padding(4);
+>>>>>>> a696e468949bcb5cfa132243f31b91fa3735b31c
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges1;
-            guna2Panel1.Size = new Size(1314, 260);
+            guna2Panel1.Size = new Size(1051, 208);
             guna2Panel1.Paint += guna2Panel1_Paint;
             // 
             // btnAdd1
@@ -74,39 +78,49 @@
             btnAdd1.DisabledState.CustomBorderColor = Color.DarkGray;
             btnAdd1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnAdd1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+<<<<<<< HEAD
             btnAdd1.Location = new Point(79, 155);
             btnAdd1.Margin = new Padding(5);
+=======
+            btnAdd1.Location = new Point(63, 123);
+            btnAdd1.Margin = new Padding(4);
+>>>>>>> a696e468949bcb5cfa132243f31b91fa3735b31c
             btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnAdd1.Click += btnAdd1_Click_1;
             // 
             // txtsearch
             // 
-            txtsearch.BorderRadius = 39;
+            txtsearch.BorderRadius = 31;
             txtsearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtsearch.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtsearch.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtsearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtsearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtsearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtsearch.Location = new Point(722, 154);
-            txtsearch.Margin = new Padding(5, 6, 5, 6);
+            txtsearch.Location = new Point(578, 123);
+            txtsearch.Margin = new Padding(4, 5, 4, 5);
             txtsearch.ShadowDecoration.CustomizableEdges = customizableEdges3;
-            txtsearch.Size = new Size(520, 80);
+            txtsearch.Size = new Size(416, 64);
             txtsearch.TextChanged += txtsearch_TextChanged_1;
             // 
             // guna2HtmlLabel1
             // 
             guna2HtmlLabel1.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+<<<<<<< HEAD
             guna2HtmlLabel1.Location = new Point(79, 72);
             guna2HtmlLabel1.Margin = new Padding(6);
             guna2HtmlLabel1.Size = new Size(251, 62);
+=======
+            guna2HtmlLabel1.Location = new Point(63, 63);
+            guna2HtmlLabel1.Margin = new Padding(5);
+            guna2HtmlLabel1.Size = new Size(211, 52);
+>>>>>>> a696e468949bcb5cfa132243f31b91fa3735b31c
             guna2HtmlLabel1.Text = "Product List";
             // 
             // guna2HtmlLabel2
             // 
-            guna2HtmlLabel2.Location = new Point(722, 106);
+            guna2HtmlLabel2.Location = new Point(578, 85);
             guna2HtmlLabel2.Margin = new Padding(2);
-            guna2HtmlLabel2.Size = new Size(90, 40);
             // 
             // guna2DataGridView1
             // 
@@ -135,15 +149,24 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             guna2DataGridView1.GridColor = Color.FromArgb(231, 229, 255);
+<<<<<<< HEAD
             guna2DataGridView1.Location = new Point(79, 286);
             guna2DataGridView1.Margin = new Padding(4);
+=======
+            guna2DataGridView1.Location = new Point(63, 229);
+>>>>>>> a696e468949bcb5cfa132243f31b91fa3735b31c
             guna2DataGridView1.Name = "guna2DataGridView1";
             guna2DataGridView1.ReadOnly = true;
             guna2DataGridView1.RowHeadersVisible = false;
             guna2DataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             guna2DataGridView1.RowTemplate.Height = 35;
+<<<<<<< HEAD
             guna2DataGridView1.ScrollBars = ScrollBars.None;
             guna2DataGridView1.Size = new Size(1162, 491);
+=======
+            guna2DataGridView1.ScrollBars = ScrollBars.Horizontal;
+            guna2DataGridView1.Size = new Size(930, 393);
+>>>>>>> a696e468949bcb5cfa132243f31b91fa3735b31c
             guna2DataGridView1.TabIndex = 4;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -195,10 +218,9 @@
             dgvName.FillWeight = 70F;
             dgvName.Frozen = true;
             dgvName.HeaderText = "Name";
-            dgvName.MinimumWidth = 70;
+            dgvName.MinimumWidth = 100;
             dgvName.Name = "dgvName";
             dgvName.ReadOnly = true;
-            dgvName.Width = 93;
             // 
             // dgvcatID
             // 
@@ -215,10 +237,10 @@
             dgvCategory.FillWeight = 70F;
             dgvCategory.Frozen = true;
             dgvCategory.HeaderText = "Category";
-            dgvCategory.MinimumWidth = 70;
+            dgvCategory.MinimumWidth = 120;
             dgvCategory.Name = "dgvCategory";
             dgvCategory.ReadOnly = true;
-            dgvCategory.Width = 118;
+            dgvCategory.Width = 120;
             // 
             // dgvBarcode
             // 
@@ -228,7 +250,7 @@
             dgvBarcode.MinimumWidth = 70;
             dgvBarcode.Name = "dgvBarcode";
             dgvBarcode.ReadOnly = true;
-            dgvBarcode.Width = 110;
+            dgvBarcode.Width = 91;
             // 
             // dgvCost
             // 
@@ -238,7 +260,7 @@
             dgvCost.MinimumWidth = 70;
             dgvCost.Name = "dgvCost";
             dgvCost.ReadOnly = true;
-            dgvCost.Width = 82;
+            dgvCost.Width = 70;
             // 
             // dgvSalePrice
             // 
@@ -248,16 +270,16 @@
             dgvSalePrice.MinimumWidth = 70;
             dgvSalePrice.Name = "dgvSalePrice";
             dgvSalePrice.ReadOnly = true;
-            dgvSalePrice.Width = 115;
+            dgvSalePrice.Width = 96;
             // 
             // dgvQuantityInStock
             // 
-            dgvQuantityInStock.FillWeight = 70F;
+            dgvQuantityInStock.FillWeight = 40F;
             dgvQuantityInStock.HeaderText = "Quantity";
-            dgvQuantityInStock.MinimumWidth = 70;
+            dgvQuantityInStock.MinimumWidth = 40;
             dgvQuantityInStock.Name = "dgvQuantityInStock";
             dgvQuantityInStock.ReadOnly = true;
-            dgvQuantityInStock.Width = 114;
+            dgvQuantityInStock.Width = 92;
             // 
             // dgvDiscount
             // 
@@ -266,7 +288,7 @@
             dgvDiscount.MinimumWidth = 70;
             dgvDiscount.Name = "dgvDiscount";
             dgvDiscount.ReadOnly = true;
-            dgvDiscount.Width = 116;
+            dgvDiscount.Width = 94;
             // 
             // dgvSupplierID
             // 
@@ -284,17 +306,21 @@
             dgvSupplier.MinimumWidth = 70;
             dgvSupplier.Name = "dgvSupplier";
             dgvSupplier.ReadOnly = true;
-            dgvSupplier.Width = 111;
+            dgvSupplier.Width = 91;
             // 
             // dgvDescription
             // 
-            dgvDescription.FillWeight = 70F;
+            dgvDescription.FillWeight = 90F;
             dgvDescription.HeaderText = "Description";
-            dgvDescription.MinimumWidth = 70;
+            dgvDescription.MinimumWidth = 120;
             dgvDescription.Name = "dgvDescription";
             dgvDescription.ReadOnly = true;
+<<<<<<< HEAD
             dgvDescription.Visible = false;
             dgvDescription.Width = 136;
+=======
+            dgvDescription.Width = 120;
+>>>>>>> a696e468949bcb5cfa132243f31b91fa3735b31c
             // 
             // dgvImage
             // 
@@ -310,28 +336,36 @@
             dgvImageShow.HeaderText = "Image";
             dgvImageShow.Image = Properties.Resources.woman_bag;
             dgvImageShow.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            dgvImageShow.MinimumWidth = 8;
+            dgvImageShow.MinimumWidth = 70;
             dgvImageShow.Name = "dgvImageShow";
             dgvImageShow.ReadOnly = true;
-            dgvImageShow.Width = 66;
+            dgvImageShow.Width = 70;
             // 
             // dgvCreateDate
             // 
             dgvCreateDate.HeaderText = "CreateDate";
-            dgvCreateDate.MinimumWidth = 8;
+            dgvCreateDate.MinimumWidth = 140;
             dgvCreateDate.Name = "dgvCreateDate";
             dgvCreateDate.ReadOnly = true;
+<<<<<<< HEAD
             dgvCreateDate.Visible = false;
             dgvCreateDate.Width = 133;
+=======
+            dgvCreateDate.Width = 140;
+>>>>>>> a696e468949bcb5cfa132243f31b91fa3735b31c
             // 
             // dgvUpdateDate
             // 
             dgvUpdateDate.HeaderText = "UpdateDate";
-            dgvUpdateDate.MinimumWidth = 8;
+            dgvUpdateDate.MinimumWidth = 140;
             dgvUpdateDate.Name = "dgvUpdateDate";
             dgvUpdateDate.ReadOnly = true;
+<<<<<<< HEAD
             dgvUpdateDate.Visible = false;
             dgvUpdateDate.Width = 141;
+=======
+            dgvUpdateDate.Width = 140;
+>>>>>>> a696e468949bcb5cfa132243f31b91fa3735b31c
             // 
             // dgvActive
             // 
@@ -364,7 +398,7 @@
             dgvEdit.MinimumWidth = 50;
             dgvEdit.Name = "dgvEdit";
             dgvEdit.ReadOnly = true;
-            dgvEdit.Width = 50;
+            dgvEdit.Width = 70;
             // 
             // dgvDel
             // 
@@ -376,13 +410,13 @@
             dgvDel.MinimumWidth = 50;
             dgvDel.Name = "dgvDel";
             dgvDel.ReadOnly = true;
-            dgvDel.Width = 50;
+            dgvDel.Width = 70;
             // 
             // ProductView
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1314, 816);
+            ClientSize = new Size(1051, 653);
             Controls.Add(guna2DataGridView1);
             Name = "ProductView";
             Text = "ProductView";
