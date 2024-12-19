@@ -75,13 +75,12 @@ namespace DL.Purchase
                 }
 
                 // Biểu diễn thông tin giao dịch thành chuỗi, mỗi thông tin một hàng
-                string result = $"Purchase Date: {purchase.PurchaseDate:dd/MM/yyyy}\n" +
-                                $"Total Amount: {purchase.TotalAmount:C2}\n" +
-                                $"Status: {purchase.Status}\n" +
-                                $"Created By: {purchase.CreatedBy}\n" +
-                                $"Notes: {purchase.Notes}\n" +
-                                $"Created Date: {purchase.CreatedAt:dd/MM/yyyy HH:mm:ss}\n" +
-                                $"Updated Date: {purchase.UpdatedAt:dd/MM/yyyy HH:mm:ss}";
+                string result = $"Ngày hoàn thành đơn: {purchase.PurchaseDate:dd/MM/yyyy}\n" +
+                                $"Tổng tiền: {purchase.TotalAmount:C2}\n" +
+                                $"Trạng thái: {purchase.Status}\n" +
+                                $"Người tạo: {purchase.CreatedBy}\n" +
+                                $"Ghi chú: {purchase.Notes}\n" +
+                                $"Ngày tạo: {purchase.CreatedAt:dd/MM/yyyy HH:mm:ss}\n";
 
                 return result;
             }

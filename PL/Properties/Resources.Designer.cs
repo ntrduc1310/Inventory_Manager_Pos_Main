@@ -249,5 +249,15 @@ namespace PL.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap z6133017756528_ce527a37a62d001048a21291b92bdd101 {
+            get {
+                object obj = ResourceManager.GetObject("z6133017756528_ce527a37a62d001048a21291b92bdd101", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

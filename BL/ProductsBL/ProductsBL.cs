@@ -63,5 +63,10 @@ namespace BL.ProductsBL
         {
             return await new ProductsDL().getProducts(productId);
         }
+
+        public async Task<string> LoadProductDetailsByIdAsString(int productId)
+        {
+            return await new ProductsDL().LoadProductDetailsByIdAsString(productId);
+        }
     }
 }

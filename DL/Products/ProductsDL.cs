@@ -282,5 +282,33 @@ namespace DL.Products
         }
 
 
+        public async Task<string> LoadProductDetailsByIdAsString(int productId)
+        {
+            using (var context = new DataProviderEntity()) // DataProviderEntity là DbContext của bạn
+            {
+                var product = await context.Products
+                    .FirstOrDefaultAsync(p => p.ProductID == productId);
+
+                // Kiểm tra nếu không tìm thấy sản phẩm
+                if (product == null)
+                {
+                    return "Không tìm thấy sản phẩm nào với ID đã cho.";
+                }
+
+                // Biểu diễn thông tin sản phẩm thành chuỗi, mỗi thông tin một hàng
+                string result =
+                    $"Tên sản phẩm: {product.Name}\n" +
+                    $"Mã vạch: {product.Barcode}\n" +
+                    $"Số lượng trong kho: {product.QuantityInStock}\n" +
+                    $"Giá bán: {product.Price:C2}\n" +
+                    $"Giá nhập: {product.CostPrice:C2}\n" +
+                    $"Giảm giá: {product.Discount}%\n" +
+                    $"Miêu tả: {product.Description}\n";
+
+                return result;
+            }
+        }
+
+
     }
 }

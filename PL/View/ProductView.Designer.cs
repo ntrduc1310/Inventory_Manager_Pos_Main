@@ -53,6 +53,7 @@
             dgvCreateDate = new DataGridViewTextBoxColumn();
             dgvUpdateDate = new DataGridViewTextBoxColumn();
             dgvActive = new DataGridViewTextBoxColumn();
+            dgvAllInformation = new DataGridViewImageColumn();
             dgvEdit = new DataGridViewImageColumn();
             dgvDel = new DataGridViewImageColumn();
             guna2Panel1.SuspendLayout();
@@ -61,7 +62,7 @@
             // 
             // guna2Panel1
             // 
-            guna2Panel1.Margin = new Padding(5, 5, 5, 5);
+            guna2Panel1.Margin = new Padding(5);
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges1;
             guna2Panel1.Size = new Size(1314, 260);
             guna2Panel1.Paint += guna2Panel1_Paint;
@@ -74,7 +75,7 @@
             btnAdd1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnAdd1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnAdd1.Location = new Point(79, 155);
-            btnAdd1.Margin = new Padding(5, 5, 5, 5);
+            btnAdd1.Margin = new Padding(5);
             btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnAdd1.Click += btnAdd1_Click_1;
             // 
@@ -97,7 +98,7 @@
             // 
             guna2HtmlLabel1.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel1.Location = new Point(79, 72);
-            guna2HtmlLabel1.Margin = new Padding(6, 6, 6, 6);
+            guna2HtmlLabel1.Margin = new Padding(6);
             guna2HtmlLabel1.Size = new Size(251, 62);
             guna2HtmlLabel1.Text = "Product List";
             // 
@@ -113,8 +114,7 @@
             guna2DataGridView1.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = Color.White;
             guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            guna2DataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            guna2DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            guna2DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(96, 71, 204);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -125,7 +125,7 @@
             guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             guna2DataGridView1.ColumnHeadersHeight = 35;
             guna2DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            guna2DataGridView1.Columns.AddRange(new DataGridViewColumn[] { dgvSr, dgvid, dgvName, dgvcatID, dgvCategory, dgvBarcode, dgvCost, dgvSalePrice, dgvQuantityInStock, dgvDiscount, dgvSupplierID, dgvSupplier, dgvDescription, dgvImage, dgvImageShow, dgvCreateDate, dgvUpdateDate, dgvActive, dgvEdit, dgvDel });
+            guna2DataGridView1.Columns.AddRange(new DataGridViewColumn[] { dgvSr, dgvid, dgvName, dgvcatID, dgvCategory, dgvBarcode, dgvCost, dgvSalePrice, dgvQuantityInStock, dgvDiscount, dgvSupplierID, dgvSupplier, dgvDescription, dgvImage, dgvImageShow, dgvCreateDate, dgvUpdateDate, dgvActive, dgvAllInformation, dgvEdit, dgvDel });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
@@ -136,13 +136,13 @@
             guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             guna2DataGridView1.GridColor = Color.FromArgb(231, 229, 255);
             guna2DataGridView1.Location = new Point(79, 286);
-            guna2DataGridView1.Margin = new Padding(4, 4, 4, 4);
+            guna2DataGridView1.Margin = new Padding(4);
             guna2DataGridView1.Name = "guna2DataGridView1";
             guna2DataGridView1.ReadOnly = true;
             guna2DataGridView1.RowHeadersVisible = false;
-            guna2DataGridView1.RowHeadersWidth = 100;
+            guna2DataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             guna2DataGridView1.RowTemplate.Height = 35;
-            guna2DataGridView1.ScrollBars = ScrollBars.Horizontal;
+            guna2DataGridView1.ScrollBars = ScrollBars.None;
             guna2DataGridView1.Size = new Size(1162, 491);
             guna2DataGridView1.TabIndex = 4;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
@@ -208,7 +208,7 @@
             dgvcatID.Name = "dgvcatID";
             dgvcatID.ReadOnly = true;
             dgvcatID.Visible = false;
-            dgvcatID.Width = 71;
+            dgvcatID.Width = 87;
             // 
             // dgvCategory
             // 
@@ -275,7 +275,7 @@
             dgvSupplierID.Name = "dgvSupplierID";
             dgvSupplierID.ReadOnly = true;
             dgvSupplierID.Visible = false;
-            dgvSupplierID.Width = 106;
+            dgvSupplierID.Width = 129;
             // 
             // dgvSupplier
             // 
@@ -293,6 +293,7 @@
             dgvDescription.MinimumWidth = 70;
             dgvDescription.Name = "dgvDescription";
             dgvDescription.ReadOnly = true;
+            dgvDescription.Visible = false;
             dgvDescription.Width = 136;
             // 
             // dgvImage
@@ -302,7 +303,7 @@
             dgvImage.Name = "dgvImage";
             dgvImage.ReadOnly = true;
             dgvImage.Visible = false;
-            dgvImage.Width = 78;
+            dgvImage.Width = 96;
             // 
             // dgvImageShow
             // 
@@ -320,6 +321,7 @@
             dgvCreateDate.MinimumWidth = 8;
             dgvCreateDate.Name = "dgvCreateDate";
             dgvCreateDate.ReadOnly = true;
+            dgvCreateDate.Visible = false;
             dgvCreateDate.Width = 133;
             // 
             // dgvUpdateDate
@@ -328,6 +330,7 @@
             dgvUpdateDate.MinimumWidth = 8;
             dgvUpdateDate.Name = "dgvUpdateDate";
             dgvUpdateDate.ReadOnly = true;
+            dgvUpdateDate.Visible = false;
             dgvUpdateDate.Width = 141;
             // 
             // dgvActive
@@ -337,7 +340,19 @@
             dgvActive.Name = "dgvActive";
             dgvActive.ReadOnly = true;
             dgvActive.Visible = false;
-            dgvActive.Width = 77;
+            dgvActive.Width = 94;
+            // 
+            // dgvAllInformation
+            // 
+            dgvAllInformation.HeaderText = "";
+            dgvAllInformation.Image = Properties.Resources.z6133017756528_ce527a37a62d001048a21291b92bdd101;
+            dgvAllInformation.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvAllInformation.MinimumWidth = 8;
+            dgvAllInformation.Name = "dgvAllInformation";
+            dgvAllInformation.ReadOnly = true;
+            dgvAllInformation.Resizable = DataGridViewTriState.True;
+            dgvAllInformation.SortMode = DataGridViewColumnSortMode.Automatic;
+            dgvAllInformation.Width = 27;
             // 
             // dgvEdit
             // 
@@ -401,6 +416,7 @@
         private DataGridViewTextBoxColumn dgvCreateDate;
         private DataGridViewTextBoxColumn dgvUpdateDate;
         private DataGridViewTextBoxColumn dgvActive;
+        private DataGridViewImageColumn dgvAllInformation;
         private DataGridViewImageColumn dgvEdit;
         private DataGridViewImageColumn dgvDel;
     }

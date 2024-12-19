@@ -1,0 +1,256 @@
+USE [master]
+GO
+/****** Object:  Database [Inventory_Manager_Pos]    Script Date: 12/17/2024 7:13:05 PM ******/
+CREATE DATABASE [Inventory_Manager_Pos]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'Inventory_Manager_Pos', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\Inventory_Manager_Pos.mdf' , SIZE = 73728KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'Inventory_Manager_Pos_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\Inventory_Manager_Pos_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT, LEDGER = OFF
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET COMPATIBILITY_LEVEL = 160
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [Inventory_Manager_Pos].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET RECOVERY FULL 
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET  MULTI_USER 
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET ACCELERATED_DATABASE_RECOVERY = OFF  
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'Inventory_Manager_Pos', N'ON'
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET QUERY_STORE = ON
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET QUERY_STORE (OPERATION_MODE = READ_WRITE, CLEANUP_POLICY = (STALE_QUERY_THRESHOLD_DAYS = 30), DATA_FLUSH_INTERVAL_SECONDS = 900, INTERVAL_LENGTH_MINUTES = 60, MAX_STORAGE_SIZE_MB = 1000, QUERY_CAPTURE_MODE = AUTO, SIZE_BASED_CLEANUP_MODE = AUTO, MAX_PLANS_PER_QUERY = 200, WAIT_STATS_CAPTURE_MODE = ON)
+GO
+USE [Inventory_Manager_Pos]
+GO
+/****** Object:  Table [dbo].[Admin]    Script Date: 12/17/2024 7:13:05 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Admin](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Username] [nvarchar](50) NOT NULL,
+	[Password] [nvarchar](50) NOT NULL,
+	[Email] [nvarchar](50) NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Category]    Script Date: 12/17/2024 7:13:06 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Category](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](255) NOT NULL,
+	[QuantityProducts] [int] NOT NULL,
+ CONSTRAINT [PK__Category__3213E83FAC4BB904] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Customer]    Script Date: 12/17/2024 7:13:06 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Customer](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](100) NOT NULL,
+	[phone] [nvarchar](15) NOT NULL,
+	[email] [nvarchar](100) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Products]    Script Date: 12/17/2024 7:13:06 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Products](
+	[ProductID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](200) NOT NULL,
+	[Barcode] [nvarchar](50) NOT NULL,
+	[CategoryID] [int] NOT NULL,
+	[QuantityInStock] [int] NOT NULL,
+	[Price] [decimal](18, 2) NOT NULL,
+	[CostPrice] [decimal](18, 2) NOT NULL,
+	[Discount] [decimal](5, 2) NOT NULL,
+	[SupplierID] [int] NOT NULL,
+	[Description] [nvarchar](max) NULL,
+	[Image] [nvarchar](255) NULL,
+	[CreatedAt] [datetime] NULL,
+	[UpdatedAt] [datetime] NULL,
+ CONSTRAINT [PK__Products__B40CC6ED7F6BC859] PRIMARY KEY CLUSTERED 
+(
+	[ProductID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [UQ__Products__177800D326E0A7AB] UNIQUE NONCLUSTERED 
+(
+	[Barcode] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ProductStockLogs]    Script Date: 12/17/2024 7:13:06 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ProductStockLogs](
+	[LogID] [int] IDENTITY(1,1) NOT NULL,
+	[ProductID] [int] NOT NULL,
+	[QuantityAdded] [int] NOT NULL,
+	[EntryDate] [datetime] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[LogID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Purchase]    Script Date: 12/17/2024 7:13:06 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Purchase](
+	[PurchaseID] [int] IDENTITY(1,1) NOT NULL,
+	[SupplierID] [int] NOT NULL,
+	[PurchaseDate] [date] NOT NULL,
+	[TotalAmount] [decimal](18, 2) NOT NULL,
+	[Status] [nvarchar](50) NOT NULL,
+	[CreatedBy] [nvarchar](100) NOT NULL,
+	[Notes] [nvarchar](max) NULL,
+	[CreatedAt] [datetime2](7) NULL,
+	[UpdatedAt] [datetime2](7) NULL,
+ CONSTRAINT [PK__Purchase__6B0A6BDE2618BE19] PRIMARY KEY CLUSTERED 
+(
+	[PurchaseID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Suppiler]    Script Date: 12/17/2024 7:13:06 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Suppiler](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](100) NOT NULL,
+	[Phone] [nvarchar](15) NOT NULL,
+	[Email] [nvarchar](100) NOT NULL,
+	[Adress] [nvarchar](255) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Email] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Users]    Script Date: 12/17/2024 7:13:06 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Users](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](100) NOT NULL,
+	[UserName] [nvarchar](50) NOT NULL,
+	[Password] [nvarchar](255) NOT NULL,
+	[Phone] [nvarchar](20) NULL,
+	[Picture] [nvarchar](255) NULL,
+	[Role] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK__Employee__3214EC07B0B4494F] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Products] ADD  CONSTRAINT [DF__Products__Quanti__60A75C0F]  DEFAULT ((0)) FOR [QuantityInStock]
+GO
+ALTER TABLE [dbo].[Products] ADD  CONSTRAINT [DF__Products__Discou__619B8048]  DEFAULT ((0.00)) FOR [Discount]
+GO
+ALTER TABLE [dbo].[Products] ADD  CONSTRAINT [DF__Products__Create__628FA481]  DEFAULT (getdate()) FOR [CreatedAt]
+GO
+ALTER TABLE [dbo].[Products] ADD  CONSTRAINT [DF__Products__Update__6383C8BA]  DEFAULT (getdate()) FOR [UpdatedAt]
+GO
+ALTER TABLE [dbo].[ProductStockLogs] ADD  DEFAULT (getdate()) FOR [EntryDate]
+GO
+ALTER TABLE [dbo].[Purchase] ADD  CONSTRAINT [DF__Purchase__Create__09A971A2]  DEFAULT (getdate()) FOR [CreatedAt]
+GO
+ALTER TABLE [dbo].[ProductStockLogs]  WITH CHECK ADD  CONSTRAINT [FK__ProductSt__Produ__68487DD7] FOREIGN KEY([ProductID])
+REFERENCES [dbo].[Products] ([ProductID])
+GO
+ALTER TABLE [dbo].[ProductStockLogs] CHECK CONSTRAINT [FK__ProductSt__Produ__68487DD7]
+GO
+USE [master]
+GO
+ALTER DATABASE [Inventory_Manager_Pos] SET  READ_WRITE 
+GO

@@ -1,5 +1,6 @@
 ﻿using BL.Category;
 using BL.ProductsBL;
+using BL.Purchase;
 using DL.Category;
 using Guna.UI2.WinForms.Suite;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -25,6 +26,7 @@ namespace PL.View
             this.Load += LoadProductsToGridViewFunction;
             guna2DataGridView1.CellClick += guna2DataGridView1_CellClick;
             guna2DataGridView1.CellClick += guna2DataGridView1_CellClick_delete;
+            guna2DataGridView1.CellClick += guna2DataGridView1_AllInformation;
 
         }
 
@@ -38,6 +40,29 @@ namespace PL.View
             productAdd.ShowDialog();
 
         }
+
+        private async void guna2DataGridView1_AllInformation(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                // Kiểm tra xem người dùng có nhấp vào cột dgvAllInformation hay không
+                if (e.ColumnIndex == guna2DataGridView1.Columns["dgvAllInformation"].Index)
+                {
+                    // Lấy ID từ cột dgvid
+                    int id = (int)guna2DataGridView1.Rows[e.RowIndex].Cells["dgvid"].Value;
+
+                    // Lấy thông tin chi tiết của Purchase từ ID
+                    string details = await new ProductsBL().LoadProductDetailsByIdAsString(id);
+
+                    MessageBox.Show(details);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in CellClick: {ex.Message}");
+            }
+        }
+
 
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
