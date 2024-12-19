@@ -191,8 +191,8 @@ namespace PL
 
         private void SignIn_Load(object sender, EventArgs e)
         {
-            Username_txb.Text = "huynh";  // Username mặc định
-            Password_txb.Text = "123Dien*";  // Password mặc định
+            Username_txb.Text = "Ducci";  // Username mặc định
+            Password_txb.Text = "Ducci123";  // Password mặc định
         }
         private void Username_txb_KeyDown(object sender, KeyEventArgs e)
         {

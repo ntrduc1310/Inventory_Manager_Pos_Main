@@ -75,7 +75,7 @@ namespace DL.Customer
             {
                 using (var context = new DataProviderEntity())
                 {
-                    var customerToDelete = await context.Customer.FirstOrDefaultAsync(c => c.Id == customerId);
+                    var customerToDelete = await context.Customer.FirstOrDefaultAsync(c => c.CustomerID == customerId);
 
                     if (customerToDelete != null)
                     {
@@ -103,7 +103,7 @@ namespace DL.Customer
             {
                 using (var context = new DataProviderEntity())
                 {
-                    var customer = await context.Customer.FirstOrDefaultAsync(c => c.Id == customerId);
+                    var customer = await context.Customer.FirstOrDefaultAsync(c => c.CustomerID == customerId);
 
                     if (customer != null)
                     {

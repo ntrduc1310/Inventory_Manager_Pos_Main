@@ -52,9 +52,9 @@
             // 
             // guna2Panel1
             // 
-            guna2Panel1.Margin = new Padding(5);
+            guna2Panel1.Margin = new Padding(4);
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges1;
-            guna2Panel1.Size = new Size(1314, 260);
+            guna2Panel1.Size = new Size(1051, 208);
             guna2Panel1.Paint += guna2Panel1_Paint;
             // 
             // btnAdd1
@@ -64,37 +64,37 @@
             btnAdd1.DisabledState.CustomBorderColor = Color.DarkGray;
             btnAdd1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnAdd1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnAdd1.Location = new Point(79, 154);
-            btnAdd1.Margin = new Padding(5);
+            btnAdd1.Location = new Point(63, 123);
+            btnAdd1.Margin = new Padding(4);
             btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnAdd1.Click += btnAdd1_Click_1;
             // 
             // txtsearch
             // 
-            txtsearch.BorderRadius = 39;
+            txtsearch.BorderRadius = 31;
             txtsearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtsearch.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtsearch.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtsearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtsearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtsearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtsearch.Location = new Point(722, 154);
-            txtsearch.Margin = new Padding(5, 6, 5, 6);
+            txtsearch.Location = new Point(578, 123);
+            txtsearch.Margin = new Padding(4, 5, 4, 5);
             txtsearch.ShadowDecoration.CustomizableEdges = customizableEdges3;
-            txtsearch.Size = new Size(520, 80);
+            txtsearch.Size = new Size(416, 64);
             // 
             // guna2HtmlLabel1
             // 
             guna2HtmlLabel1.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel1.Location = new Point(79, 72);
-            guna2HtmlLabel1.Size = new Size(273, 62);
+            guna2HtmlLabel1.Location = new Point(63, 65);
+            guna2HtmlLabel1.Margin = new Padding(2);
+            guna2HtmlLabel1.Size = new Size(229, 52);
             guna2HtmlLabel1.Text = "Purchase List ";
             // 
             // guna2HtmlLabel2
             // 
-            guna2HtmlLabel2.Location = new Point(722, 106);
-            guna2HtmlLabel2.Margin = new Padding(6);
-            guna2HtmlLabel2.Size = new Size(90, 40);
+            guna2HtmlLabel2.Location = new Point(578, 85);
+            guna2HtmlLabel2.Margin = new Padding(5);
             // 
             // guna2DataGridView1
             // 
@@ -112,7 +112,6 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             guna2DataGridView1.ColumnHeadersHeight = 35;
-            guna2DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             guna2DataGridView1.Columns.AddRange(new DataGridViewColumn[] { dgvSr, dgvid, dgvDate, dgvSupplier, dgvSupID, dgvAmount, dgvCreatedBy, dgvStatus, dgvAllInformation, dgvAccepted, dgvDontAccepted });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
@@ -123,14 +122,13 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             guna2DataGridView1.GridColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.Location = new Point(79, 286);
-            guna2DataGridView1.Margin = new Padding(4);
+            guna2DataGridView1.Location = new Point(63, 229);
             guna2DataGridView1.Name = "guna2DataGridView1";
             guna2DataGridView1.ReadOnly = true;
             guna2DataGridView1.RowHeadersVisible = false;
             guna2DataGridView1.RowHeadersWidth = 51;
             guna2DataGridView1.RowTemplate.Height = 35;
-            guna2DataGridView1.Size = new Size(1164, 491);
+            guna2DataGridView1.Size = new Size(931, 393);
             guna2DataGridView1.TabIndex = 3;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -143,7 +141,7 @@
             guna2DataGridView1.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
             guna2DataGridView1.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
             guna2DataGridView1.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            guna2DataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            guna2DataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             guna2DataGridView1.ThemeStyle.HeaderStyle.Height = 35;
             guna2DataGridView1.ThemeStyle.ReadOnly = true;
             guna2DataGridView1.ThemeStyle.RowsStyle.BackColor = Color.White;
@@ -158,7 +156,8 @@
             // dgvSr
             // 
             dgvSr.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dgvSr.FillWeight = 70F;
+            dgvSr.FillWeight = 1F;
+            dgvSr.Frozen = true;
             dgvSr.HeaderText = "Sr#";
             dgvSr.MinimumWidth = 70;
             dgvSr.Name = "dgvSr";
@@ -167,61 +166,74 @@
             // 
             // dgvid
             // 
+            dgvid.FillWeight = 1F;
             dgvid.HeaderText = "id";
-            dgvid.MinimumWidth = 6;
+            dgvid.MinimumWidth = 70;
             dgvid.Name = "dgvid";
             dgvid.ReadOnly = true;
             dgvid.Visible = false;
             // 
             // dgvDate
             // 
+            dgvDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dgvDate.FillWeight = 20F;
+            dgvDate.Frozen = true;
             dgvDate.HeaderText = "Ngày";
-            dgvDate.MinimumWidth = 100;
+            dgvDate.MinimumWidth = 70;
             dgvDate.Name = "dgvDate";
             dgvDate.ReadOnly = true;
+            dgvDate.Width = 125;
             // 
             // dgvSupplier
             // 
+            dgvSupplier.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dgvSupplier.FillWeight = 20F;
             dgvSupplier.HeaderText = "Nhà cung cấp";
-            dgvSupplier.MinimumWidth = 100;
+            dgvSupplier.MinimumWidth = 70;
             dgvSupplier.Name = "dgvSupplier";
             dgvSupplier.ReadOnly = true;
+            dgvSupplier.Width = 125;
             // 
             // dgvSupID
             // 
+            dgvSupID.FillWeight = 1F;
             dgvSupID.HeaderText = "SupID";
-            dgvSupID.MinimumWidth = 100;
+            dgvSupID.MinimumWidth = 70;
             dgvSupID.Name = "dgvSupID";
             dgvSupID.ReadOnly = true;
             dgvSupID.Visible = false;
             // 
             // dgvAmount
             // 
+            dgvAmount.FillWeight = 20F;
             dgvAmount.HeaderText = "Tổng tiền";
-            dgvAmount.MinimumWidth = 100;
+            dgvAmount.MinimumWidth = 125;
             dgvAmount.Name = "dgvAmount";
             dgvAmount.ReadOnly = true;
             // 
             // dgvCreatedBy
             // 
+            dgvCreatedBy.FillWeight = 20F;
             dgvCreatedBy.HeaderText = "Người tạo";
-            dgvCreatedBy.MinimumWidth = 8;
+            dgvCreatedBy.MinimumWidth = 130;
             dgvCreatedBy.Name = "dgvCreatedBy";
             dgvCreatedBy.ReadOnly = true;
             // 
             // dgvStatus
             // 
+            dgvStatus.FillWeight = 20F;
             dgvStatus.HeaderText = "Trạng thái";
-            dgvStatus.MinimumWidth = 8;
+            dgvStatus.MinimumWidth = 125;
             dgvStatus.Name = "dgvStatus";
             dgvStatus.ReadOnly = true;
             // 
             // dgvAllInformation
             // 
+            dgvAllInformation.FillWeight = 1F;
             dgvAllInformation.HeaderText = "";
             dgvAllInformation.Image = Properties.Resources.z6133017756528_ce527a37a62d001048a21291b92bdd10;
             dgvAllInformation.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            dgvAllInformation.MinimumWidth = 8;
+            dgvAllInformation.MinimumWidth = 79;
             dgvAllInformation.Name = "dgvAllInformation";
             dgvAllInformation.ReadOnly = true;
             dgvAllInformation.Resizable = DataGridViewTriState.True;
@@ -229,27 +241,29 @@
             // 
             // dgvAccepted
             // 
+            dgvAccepted.FillWeight = 1F;
             dgvAccepted.HeaderText = "";
             dgvAccepted.Image = Properties.Resources.icons8_task_completed_50;
             dgvAccepted.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            dgvAccepted.MinimumWidth = 8;
+            dgvAccepted.MinimumWidth = 70;
             dgvAccepted.Name = "dgvAccepted";
             dgvAccepted.ReadOnly = true;
             // 
             // dgvDontAccepted
             // 
+            dgvDontAccepted.FillWeight = 1F;
             dgvDontAccepted.HeaderText = "";
             dgvDontAccepted.Image = Properties.Resources.icons8_no_50;
             dgvDontAccepted.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            dgvDontAccepted.MinimumWidth = 8;
+            dgvDontAccepted.MinimumWidth = 70;
             dgvDontAccepted.Name = "dgvDontAccepted";
             dgvDontAccepted.ReadOnly = true;
             // 
             // PurchaseView
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1314, 816);
+            ClientSize = new Size(1051, 653);
             Controls.Add(guna2DataGridView1);
             Name = "PurchaseView";
             Text = "PurchaseView";

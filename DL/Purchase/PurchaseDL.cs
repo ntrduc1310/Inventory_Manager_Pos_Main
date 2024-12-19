@@ -235,14 +235,15 @@ namespace DL.Purchase
         {
             using (var context = new DataProviderEntity())
             {
-                // Lấy danh sách tên danh mục từ cơ sở dữ liệu
-                var product = await context.Products.Where(p => p.SupplierID == supplierId)
-                                                .ToListAsync();
+                var product = await context.Products
+                            .Where(p => EF.Property<int>(p, nameof(p.SupplierID)) == supplierId)
+                            .ToListAsync();
 
-                // Trả về danh sách categoryNames
+
                 return product;
             }
         }
+
 
 
     }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DL.Products
 {
-    public class ProductsDL:DataProviderEntity
+    public class ProductsDL : DataProviderEntity
     {
         public async Task<List<DTO.Products.Products>> LoadProducts()
         {
@@ -32,7 +32,7 @@ namespace DL.Products
             {
                 using (var context = new DataProviderEntity())
                 {
-                   
+
 
                     // Kiểm tra nếu email đã tồn tại
                     bool exists = await context.Products.AnyAsync(a => a.Barcode == barcode);
@@ -41,7 +41,7 @@ namespace DL.Products
                         return false; // Trả về false nếu nhà cung cấp đã tồn tại
                     }
 
-                    var newProduct =  new DTO.Products.Products
+                    var newProduct = new DTO.Products.Products
                     {
                         Name = name,
                         Barcode = barcode,
@@ -80,7 +80,7 @@ namespace DL.Products
                 using (var context = new DataProviderEntity())
                 {
                     // Sử dụng await để đợi kết quả trả về từ FirstOrDefaultAsync
-                    var productDelete = await context.Products.FirstOrDefaultAsync(e => e.ProductID== ProductId);
+                    var productDelete = await context.Products.FirstOrDefaultAsync(e => e.ProductID == ProductId);
 
                     if (productDelete != null)
                     {
@@ -223,10 +223,22 @@ namespace DL.Products
                 return supplierName ?? "Unknown"; // Trả về tên nếu tìm thấy, nếu không trả về "Unknown"
             }
         }
+        public async Task<List<DTO.Products.Products>> LoadProductsFromCustomer(int customerId)
+        {
+            using (var context = new DataProviderEntity())
+            {
+                // Giả định bảng Products có cột CustomerID để lọc sản phẩm theo customerId
+                var products = await context.Products
+                                            .Where(p => p.CustomerID == customerId) // Đảm bảo cột "CustomerID" tồn tại trong bảng
+                                            .ToListAsync();
+
+                return products;
+            }
+        }
 
 
 
-        public async Task<bool> addQuantityCategory(int categoryId,int quantity)
+        public async Task<bool> addQuantityCategory(int categoryId, int quantity)
         {
             using (var context = new DataProviderEntity())
             {
