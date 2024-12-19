@@ -62,11 +62,7 @@
             // 
             // guna2Panel1
             // 
-<<<<<<< HEAD
-            guna2Panel1.Margin = new Padding(5);
-=======
             guna2Panel1.Margin = new Padding(4);
->>>>>>> a696e468949bcb5cfa132243f31b91fa3735b31c
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges1;
             guna2Panel1.Size = new Size(1051, 208);
             guna2Panel1.Paint += guna2Panel1_Paint;
@@ -78,13 +74,8 @@
             btnAdd1.DisabledState.CustomBorderColor = Color.DarkGray;
             btnAdd1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnAdd1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-<<<<<<< HEAD
-            btnAdd1.Location = new Point(79, 155);
-            btnAdd1.Margin = new Padding(5);
-=======
             btnAdd1.Location = new Point(63, 123);
             btnAdd1.Margin = new Padding(4);
->>>>>>> a696e468949bcb5cfa132243f31b91fa3735b31c
             btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnAdd1.Click += btnAdd1_Click_1;
             // 
@@ -106,15 +97,9 @@
             // guna2HtmlLabel1
             // 
             guna2HtmlLabel1.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-<<<<<<< HEAD
-            guna2HtmlLabel1.Location = new Point(79, 72);
-            guna2HtmlLabel1.Margin = new Padding(6);
-            guna2HtmlLabel1.Size = new Size(251, 62);
-=======
             guna2HtmlLabel1.Location = new Point(63, 63);
             guna2HtmlLabel1.Margin = new Padding(5);
             guna2HtmlLabel1.Size = new Size(211, 52);
->>>>>>> a696e468949bcb5cfa132243f31b91fa3735b31c
             guna2HtmlLabel1.Text = "Product List";
             // 
             // guna2HtmlLabel2
@@ -149,24 +134,14 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             guna2DataGridView1.GridColor = Color.FromArgb(231, 229, 255);
-<<<<<<< HEAD
-            guna2DataGridView1.Location = new Point(79, 286);
-            guna2DataGridView1.Margin = new Padding(4);
-=======
             guna2DataGridView1.Location = new Point(63, 229);
->>>>>>> a696e468949bcb5cfa132243f31b91fa3735b31c
             guna2DataGridView1.Name = "guna2DataGridView1";
             guna2DataGridView1.ReadOnly = true;
             guna2DataGridView1.RowHeadersVisible = false;
             guna2DataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             guna2DataGridView1.RowTemplate.Height = 35;
-<<<<<<< HEAD
-            guna2DataGridView1.ScrollBars = ScrollBars.None;
-            guna2DataGridView1.Size = new Size(1162, 491);
-=======
             guna2DataGridView1.ScrollBars = ScrollBars.Horizontal;
             guna2DataGridView1.Size = new Size(930, 393);
->>>>>>> a696e468949bcb5cfa132243f31b91fa3735b31c
             guna2DataGridView1.TabIndex = 4;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -315,12 +290,7 @@
             dgvDescription.MinimumWidth = 120;
             dgvDescription.Name = "dgvDescription";
             dgvDescription.ReadOnly = true;
-<<<<<<< HEAD
-            dgvDescription.Visible = false;
-            dgvDescription.Width = 136;
-=======
             dgvDescription.Width = 120;
->>>>>>> a696e468949bcb5cfa132243f31b91fa3735b31c
             // 
             // dgvImage
             // 
@@ -347,12 +317,7 @@
             dgvCreateDate.MinimumWidth = 140;
             dgvCreateDate.Name = "dgvCreateDate";
             dgvCreateDate.ReadOnly = true;
-<<<<<<< HEAD
-            dgvCreateDate.Visible = false;
-            dgvCreateDate.Width = 133;
-=======
             dgvCreateDate.Width = 140;
->>>>>>> a696e468949bcb5cfa132243f31b91fa3735b31c
             // 
             // dgvUpdateDate
             // 
@@ -360,12 +325,7 @@
             dgvUpdateDate.MinimumWidth = 140;
             dgvUpdateDate.Name = "dgvUpdateDate";
             dgvUpdateDate.ReadOnly = true;
-<<<<<<< HEAD
-            dgvUpdateDate.Visible = false;
-            dgvUpdateDate.Width = 141;
-=======
             dgvUpdateDate.Width = 140;
->>>>>>> a696e468949bcb5cfa132243f31b91fa3735b31c
             // 
             // dgvActive
             // 
