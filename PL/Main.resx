@@ -118,6 +118,46 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btn_Invoice.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DwAACw8BkvkDpQAAB+xJREFUeF7t20eILFUUxvFnzgvFJxgwoKBiXJjdiLgRFAwYUDCAGMCFiqBgQkQQ
+        xIXo2pVZMS1EMaGoGwMGRJ+uzAGzmEX9TtV/7vRUTXWdulPn2f28Pzgw3nvuOT23neqq6nqriqIoimJt
+        +acYhG2LQ5/CiW2LQ5/CiW2LQ5/CiW2LQ5/CiW2LQ5/CiW2LQ5/CiW2LQ5/CiW2LQ5/CiW2LQ5/CiW2L
+        Q5/CiW2LQ5/CiW2LQ5/CiW2LQ5/CiW2LQ5/CiW2LQ5/CiW2LQ5/CiW2LQ5/CiW2LQ5/CiW2LQ5/CiW2L
+        Q59slJkbvOxslIlDn2yUmRu87GyUiUOfbJSZG7zsbJSJQ59slJkbvOxslIlDn8KJbYtDn8KJbYtDn8KJ
+        bYtDn8KJbYtDn8KJbYtDn8KJbYtDn8KJbYtDn8KJbYtDn8KJbYtDn8KJbYtDn8KJbYtDn8KJbYtDn2yU
+        aWE6YXh0lE8Y7kRaNsrEoU82yrQwnTA8OsonDHciLRtl4tAnG2VamE4YHh3lE4Y7kZaNMnHok40yLUwn
+        DI+O8gnDnUjLRpk49MlGmRamE4ZHR/mE4U6kZaNMHPpko0wL0wnDo6N8wnAn0rJRJg59slGmhemE4dFR
+        PmG4E2nZKBOHPtko08J0wvDoKJ8w3Im0bJSJQ5/CiW2LQ5/CiW2LQ5/CiW2LQ5/CiW2LQ59slGlhOmF4
+        dJRPGO5EWjbKxKFPNsq0MJ0wPDrKJwx3Ii0bZeLQJxtlWphOGB4d5ROGO5GWjTJx6JONMi1MJwyPjvIJ
+        w51Iy0aZOPTJRpkWphOGR0f5SQ8q3lZ8q/iDsJ9tzOZWhLZx6JONMi1MJwyPSmW3r6uvPbSOQ59slGlh
+        OmF4FCq3teIWxS9We23iJcShTzbKtDCdMLxiKnWs4uOq6H+AlxGHPuuC7xV3Ks5THKxYrdiIsJ9tzObu
+        UvygyMK2xaHPPHtXcY5iM36lXparOFfxnmIQSsShzzyyz49LFBvyqwxmaxWXUcuFpXHoM28+VRzCr7Bi
+        qnWg4kMr3IclceiTjTItTCcMD6Jlx9Wrl3hdsQMpo7Ga1J6K9Dj0yUaZFqYTht20ZBvFZ9XiRZ8oRn8z
+        Fqi2ffi/b426kBqHPtko08J0wrCblth1xqRfFaMdprqoxz6Kn63hckiLQ59slGlhOmHYRek7KuwNmHQJ
+        01Mpzw5zp/TEjqQvS/NXKZZFShz6ZKNMC9MJwy5Kv75eldipbe/ZlHI2UfxpC3qcyJJlaX4LhZ04tJAS
+        hz7ZKNPCdMJwL6VuoPioWrToHKanUp6dLXlMfUOMci6oU5diOg59slGmhemE4V5KPahekdgVuOuiT3ln
+        VStqDyvO74hdWdJJOZsrflQswXQc+mSjTAvTCcO9lHpFvSK5k6leyr25XlI5leFsqnFvXWoRU3HoM8vO
+        46X2Uu6T9ZLK3ozZ58rmVcJAWmd/TU1PKK5WHErauKoWs+1gXmov5S5ct9gZ2kmKN6r/qtncDYpNSe+l
+        3ENt4RSvKE5XrMeSlavKzrZtealTKc8u6hbYmdbf9Y8tzypc97+Ut121ot9Til1YtjJ1vZm2MS91KuUd
+        XacnbymuVdg1hf08yXtNY4c7r+8UR7A0X11rpnnfkOMV9n+qxR2KdGjSz3ZX93HFgjVMTaW85hvym8IO
+        UXcrfreBhp8UR7E8T11nprkOWX1U55i6XLKaqU7KaR6yvmTK5nZRPFCNLvW1YifShqtrzLRR7l+pzp51
+        uWR/pjop57A6NXmLqURjFyuan1fPK9YnZZh6/UxznfYq7yXFq8TpDCcaO1GxwDbQ8xfSPO19kKklNG5v
+        StMpTA/D4ll2Fy91KuVNfpdhp7vp6l4/22fIizaBV5iaSnn31enJlUy1aK75zNebiuGnw/XamWYPJPTe
+        OlHOhVX2otcUFynsntTLNjDhBJZ1Uo7dYLQP6Umdh0/N7aywh/ImDb94ZOGsO5eX20k56yseq7Knu5Ul
+        Uymv+QbbDc+pnwuat7OvSdcx5cfCWWdPh3huv9sjP3Zbwx4dbfpcYX8tvYcR5dhfR/PbyhuZ7qScM+rU
+        5Dmm/Fg4Dy7jJfdSrn1m2BnSyYrTFHYLZAOmeyn3GsUku/7o/epYObtX2Ys+YMqPhfPAHtVx39fKpR77
+        0WvS7UxPpTz7y5r0E1N+LJwX9i1e9EMOH1ijCV8ptiFlKuVtVa1Y9CNTfiycJ3Z623sNMZTVVNiZWZP7
+        ekK5zYvP95jyY+G8sUd19uVXWDHVssNU8y/D3EaKi/LPrJclTzPlx8J5ZMd5u5O7Bb/KYLZWYWdlyz1K
+        +ohi0GOqyr+/WrnoWqb8WDjP7HPFTmfd3wparsKuM5qntgseVbi/yDLK30PRvAN8ANN+LFwX2AMJ9h24
+        3X+y01z7TNiYsLu2NmZvnN0OaV6BT7pdMfgBbq15qFq96B2mhmFxUb+hWTcEte7yqsJSvbdnlsXior4D
+        fCnb4qY19mb8ZQUmvMD0cBT4P7J7U/bMV5MdenZmezopx67Km4cp84Wid32nusY6zT5ov1HY9+r2Dd+V
+        ikMUdjPyCMVynye25h7FqYrdFPYvrrZU7KWwU1ur07yza+wWy5FsbZFDG2gPRyx3M3Io+8sob8YYtJH2
+        XYZ97ZrrBUX+Yapo04baQ95nK9YovN5R5J1NFT7a4PUUhytuUthDdXbhaVfy9llj/yziGYU97+W46Fu1
+        6l83nYYQ0MxdGgAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="btn_Supplier.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -333,4 +373,7 @@
         HJib+w921Y61Tjj7OAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="guna2MessageDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

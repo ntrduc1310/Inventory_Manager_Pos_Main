@@ -1,5 +1,6 @@
 ﻿using BL;
 using DTO;
+using Guna.UI2.WinForms;
 using Microsoft.Data.SqlClient;
 using Microsoft.Identity.Client;
 using System;
@@ -31,76 +32,136 @@ namespace PL
 
         private async void SignIn_btn_Click(object sender, EventArgs e)
         {
-            // Kiểm tra các ô nhập liệu
+           await signIn();
+        }
+
+        private async Task signIn()
+        {
             if (!ValidateInputs())
             {
-                MessageBox.Show("Vui lòng nhập đúng thông tin tài khoản và mật khẩu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return; // Thoát sớm nếu thông tin chưa hợp lệ
+                Guna2MessageDialog errorDialog = new Guna2MessageDialog
+                {
+                    Text = "Vui lòng nhập đúng thông tin tài khoản và mật khẩu.",
+                    Caption = "Thông báo",
+                    Buttons = MessageDialogButtons.OK,
+                    Style = MessageDialogStyle.Dark,
+                    Icon = MessageDialogIcon.Warning,
+                    Parent = this
+                };
+                errorDialog.Show();
+                return;
             }
 
-            // Lấy thông tin từ TextBox
             string username = Username_txb.Text.Trim();
             string password = Password_txb.Text.Trim();
-
-            
             bool loginSuccess = false;
 
             try
             {
-                // Gọi hàm LoginAsync trong lớp Business Logic
                 loginSuccess = await new LoginBL().LoginAsync(username, password);
             }
             catch (SqlException ex)
             {
-                MessageBox.Show($"Lỗi kết nối cơ sở dữ liệu: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return; // Thoát sớm nếu có lỗi SQL
+                Guna2MessageDialog sqlErrorDialog = new Guna2MessageDialog
+                {
+                    Text = $"Lỗi kết nối cơ sở dữ liệu: {ex.Message}",
+                    Caption = "Lỗi",
+                    Buttons = MessageDialogButtons.OK,
+                    Style = MessageDialogStyle.Dark,
+                    Icon = MessageDialogIcon.Error,
+                    Parent = this
+                };
+                sqlErrorDialog.Show();
+                return;
+            }
+            catch (Exception ex)
+            {
+                Guna2MessageDialog generalErrorDialog = new Guna2MessageDialog
+                {
+                    Text = $"Đã xảy ra lỗi không xác định: {ex.Message}",
+                    Caption = "Lỗi",
+                    Buttons = MessageDialogButtons.OK,
+                    Style = MessageDialogStyle.Dark,
+                    Icon = MessageDialogIcon.Error,
+                    Parent = this
+                };
+                generalErrorDialog.Show();
+                return;
             }
 
-            // Kiểm tra kết quả đăng nhập
             if (loginSuccess)
             {
-                // Hiển thị thông báo thành công
-               DialogResult result = MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-               if(result == DialogResult.OK)
+                Guna2MessageDialog successDialog = new Guna2MessageDialog
                 {
-                    string currentName = username;
-                    Main main = new Main();
-                    main.username_lbl.Text = currentName;
-                    string imagePath = await new LoginBL().GetImagePathByUsernamePasssword(username, password);
-                    if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
+                    Text = "Đăng nhập thành công!",
+                    Caption = "Thông báo",
+                    Buttons = MessageDialogButtons.OK,
+                    Style = MessageDialogStyle.Light,
+                    Parent = this
+                };
+                successDialog.Show();
+                Main main = new Main();
+                string imagePath = await new LoginBL().GetImagePathByUsernamePasssword(username, password);
+                if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
+                {
+                    try
                     {
-                        try
-                        {
-                            // Tải hình ảnh và gán vào PictureBox
-                            main.pictureBox.Image = Image.FromFile(imagePath);
-                        }
-                        catch (Exception ex)
-                        {
-                            throw ex;
-                        }
+                        main.pictureBox.Image = Image.FromFile(imagePath);
+                        main.username_lbl.Text = username;
+                        main.ShowDialog();
+                        this.Close();
                     }
-                    main.ShowDialog();
-                    this.Close();
-                }    
+                    catch (Exception ex)
+                    {
+                        Guna2MessageDialog imageErrorDialog = new Guna2MessageDialog
+                        {
+                            Text = $"Không thể tải hình ảnh: {ex.Message}",
+                            Caption = "Lỗi",
+                            Buttons = MessageDialogButtons.OK,
+                            Style = MessageDialogStyle.Dark,
+                            Icon = MessageDialogIcon.Error,
+                            Parent = this
+                        };
+                        imageErrorDialog.Show();
+                    }
+                }
             }
             else
             {
-                // Thông báo lỗi và cho phép người dùng chọn Retry hoặc Cancel
-                DialogResult result = MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng. Bạn có muốn thử lại?", "Lỗi", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                Guna2MessageDialog loginErrorDialog = new Guna2MessageDialog
+                {
+                    Text = "Tên đăng nhập hoặc mật khẩu không đúng. Vui lòng thử lại.",
+                    Caption = "Lỗi",
+                    Buttons = MessageDialogButtons.OK,
+                    Style = MessageDialogStyle.Dark,
+                    Icon = MessageDialogIcon.Error,
+                    Parent = this
+                };
+                loginErrorDialog.Show();
 
-                if (result == DialogResult.Cancel)
-                {
-                    Application.Exit(); // Thoát ứng dụng nếu người dùng chọn Cancel
-                }
-                else
-                {
-                    // Xóa nội dung các ô nhập liệu để người dùng nhập lại
-                    Username_txb.Clear();
-                    Password_txb.Clear();
-                    Username_txb.Focus(); // Đặt con trỏ vào ô Username
-                }
+                Username_txb.Clear();
+                Password_txb.Clear();
+                Username_txb.Focus();
             }
+            if (!ValidateInputs())
+            {
+                Guna2MessageDialog errorDialog = new Guna2MessageDialog
+                {
+                    Text = "Vui lòng nhập đúng thông tin tài khoản và mật khẩu.",
+                    Caption = "Thông báo",
+                    Buttons = MessageDialogButtons.OK,
+                    Style = MessageDialogStyle.Dark,
+                    Icon = MessageDialogIcon.Warning,
+                    Parent = this
+                };
+                errorDialog.Show();
+                return;
+            }
+
+
         }
+
+
 
 
 

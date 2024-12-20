@@ -26,6 +26,14 @@ namespace DL.Products
                 return await context.Products.FirstOrDefaultAsync(p => p.ProductID == productId);
             }
         }
+        public async Task<int> GetTotalStock()
+        {
+            using (var context = new DataProviderEntity())
+            {
+                return await context.Products.SumAsync(p => p.QuantityInStock);
+            }
+        }
+
         public async Task<bool> AddProducts(string name, string barcode, int categoryID, int quantityInStock, decimal price, decimal costPrice, decimal discount, int supplierId, string description, string image)
         {
             try

@@ -339,8 +339,7 @@ namespace PL.Model
             int customerId = (int)cb_Customer.SelectedValue;
             string notes = txt_notes.Text;
 
-            var saleDetails = new List<SaleDetail>(); // Thay SaleItemDTO thành SaleDetail
-
+            var saleDetails = new List<SaleDetail>(); 
             foreach (DataGridViewRow row in dataGridViewCart2.Rows)
             {
                 saleDetails.Add(new SaleDetail
@@ -348,7 +347,7 @@ namespace PL.Model
                     ProductID = Convert.ToInt32(row.Cells["dgvProductID"].Value),
                     Quantity = Convert.ToInt32(row.Cells["dgvQuantity"].Value),
                     Price = Convert.ToDecimal(row.Cells["dgvPrice"].Value),
-                    Amount = Convert.ToDecimal(row.Cells["dgvAmount"].Value), // Đảm bảo Amount là chính xác
+                    Amount = Convert.ToDecimal(row.Cells["dgvAmount"].Value), 
                 });
             }
 

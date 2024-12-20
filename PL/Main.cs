@@ -1,4 +1,5 @@
-﻿using Guna.UI2.WinForms;
+﻿using DL.Products;
+using Guna.UI2.WinForms;
 using PL.Edit;
 using PL.Model;
 using PL.View;
@@ -21,12 +22,14 @@ namespace PL
         public Guna.UI2.WinForms.Guna2HtmlLabel username_lbl;
         public Guna.UI2.WinForms.Guna2PictureBox pictureBox;
 
+
         public Main()
         {
 
             InitializeComponent();
             username_lbl = LabelName;
             pictureBox = guna2PictureBox1;
+
         }
         public static Main Instance
         {
@@ -56,6 +59,7 @@ namespace PL
             btnMax.PerformClick();
             _obj.Visible = false;
             btn_DashBoard.PerformClick();
+            LoadStockNotification();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -189,13 +193,76 @@ namespace PL
 
         private void btn_Home_Click(object sender, EventArgs e)
         {
-            DashBoard dashboard = new DashBoard();
-            LoadFormIntoPanelCenter(dashboard);
+            Report report = new Report();
+            LoadFormIntoPanel(report, CenterPanel);
         }
 
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+
+        // Phương thức hiển thị thông báo tồn kho
+        private async Task LoadStockNotification()
+        {
+            try
+            {
+                // Lấy tổng lượng hàng tồn kho từ CSDL
+                var productsDL = new ProductsDL();
+                int totalStock = await productsDL.GetTotalStock();
+
+                // Kiểm tra nếu số lượng tồn kho lớn hơn 0
+                if (totalStock > 0)
+                {
+                    // Sử dụng Guna2MessageDialog để hiển thị thông báo
+                    Guna2MessageDialog stockNotificationDialog = new Guna2MessageDialog
+                    {
+                        Text = $"Tổng lượng hàng tồn kho hiện tại: {totalStock} sản phẩm.",
+                        Caption = "Thông báo tồn kho",
+                        Parent = this
+                    };
+                    stockNotificationDialog.Show(); // Hiển thị thông báo
+
+
+                
+
+
+                }
+                else
+                {
+                    // Sử dụng Guna2MessageDialog với kiểu thông báo lỗi (tùy chỉnh màu)
+                    Guna2MessageDialog noStockDialog = new Guna2MessageDialog
+                    {
+                        Text = "Hiện không có sản phẩm tồn kho.",
+                        Caption = "Thông báo lỗi",
+                        Style = MessageDialogStyle.Dark, // Sử dụng kiểu Dark để nổi bật
+                        Icon = MessageDialogIcon.Warning // Icon cảnh báo
+                    };
+                    noStockDialog.Show(); // Hiển thị thông báo
+                }
+            }
+            catch (Exception ex)
+            {
+                Guna2MessageDialog errorDialog = new Guna2MessageDialog
+                {
+                    Text = $"Đã xảy ra lỗi: {ex.Message}",
+                    Caption = "Lỗi",
+                    Style = MessageDialogStyle.Dark,
+                    Icon = MessageDialogIcon.Error
+                };
+                errorDialog.Show();
+            }
+        }
+
+
+
+
+
+        private void btn_Invoice_Click(object sender, EventArgs e)
+        {
+            invoice invoice = new invoice();
+            LoadFormIntoPanel(invoice, CenterPanel);
         }
     }
 }
