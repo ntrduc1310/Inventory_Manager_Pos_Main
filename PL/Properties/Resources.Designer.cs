@@ -183,9 +183,29 @@ namespace PL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_select_none_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-select-none-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_task_completed_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-task-completed-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_task_completed_501 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-task-completed-501", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

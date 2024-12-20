@@ -17,9 +17,9 @@ namespace BL.Sale
         }
 
         // Thêm mới Sale
-        public async Task<bool> AddSale(int customerId, decimal totalAmount, string createdBy, string notes)
+        public async Task<bool> AddSale(int customerId, decimal totalAmount, string status, string createdBy, string notes)
         {
-            return await new SaleDL().AddSale(customerId, totalAmount, createdBy, notes);
+            return await new SaleDL().AddSale(customerId, totalAmount, status, createdBy, notes);
         }
 
         // Load danh sách khách hàng cho ComboBox
@@ -66,6 +66,21 @@ namespace BL.Sale
         public async Task<List<DTO.Products.Products>> LoadProductsFromCustomer(int customerId)
         {
             return await new SaleDL().LoadProductsFromCustomer(customerId);
+        }
+
+        public async Task<object> loadUsersToComboBox()
+        {
+            return await new DL.Sale.SaleDL().LoadUsertoComboBox();
+        }
+
+        public async Task<string> GetCustomerNameById(int customerId)
+        {
+            return await new DL.Sale.SaleDL().GetCustomerNameById(customerId);
+        }
+
+        public async Task<bool> updateStatus(string status, int saleId)
+        {
+            return await new SaleDL().updateStatus(status, saleId);
         }
     }
 }

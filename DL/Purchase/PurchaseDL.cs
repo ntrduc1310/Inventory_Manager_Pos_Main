@@ -235,7 +235,7 @@ namespace DL.Purchase
             using (var context = new DataProviderEntity())
             {
                 var product = await context.Products
-                            .Where(p => EF.Property<int>(p, nameof(p.SupplierID)) == supplierId)
+                            .Where(p => p.SupplierID == supplierId)
                             .ToListAsync();
 
 

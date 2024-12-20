@@ -184,21 +184,9 @@ namespace PL.View
                                 e.Value = null;
                                 Console.WriteLine($"No image found at path: {imagePath}");
                             }
+
                         }
-
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine($"CellFormatting error: {ex.Message}");
-                    }
-                };
-
-                // Thêm sự kiện CellValueChanged để xử lý cập nhật giá trị tên danh mục và nhà cung cấp
-                guna2DataGridView1.CellFormatting += async (s, e) =>
-                {
-                    try
-                    {
-                        if (e.ColumnIndex == guna2DataGridView1.Columns["dgvCategory"].Index)
+                       else if (e.ColumnIndex == guna2DataGridView1.Columns["dgvCategory"].Index)
                         {
                             int id = (int)guna2DataGridView1.Rows[e.RowIndex].Cells["dgvCatID"].Value;
 
@@ -229,6 +217,7 @@ namespace PL.View
                         Console.WriteLine($"CellFormatting error: {ex.Message}");
                     }
                 };
+
 
             }
             catch (Exception ex)

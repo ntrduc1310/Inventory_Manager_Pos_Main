@@ -1,19 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Documents;
-using System.Windows.Forms;
-using BL;
-using BL.Category;
-using BL.ProductsBL;
+﻿using BL.ProductsBL;
 using BL.Purchase;
-using BL.User;
-using DTO.Suppiler;
 using Guna.UI2.WinForms;
 using PL.View;
 
@@ -27,6 +13,9 @@ namespace PL.Model
             this.Load += LoadToComboBox;
             this.Load += LoadProducts;
             cb_Supplier.SelectedIndexChanged += cb_Supplier_select;
+            dataGridViewCart.CellClick += AddToCartForClickImageCellClick;
+            dataGridViewCart.CellClick += SubtractToCartCellClick;
+
 
 
         }
@@ -89,11 +78,13 @@ namespace PL.Model
                     // Kiểm tra ProductID trong giỏ hàng
                     if ((int)row.Cells["dgvSupplierId"].Value != 0 && (int)row.Cells["dgvSupplierId"].Value != product.SupplierID)
                     {
-                        MessageBox.Show("Không thể thêm sản phẩm khác nhà cung cấp để tạo đơn hàng!");
+
+                        //MessageBox.Show("Không thể thêm sản phẩm khác nhà cung cấp để tạo đơn hàng!");
+                        NotificationShow.ShowMessageDialog("Không thể thêm sản phẩm khác nhà cung cấp để tạo đơn hàng");
                         isProductInCart = false;
                         return;
-                    }    
-                    else if (row.Cells["dgvProductName"].Value != null && row.Cells["dgvProductName"].Value.ToString().Equals(product.Name, StringComparison.OrdinalIgnoreCase))
+                    }
+                    else if (row.Cells["dgvId"].Value != null && (int)row.Cells["dgvId"].Value == product.ProductID)
                     {
                         // Nếu có, cập nhật số lượng và Amount
                         int currentQuantity = Convert.ToInt32(row.Cells["dgvQuantity"].Value);
@@ -113,8 +104,8 @@ namespace PL.Model
                 if (!isProductInCart)
                 {
                     // Thêm sản phẩm vào DataGridView (lưu ý thêm ProductID, Name, Quantity, CostPrice, Price, Amount)
-                    dataGridViewCart.Rows.Add(product.Name,product.SupplierID, 1, product.CostPrice, product.CostPrice);
-                    
+                    dataGridViewCart.Rows.Add(product.Name, product.ProductID, product.SupplierID, 1, product.CostPrice, product.CostPrice);
+
 
                     // Cập nhật tổng tiền (có thể tính lại tổng tiền ở đây)
                     UpdateGrandTotal();
@@ -140,10 +131,10 @@ namespace PL.Model
             if (product != null)
             {
                 // Kiểm tra sản phẩm đã có trong giỏ hàng chưa
-                bool isProductInCart = false;
                 foreach (DataGridViewRow row in dataGridViewCart.Rows)
                 {
-                    if (row.Cells["dgvProductName"].Value != null && row.Cells["dgvProductName"].Value.ToString().Equals(product.Name, StringComparison.OrdinalIgnoreCase))
+                    // Kiểm tra ProductID trong giỏ hàng (xử lý null)
+                    if (row.Cells["dgvId"].Value != null && Convert.ToInt32(row.Cells["dgvId"].Value) == product.ProductID)
                     {
                         // Nếu có, cập nhật số lượng và Amount
                         int currentQuantity = Convert.ToInt32(row.Cells["dgvQuantity"].Value);
@@ -153,14 +144,27 @@ namespace PL.Model
                         decimal price = Convert.ToDecimal(row.Cells["dgvPrice"].Value);
                         row.Cells["dgvAmount"].Value = price * (currentQuantity + 1);
 
-                        // Đánh dấu là sản phẩm đã có trong giỏ hàng
-                        isProductInCart = true;
-                        break;
+                        // Cập nhật tổng tiền
+                        UpdateGrandTotal();
+                        return; // Dừng vòng lặp
                     }
                 }
 
             }
         }
+
+        private async void AddToCartForClickImageCellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dataGridViewCart.Columns[e.ColumnIndex].Name == "dgvAdd")
+            {
+                // Lấy ProductID từ dòng hiện tại
+                int productId = Convert.ToInt32(dataGridViewCart.Rows[e.RowIndex].Cells["dgvId"].Value);
+
+                // Gọi phương thức thêm sản phẩm
+                AddToCartForClickImage(productId);
+            }
+        }
+
 
 
         private async void SubtractToCart(int productId)
@@ -170,33 +174,49 @@ namespace PL.Model
 
             if (product != null)
             {
-
                 foreach (DataGridViewRow row in dataGridViewCart.Rows)
                 {
                     // Kiểm tra ProductID trong giỏ hàng
-                    if (row.Cells["dgvProductName"].Value != null && row.Cells["dgvProductName"].Value.ToString().Equals(product.Name, StringComparison.OrdinalIgnoreCase))
+                    if (row.Cells["dgvId"].Value != null && Convert.ToInt32(row.Cells["dgvId"].Value) == product.ProductID)
                     {
-                        // Nếu có, cập nhật số lượng và Amount
+                        // Nếu sản phẩm được tìm thấy, cập nhật số lượng và Amount
                         int currentQuantity = Convert.ToInt32(row.Cells["dgvQuantity"].Value);
-                        if (currentQuantity <= 0)
+
+                        if (currentQuantity > 1)
                         {
-                            currentQuantity = 0;
+                            row.Cells["dgvQuantity"].Value = currentQuantity - 1;  // Giảm số lượng
+                            decimal price = Convert.ToDecimal(row.Cells["dgvPrice"].Value);
+                            row.Cells["dgvAmount"].Value = price * (currentQuantity - 1); // Cập nhật Amount
                         }
                         else
                         {
-                            row.Cells["dgvQuantity"].Value = currentQuantity - 1;  // Tăng số lượng lên 1
-                            // Cập nhật lại Amount
-                            decimal price = Convert.ToDecimal(row.Cells["dgvPrice"].Value);
-                            row.Cells["dgvAmount"].Value = price * (currentQuantity - 1);
-                            break;
+                            // Nếu số lượng là 1, xóa sản phẩm khỏi giỏ hàng
+                            dataGridViewCart.Rows.Remove(row);
                         }
 
+                        UpdateGrandTotal();
+                        return; // Dừng vòng lặp sau khi tìm thấy và xử lý sản phẩm
                     }
                 }
-                UpdateGrandTotal();
-
             }
         }
+
+        private async void SubtractToCartCellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dataGridViewCart.Columns[e.ColumnIndex].Name == "dgvSubtract")
+            {
+                // Lấy ProductID từ dòng hiện tại
+                int productId = Convert.ToInt32(dataGridViewCart.Rows[e.RowIndex].Cells["dgvId"].Value);
+
+                // Gọi phương thức thêm sản phẩm
+                SubtractToCart(productId);
+            }
+        }
+
+
+
+
+
 
 
 
@@ -210,6 +230,8 @@ namespace PL.Model
                 {
                     var products = await new PurchaseBL().LoadProductFromSupplier(selectedSupplierId);
                     //var products = await new ProductsBL().LoadProducts();
+                    guna2Panel1.Controls.Clear();
+
                     foreach (var product in products)
                     {
                         // Tạo Panel chứa thông tin sản phẩm
@@ -261,22 +283,11 @@ namespace PL.Model
                             };
                         }
                         // Thêm sản phẩm vào FlowLayoutPanel
-                        guna2Panel1.Controls.Clear();
                         guna2Panel1.Controls.Add(productPanel);
 
-                        dataGridViewCart.CellClick += async (s, e) =>
-                        {
-                            // Kiểm tra nếu click vào cột Edit
-                            if (e.RowIndex >= 0 && dataGridViewCart.Columns[e.ColumnIndex].Name == "dgvAdd")
-                            {
-                                AddToCartForClickImage(product.ProductID);
 
-                            }
-                            else if (e.RowIndex >= 0 && dataGridViewCart.Columns[e.ColumnIndex].Name == "dgvSubtract")
-                            {
-                                SubtractToCart(product.ProductID);
-                            }
-                        };
+                       
+
                     }
                 }
                 else
@@ -348,20 +359,8 @@ namespace PL.Model
                 }
                 // Thêm sản phẩm vào FlowLayoutPanel
                 guna2Panel1.Controls.Add(productPanel);
+            
 
-                dataGridViewCart.CellClick += async (s, e) =>
-                {
-                    // Kiểm tra nếu click vào cột Edit
-                    if (e.RowIndex >= 0 && dataGridViewCart.Columns[e.ColumnIndex].Name == "dgvAdd")
-                    {
-                        AddToCartForClickImage(product.ProductID);
-
-                    }
-                    else if (e.RowIndex >= 0 && dataGridViewCart.Columns[e.ColumnIndex].Name == "dgvSubtract")
-                    {
-                        SubtractToCart(product.ProductID);
-                    }
-                };
             }
         }
 

@@ -223,18 +223,18 @@ namespace DL.Products
                 return supplierName ?? "Unknown"; // Trả về tên nếu tìm thấy, nếu không trả về "Unknown"
             }
         }
-        public async Task<List<DTO.Products.Products>> LoadProductsFromCustomer(int customerId)
-        {
-            using (var context = new DataProviderEntity())
-            {
-                // Giả định bảng Products có cột CustomerID để lọc sản phẩm theo customerId
-                var products = await context.Products
-                                            .Where(p => p.CustomerID == customerId) // Đảm bảo cột "CustomerID" tồn tại trong bảng
-                                            .ToListAsync();
+        //public async Task<List<DTO.Products.Products>> LoadProductsFromCustomer(int customerId)
+        //{
+        //    using (var context = new DataProviderEntity())
+        //    {
+        //        // Giả định bảng Products có cột CustomerID để lọc sản phẩm theo customerId
+        //        var products = await context.Products
+        //                                    .Where(p => p.CustomerID == customerId) // Đảm bảo cột "CustomerID" tồn tại trong bảng
+        //                                    .ToListAsync();
 
-                return products;
-            }
-        }
+        //        return products;
+        //    }
+        //}
 
 
 
