@@ -69,8 +69,8 @@ namespace PL.Model
         {
             if (path != null)
             {
-                // Lấy thư mục gốc của dự án
-                string projectDirectory = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
+                // Lấy thư mục gốc của dự án bằng cách đi lên từ thư mục bin
+                string projectDirectory = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\"));
 
                 // Đảm bảo thư mục ImagesUsers tồn tại
                 string destinationFolder = Path.Combine(projectDirectory, "ImagesUsers");
@@ -93,7 +93,15 @@ namespace PL.Model
                 }
 
                 // Sao chép file vào thư mục đích
-                File.Copy(path, destinationFilePath);
+                try
+                {
+                    File.Copy(path, destinationFilePath);
+                }
+                catch (Exception ex)
+                {
+                    // Xử lý lỗi nếu có
+                    MessageBox.Show("Error copying file: " + ex.Message);
+                }
 
                 // Trả về đường dẫn file đích
                 return destinationFilePath;
@@ -120,6 +128,7 @@ namespace PL.Model
                 }
             }
         }
+
 
 
         private void btn_Save_Click(object sender, EventArgs e)

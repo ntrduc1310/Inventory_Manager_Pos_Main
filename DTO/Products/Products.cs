@@ -35,6 +35,5 @@ namespace DTO.Products
         public DateTime? CreatedAt { get; set; }
 
         public DateTime? UpdatedAt { get; set; }
-        public int? CustomerID { get; set; } // Thêm cột CustomerID, cho phép NULL
     }
 }

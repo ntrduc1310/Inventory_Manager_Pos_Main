@@ -37,7 +37,7 @@ namespace DL.Sale
         }
 
         // Thêm mới Sale
-        public async Task<bool> AddSale(int customerId, decimal totalAmount, string createdBy, string notes)
+        public async Task<bool> AddSale(int customerId, decimal totalAmount,string status, string createdBy, string notes)
         {
             try
             {
@@ -48,9 +48,10 @@ namespace DL.Sale
                     {
                         CustomerID = customerId, 
                         TotalAmount = totalAmount,
-                        Status = "Đang xử lý",
+                        Status = status,
                         CreatedBy = createdBy,
                         Notes = notes,
+                        CreatedAt= DateTime.Now,
                     };
 
                     context.Sale.Add(newSale);
@@ -208,5 +209,55 @@ namespace DL.Sale
                 return products;
             }
         }
+
+        public async Task<object> LoadUsertoComboBox()
+        {
+            using (var context = new DataProviderEntity())
+            {
+                // Lấy danh sách tên danh mục từ cơ sở dữ liệu
+                var employeesNames = await context.Users.ToListAsync();
+
+                // Trả về danh sách categoryNames
+                return employeesNames;
+            }
+        }
+
+        public async Task<string> GetCustomerNameById(int customerId)
+        {
+            using (var context = new DataProviderEntity())
+            {
+                // Lấy tên danh mục từ cơ sở dữ liệu theo ID
+                var supplierName = await context.Customer
+                                                .Where(c => c.CustomerID == customerId)
+                                                .Select(c => c.Name)
+                                                .FirstOrDefaultAsync();
+
+                return supplierName ?? "Unknown"; // Trả về tên nếu tìm thấy, nếu không trả về "Unknown"
+            }
+        }
+
+        public async Task<bool> updateStatus(string status, int saleId)
+        {
+            using (var context = new DataProviderEntity()) // DataProviderEntity là DbContext của bạn
+            {
+                var sale = await context.Sale
+                    .FirstOrDefaultAsync(p => p.SaleID == saleId);
+
+                // Kiểm tra nếu không tìm thấy giao dịch
+                if (sale == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    sale.Status = status;
+                    sale.SaleDate = DateTime.Now;
+                    int rowAffect = await context.SaveChangesAsync(); // await kết quả của SaveChangesAsync()
+
+                    return rowAffect > 0;
+                }
+            }
+        }
+
     }
 }

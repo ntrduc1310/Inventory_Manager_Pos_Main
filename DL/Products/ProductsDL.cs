@@ -231,18 +231,18 @@ namespace DL.Products
                 return supplierName ?? "Unknown"; // Trả về tên nếu tìm thấy, nếu không trả về "Unknown"
             }
         }
-        public async Task<List<DTO.Products.Products>> LoadProductsFromCustomer(int customerId)
-        {
-            using (var context = new DataProviderEntity())
-            {
-                // Giả định bảng Products có cột CustomerID để lọc sản phẩm theo customerId
-                var products = await context.Products
-                                            .Where(p => p.CustomerID == customerId) // Đảm bảo cột "CustomerID" tồn tại trong bảng
-                                            .ToListAsync();
+        //public async Task<List<DTO.Products.Products>> LoadProductsFromCustomer(int customerId)
+        //{
+        //    using (var context = new DataProviderEntity())
+        //    {
+        //        // Giả định bảng Products có cột CustomerID để lọc sản phẩm theo customerId
+        //        var products = await context.Products
+        //                                    .Where(p => p.CustomerID == customerId) // Đảm bảo cột "CustomerID" tồn tại trong bảng
+        //                                    .ToListAsync();
 
-                return products;
-            }
-        }
+        //        return products;
+        //    }
+        //}
 
 
 
@@ -298,6 +298,34 @@ namespace DL.Products
                     Console.WriteLine("Không tìm thấy sản phẩm với ID được cung cấp.");
                     return false;
                 }
+            }
+        }
+
+
+        public async Task<string> LoadProductDetailsByIdAsString(int productId)
+        {
+            using (var context = new DataProviderEntity()) // DataProviderEntity là DbContext của bạn
+            {
+                var product = await context.Products
+                    .FirstOrDefaultAsync(p => p.ProductID == productId);
+
+                // Kiểm tra nếu không tìm thấy sản phẩm
+                if (product == null)
+                {
+                    return "Không tìm thấy sản phẩm nào với ID đã cho.";
+                }
+
+                // Biểu diễn thông tin sản phẩm thành chuỗi, mỗi thông tin một hàng
+                string result =
+                    $"Tên sản phẩm: {product.Name}\n" +
+                    $"Mã vạch: {product.Barcode}\n" +
+                    $"Số lượng trong kho: {product.QuantityInStock}\n" +
+                    $"Giá bán: {product.Price:C2}\n" +
+                    $"Giá nhập: {product.CostPrice:C2}\n" +
+                    $"Giảm giá: {product.Discount}%\n" +
+                    $"Miêu tả: {product.Description}\n";
+
+                return result;
             }
         }
 

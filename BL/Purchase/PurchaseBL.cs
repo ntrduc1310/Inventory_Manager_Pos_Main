@@ -1,4 +1,5 @@
-﻿using DTO.Purchase;
+﻿using DL.Sale;
+using DTO.Purchase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +39,7 @@ namespace BL.Purchase
         {
             return await new DL.Purchase.PurchaseDL().LoadProductFromSupplier(supplierId);
         }
-       
+
         public async Task<bool> DeletePurchase(int id)
         {
             return await new DL.Purchase.PurchaseDL().DeletePurchase(id);
