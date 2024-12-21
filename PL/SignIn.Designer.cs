@@ -71,6 +71,7 @@
             btnExit = new Guna.UI2.WinForms.Guna2ControlBox();
             btnMax = new Guna.UI2.WinForms.Guna2ControlBox();
             guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
+            guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox3).BeginInit();
@@ -103,13 +104,13 @@
             // guna2HtmlLabel7
             // 
             guna2HtmlLabel7.BackColor = Color.Transparent;
-            guna2HtmlLabel7.Font = new Font("Segoe UI Black", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel7.Font = new Font("Segoe UI Black", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel7.ForeColor = Color.DarkSlateBlue;
-            guna2HtmlLabel7.Location = new Point(53, 449);
+            guna2HtmlLabel7.Location = new Point(63, 449);
             guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            guna2HtmlLabel7.Size = new Size(426, 47);
+            guna2HtmlLabel7.Size = new Size(392, 61);
             guna2HtmlLabel7.TabIndex = 57;
-            guna2HtmlLabel7.Text = "Inventory and Pos System";
+            guna2HtmlLabel7.Text = "Hệ Thống Quản Lý ";
             // 
             // guna2Separator1
             // 
@@ -151,11 +152,11 @@
             // 
             guna2HtmlLabel4.BackColor = Color.Transparent;
             guna2HtmlLabel4.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            guna2HtmlLabel4.Location = new Point(662, 304);
+            guna2HtmlLabel4.Location = new Point(663, 320);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            guna2HtmlLabel4.Size = new Size(92, 30);
+            guna2HtmlLabel4.Size = new Size(95, 30);
             guna2HtmlLabel4.TabIndex = 51;
-            guna2HtmlLabel4.Text = "Password";
+            guna2HtmlLabel4.Text = "Mật Khẩu";
             // 
             // guna2HtmlLabel3
             // 
@@ -182,11 +183,11 @@
             guna2HtmlLabel1.Enabled = false;
             guna2HtmlLabel1.Font = new Font("Segoe UI", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel1.ForeColor = Color.SlateBlue;
-            guna2HtmlLabel1.Location = new Point(730, 130);
+            guna2HtmlLabel1.Location = new Point(693, 130);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(144, 61);
+            guna2HtmlLabel1.Size = new Size(233, 61);
             guna2HtmlLabel1.TabIndex = 48;
-            guna2HtmlLabel1.Text = "Sign In";
+            guna2HtmlLabel1.Text = "Đăng Nhập";
             guna2HtmlLabel1.TextAlignment = ContentAlignment.MiddleCenter;
             // 
             // guna2PictureBox3
@@ -284,7 +285,7 @@
             Sign_In.ShadowDecoration.CustomizableEdges = customizableEdges14;
             Sign_In.Size = new Size(326, 63);
             Sign_In.TabIndex = 43;
-            Sign_In.Text = "Sign In";
+            Sign_In.Text = "Đăng Nhập Ngay";
             Sign_In.Click += SignIn_btn_Click;
             // 
             // guna2PictureBox1
@@ -341,12 +342,24 @@
             guna2ControlBox2.Size = new Size(42, 34);
             guna2ControlBox2.TabIndex = 66;
             // 
+            // guna2HtmlLabel5
+            // 
+            guna2HtmlLabel5.BackColor = Color.Transparent;
+            guna2HtmlLabel5.Font = new Font("Segoe UI Black", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel5.ForeColor = Color.DarkSlateBlue;
+            guna2HtmlLabel5.Location = new Point(97, 506);
+            guna2HtmlLabel5.Name = "guna2HtmlLabel5";
+            guna2HtmlLabel5.Size = new Size(307, 47);
+            guna2HtmlLabel5.TabIndex = 67;
+            guna2HtmlLabel5.Text = "Cửa Hàng Tạp Hóa";
+            // 
             // SignIn
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1027, 584);
             ControlBox = false;
+            Controls.Add(guna2HtmlLabel5);
             Controls.Add(guna2ControlBox2);
             Controls.Add(btnMax);
             Controls.Add(btnExit);
@@ -404,5 +417,6 @@
         private Guna.UI2.WinForms.Guna2ControlBox btnExit;
         private Guna.UI2.WinForms.Guna2ControlBox btnMax;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
     }
 }
