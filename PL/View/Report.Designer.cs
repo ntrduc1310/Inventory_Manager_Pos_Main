@@ -130,6 +130,17 @@
             txt_profit.Size = new Size(137, 45);
             txt_profit.TabIndex = 1;
             // 
+            // guna2HtmlLabel7
+            // 
+            guna2HtmlLabel7.BackColor = Color.Transparent;
+            guna2HtmlLabel7.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            guna2HtmlLabel7.ForeColor = Color.Transparent;
+            guna2HtmlLabel7.Location = new Point(14, 59);
+            guna2HtmlLabel7.Name = "guna2HtmlLabel7";
+            guna2HtmlLabel7.Size = new Size(160, 33);
+            guna2HtmlLabel7.TabIndex = 6;
+            guna2HtmlLabel7.Text = "(Products Sold)";
+            // 
             // guna2HtmlLabel3
             // 
             guna2HtmlLabel3.BackColor = Color.Transparent;

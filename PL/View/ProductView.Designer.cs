@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductView));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             dgvSr = new DataGridViewTextBoxColumn();
             dgvid = new DataGridViewTextBoxColumn();
@@ -56,16 +59,27 @@
             dgvAllInformation = new DataGridViewImageColumn();
             dgvEdit = new DataGridViewImageColumn();
             dgvDel = new DataGridViewImageColumn();
+            guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             SuspendLayout();
             // 
             // guna2Panel1
             // 
-            guna2Panel1.Margin = new Padding(5);
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges1;
-            guna2Panel1.Size = new Size(1314, 260);
+            guna2Panel1.Controls.Add(guna2PictureBox1);
+            guna2Panel1.Controls.Add(guna2HtmlLabel3);
+            guna2Panel1.Margin = new Padding(4);
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges3;
+            guna2Panel1.Size = new Size(1051, 208);
             guna2Panel1.Paint += guna2Panel1_Paint;
+            guna2Panel1.Controls.SetChildIndex(guna2HtmlLabel1, 0);
+            guna2Panel1.Controls.SetChildIndex(guna2HtmlLabel2, 0);
+            guna2Panel1.Controls.SetChildIndex(btnAdd1, 0);
+            guna2Panel1.Controls.SetChildIndex(txtsearch, 0);
+            guna2Panel1.Controls.SetChildIndex(guna2HtmlLabel3, 0);
+            guna2Panel1.Controls.SetChildIndex(guna2PictureBox1, 0);
             // 
             // btnAdd1
             // 
@@ -74,39 +88,43 @@
             btnAdd1.DisabledState.CustomBorderColor = Color.DarkGray;
             btnAdd1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnAdd1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnAdd1.Location = new Point(79, 154);
-            btnAdd1.Margin = new Padding(5);
-            btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnAdd1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdd1.Location = new Point(63, 123);
+            btnAdd1.Margin = new Padding(4);
+            btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnAdd1.Text = "Thêm Mới";
             btnAdd1.Click += btnAdd1_Click_1;
             // 
             // txtsearch
             // 
-            txtsearch.BorderRadius = 39;
+            txtsearch.BorderRadius = 31;
             txtsearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtsearch.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtsearch.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtsearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtsearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtsearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtsearch.Location = new Point(722, 154);
-            txtsearch.Margin = new Padding(5, 6, 5, 6);
-            txtsearch.ShadowDecoration.CustomizableEdges = customizableEdges3;
-            txtsearch.Size = new Size(520, 80);
+            txtsearch.Location = new Point(578, 123);
+            txtsearch.Margin = new Padding(4, 5, 4, 5);
+            txtsearch.PlaceholderText = "Nhập Vào Tìm Kiếm";
+            txtsearch.ShadowDecoration.CustomizableEdges = customizableEdges5;
+            txtsearch.Size = new Size(416, 64);
             txtsearch.TextChanged += txtsearch_TextChanged_1;
             // 
             // guna2HtmlLabel1
             // 
             guna2HtmlLabel1.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel1.Location = new Point(79, 79);
-            guna2HtmlLabel1.Margin = new Padding(6);
-            guna2HtmlLabel1.Size = new Size(251, 62);
-            guna2HtmlLabel1.Text = "Product List";
+            guna2HtmlLabel1.Location = new Point(150, 21);
+            guna2HtmlLabel1.Margin = new Padding(5);
+            guna2HtmlLabel1.Size = new Size(185, 52);
+            guna2HtmlLabel1.Text = "Danh Sách";
             // 
             // guna2HtmlLabel2
             // 
-            guna2HtmlLabel2.Location = new Point(722, 106);
+            guna2HtmlLabel2.Location = new Point(578, 85);
             guna2HtmlLabel2.Margin = new Padding(2);
-            guna2HtmlLabel2.Size = new Size(90, 40);
+            guna2HtmlLabel2.Size = new Size(105, 33);
+            guna2HtmlLabel2.Text = "Tìm Kiếm";
             // 
             // guna2DataGridView1
             // 
@@ -114,7 +132,9 @@
             guna2DataGridView1.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = Color.White;
             guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            guna2DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            guna2DataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            guna2DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            guna2DataGridView1.BorderStyle = BorderStyle.Fixed3D;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(96, 71, 204);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -124,7 +144,6 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             guna2DataGridView1.ColumnHeadersHeight = 35;
-            guna2DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             guna2DataGridView1.Columns.AddRange(new DataGridViewColumn[] { dgvSr, dgvid, dgvName, dgvcatID, dgvCategory, dgvBarcode, dgvCost, dgvSalePrice, dgvQuantityInStock, dgvDiscount, dgvSupplierID, dgvSupplier, dgvDescription, dgvImage, dgvImageShow, dgvCreateDate, dgvUpdateDate, dgvActive, dgvAllInformation, dgvEdit, dgvDel });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
@@ -135,15 +154,14 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             guna2DataGridView1.GridColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.Location = new Point(79, 286);
-            guna2DataGridView1.Margin = new Padding(4);
+            guna2DataGridView1.Location = new Point(63, 229);
             guna2DataGridView1.Name = "guna2DataGridView1";
             guna2DataGridView1.ReadOnly = true;
             guna2DataGridView1.RowHeadersVisible = false;
             guna2DataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             guna2DataGridView1.RowTemplate.Height = 35;
             guna2DataGridView1.ScrollBars = ScrollBars.Horizontal;
-            guna2DataGridView1.Size = new Size(1162, 491);
+            guna2DataGridView1.Size = new Size(931, 393);
             guna2DataGridView1.TabIndex = 4;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -156,7 +174,7 @@
             guna2DataGridView1.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
             guna2DataGridView1.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
             guna2DataGridView1.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            guna2DataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            guna2DataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             guna2DataGridView1.ThemeStyle.HeaderStyle.Height = 35;
             guna2DataGridView1.ThemeStyle.ReadOnly = true;
             guna2DataGridView1.ThemeStyle.RowsStyle.BackColor = Color.White;
@@ -172,33 +190,33 @@
             // dgvSr
             // 
             dgvSr.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dgvSr.FillWeight = 70F;
+            dgvSr.FillWeight = 60F;
             dgvSr.Frozen = true;
             dgvSr.HeaderText = "Sr#";
-            dgvSr.MinimumWidth = 70;
+            dgvSr.MinimumWidth = 60;
             dgvSr.Name = "dgvSr";
             dgvSr.ReadOnly = true;
-            dgvSr.Width = 70;
+            dgvSr.Width = 60;
             // 
             // dgvid
             // 
-            dgvid.FillWeight = 70F;
+            dgvid.FillWeight = 80F;
             dgvid.HeaderText = "id";
-            dgvid.MinimumWidth = 70;
+            dgvid.MinimumWidth = 80;
             dgvid.Name = "dgvid";
             dgvid.ReadOnly = true;
             dgvid.Visible = false;
-            dgvid.Width = 70;
+            dgvid.Width = 80;
             // 
             // dgvName
             // 
-            dgvName.FillWeight = 70F;
+            dgvName.FillWeight = 140F;
             dgvName.Frozen = true;
-            dgvName.HeaderText = "Name";
-            dgvName.MinimumWidth = 100;
+            dgvName.HeaderText = "Tên Sản Phẩm";
+            dgvName.MinimumWidth = 140;
             dgvName.Name = "dgvName";
             dgvName.ReadOnly = true;
-            dgvName.Width = 150;
+            dgvName.Width = 140;
             // 
             // dgvcatID
             // 
@@ -208,65 +226,60 @@
             dgvcatID.Name = "dgvcatID";
             dgvcatID.ReadOnly = true;
             dgvcatID.Visible = false;
-            dgvcatID.Width = 87;
+            dgvcatID.Width = 71;
             // 
             // dgvCategory
             // 
-            dgvCategory.FillWeight = 70F;
+            dgvCategory.FillWeight = 90F;
             dgvCategory.Frozen = true;
-            dgvCategory.HeaderText = "Category";
-            dgvCategory.MinimumWidth = 120;
+            dgvCategory.HeaderText = "Loại";
+            dgvCategory.MinimumWidth = 150;
             dgvCategory.Name = "dgvCategory";
             dgvCategory.ReadOnly = true;
-            dgvCategory.Width = 120;
+            dgvCategory.Width = 150;
             // 
             // dgvBarcode
             // 
-            dgvBarcode.FillWeight = 70F;
+            dgvBarcode.FillWeight = 120F;
             dgvBarcode.Frozen = true;
             dgvBarcode.HeaderText = "Barcode";
-            dgvBarcode.MinimumWidth = 70;
+            dgvBarcode.MinimumWidth = 120;
             dgvBarcode.Name = "dgvBarcode";
             dgvBarcode.ReadOnly = true;
-            dgvBarcode.Width = 91;
+            dgvBarcode.Width = 120;
             // 
             // dgvCost
             // 
-            dgvCost.FillWeight = 70F;
             dgvCost.Frozen = true;
-            dgvCost.HeaderText = "Cost";
-            dgvCost.MinimumWidth = 70;
+            dgvCost.HeaderText = "Giá";
+            dgvCost.MinimumWidth = 100;
             dgvCost.Name = "dgvCost";
             dgvCost.ReadOnly = true;
-            dgvCost.Width = 70;
             // 
             // dgvSalePrice
             // 
-            dgvSalePrice.FillWeight = 70F;
             dgvSalePrice.Frozen = true;
-            dgvSalePrice.HeaderText = "SalePrice";
-            dgvSalePrice.MinimumWidth = 70;
+            dgvSalePrice.HeaderText = "Giá Giảm";
+            dgvSalePrice.MinimumWidth = 100;
             dgvSalePrice.Name = "dgvSalePrice";
             dgvSalePrice.ReadOnly = true;
-            dgvSalePrice.Width = 96;
             // 
             // dgvQuantityInStock
             // 
-            dgvQuantityInStock.FillWeight = 40F;
-            dgvQuantityInStock.HeaderText = "Quantity";
-            dgvQuantityInStock.MinimumWidth = 40;
+            dgvQuantityInStock.Frozen = true;
+            dgvQuantityInStock.HeaderText = "Số Lượng";
+            dgvQuantityInStock.MinimumWidth = 100;
             dgvQuantityInStock.Name = "dgvQuantityInStock";
             dgvQuantityInStock.ReadOnly = true;
-            dgvQuantityInStock.Width = 92;
             // 
             // dgvDiscount
             // 
-            dgvDiscount.FillWeight = 70F;
-            dgvDiscount.HeaderText = "Discount";
-            dgvDiscount.MinimumWidth = 70;
+            dgvDiscount.Frozen = true;
+            dgvDiscount.HeaderText = "Giảm Giá ";
+            dgvDiscount.MinimumWidth = 100;
             dgvDiscount.Name = "dgvDiscount";
             dgvDiscount.ReadOnly = true;
-            dgvDiscount.Width = 94;
+            dgvDiscount.Width = 101;
             // 
             // dgvSupplierID
             // 
@@ -275,54 +288,56 @@
             dgvSupplierID.Name = "dgvSupplierID";
             dgvSupplierID.ReadOnly = true;
             dgvSupplierID.Visible = false;
-            dgvSupplierID.Width = 129;
+            dgvSupplierID.Width = 106;
             // 
             // dgvSupplier
             // 
-            dgvSupplier.FillWeight = 70F;
+            dgvSupplier.Frozen = true;
             dgvSupplier.HeaderText = "Supplier";
-            dgvSupplier.MinimumWidth = 70;
+            dgvSupplier.MinimumWidth = 100;
             dgvSupplier.Name = "dgvSupplier";
             dgvSupplier.ReadOnly = true;
-            dgvSupplier.Width = 91;
             // 
             // dgvDescription
             // 
-            dgvDescription.FillWeight = 90F;
+            dgvDescription.FillWeight = 110F;
             dgvDescription.HeaderText = "Description";
-            dgvDescription.MinimumWidth = 120;
+            dgvDescription.MinimumWidth = 110;
             dgvDescription.Name = "dgvDescription";
             dgvDescription.ReadOnly = true;
             dgvDescription.Visible = false;
-            dgvDescription.Width = 120;
+            dgvDescription.Width = 112;
             // 
             // dgvImage
             // 
+            dgvImage.Frozen = true;
             dgvImage.HeaderText = "Image";
-            dgvImage.MinimumWidth = 8;
+            dgvImage.MinimumWidth = 100;
             dgvImage.Name = "dgvImage";
             dgvImage.ReadOnly = true;
             dgvImage.Visible = false;
-            dgvImage.Width = 96;
+            dgvImage.Width = 125;
             // 
             // dgvImageShow
             // 
-            dgvImageShow.HeaderText = "Image";
+            dgvImageShow.FillWeight = 120F;
+            dgvImageShow.Frozen = true;
+            dgvImageShow.HeaderText = "Hình SP";
             dgvImageShow.Image = Properties.Resources.woman_bag;
             dgvImageShow.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            dgvImageShow.MinimumWidth = 70;
+            dgvImageShow.MinimumWidth = 120;
             dgvImageShow.Name = "dgvImageShow";
             dgvImageShow.ReadOnly = true;
-            dgvImageShow.Width = 70;
+            dgvImageShow.Width = 120;
             // 
             // dgvCreateDate
             // 
             dgvCreateDate.HeaderText = "CreateDate";
-            dgvCreateDate.MinimumWidth = 140;
+            dgvCreateDate.MinimumWidth = 120;
             dgvCreateDate.Name = "dgvCreateDate";
             dgvCreateDate.ReadOnly = true;
             dgvCreateDate.Visible = false;
-            dgvCreateDate.Width = 140;
+            dgvCreateDate.Width = 120;
             // 
             // dgvUpdateDate
             // 
@@ -336,52 +351,75 @@
             // dgvActive
             // 
             dgvActive.HeaderText = "Active";
-            dgvActive.MinimumWidth = 8;
+            dgvActive.MinimumWidth = 100;
             dgvActive.Name = "dgvActive";
             dgvActive.ReadOnly = true;
             dgvActive.Visible = false;
-            dgvActive.Width = 94;
+            dgvActive.Width = 125;
             // 
             // dgvAllInformation
             // 
             dgvAllInformation.HeaderText = "";
+            dgvAllInformation.Image = (Image)resources.GetObject("dgvAllInformation.Image");
             dgvAllInformation.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            dgvAllInformation.MinimumWidth = 8;
+            dgvAllInformation.MinimumWidth = 100;
             dgvAllInformation.Name = "dgvAllInformation";
             dgvAllInformation.ReadOnly = true;
             dgvAllInformation.Resizable = DataGridViewTriState.True;
             dgvAllInformation.SortMode = DataGridViewColumnSortMode.Automatic;
-            dgvAllInformation.Width = 27;
             // 
             // dgvEdit
             // 
             dgvEdit.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dgvEdit.FillWeight = 50F;
             dgvEdit.HeaderText = "";
             dgvEdit.Image = Properties.Resources.nib;
             dgvEdit.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            dgvEdit.MinimumWidth = 50;
+            dgvEdit.MinimumWidth = 100;
             dgvEdit.Name = "dgvEdit";
             dgvEdit.ReadOnly = true;
-            dgvEdit.Width = 70;
+            dgvEdit.Width = 125;
             // 
             // dgvDel
             // 
             dgvDel.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dgvDel.FillWeight = 50F;
             dgvDel.HeaderText = "";
             dgvDel.Image = Properties.Resources.delete;
             dgvDel.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            dgvDel.MinimumWidth = 50;
+            dgvDel.MinimumWidth = 100;
             dgvDel.Name = "dgvDel";
             dgvDel.ReadOnly = true;
-            dgvDel.Width = 70;
+            dgvDel.Width = 125;
+            // 
+            // guna2HtmlLabel3
+            // 
+            guna2HtmlLabel3.BackColor = Color.Transparent;
+            guna2HtmlLabel3.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel3.Location = new Point(150, 63);
+            guna2HtmlLabel3.Name = "guna2HtmlLabel3";
+            guna2HtmlLabel3.Size = new Size(175, 52);
+            guna2HtmlLabel3.TabIndex = 6;
+            guna2HtmlLabel3.Text = "Sản Phẩm";
+            // 
+            // guna2PictureBox1
+            // 
+            guna2PictureBox1.BackColor = Color.Transparent;
+            guna2PictureBox1.CustomizableEdges = customizableEdges1;
+            guna2PictureBox1.Image = (Image)resources.GetObject("guna2PictureBox1.Image");
+            guna2PictureBox1.ImageRotate = 0F;
+            guna2PictureBox1.Location = new Point(60, 21);
+            guna2PictureBox1.Name = "guna2PictureBox1";
+            guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2PictureBox1.Size = new Size(96, 94);
+            guna2PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            guna2PictureBox1.TabIndex = 7;
+            guna2PictureBox1.TabStop = false;
+            guna2PictureBox1.UseTransparentBackground = true;
             // 
             // ProductView
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1314, 816);
+            ClientSize = new Size(1051, 653);
             Controls.Add(guna2DataGridView1);
             Name = "ProductView";
             Text = "ProductView";
@@ -391,6 +429,7 @@
             guna2Panel1.ResumeLayout(false);
             guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -418,5 +457,7 @@
         private DataGridViewImageColumn dgvAllInformation;
         private DataGridViewImageColumn dgvEdit;
         private DataGridViewImageColumn dgvDel;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
     }
 }

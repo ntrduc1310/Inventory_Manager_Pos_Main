@@ -286,7 +286,7 @@ namespace PL.Model
                         guna2Panel1.Controls.Add(productPanel);
 
 
-                       
+
 
                     }
                 }
@@ -359,7 +359,7 @@ namespace PL.Model
                 }
                 // Thêm sản phẩm vào FlowLayoutPanel
                 guna2Panel1.Controls.Add(productPanel);
-            
+
 
             }
         }
@@ -419,6 +419,11 @@ namespace PL.Model
         }
 
         private void cb_Supplier_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2GradientPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

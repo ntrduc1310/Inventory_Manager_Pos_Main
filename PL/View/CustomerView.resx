@@ -117,6 +117,50 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="guna2PictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
   <metadata name="guna2MessageDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>

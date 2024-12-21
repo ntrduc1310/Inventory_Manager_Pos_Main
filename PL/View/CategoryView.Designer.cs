@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoryView));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             dgvSr = new DataGridViewTextBoxColumn();
             dgvid = new DataGridViewTextBoxColumn();
@@ -41,15 +44,26 @@
             dgvQuantityProducts = new DataGridViewTextBoxColumn();
             dgvEdit = new DataGridViewImageColumn();
             dgvDel = new DataGridViewImageColumn();
+            guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             SuspendLayout();
             // 
             // guna2Panel1
             // 
+            guna2Panel1.Controls.Add(guna2HtmlLabel3);
+            guna2Panel1.Controls.Add(guna2PictureBox1);
             guna2Panel1.Margin = new Padding(4);
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges1;
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges3;
             guna2Panel1.Size = new Size(1051, 208);
+            guna2Panel1.Controls.SetChildIndex(guna2HtmlLabel1, 0);
+            guna2Panel1.Controls.SetChildIndex(guna2HtmlLabel2, 0);
+            guna2Panel1.Controls.SetChildIndex(btnAdd1, 0);
+            guna2Panel1.Controls.SetChildIndex(txtsearch, 0);
+            guna2Panel1.Controls.SetChildIndex(guna2PictureBox1, 0);
+            guna2Panel1.Controls.SetChildIndex(guna2HtmlLabel3, 0);
             // 
             // btnAdd1
             // 
@@ -58,9 +72,11 @@
             btnAdd1.DisabledState.CustomBorderColor = Color.DarkGray;
             btnAdd1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnAdd1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnAdd1.Location = new Point(63, 123);
+            btnAdd1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdd1.Location = new Point(63, 122);
             btnAdd1.Margin = new Padding(4);
-            btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnAdd1.Text = "Thêm Mới";
             btnAdd1.Click += btnAdd1_Click_1;
             // 
             // txtsearch
@@ -72,22 +88,25 @@
             txtsearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtsearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtsearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtsearch.Location = new Point(578, 123);
+            txtsearch.Location = new Point(578, 122);
             txtsearch.Margin = new Padding(4, 5, 4, 5);
-            txtsearch.ShadowDecoration.CustomizableEdges = customizableEdges3;
+            txtsearch.PlaceholderText = "Nhập Vào Tìm Kiếm";
+            txtsearch.ShadowDecoration.CustomizableEdges = customizableEdges5;
             txtsearch.Size = new Size(416, 64);
             // 
             // guna2HtmlLabel1
             // 
             guna2HtmlLabel1.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel1.Location = new Point(63, 58);
+            guna2HtmlLabel1.Location = new Point(150, 21);
             guna2HtmlLabel1.Margin = new Padding(4);
-            guna2HtmlLabel1.Size = new Size(231, 52);
-            guna2HtmlLabel1.Text = "Category List";
+            guna2HtmlLabel1.Size = new Size(268, 52);
+            guna2HtmlLabel1.Text = "Danh Sách Loại ";
             // 
             // guna2HtmlLabel2
             // 
-            guna2HtmlLabel2.Location = new Point(578, 85);
+            guna2HtmlLabel2.Location = new Point(578, 84);
+            guna2HtmlLabel2.Size = new Size(105, 33);
+            guna2HtmlLabel2.Text = "Tìm Kiếm";
             // 
             // guna2DataGridView1
             // 
@@ -166,14 +185,14 @@
             // 
             // dgvName
             // 
-            dgvName.HeaderText = "Name";
+            dgvName.HeaderText = "Tên Loại Sản Phẩm ";
             dgvName.MinimumWidth = 100;
             dgvName.Name = "dgvName";
             dgvName.ReadOnly = true;
             // 
             // dgvQuantityProducts
             // 
-            dgvQuantityProducts.HeaderText = "Quantity Products";
+            dgvQuantityProducts.HeaderText = "Số Lượng Loại";
             dgvQuantityProducts.MinimumWidth = 6;
             dgvQuantityProducts.Name = "dgvQuantityProducts";
             dgvQuantityProducts.ReadOnly = true;
@@ -202,6 +221,31 @@
             dgvDel.ReadOnly = true;
             dgvDel.Width = 50;
             // 
+            // guna2PictureBox1
+            // 
+            guna2PictureBox1.BackColor = Color.Transparent;
+            guna2PictureBox1.CustomizableEdges = customizableEdges1;
+            guna2PictureBox1.Image = (Image)resources.GetObject("guna2PictureBox1.Image");
+            guna2PictureBox1.ImageRotate = 0F;
+            guna2PictureBox1.Location = new Point(48, 21);
+            guna2PictureBox1.Name = "guna2PictureBox1";
+            guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2PictureBox1.Size = new Size(96, 94);
+            guna2PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            guna2PictureBox1.TabIndex = 4;
+            guna2PictureBox1.TabStop = false;
+            guna2PictureBox1.UseTransparentBackground = true;
+            // 
+            // guna2HtmlLabel3
+            // 
+            guna2HtmlLabel3.BackColor = Color.Transparent;
+            guna2HtmlLabel3.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel3.Location = new Point(150, 63);
+            guna2HtmlLabel3.Name = "guna2HtmlLabel3";
+            guna2HtmlLabel3.Size = new Size(175, 52);
+            guna2HtmlLabel3.TabIndex = 5;
+            guna2HtmlLabel3.Text = "Sản Phẩm";
+            // 
             // CategoryView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -216,6 +260,7 @@
             guna2Panel1.ResumeLayout(false);
             guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -228,5 +273,7 @@
         private DataGridViewTextBoxColumn dgvQuantityProducts;
         private DataGridViewImageColumn dgvEdit;
         private DataGridViewImageColumn dgvDel;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
     }
 }

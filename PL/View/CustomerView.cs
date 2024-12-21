@@ -55,7 +55,7 @@ namespace PL.View
             }
         }
 
-        
+
 
         private void Guna2DataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -122,6 +122,11 @@ namespace PL.View
         {
             CustomerAdd customerAdd = new CustomerAdd();
             customerAdd.ShowDialog();
+
+        }
+
+        private void guna2HtmlLabel3_Click(object sender, EventArgs e)
+        {
 
         }
     }

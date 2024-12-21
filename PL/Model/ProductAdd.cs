@@ -224,7 +224,7 @@ namespace PL.Model
                     if (result)
                     {
                         MessageBox.Show("thêm sản phẩm thành công!");
-                        bool updateCat = await new ProductsBL().addQuantityCategory(categoryId,1);
+                        bool updateCat = await new ProductsBL().addQuantityCategory(categoryId, 1);
                         ProductView productView = new ProductView();
                         Main.Instance.LoadFormIntoPanelCenter(productView);
                         this.Close();
@@ -244,6 +244,11 @@ namespace PL.Model
         }
 
         private void cb_Category_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }
