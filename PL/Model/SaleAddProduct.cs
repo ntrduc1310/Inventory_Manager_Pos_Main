@@ -86,7 +86,7 @@ namespace PL.Model
                 if (!isProductInCart)
                 {
                     // Thêm sản phẩm vào DataGridView (lưu ý thêm ProductID, Name, Quantity, CostPrice, Price, Amount)
-                    dataGridViewCart.Rows.Add(product.Name, product.ProductID,1, product.Price, product.Price);
+                    dataGridViewCart.Rows.Add(product.Name, product.ProductID, 1, product.Price, product.Price);
 
 
                     // Cập nhật tổng tiền (có thể tính lại tổng tiền ở đây)
@@ -296,12 +296,12 @@ namespace PL.Model
             if (cb_OnOff.Text.Equals("Trực tiếp"))
             {
                 status = "Hoàn thành";
-            }   
+            }
             else
             {
                 status = "Đang xử lý";
-            }    
-            bool result = await new SaleBL().AddSale(customerId,total_Amount,status, createdBy, notes);
+            }
+            bool result = await new SaleBL().AddSale(customerId, total_Amount, status, createdBy, notes);
             if (result)
             {
                 MessageBox.Show("Tạo đơn hàng thành công!");
@@ -341,6 +341,11 @@ namespace PL.Model
         }
 
         private void txt_Search_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Panel3_Paint(object sender, PaintEventArgs e)
         {
 
         }

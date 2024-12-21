@@ -79,6 +79,7 @@
             LabelName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             guna2MessageDialog1 = new Guna.UI2.WinForms.Guna2MessageDialog();
+            guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel1.SuspendLayout();
             btn_Customer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
@@ -125,6 +126,7 @@
             // 
             // guna2Panel1
             // 
+            guna2Panel1.Controls.Add(guna2HtmlLabel1);
             guna2Panel1.Controls.Add(btnExit);
             guna2Panel1.Controls.Add(btnMax);
             guna2Panel1.Controls.Add(guna2ControlBox2);
@@ -199,7 +201,8 @@
             btn_Invoice.ShadowDecoration.CustomizableEdges = customizableEdges12;
             btn_Invoice.Size = new Size(202, 52);
             btn_Invoice.TabIndex = 11;
-            btn_Invoice.Text = "Invoice";
+            btn_Invoice.Text = "Hóa Đơn";
+            btn_Invoice.TextOffset = new Point(8, 0);
             btn_Invoice.Click += btn_Invoice_Click;
             // 
             // btn_Supplier
@@ -226,7 +229,8 @@
             btn_Supplier.ShadowDecoration.CustomizableEdges = customizableEdges14;
             btn_Supplier.Size = new Size(202, 52);
             btn_Supplier.TabIndex = 10;
-            btn_Supplier.Text = "Supplier";
+            btn_Supplier.Text = "Nguồn Cung Cấp";
+            btn_Supplier.TextOffset = new Point(18, 0);
             btn_Supplier.Click += btn_Supplier_Click;
             // 
             // btn_Users
@@ -253,7 +257,8 @@
             btn_Users.ShadowDecoration.CustomizableEdges = customizableEdges16;
             btn_Users.Size = new Size(202, 52);
             btn_Users.TabIndex = 9;
-            btn_Users.Text = "Users";
+            btn_Users.Text = "Người Dùng";
+            btn_Users.TextOffset = new Point(8, 0);
             btn_Users.Click += btn_Users_Click;
             // 
             // btn_Sales
@@ -280,7 +285,8 @@
             btn_Sales.ShadowDecoration.CustomizableEdges = customizableEdges18;
             btn_Sales.Size = new Size(202, 52);
             btn_Sales.TabIndex = 8;
-            btn_Sales.Text = "Sales";
+            btn_Sales.Text = "Bán Hàng";
+            btn_Sales.TextOffset = new Point(8, 0);
             btn_Sales.Click += btn_Sales_Click;
             // 
             // btn_Customers
@@ -307,7 +313,8 @@
             btn_Customers.ShadowDecoration.CustomizableEdges = customizableEdges20;
             btn_Customers.Size = new Size(202, 52);
             btn_Customers.TabIndex = 7;
-            btn_Customers.Text = "Customers";
+            btn_Customers.Text = "Khách Hàng";
+            btn_Customers.TextOffset = new Point(10, 0);
             btn_Customers.Click += btn_Customers_Click;
             // 
             // btn_Purchases
@@ -334,7 +341,8 @@
             btn_Purchases.ShadowDecoration.CustomizableEdges = customizableEdges22;
             btn_Purchases.Size = new Size(202, 52);
             btn_Purchases.TabIndex = 6;
-            btn_Purchases.Text = "Purchases";
+            btn_Purchases.Text = "Nhập hàng";
+            btn_Purchases.TextOffset = new Point(10, 0);
             btn_Purchases.Click += btn_Purchases_Click;
             // 
             // btn_Products
@@ -361,7 +369,8 @@
             btn_Products.ShadowDecoration.CustomizableEdges = customizableEdges24;
             btn_Products.Size = new Size(202, 52);
             btn_Products.TabIndex = 5;
-            btn_Products.Text = "Products";
+            btn_Products.Text = "Sản Phẩm";
+            btn_Products.TextOffset = new Point(8, 0);
             btn_Products.Click += btn_Products_Click;
             // 
             // btn_DashBoard
@@ -388,7 +397,8 @@
             btn_DashBoard.ShadowDecoration.CustomizableEdges = customizableEdges26;
             btn_DashBoard.Size = new Size(202, 52);
             btn_DashBoard.TabIndex = 4;
-            btn_DashBoard.Text = "Home";
+            btn_DashBoard.Text = "Report";
+            btn_DashBoard.TextOffset = new Point(8, 0);
             btn_DashBoard.Click += btn_Home_Click;
             // 
             // btn_Category
@@ -415,7 +425,8 @@
             btn_Category.ShadowDecoration.CustomizableEdges = customizableEdges28;
             btn_Category.Size = new Size(202, 52);
             btn_Category.TabIndex = 3;
-            btn_Category.Text = "Category";
+            btn_Category.Text = "Loại Sản Phẩm";
+            btn_Category.TextOffset = new Point(12, 0);
             btn_Category.Click += btn_Category_Click;
             // 
             // LabelName
@@ -423,7 +434,7 @@
             LabelName.BackColor = Color.Transparent;
             LabelName.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LabelName.ForeColor = SystemColors.ControlLightLight;
-            LabelName.Location = new Point(108, 148);
+            LabelName.Location = new Point(108, 160);
             LabelName.Name = "LabelName";
             LabelName.Size = new Size(88, 27);
             LabelName.TabIndex = 2;
@@ -434,14 +445,14 @@
             // 
             guna2PictureBox1.AutoRoundedCorners = true;
             guna2PictureBox1.BackColor = Color.Transparent;
-            guna2PictureBox1.BorderRadius = 41;
+            guna2PictureBox1.BorderRadius = 49;
             guna2PictureBox1.CustomizableEdges = customizableEdges29;
             guna2PictureBox1.FillColor = Color.WhiteSmoke;
             guna2PictureBox1.ImageRotate = 0F;
             guna2PictureBox1.Location = new Point(108, 42);
             guna2PictureBox1.Name = "guna2PictureBox1";
             guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges30;
-            guna2PictureBox1.Size = new Size(85, 85);
+            guna2PictureBox1.Size = new Size(100, 100);
             guna2PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             guna2PictureBox1.TabIndex = 0;
             guna2PictureBox1.TabStop = false;
@@ -457,6 +468,15 @@
             guna2MessageDialog1.Style = Guna.UI2.WinForms.MessageDialogStyle.Default;
             guna2MessageDialog1.Text = null;
             // 
+            // guna2HtmlLabel1
+            // 
+            guna2HtmlLabel1.BackColor = Color.Transparent;
+            guna2HtmlLabel1.Location = new Point(42, 26);
+            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            guna2HtmlLabel1.Size = new Size(7, 22);
+            guna2HtmlLabel1.TabIndex = 3;
+            guna2HtmlLabel1.Text = "I";
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -471,6 +491,7 @@
             Text = "Main";
             Load += Main_Load;
             guna2Panel1.ResumeLayout(false);
+            guna2Panel1.PerformLayout();
             btn_Customer.ResumeLayout(false);
             btn_Customer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
@@ -497,5 +518,6 @@
         private Guna.UI2.WinForms.Guna2Button btn_Supplier;
         private Guna.UI2.WinForms.Guna2Button btn_Invoice;
         private Guna.UI2.WinForms.Guna2MessageDialog guna2MessageDialog1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
     }
 }

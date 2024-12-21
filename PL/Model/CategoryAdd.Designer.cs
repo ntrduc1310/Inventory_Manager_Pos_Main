@@ -28,30 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoryAdd));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             txt_Name = new Guna.UI2.WinForms.Guna2TextBox();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             guna2Panel1.SuspendLayout();
             guna2Panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             SuspendLayout();
             // 
             // guna2Panel1
             // 
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges1;
+            guna2Panel1.Controls.Add(guna2PictureBox1);
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges3;
             guna2Panel1.Size = new Size(420, 169);
             guna2Panel1.TabIndex = 2;
+            guna2Panel1.Controls.SetChildIndex(guna2HtmlLabel1, 0);
+            guna2Panel1.Controls.SetChildIndex(guna2PictureBox1, 0);
             // 
             // guna2HtmlLabel1
             // 
             guna2HtmlLabel1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel1.Location = new Point(63, 36);
-            guna2HtmlLabel1.Size = new Size(181, 39);
-            guna2HtmlLabel1.Text = "Category Add";
+            guna2HtmlLabel1.Location = new Point(98, 60);
+            guna2HtmlLabel1.Size = new Size(295, 39);
+            guna2HtmlLabel1.Text = "Chi Tiết Loại Sản Phẩm ";
             guna2HtmlLabel1.Click += guna2HtmlLabel1_Click;
             // 
             // btn_Close
@@ -61,8 +69,10 @@
             btn_Close.DisabledState.CustomBorderColor = Color.DarkGray;
             btn_Close.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btn_Close.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_Close.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             btn_Close.Location = new Point(221, 34);
-            btn_Close.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btn_Close.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btn_Close.Text = "Đóng";
             btn_Close.Click += btn_Close_Click_1;
             // 
             // btn_Save
@@ -72,22 +82,25 @@
             btn_Save.DisabledState.CustomBorderColor = Color.DarkGray;
             btn_Save.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btn_Save.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_Save.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             btn_Save.Location = new Point(27, 34);
-            btn_Save.ShadowDecoration.CustomizableEdges = customizableEdges3;
+            btn_Save.ShadowDecoration.CustomizableEdges = customizableEdges5;
             btn_Save.Size = new Size(161, 54);
+            btn_Save.Text = "Lưu";
             btn_Save.Click += btn_Save_Click;
             // 
             // guna2Panel2
             // 
+            guna2Panel2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             guna2Panel2.Location = new Point(0, 390);
-            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2Panel2.Size = new Size(420, 131);
             // 
             // txt_Name
             // 
             txt_Name.AutoRoundedCorners = true;
             txt_Name.BorderRadius = 26;
-            txt_Name.CustomizableEdges = customizableEdges5;
+            txt_Name.CustomizableEdges = customizableEdges7;
             txt_Name.DefaultText = "";
             txt_Name.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txt_Name.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -96,13 +109,13 @@
             txt_Name.FocusedState.BorderColor = Color.FromArgb(95, 71, 204);
             txt_Name.Font = new Font("Segoe UI", 9F);
             txt_Name.HoverState.BorderColor = Color.FromArgb(95, 71, 204);
-            txt_Name.Location = new Point(45, 222);
+            txt_Name.Location = new Point(27, 241);
             txt_Name.Margin = new Padding(3, 4, 3, 4);
             txt_Name.Name = "txt_Name";
             txt_Name.PasswordChar = '\0';
-            txt_Name.PlaceholderText = "Edit Name";
+            txt_Name.PlaceholderText = "Nhập Loại ";
             txt_Name.SelectedText = "";
-            txt_Name.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            txt_Name.ShadowDecoration.CustomizableEdges = customizableEdges8;
             txt_Name.Size = new Size(313, 55);
             txt_Name.TabIndex = 0;
             txt_Name.Tag = "v";
@@ -111,11 +124,27 @@
             // guna2HtmlLabel2
             // 
             guna2HtmlLabel2.BackColor = Color.Transparent;
-            guna2HtmlLabel2.Location = new Point(55, 188);
+            guna2HtmlLabel2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel2.Location = new Point(27, 204);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(43, 22);
+            guna2HtmlLabel2.Size = new Size(80, 30);
             guna2HtmlLabel2.TabIndex = 8;
-            guna2HtmlLabel2.Text = "Name";
+            guna2HtmlLabel2.Text = "Tên Loại";
+            // 
+            // guna2PictureBox1
+            // 
+            guna2PictureBox1.BackColor = Color.Transparent;
+            guna2PictureBox1.CustomizableEdges = customizableEdges1;
+            guna2PictureBox1.Image = (Image)resources.GetObject("guna2PictureBox1.Image");
+            guna2PictureBox1.ImageRotate = 0F;
+            guna2PictureBox1.Location = new Point(12, 39);
+            guna2PictureBox1.Name = "guna2PictureBox1";
+            guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2PictureBox1.Size = new Size(80, 75);
+            guna2PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            guna2PictureBox1.TabIndex = 3;
+            guna2PictureBox1.TabStop = false;
+            guna2PictureBox1.UseTransparentBackground = true;
             // 
             // CategoryAdd
             // 
@@ -134,6 +163,7 @@
             guna2Panel1.ResumeLayout(false);
             guna2Panel1.PerformLayout();
             guna2Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -142,5 +172,6 @@
 
         public Guna.UI2.WinForms.Guna2TextBox txt_Name;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
     }
 }

@@ -16,5 +16,15 @@ namespace PL.View
         {
             InitializeComponent();
         }
+
+        private void guna2HtmlLabel6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2GradientPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

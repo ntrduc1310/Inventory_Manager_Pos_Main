@@ -117,6 +117,27 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="guna2PictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EQAACxEBf2RfkQAAAz1JREFUeF7tm71rFEEYh5M7JUS75GJxFsrFXL4IiCFXKKhgFI2EFMYPJAhCYuFf
+        oVaiNpZ2wVYbsQs2KoKF/gFKkGCpjYVio4y/d9hZNjvvnrOzN5vd7DzwwGU+fu87bxNJYp/H4/EYsg/e
+        hp8C6TOt7TTO+xqBd+B3KGL+gI9hE+aN877a8An8DWXw8HBDnDh+Ukqf1Xpwhs7SHdc472sWPoV/oOjv
+        7xfN5kFx+tQZcfXKyjbPnV0Qhw+15Bk6C//Cl3Ae9hqnfdXgInwH5aVarSZDLpxf1ArEvbiwJNpjE6Je
+        r6uC5Ed4A+6BtuTW1xsoDwwMDIjpqRmxtLTMhnaT7tBdylB58DW0Jbe+5OLssY5YvnSNDUkjZVCWyqUC
+        luTWl1zgLmVR5VIBS3LrK7dCKcmtr7BQozESPWBlo3EgsVBK5P08+pILsc1M9noA6nNWjQcwM3PUSi4L
+        2qJlcTVN5LJgCLeZSVcDyKofgOkAnj97YSWXBW3RsriaJnJZMETb5EJM5LKgLVoWV9NELguGaJtciIlc
+        FrRFy+JqmshlwRBtkwsxkcuCtmhZXE0TuSwYom1yISZyWdAWLYuraSKXBUO4zUQnJqbYIqQ642oA3czS
+        F7fZVa4IqfZ3YgAk1xOp9o0HsH53RZr0NVeEVPuuBuCqL23TVaGUaFmu+oouutAWLquXhryF3IFeSD/W
+        sqVwfanLRcV5f34AgUXFDyDQGX4AJdEZLr8t9cos33ZzRzVdWfwAAiuLH0BgZfEDCKwM4Z+6pJT+/bEr
+        4B5n6q5APkZ8njdW3aHLZWE/fA+jzW+Te2iSkXulYR1GG9fkHppk5F4puAnF4OCg2Nh4Jba2vm6T9kju
+        oUmqO7DwTMNfMNq0mJubq8wAPsBow6FVGYBstHXvpzhyX0jVWnwAlhYermlppQfQ6XS0AdCvp0yNZBUe
+        2Sg9dHPzi1hdXRNDQ0PStbVbck2diT/y8vJ1Md6elH/MTI6PT8q10g6AHq++VtIQ1Of4AOjx0bMkDaGU
+        A4g6OjomWq0xbT3J/5wvPNpPjOkxaQbQ5XypftJLPILxRzyESaQ9X3j2QnrAt8AHsNt/nUl73uPxeHpA
+        X98/RlR6cEHoLUkAAAAASUVORK5CYII=
+</value>
+  </data>
   <metadata name="guna2MessageDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
