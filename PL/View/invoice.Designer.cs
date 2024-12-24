@@ -63,6 +63,8 @@
             dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
             guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)guna2DataGridView2).BeginInit();
@@ -73,6 +75,8 @@
             guna2GradientPanel1.BackColor = Color.Lavender;
             guna2GradientPanel1.BorderRadius = 20;
             guna2GradientPanel1.BorderThickness = 2;
+            guna2GradientPanel1.Controls.Add(guna2HtmlLabel5);
+            guna2GradientPanel1.Controls.Add(guna2HtmlLabel4);
             guna2GradientPanel1.Controls.Add(lb_User);
             guna2GradientPanel1.Controls.Add(guna2HtmlLabel3);
             guna2GradientPanel1.Controls.Add(lb_Address);
@@ -97,7 +101,7 @@
             guna2GradientPanel1.Location = new Point(104, 81);
             guna2GradientPanel1.Name = "guna2GradientPanel1";
             guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2GradientPanel1.Size = new Size(784, 818);
+            guna2GradientPanel1.Size = new Size(784, 871);
             guna2GradientPanel1.TabIndex = 2;
             guna2GradientPanel1.Paint += guna2GradientPanel1_Paint;
             // 
@@ -145,7 +149,7 @@
             // 
             lb_NameCustomer.BackColor = Color.Transparent;
             lb_NameCustomer.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            lb_NameCustomer.Location = new Point(226, 132);
+            lb_NameCustomer.Location = new Point(226, 128);
             lb_NameCustomer.Name = "lb_NameCustomer";
             lb_NameCustomer.Size = new Size(65, 22);
             lb_NameCustomer.TabIndex = 69;
@@ -310,7 +314,7 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             guna2DataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            guna2DataGridView2.ColumnHeadersHeight = 30;
+            guna2DataGridView2.ColumnHeadersHeight = 40;
             guna2DataGridView2.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn6 });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
@@ -326,7 +330,7 @@
             guna2DataGridView2.ReadOnly = true;
             guna2DataGridView2.RowHeadersVisible = false;
             guna2DataGridView2.RowHeadersWidth = 51;
-            guna2DataGridView2.Size = new Size(694, 419);
+            guna2DataGridView2.Size = new Size(694, 432);
             guna2DataGridView2.TabIndex = 52;
             guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -340,7 +344,7 @@
             guna2DataGridView2.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
             guna2DataGridView2.ThemeStyle.HeaderStyle.ForeColor = Color.White;
             guna2DataGridView2.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            guna2DataGridView2.ThemeStyle.HeaderStyle.Height = 30;
+            guna2DataGridView2.ThemeStyle.HeaderStyle.Height = 40;
             guna2DataGridView2.ThemeStyle.ReadOnly = true;
             guna2DataGridView2.ThemeStyle.RowsStyle.BackColor = Color.White;
             guna2DataGridView2.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
@@ -400,11 +404,33 @@
             guna2HtmlLabel7.TabIndex = 3;
             guna2HtmlLabel7.Text = "Thông Tin Xuất Hóa Đơn";
             // 
+            // guna2HtmlLabel4
+            // 
+            guna2HtmlLabel4.BackColor = Color.Transparent;
+            guna2HtmlLabel4.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            guna2HtmlLabel4.ForeColor = Color.FromArgb(95, 71, 204);
+            guna2HtmlLabel4.Location = new Point(312, 50);
+            guna2HtmlLabel4.Name = "guna2HtmlLabel4";
+            guna2HtmlLabel4.Size = new Size(169, 30);
+            guna2HtmlLabel4.TabIndex = 74;
+            guna2HtmlLabel4.Text = "Quản lí Cửa Hàng ";
+            // 
+            // guna2HtmlLabel5
+            // 
+            guna2HtmlLabel5.BackColor = Color.Transparent;
+            guna2HtmlLabel5.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel5.ForeColor = Color.FromArgb(95, 71, 204);
+            guna2HtmlLabel5.Location = new Point(43, 824);
+            guna2HtmlLabel5.Name = "guna2HtmlLabel5";
+            guna2HtmlLabel5.Size = new Size(365, 33);
+            guna2HtmlLabel5.TabIndex = 75;
+            guna2HtmlLabel5.Text = "Cảm ơn & Hẹn gặp lại Quý khách!";
+            // 
             // invoice
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(959, 929);
+            ClientSize = new Size(959, 959);
             Controls.Add(guna2HtmlLabel7);
             Controls.Add(guna2GradientPanel1);
             FormBorderStyle = FormBorderStyle.None;
@@ -448,5 +474,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel lb_NameCustomer;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2HtmlLabel lb_User;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
     }
 }
