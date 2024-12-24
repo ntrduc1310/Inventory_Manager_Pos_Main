@@ -17,9 +17,9 @@ namespace BL.Sale
         }
 
         // Thêm mới Sale
-        public async Task<bool> AddSale(int customerId, decimal totalAmount, string status, string createdBy, string notes)
+        public async Task<bool> AddSale(int customerId, decimal totalAmount, string status, string createdBy, string notes, decimal totalCostPrice)
         {
-            return await new SaleDL().AddSale(customerId, totalAmount, status, createdBy, notes);
+            return await new SaleDL().AddSale(customerId, totalAmount, status, createdBy, notes, totalCostPrice);
         }
 
         // Load danh sách khách hàng cho ComboBox

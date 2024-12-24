@@ -16,6 +16,7 @@ namespace PL.Model
     public partial class SaleAddProduct : Form
     {
         private decimal total_Amount = 0;
+        private decimal totalCostPrice = 0;
 
         public SaleAddProduct()
         {
@@ -44,13 +45,16 @@ namespace PL.Model
         private void UpdateGrandTotal()
         {
             decimal total = 0;
+            decimal costPrice = 0;
             foreach (DataGridViewRow row in dataGridViewCart.Rows)
             {
                 total += Convert.ToDecimal(row.Cells["dgvAmount"].Value);
+                costPrice += Convert.ToDecimal(row.Cells["dgvTotalCostPrice"].Value);
             }
             // Hiển thị tổng tiền lên giao diện
             lbl_Total.Text = total.ToString("C");
             total_Amount = total;
+            totalCostPrice = costPrice;
         }
 
 
@@ -76,6 +80,9 @@ namespace PL.Model
                         decimal price = Convert.ToDecimal(row.Cells["dgvPrice"].Value);
                         row.Cells["dgvAmount"].Value = price * (currentQuantity + 1);
 
+                        decimal costprice = Convert.ToDecimal(row.Cells["dgvCostPrice"].Value);
+                        row.Cells["dgvTotalCostPrice"].Value = costprice * (currentQuantity + 1);
+
                         // Đánh dấu là sản phẩm đã có trong giỏ hàng
                         isProductInCart = true;
                         break;
@@ -86,7 +93,7 @@ namespace PL.Model
                 if (!isProductInCart)
                 {
                     // Thêm sản phẩm vào DataGridView (lưu ý thêm ProductID, Name, Quantity, CostPrice, Price, Amount)
-                    dataGridViewCart.Rows.Add(product.Name, product.ProductID, 1, product.Price, product.Price);
+                    dataGridViewCart.Rows.Add(product.Name, product.ProductID, 1, product.Price, product.Price, product.CostPrice, product.CostPrice);
 
 
                     // Cập nhật tổng tiền (có thể tính lại tổng tiền ở đây)
@@ -125,6 +132,9 @@ namespace PL.Model
                         // Cập nhật lại Amount
                         decimal price = Convert.ToDecimal(row.Cells["dgvPrice"].Value);
                         row.Cells["dgvAmount"].Value = price * (currentQuantity + 1);
+
+                        decimal costprice = Convert.ToDecimal(row.Cells["dgvCostPrice"].Value);
+                        row.Cells["dgvTotalCostPrice"].Value = costprice * (currentQuantity + 1);
 
                         // Cập nhật tổng tiền
                         UpdateGrandTotal();
@@ -169,6 +179,12 @@ namespace PL.Model
                             row.Cells["dgvQuantity"].Value = currentQuantity - 1;  // Giảm số lượng
                             decimal price = Convert.ToDecimal(row.Cells["dgvPrice"].Value);
                             row.Cells["dgvAmount"].Value = price * (currentQuantity - 1); // Cập nhật Amount
+
+                            decimal costprice = Convert.ToDecimal(row.Cells["dgvCostPrice"].Value);
+                            row.Cells["dgvTotalCostPrice"].Value = costprice * (currentQuantity - 1); // Cập nhật Amount
+
+
+
                         }
                         else
                         {
@@ -301,7 +317,7 @@ namespace PL.Model
             {
                 status = "Đang xử lý";
             }
-            bool result = await new SaleBL().AddSale(customerId, total_Amount, status, createdBy, notes);
+            bool result = await new SaleBL().AddSale(customerId, total_Amount, status, createdBy, notes,totalCostPrice);
             if (result)
             {
                 MessageBox.Show("Tạo đơn hàng thành công!");
@@ -346,6 +362,11 @@ namespace PL.Model
         }
 
         private void guna2Panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridViewCart_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
