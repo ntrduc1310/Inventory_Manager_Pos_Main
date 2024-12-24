@@ -11,6 +11,8 @@ using Guna.Charts.Interfaces;
 using Guna.Charts.WinForms;
 using Guna.UI2.WinForms;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Windows.Controls;
+
 namespace PL.View
 {
     public partial class Report : Form
@@ -45,79 +47,171 @@ namespace PL.View
             cb_chooseDate.Items.Add("7 ngày qua");
             cb_chooseDate.Items.Add("30 ngày qua");
             cb_chooseDate.Items.Add("Chọn khoảng ngày");
-
+            cb_chooseDate.SelectedIndex = 0;
             // Gán sự kiện SelectedIndexChanged để xử lý khi người dùng chọn mục
-            cb_chooseDate.SelectedIndexChanged += ReportComboBox_SelectedIndexChanged;
+            cb_chooseDate.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            HandleComboBoxSelection(cb_chooseDate.SelectedIndex);
         }
 
-
-
-        private void ReportComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ComboBox comboBox = sender as ComboBox;
-            if (comboBox != null)
+            // Gọi logic xử lý khi mục được chọn thay đổi
+            HandleComboBoxSelection(cb_chooseDate.SelectedIndex);
+        }
+        private async void LoadSalesByDate()
+        {
+            // Lấy danh sách đơn hàng theo ngày
+            var sales = await new BL.Report.reportBL().SaleTodayBL();
+
+            // Hiển thị danh sách trong ListBox
+            listBox1.Items.Clear(); // Xóa dữ liệu cũ
+            foreach (var order in sales)
             {
-                switch (comboBox.SelectedIndex)
+                listBox1.Items.Add($"Mã đơn hàng: {order.SaleID}, Ngày bán: {order.SaleDate}, Tổng tiền: {order.TotalAmount}");
+            }
+
+            // Nếu không có đơn hàng nào
+            if (sales.Count == 0)
+            {
+                listBox1.Items.Add("Không có đơn hàng nào trong ngày được chọn.");
+            }
+        }
+
+        private async void LoadSales7Date()
+        {
+            // Lấy danh sách đơn hàng theo khoảng ngày
+            var sales = await new BL.Report.reportBL().Sale7DayBL();
+            // Hiển thị danh sách trong ListBox
+            listBox1.Items.Clear(); // Xóa dữ liệu cũ
+            foreach (var order in sales)
+            {
+                listBox1.Items.Add($"Mã đơn hàng: {order.SaleID}, Ngày bán: {order.SaleDate}, Tổng tiền: {order.TotalAmount}");
+            }
+
+        }
+
+        private async void LoadSales30Date()
+        {
+            // Lấy danh sách đơn hàng theo khoảng ngày
+            var sales = await new BL.Report.reportBL().Sale30DayBL();
+            // Hiển thị danh sách trong ListBox
+            listBox1.Items.Clear(); // Xóa dữ liệu cũ
+            foreach (var order in sales)
+            {
+                listBox1.Items.Add($"Mã đơn hàng: {order.SaleID}, Ngày bán: {order.SaleDate}, Tổng tiền: {order.TotalAmount}");
+            }
+        }
+        public async void HandleComboBoxSelection(int selectIndex)
+        {
+            //ComboBox comboBox = sender as ComboBox;
+            //if (selectIndex)
+            //{
+            switch (selectIndex)
                 {
                     case 0:
-                        MessageBox.Show("Báo cáo hôm nay");
-
-                        break;
+                        var report = await new BL.Report.reportBL().GetSalesSummaryTodayDL();
+                        lbl_turnover.Text = report.TotalSale.ToString();
+                        lbl_TotalCostPrice.Text = report.TotalCostPrice.ToString();
+                        lbl_Profit.Text = (report.TotalSale - report.TotalCostPrice).ToString();
+                        lbl_Quantity.Text = report.OrderCount.ToString();
+                        LoadSalesByDate();
+                    break;
 
                     case 1:
-                        MessageBox.Show("Báo cáo 7 ngày qua");
-                        // Thực hiện logic cho báo cáo 7 ngày qua
+                        var report1 = await new BL.Report.reportBL().GetSalesSummaryLast7DaysDL();
+                        lbl_turnover.Text = report1.TotalSale.ToString();
+                        lbl_TotalCostPrice.Text = report1.TotalCostPrice.ToString();
+                        lbl_Profit.Text = (report1.TotalSale - report1.TotalCostPrice).ToString();
+                        lbl_Quantity.Text = report1.OrderCount.ToString();
+                        LoadSales7Date();
                         break;
 
                     case 2:
-                        MessageBox.Show("Báo cáo 30 ngày qua");
-                        // Thực hiện logic cho báo cáo 30 ngày qua
+                        var report2 = await new BL.Report.reportBL().GetSalesSummaryLast30DaysDL();
+                        lbl_turnover.Text = report2.TotalSale.ToString();
+                        lbl_TotalCostPrice.Text = report2.TotalCostPrice.ToString();
+                        lbl_Profit.Text = (report2.TotalSale - report2.TotalCostPrice).ToString();
+                        lbl_Quantity.Text = report2.OrderCount.ToString();
+                        LoadSales30Date();
                         break;
 
                     case 3:
                         MessageBox.Show("Chọn khoảng ngày");
                         // Thực hiện logic hiển thị chọn ngày
-                        ShowDateRangePicker();
-                        break;
+                        //ShowDateRangePicker();
+                    break;
 
                     default:
                         break;
-                }
+                
             }
         }
 
-        private void ShowDateRangePicker()
+        private async void ReportComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Hiển thị một hộp thoại chọn khoảng ngày
-            using (Form dateRangeForm = new Form())
-            {
-                dateRangeForm.Text = "Chọn khoảng ngày";
-                dateRangeForm.StartPosition = FormStartPosition.CenterParent;
-                dateRangeForm.Width = 400;
-                dateRangeForm.Height = 300;
-
-                Label lblStartDate = new Label { Text = "Ngày bắt đầu:", Top = 5, Left = 20, };
-                DateTimePicker startDatePicker = new DateTimePicker { Top = 40, Left = 20, Width = 250 };
-
-                Label lblEndDate = new Label { Text = "Ngày kết thúc:", Top = 80, Left = 20 };
-                DateTimePicker endDatePicker = new DateTimePicker { Top = 110, Left = 20, Width = 250 };
-
-                Button btnOk = new Button { Text = "OK", Width = 50, Height = 40, Top = 160, Left = 20 };
-                btnOk.Click += (s, e) =>
-                {
-                    MessageBox.Show($"Khoảng ngày được chọn: {startDatePicker.Value.ToShortDateString()} - {endDatePicker.Value.ToShortDateString()}");
-                    dateRangeForm.Close();
-                };
-
-                dateRangeForm.Controls.Add(lblStartDate);
-                dateRangeForm.Controls.Add(startDatePicker);
-                dateRangeForm.Controls.Add(lblEndDate);
-                dateRangeForm.Controls.Add(endDatePicker);
-                dateRangeForm.Controls.Add(btnOk);
-
-                dateRangeForm.ShowDialog();
-            }
+           
         }
+
+        //private async void ShowDateRangePicker()
+        //{
+        //    // Hiển thị một hộp thoại chọn khoảng ngày
+        //    using (Form dateRangeForm = new Form())
+        //    {
+        //        // Thiết lập thuộc tính cho form
+        //        dateRangeForm.Text = "Chọn khoảng ngày";
+        //        dateRangeForm.StartPosition = FormStartPosition.CenterParent;
+        //        dateRangeForm.Width = 400;
+        //        dateRangeForm.Height = 300;
+        //        dateRangeForm.FormBorderStyle = FormBorderStyle.FixedDialog;
+        //        dateRangeForm.MaximizeBox = false;
+        //        dateRangeForm.MinimizeBox = false;
+
+        //        // Nhãn và picker cho ngày bắt đầu
+        //        sysLabel lblStartDate = new Label { Text = "Ngày bắt đầu:", Top = 20, Left = 20 };
+        //        DateTimePicker startDatePicker = new DateTimePicker { Top = 40, Left = 20, Width = 250 };
+
+        //        // Nhãn và picker cho ngày kết thúc
+        //        Label lblEndDate = new Label { Text = "Ngày kết thúc:", Top = 80, Left = 20 };
+        //        DateTimePicker endDatePicker = new DateTimePicker { Top = 100, Left = 20, Width = 250 };
+
+        //        // Nút OK để chọn ngày
+        //        Button btnOk = new Button { Text = "OK", Width = 80, Height = 40, Top = 160, Left = 20 };
+        //        btnOk.Click += async (s, e) =>
+        //        {
+        //            // Lấy giá trị khoảng ngày đã chọn
+        //            DateTime startDate = startDatePicker.Value.Date;
+        //            DateTime endDate = endDatePicker.Value.Date;
+
+        //            // Gọi hàm lấy báo cáo dữ liệu theo khoảng ngày
+        //            var report2 = await new BL.Report.reportBL().GetSalesSummaryByDateRangeDL(startDate, endDate);
+
+        //            // Cập nhật các thông số lên UI
+        //            lbl_turnover.Text = report2.TotalSale.ToString();
+        //            lbl_TotalCostPrice.Text = report2.TotalCostPrice.ToString();
+        //            lbl_Profit.Text = (report2.TotalSale - report2.TotalCostPrice).ToString();
+        //            lbl_Quantity.Text = report2.OrderCount.ToString();
+
+        //            // Hiển thị các đơn hàng trong khoảng ngày chọn
+        //            LoadSalesByDateRange(startDate, endDate);
+
+        //            // Đóng form chọn khoảng ngày
+        //            dateRangeForm.Close();
+        //        };
+
+        //        // Thêm các điều khiển vào form
+        //        dateRangeForm.Controls.Add(lblStartDate);
+        //        dateRangeForm.Controls.Add(startDatePicker);
+        //        dateRangeForm.Controls.Add(lblEndDate);
+        //        dateRangeForm.Controls.Add(endDatePicker);
+        //        dateRangeForm.Controls.Add(btnOk);
+
+        //        // Hiển thị form
+        //        dateRangeForm.ShowDialog();
+        //    }
+        //}
+
+    
+
 
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -130,6 +224,11 @@ namespace PL.View
         }
 
         private void guna2GradientPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txt_profit_TextChanged(object sender, EventArgs e)
         {
 
         }

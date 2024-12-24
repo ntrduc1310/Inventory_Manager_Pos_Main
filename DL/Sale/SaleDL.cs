@@ -37,7 +37,7 @@ namespace DL.Sale
         }
 
         // Thêm mới Sale
-        public async Task<bool> AddSale(int customerId, decimal totalAmount,string status, string createdBy, string notes)
+        public async Task<bool> AddSale(int customerId, decimal totalAmount,string status, string createdBy, string notes, decimal totalCostPrice)
         {
             try
             {
@@ -52,6 +52,7 @@ namespace DL.Sale
                         CreatedBy = createdBy,
                         Notes = notes,
                         CreatedAt= DateTime.Now,
+                        totalCostPrice = totalCostPrice
                     };
 
                     context.Sale.Add(newSale);
@@ -258,6 +259,8 @@ namespace DL.Sale
                 }
             }
         }
+
+       
 
     }
 }

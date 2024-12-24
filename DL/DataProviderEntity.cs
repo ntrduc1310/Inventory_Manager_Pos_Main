@@ -43,7 +43,8 @@ namespace DL
 
         public DbSet<SaleDetail> SaleDetail { get; set; }
 
-       
+
+
 
 
 
