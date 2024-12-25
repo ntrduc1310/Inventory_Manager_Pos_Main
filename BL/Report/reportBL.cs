@@ -1,42 +1,90 @@
 ﻿using DTO.Sale;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using DL.Report;
 
 namespace BL.Report
 {
     public class reportBL
     {
+        private readonly reportDL _reportDL;
+
+        public reportBL()
+        {
+            _reportDL = new reportDL();
+        }
+
         public async Task<List<SaleClass>> SaleTodayBL()
         {
-            return await new DL.Report.reportDL().SaleTodayDL();
+            try
+            {
+                return await _reportDL.SaleTodayDL();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public async Task<List<SaleClass>> Sale7DayBL()
         {
-            return await new DL.Report.reportDL().Sale7DayDL();
+            try
+            {
+                return await _reportDL.Sale7DayDL();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public async Task<List<SaleClass>> Sale30DayBL()
         {
-            return await new DL.Report.reportDL().Sale30DayDL();
+            try
+            {
+                return await _reportDL.Sale30DayDL();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
-        public async Task<(int OrderCount, decimal TotalSale, decimal TotalCostPrice)> GetSalesSummaryTodayDL()
+        public async Task<(int OrderCount, decimal TotalSale, decimal TotalCostPrice)> GetSalesSummaryTodayBL()
         {
-            return await new DL.Report.reportDL().GetSalesSummaryTodayDL();
+            try
+            {
+                return await _reportDL.GetSalesSummaryTodayDL();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
-        public async Task<(int OrderCount, decimal TotalSale, decimal TotalCostPrice)> GetSalesSummaryLast7DaysDL()
+        public async Task<(int OrderCount, decimal TotalSale, decimal TotalCostPrice)> GetSalesSummaryLast7DaysBL()
         {
-            return await new DL.Report.reportDL().GetSalesSummaryLast7DaysDL();
+            try
+            {
+                return await _reportDL.GetSalesSummaryLast7DaysDL();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
-        public async Task<(int OrderCount, decimal TotalSale, decimal TotalCostPrice)> GetSalesSummaryLast30DaysDL()
+        public async Task<(int OrderCount, decimal TotalSale, decimal TotalCostPrice)> GetSalesSummaryLast30DaysBL()
         {
-            return await new DL.Report.reportDL().GetSalesSummaryLast30DaysDL();
+            try
+            {
+                return await _reportDL.GetSalesSummaryLast30DaysDL();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

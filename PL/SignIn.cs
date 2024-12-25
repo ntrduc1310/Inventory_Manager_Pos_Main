@@ -78,7 +78,7 @@ namespace PL
 
                 this.Hide();
                 main.FormClosed += (s, args) => this.Close();
-                main.Show();
+                main.ShowDialog();
             }
             catch (Exception ex)
             {
