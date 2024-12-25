@@ -107,49 +107,49 @@ namespace PL.View
             //if (selectIndex)
             //{
             switch (selectIndex)
-                {
-                    case 0:
-                        var report = await new BL.Report.reportBL().GetSalesSummaryTodayDL();
-                        lbl_turnover.Text = report.TotalSale.ToString();
-                        lbl_TotalCostPrice.Text = report.TotalCostPrice.ToString();
-                        lbl_Profit.Text = (report.TotalSale - report.TotalCostPrice).ToString();
-                        lbl_Quantity.Text = report.OrderCount.ToString();
-                        LoadSalesByDate();
+            {
+                case 0:
+                    var report = await new BL.Report.reportBL().GetSalesSummaryTodayDL();
+                    lbl_turnover.Text = report.TotalSale.ToString();
+                    lbl_TotalCostPrice.Text = report.TotalCostPrice.ToString();
+                    lbl_Profit.Text = (report.TotalSale - report.TotalCostPrice).ToString();
+                    lbl_Quantity.Text = report.OrderCount.ToString();
+                    LoadSalesByDate();
                     break;
 
-                    case 1:
-                        var report1 = await new BL.Report.reportBL().GetSalesSummaryLast7DaysDL();
-                        lbl_turnover.Text = report1.TotalSale.ToString();
-                        lbl_TotalCostPrice.Text = report1.TotalCostPrice.ToString();
-                        lbl_Profit.Text = (report1.TotalSale - report1.TotalCostPrice).ToString();
-                        lbl_Quantity.Text = report1.OrderCount.ToString();
-                        LoadSales7Date();
-                        break;
-
-                    case 2:
-                        var report2 = await new BL.Report.reportBL().GetSalesSummaryLast30DaysDL();
-                        lbl_turnover.Text = report2.TotalSale.ToString();
-                        lbl_TotalCostPrice.Text = report2.TotalCostPrice.ToString();
-                        lbl_Profit.Text = (report2.TotalSale - report2.TotalCostPrice).ToString();
-                        lbl_Quantity.Text = report2.OrderCount.ToString();
-                        LoadSales30Date();
-                        break;
-
-                    case 3:
-                        MessageBox.Show("Chọn khoảng ngày");
-                        // Thực hiện logic hiển thị chọn ngày
-                        //ShowDateRangePicker();
+                case 1:
+                    var report1 = await new BL.Report.reportBL().GetSalesSummaryLast7DaysDL();
+                    lbl_turnover.Text = report1.TotalSale.ToString();
+                    lbl_TotalCostPrice.Text = report1.TotalCostPrice.ToString();
+                    lbl_Profit.Text = (report1.TotalSale - report1.TotalCostPrice).ToString();
+                    lbl_Quantity.Text = report1.OrderCount.ToString();
+                    LoadSales7Date();
                     break;
 
-                    default:
-                        break;
-                
+                case 2:
+                    var report2 = await new BL.Report.reportBL().GetSalesSummaryLast30DaysDL();
+                    lbl_turnover.Text = report2.TotalSale.ToString();
+                    lbl_TotalCostPrice.Text = report2.TotalCostPrice.ToString();
+                    lbl_Profit.Text = (report2.TotalSale - report2.TotalCostPrice).ToString();
+                    lbl_Quantity.Text = report2.OrderCount.ToString();
+                    LoadSales30Date();
+                    break;
+
+                case 3:
+                    MessageBox.Show("Chọn khoảng ngày");
+                    // Thực hiện logic hiển thị chọn ngày
+                    //ShowDateRangePicker();
+                    break;
+
+                default:
+                    break;
+
             }
         }
 
         private async void ReportComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         //private async void ShowDateRangePicker()
@@ -210,7 +210,7 @@ namespace PL.View
         //    }
         //}
 
-    
+
 
 
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
@@ -229,6 +229,16 @@ namespace PL.View
         }
 
         private void txt_profit_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_Profit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_TotalCostPrice_Click(object sender, EventArgs e)
         {
 
         }

@@ -123,6 +123,7 @@
             lbl_TotalCostPrice.Size = new Size(37, 27);
             lbl_TotalCostPrice.TabIndex = 12;
             lbl_TotalCostPrice.Text = "0.00";
+            lbl_TotalCostPrice.Click += lbl_TotalCostPrice_Click;
             // 
             // lbl_turnover
             // 
@@ -141,6 +142,7 @@
             lbl_Profit.Size = new Size(37, 27);
             lbl_Profit.TabIndex = 10;
             lbl_Profit.Text = "0.00";
+            lbl_Profit.Click += lbl_Profit_Click;
             // 
             // guna2HtmlLabel7
             // 
