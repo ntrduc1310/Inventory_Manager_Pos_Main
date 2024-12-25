@@ -38,10 +38,10 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            //Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            //Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            //Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            //Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -50,12 +50,12 @@
             cb_chooseDate = new Guna.UI2.WinForms.Guna2ComboBox();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            txt_profit = new Guna.UI2.WinForms.Guna2TextBox();
+            //txt_profit = new Guna.UI2.WinForms.Guna2TextBox();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             gunaLineDataset1 = new Guna.Charts.WinForms.GunaLineDataset();
             guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            //guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             guna2Panel1.SuspendLayout();
             SuspendLayout();
@@ -96,12 +96,12 @@
             guna2Panel1.BackgroundImageLayout = ImageLayout.Center;
             guna2Panel1.BorderColor = Color.Gray;
             guna2Panel1.BorderRadius = 10;
-            guna2Panel1.Controls.Add(lbl_Quantity);
-            guna2Panel1.Controls.Add(lbl_TotalCostPrice);
-            guna2Panel1.Controls.Add(lbl_turnover);
-            guna2Panel1.Controls.Add(lbl_Profit);
-            guna2Panel1.Controls.Add(guna2HtmlLabel7);
-            guna2Panel1.Controls.Add(guna2HtmlLabel6);
+            //guna2Panel1.Controls.Add(lbl_Quantity);
+            //guna2Panel1.Controls.Add(lbl_TotalCostPrice);
+            //guna2Panel1.Controls.Add(lbl_turnover);
+            //guna2Panel1.Controls.Add(lbl_Profit);
+            //guna2Panel1.Controls.Add(guna2HtmlLabel7);
+            //guna2Panel1.Controls.Add(guna2HtmlLabel6);
             guna2Panel1.Controls.Add(guna2HtmlLabel5);
             guna2Panel1.Controls.Add(guna2HtmlLabel4);
             guna2Panel1.Controls.Add(guna2HtmlLabel3);
@@ -125,35 +125,35 @@
             // 
             // txt_profit
             // 
-            txt_profit.CustomizableEdges = customizableEdges7;
-            txt_profit.DefaultText = "";
-            txt_profit.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txt_profit.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txt_profit.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txt_profit.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txt_profit.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txt_profit.Font = new Font("Segoe UI", 9F);
-            txt_profit.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txt_profit.Location = new Point(240, 50);
-            txt_profit.Margin = new Padding(4, 5, 4, 5);
-            txt_profit.Name = "txt_profit";
-            txt_profit.PasswordChar = '\0';
-            txt_profit.PlaceholderText = "";
-            txt_profit.SelectedText = "";
-            txt_profit.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            txt_profit.Size = new Size(137, 45);
-            txt_profit.TabIndex = 1;
+            //txt_profit.CustomizableEdges = customizableEdges7;
+            //txt_profit.DefaultText = "";
+            //txt_profit.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            //txt_profit.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            //txt_profit.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            //txt_profit.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            //txt_profit.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            //txt_profit.Font = new Font("Segoe UI", 9F);
+            //txt_profit.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            //txt_profit.Location = new Point(240, 50);
+            //txt_profit.Margin = new Padding(4, 5, 4, 5);
+            //txt_profit.Name = "txt_profit";
+            //txt_profit.PasswordChar = '\0';
+            //txt_profit.PlaceholderText = "";
+            //txt_profit.SelectedText = "";
+            //txt_profit.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            //txt_profit.Size = new Size(137, 45);
+            //txt_profit.TabIndex = 1;
             // 
             // guna2HtmlLabel7
-            // 
-            guna2HtmlLabel7.BackColor = Color.Transparent;
-            guna2HtmlLabel7.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            guna2HtmlLabel7.ForeColor = Color.Transparent;
-            guna2HtmlLabel7.Location = new Point(14, 59);
-            guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            guna2HtmlLabel7.Size = new Size(160, 33);
-            guna2HtmlLabel7.TabIndex = 6;
-            guna2HtmlLabel7.Text = "(Products Sold)";
+            //// 
+            //guna2HtmlLabel7.BackColor = Color.Transparent;
+            //guna2HtmlLabel7.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            //guna2HtmlLabel7.ForeColor = Color.Transparent;
+            //guna2HtmlLabel7.Location = new Point(14, 59);
+            //guna2HtmlLabel7.Name = "guna2HtmlLabel7";
+            //guna2HtmlLabel7.Size = new Size(160, 33);
+            //guna2HtmlLabel7.TabIndex = 6;
+            //guna2HtmlLabel7.Text = "(Products Sold)";
             // 
             // guna2HtmlLabel3
             // 
@@ -192,24 +192,24 @@
             // 
             // guna2TextBox1
             // 
-            guna2TextBox1.CustomizableEdges = customizableEdges5;
-            guna2TextBox1.DefaultText = "";
-            guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            guna2TextBox1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            guna2TextBox1.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Font = new Font("Segoe UI", 9F);
-            guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Location = new Point(376, 131);
-            guna2TextBox1.Margin = new Padding(4, 5, 4, 5);
-            guna2TextBox1.Name = "guna2TextBox1";
-            guna2TextBox1.PasswordChar = '\0';
-            guna2TextBox1.PlaceholderText = "";
-            guna2TextBox1.SelectedText = "";
-            guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            guna2TextBox1.Size = new Size(137, 27);
-            guna2TextBox1.TabIndex = 5;
+            //guna2TextBox1.CustomizableEdges = customizableEdges5;
+            //guna2TextBox1.DefaultText = "";
+            //guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            //guna2TextBox1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            //guna2TextBox1.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            //guna2TextBox1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            //guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            //guna2TextBox1.Font = new Font("Segoe UI", 9F);
+            //guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            //guna2TextBox1.Location = new Point(376, 131);
+            //guna2TextBox1.Margin = new Padding(4, 5, 4, 5);
+            //guna2TextBox1.Name = "guna2TextBox1";
+            //guna2TextBox1.PasswordChar = '\0';
+            //guna2TextBox1.PlaceholderText = "";
+            //guna2TextBox1.SelectedText = "";
+            //guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            //guna2TextBox1.Size = new Size(137, 27);
+            //guna2TextBox1.TabIndex = 5;
             // 
             // guna2TextBox2
             // 

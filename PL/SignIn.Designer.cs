@@ -241,7 +241,6 @@
             Password_txb.ShadowDecoration.CustomizableEdges = customizableEdges10;
             Password_txb.Size = new Size(333, 52);
             Password_txb.TabIndex = 45;
-            Password_txb.TextChanged += Password_txb_TextChanged;
             // 
             // Username_txb
             // 
@@ -266,7 +265,6 @@
             Username_txb.ShadowDecoration.CustomizableEdges = customizableEdges12;
             Username_txb.Size = new Size(333, 52);
             Username_txb.TabIndex = 44;
-            Username_txb.TextChanged += Username_txb_TextChanged;
             // 
             // Sign_In
             // 
@@ -301,7 +299,6 @@
             guna2PictureBox1.TabIndex = 42;
             guna2PictureBox1.TabStop = false;
             guna2PictureBox1.UseWaitCursor = true;
-            guna2PictureBox1.Click += guna2PictureBox1_Click;
             // 
             // btnExit
             // 

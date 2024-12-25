@@ -60,91 +60,53 @@ namespace PL.View
         }
         private async void LoadSalesByDate()
         {
-            // Lấy danh sách đơn hàng theo ngày
-            var sales = await new BL.Report.reportBL().SaleTodayBL();
+            //// Lấy danh sách đơn hàng theo ngày
+            //var sales = await new BL.Report.reportBL().SaleTodayBL();
 
-            // Hiển thị danh sách trong ListBox
-            listBox1.Items.Clear(); // Xóa dữ liệu cũ
-            foreach (var order in sales)
-            {
-                listBox1.Items.Add($"Mã đơn hàng: {order.SaleID}, Ngày bán: {order.SaleDate}, Tổng tiền: {order.TotalAmount}");
-            }
+            //// Hiển thị danh sách trong ListBox
+            //listBox1.Items.Clear(); // Xóa dữ liệu cũ
+            //foreach (var order in sales)
+            //{
+            //    listBox1.Items.Add($"Mã đơn hàng: {order.SaleID}, Ngày bán: {order.SaleDate}, Tổng tiền: {order.TotalAmount}");
+            //}
 
-            // Nếu không có đơn hàng nào
-            if (sales.Count == 0)
-            {
-                listBox1.Items.Add("Không có đơn hàng nào trong ngày được chọn.");
-            }
+            //// Nếu không có đơn hàng nào
+            //if (sales.Count == 0)
+            //{
+            //    listBox1.Items.Add("Không có đơn hàng nào trong ngày được chọn.");
+            //}
         }
 
         private async void LoadSales7Date()
         {
-            // Lấy danh sách đơn hàng theo khoảng ngày
-            var sales = await new BL.Report.reportBL().Sale7DayBL();
-            // Hiển thị danh sách trong ListBox
-            listBox1.Items.Clear(); // Xóa dữ liệu cũ
-            foreach (var order in sales)
-            {
-                listBox1.Items.Add($"Mã đơn hàng: {order.SaleID}, Ngày bán: {order.SaleDate}, Tổng tiền: {order.TotalAmount}");
-            }
+            //// Lấy danh sách đơn hàng theo khoảng ngày
+            //var sales = await new BL.Report.reportBL().Sale7DayBL();
+            //// Hiển thị danh sách trong ListBox
+            //listBox1.Items.Clear(); // Xóa dữ liệu cũ
+            //foreach (var order in sales)
+            //{
+            //    listBox1.Items.Add($"Mã đơn hàng: {order.SaleID}, Ngày bán: {order.SaleDate}, Tổng tiền: {order.TotalAmount}");
+            //}
 
         }
 
         private async void LoadSales30Date()
         {
-            // Lấy danh sách đơn hàng theo khoảng ngày
-            var sales = await new BL.Report.reportBL().Sale30DayBL();
-            // Hiển thị danh sách trong ListBox
-            listBox1.Items.Clear(); // Xóa dữ liệu cũ
-            foreach (var order in sales)
-            {
-                listBox1.Items.Add($"Mã đơn hàng: {order.SaleID}, Ngày bán: {order.SaleDate}, Tổng tiền: {order.TotalAmount}");
-            }
+            //// Lấy danh sách đơn hàng theo khoảng ngày
+            //var sales = await new BL.Report.reportBL().Sale30DayBL();
+            //// Hiển thị danh sách trong ListBox
+            //listBox1.Items.Clear(); // Xóa dữ liệu cũ
+            //foreach (var order in sales)
+            //{
+            //    listBox1.Items.Add($"Mã đơn hàng: {order.SaleID}, Ngày bán: {order.SaleDate}, Tổng tiền: {order.TotalAmount}");
+            //}
         }
         public async void HandleComboBoxSelection(int selectIndex)
         {
             //ComboBox comboBox = sender as ComboBox;
             //if (selectIndex)
             //{
-            switch (selectIndex)
-                {
-                    case 0:
-                        var report = await new BL.Report.reportBL().GetSalesSummaryTodayDL();
-                        lbl_turnover.Text = report.TotalSale.ToString();
-                        lbl_TotalCostPrice.Text = report.TotalCostPrice.ToString();
-                        lbl_Profit.Text = (report.TotalSale - report.TotalCostPrice).ToString();
-                        lbl_Quantity.Text = report.OrderCount.ToString();
-                        LoadSalesByDate();
-                    break;
-
-                    case 1:
-                        var report1 = await new BL.Report.reportBL().GetSalesSummaryLast7DaysDL();
-                        lbl_turnover.Text = report1.TotalSale.ToString();
-                        lbl_TotalCostPrice.Text = report1.TotalCostPrice.ToString();
-                        lbl_Profit.Text = (report1.TotalSale - report1.TotalCostPrice).ToString();
-                        lbl_Quantity.Text = report1.OrderCount.ToString();
-                        LoadSales7Date();
-                        break;
-
-                    case 2:
-                        var report2 = await new BL.Report.reportBL().GetSalesSummaryLast30DaysDL();
-                        lbl_turnover.Text = report2.TotalSale.ToString();
-                        lbl_TotalCostPrice.Text = report2.TotalCostPrice.ToString();
-                        lbl_Profit.Text = (report2.TotalSale - report2.TotalCostPrice).ToString();
-                        lbl_Quantity.Text = report2.OrderCount.ToString();
-                        LoadSales30Date();
-                        break;
-
-                    case 3:
-                        MessageBox.Show("Chọn khoảng ngày");
-                        // Thực hiện logic hiển thị chọn ngày
-                        //ShowDateRangePicker();
-                    break;
-
-                    default:
-                        break;
-                
-            }
+           
         }
 
         private async void ReportComboBox_SelectedIndexChanged(object sender, EventArgs e)
