@@ -37,6 +37,9 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoryView));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             dgvSr = new DataGridViewTextBoxColumn();
             dgvid = new DataGridViewTextBoxColumn();
@@ -46,13 +49,16 @@
             dgvDel = new DataGridViewImageColumn();
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
             SuspendLayout();
             // 
             // guna2Panel1
             // 
+            guna2Panel1.Controls.Add(chart1);
             guna2Panel1.Controls.Add(guna2HtmlLabel3);
             guna2Panel1.Controls.Add(guna2PictureBox1);
             guna2Panel1.Margin = new Padding(4);
@@ -64,6 +70,7 @@
             guna2Panel1.Controls.SetChildIndex(txtsearch, 0);
             guna2Panel1.Controls.SetChildIndex(guna2PictureBox1, 0);
             guna2Panel1.Controls.SetChildIndex(guna2HtmlLabel3, 0);
+            guna2Panel1.Controls.SetChildIndex(chart1, 0);
             // 
             // btnAdd1
             // 
@@ -246,6 +253,22 @@
             guna2HtmlLabel3.TabIndex = 5;
             guna2HtmlLabel3.Text = "Sản Phẩm";
             // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            chart1.Legends.Add(legend1);
+            chart1.Location = new Point(310, 116);
+            chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            chart1.Series.Add(series1);
+            chart1.Size = new Size(8, 8);
+            chart1.TabIndex = 6;
+            chart1.Text = "chart1";
+            // 
             // CategoryView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -261,6 +284,7 @@
             guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)chart1).EndInit();
             ResumeLayout(false);
         }
 
@@ -275,5 +299,6 @@
         private DataGridViewImageColumn dgvDel;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }

@@ -7,11 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Guna.Charts.Interfaces;
-using Guna.Charts.WinForms;
-using Guna.UI2.WinForms;
-using System.Windows.Forms.DataVisualization.Charting;
-using System.Windows.Controls;
 
 namespace PL.View
 {
@@ -23,22 +18,10 @@ namespace PL.View
             this.Load += Form1_Load;
         }
 
-        private void gunaChart1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void guna2GradientPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void Report_Load(object sender, EventArgs e)
         {
 
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -106,13 +89,56 @@ namespace PL.View
             //ComboBox comboBox = sender as ComboBox;
             //if (selectIndex)
             //{
-        }
-            //}
+            switch (selectIndex)
+            {
+                case 0:
+                    var report = await new BL.Report.reportBL().GetSalesSummaryTodayBL();
+                    lbl_turnover.Text = report.TotalSale.ToString();
+                    lbl_TotalCostPrice.Text = report.TotalCostPrice.ToString();
+                    lbl_Profit.Text = (report.TotalSale - report.TotalCostPrice).ToString();
+                    lbl_Quantity.Text = report.OrderCount.ToString();
+                    LoadSalesByDate();
+                    break;
 
-        //private async void ReportComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-           
-        //}
+                case 1:
+                    var report1 = await new BL.Report.reportBL().GetSalesSummaryTodayBL();
+                    lbl_turnover.Text = report1.TotalSale.ToString();
+                    lbl_TotalCostPrice.Text = report1.TotalCostPrice.ToString();
+                    lbl_Profit.Text = (report1.TotalSale - report1.TotalCostPrice).ToString();
+                    lbl_Quantity.Text = report1.OrderCount.ToString();
+                    LoadSales7Date();
+                    break;
+
+                case 2:
+                    var report2 = await new BL.Report.reportBL().GetSalesSummaryLast30DaysBL();
+                    lbl_turnover.Text = report2.TotalSale.ToString();
+                    lbl_TotalCostPrice.Text = report2.TotalCostPrice.ToString();
+                    lbl_Profit.Text = (report2.TotalSale - report2.TotalCostPrice).ToString();
+                    lbl_Quantity.Text = report2.OrderCount.ToString();
+                    LoadSales30Date();
+                    break;
+
+                case 3:
+                    MessageBox.Show("Chọn khoảng ngày");
+                    // Thực hiện logic hiển thị chọn ngày
+                    //ShowDateRangePicker();
+                    break;
+
+                default:
+                    break;
+
+            }
+        }
+
+        private async void ReportComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Report_Load_1(object sender, EventArgs e)
+        {
+
+        }
 
         //private async void ShowDateRangePicker()
         //{
@@ -171,29 +197,5 @@ namespace PL.View
         //        dateRangeForm.ShowDialog();
         //    }
         //}
-
-    
-
-
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2GradientPanel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txt_profit_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
-
