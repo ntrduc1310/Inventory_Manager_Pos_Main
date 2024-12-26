@@ -41,6 +41,8 @@ namespace PL.View
         {
             PurchaseAddProduct purchaseAdd = new PurchaseAddProduct();
             purchaseAdd.ShowDialog();
+            if (purchaseAdd.DialogResult == DialogResult.OK)
+                loadtoPurchaseViewFunction();
         }
 
         private async void guna2DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -65,7 +67,7 @@ namespace PL.View
             }
         }
 
-        private async void loadToPurchaseView(object sender, EventArgs e)
+        private async void loadtoPurchaseViewFunction()
         {
             try
             {
@@ -100,7 +102,7 @@ namespace PL.View
                         //    }
                         //}
                         //else
-                        
+
                         if (e.ColumnIndex == guna2DataGridView1.Columns["dgvSupplier"].Index)
                         {
 
@@ -130,6 +132,11 @@ namespace PL.View
             }
         }
 
+        private async void loadToPurchaseView(object sender, EventArgs e)
+        {
+            loadtoPurchaseViewFunction();
+        }
+
         private void guna2DataGridView1_CellFormatting_Sr(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex == guna2DataGridView1.Columns["dgvSr"].Index)
@@ -157,7 +164,7 @@ namespace PL.View
                 if (status == "Hoàn thành")
                 {
                     // Gán hình ảnh "không chọn được"
-                    e.Value = Image.FromFile("C:\\Users\\Yoga\\Source\\Repos\\Inventory_Manager_Pos\\PL\\Resources\\icons8-select-none-50.png");
+                    e.Value = Image.FromFile("D:\\LapTrinhCoSoDuLieu\\Inventory_Manager_Pos\\Inventory_Manager_Pos\\PL\\Resources\\icons8-select-none-50.png");
 
                 }
             }
@@ -190,8 +197,7 @@ namespace PL.View
                                 bool updateStatus = await new PurchaseBL().updateStatus("Hoàn thành", id);
                                 if(updateStatus)
                                 {
-                                    PurchaseView purchaseView = new PurchaseView();
-                                    Main.Instance.LoadFormIntoPanelCenter(purchaseView);
+                                    loadtoPurchaseViewFunction();
                                 }    
                             }
                         }
@@ -209,8 +215,7 @@ namespace PL.View
                                 bool deletePurchase = await new DL.Purchase.PurchaseDL().DeletePurchase(id);
                                 if(deletePurchase)
                                 {
-                                    PurchaseView purchaseView = new PurchaseView();
-                                    Main.Instance.LoadFormIntoPanelCenter(purchaseView);
+                                    loadtoPurchaseViewFunction();
                                 }    
                             }
                         }

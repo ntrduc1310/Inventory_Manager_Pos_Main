@@ -403,8 +403,7 @@ namespace PL.Model
             if (result)
             {
                 MessageBox.Show("Tạo đơn hàng thành công!");
-                PurchaseView purchaseView = new PurchaseView();
-                Main.Instance.LoadFormIntoPanelCenter(purchaseView);
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
 

@@ -63,8 +63,7 @@ namespace PL.Model
                     if (result)
                     {
                         MessageBox.Show("Thêm danh mục thành công!");
-                        CategoryView CategoryView = new CategoryView(); // Mở trang danh mục
-                        Main.Instance.LoadFormIntoPanelCenter(CategoryView);
+                        this.DialogResult = DialogResult.OK;    
                         this.Close();
                         isValid = true; // Đánh dấu là hợp lệ và thoát khỏi vòng lặp
                     }

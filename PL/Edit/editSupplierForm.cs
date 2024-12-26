@@ -88,8 +88,7 @@ namespace PL.Edit
                     if (result)
                     {
                         MessageBox.Show("Cập nhật thành công!");
-                        SupplierView supplierView = new SupplierView();
-                        Main.Instance.LoadFormIntoPanelCenter(supplierView);
+                        this.DialogResult = DialogResult.OK;
                         this.Close();
                         isValid = true;
                     }

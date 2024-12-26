@@ -81,8 +81,8 @@ namespace PL.View
                 PL.Edit.editCustomerForm editForm = new editCustomerForm(id, name, phone, email);
                 if (editForm.ShowDialog() == DialogResult.OK)
                 {
+                    LoadCustomerToGridViewFunction();
                     // Load lại dữ liệu sau khi chỉnh sửa
-                    guna2DataGridView1.DataSource = await new CustomerBL().LoadCustomers();
                 }
             }
         }
@@ -122,10 +122,19 @@ namespace PL.View
         {
             CustomerAdd customerAdd = new CustomerAdd();
             customerAdd.ShowDialog();
+            if(customerAdd.DialogResult == DialogResult.OK)
+            {
+                LoadCustomerToGridViewFunction();
+            }
 
         }
 
         private void guna2HtmlLabel3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

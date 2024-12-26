@@ -225,8 +225,7 @@ namespace PL.Model
                     {
                         MessageBox.Show("thêm sản phẩm thành công!");
                         bool updateCat = await new ProductsBL().addQuantityCategory(categoryId, 1);
-                        ProductView productView = new ProductView();
-                        Main.Instance.LoadFormIntoPanelCenter(productView);
+                        this.DialogResult = DialogResult.OK;
                         this.Close();
                         isValid = true;
                     }

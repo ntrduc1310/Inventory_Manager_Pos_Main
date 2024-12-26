@@ -23,7 +23,7 @@ namespace PL.View
         public ProductView()
         {
             InitializeComponent();
-            this.Load += LoadProductsToGridViewFunction;
+            this.Load += LoadProductsToGridView;
             guna2DataGridView1.CellClick += guna2DataGridView1_CellClick;
             guna2DataGridView1.CellClick += guna2DataGridView1_CellClick_delete;
             guna2DataGridView1.CellClick += guna2DataGridView1_AllInformation;
@@ -91,7 +91,7 @@ namespace PL.View
                 if (editProductsForm.ShowDialog() == DialogResult.OK)
                 {
                     // Load lại dữ liệu sau khi chỉnh sửa
-                    guna2DataGridView1.DataSource = await new CategoryBL().LoadCategory();
+                    LoadProductsToGridViewFunction();
                 }
             }
         }
@@ -114,8 +114,10 @@ namespace PL.View
                         MessageBox.Show("Xóa danh mục thành công!");
                         int categoryId = Convert.ToInt32(guna2DataGridView1.Rows[e.RowIndex].Cells["dgvcatID"].Value);
                         bool updateCat = await new ProductsBL().subtractQuantityCategory(categoryId, 1);
-                        ProductView productView = new ProductView();
-                        Main.Instance.LoadFormIntoPanelCenter(productView);
+                        if (updateCat)
+                        {
+                            LoadProductsToGridViewFunction();
+                        }
                     }
                     else
                     {
@@ -131,7 +133,7 @@ namespace PL.View
         }
 
 
-        private async void LoadProductsToGridViewFunction(object sender, EventArgs e)
+        private async void LoadProductsToGridViewFunction()
         {
             try
             {
@@ -225,6 +227,11 @@ namespace PL.View
                 Console.WriteLine($"Error loading data into DataGridView: {ex.Message}");
                 MessageBox.Show("An error occurred while loading the data. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private async void LoadProductsToGridView(object sender, EventArgs e)
+        {
+            LoadProductsToGridViewFunction();
         }
 
         private void guna2DataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)

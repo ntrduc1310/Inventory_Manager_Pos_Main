@@ -196,8 +196,7 @@ namespace PL.Edit
                     if (result)
                     {
                         MessageBox.Show("Cập nhật thành công!");
-                        UserView userView = new UserView();
-                        Main.Instance.LoadFormIntoPanelCenter(userView);
+                        this.DialogResult = DialogResult.OK;
                         this.Close();
                         isValid = true;
                     }

@@ -101,7 +101,7 @@ namespace PL.View
                     break;
 
                 case 1:
-                    var report1 = await new BL.Report.reportBL().GetSalesSummaryTodayBL();
+                    var report1 = await new BL.Report.reportBL().GetSalesSummaryLast7DaysBL();
                     lbl_turnover.Text = report1.TotalSale.ToString();
                     lbl_TotalCostPrice.Text = report1.TotalCostPrice.ToString();
                     lbl_Profit.Text = (report1.TotalSale - report1.TotalCostPrice).ToString();

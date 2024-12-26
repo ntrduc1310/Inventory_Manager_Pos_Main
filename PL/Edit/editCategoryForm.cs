@@ -49,8 +49,7 @@ namespace PL.Edit
                 if (result)
                 {
                     MessageBox.Show("Cập nhật danh mục thành công!");
-                    CategoryView categoryView = new CategoryView();
-                    Main.Instance.LoadFormIntoPanelCenter(categoryView);
+                    this.DialogResult = DialogResult.OK;    
                     this.Close();
                 }
                 else

@@ -82,8 +82,7 @@ namespace PL.Model
                     if (result)
                     {
                         MessageBox.Show("Thêm nhà cung cấp thành công!");
-                        SupplierView supplierView = new SupplierView();
-                        Main.Instance.LoadFormIntoPanelCenter(supplierView);
+                        this.DialogResult = DialogResult.OK;
                         this.Close();
                         isValid = true; // Đánh dấu là hợp lệ và thoát khỏi vòng lặp
                     }

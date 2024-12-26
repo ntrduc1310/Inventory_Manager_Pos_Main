@@ -106,6 +106,7 @@ namespace PL.Edit
                 if (result)
                 {
                     MessageBox.Show("Cập nhật sản phẩm thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.DialogResult = DialogResult.OK;
                     this.Close(); // Đóng form sau khi lưu thành công
                 }
                 else

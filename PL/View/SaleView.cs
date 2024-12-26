@@ -40,6 +40,8 @@ namespace PL.View
         {
             SaleAddProduct saleAddProduct = new SaleAddProduct();
             saleAddProduct.ShowDialog();
+            if (saleAddProduct.DialogResult == DialogResult.OK)
+                loadSaleViewFunction();
         }
 
         private async void guna2DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -63,8 +65,7 @@ namespace PL.View
                 Console.WriteLine($"Error in CellClick: {ex.Message}");
             }
         }
-
-        private async void loadToSaleView(object sender, EventArgs e)
+        private async void loadSaleViewFunction()
         {
             try
             {
@@ -128,6 +129,10 @@ namespace PL.View
                 throw ex;
             }
         }
+        private async void loadToSaleView(object sender, EventArgs e)
+        {
+            loadSaleViewFunction();
+        }
 
         private void guna2DataGridView1_CellFormatting_Sr(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -156,7 +161,7 @@ namespace PL.View
                 if (status == "Hoàn thành")
                 {
                     // Gán hình ảnh "không chọn được"
-                    e.Value = Image.FromFile("C:\\Users\\Yoga\\Source\\Repos\\Inventory_Manager_Pos\\PL\\Resources\\icons8-select-none-50.png");
+                    e.Value = Image.FromFile("D:\\LapTrinhCoSoDuLieu\\Inventory_Manager_Pos\\Inventory_Manager_Pos\\PL\\Resources\\icons8-select-none-50.png");
 
                 }
             }
@@ -189,8 +194,7 @@ namespace PL.View
                                 bool updateStatus = await new SaleBL().updateStatus("Hoàn thành", id);
                                 if (updateStatus)
                                 {
-                                    SaleView saleView = new SaleView();
-                                    Main.Instance.LoadFormIntoPanelCenter(saleView);
+                                   loadSaleViewFunction();
                                 }
                             }
                         }
@@ -207,9 +211,8 @@ namespace PL.View
                                 int id = (int)guna2DataGridView1.Rows[e.RowIndex].Cells["dgvid"].Value;
                                 bool deletePurchase = await new DL.Purchase.PurchaseDL().DeletePurchase(id);
                                 if (deletePurchase)
-                                {
-                                    SaleView saleView = new SaleView();
-                                    Main.Instance.LoadFormIntoPanelCenter(saleView);
+                                { 
+                                    loadSaleViewFunction();
                                 }
                             }
                         }

@@ -206,8 +206,7 @@ namespace PL.Model
                 if (result)
                 {
                     MessageBox.Show("Thêm khách hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    CustomerView customerView = new CustomerView(); // Mở trang khách hàng
-                    Main.Instance.LoadFormIntoPanelCenter(customerView);
+                    this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
                 else

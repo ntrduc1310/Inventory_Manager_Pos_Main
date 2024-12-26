@@ -80,8 +80,7 @@ namespace PL.Edit
                 if (result)
                 {
                     MessageBox.Show("Cập nhật khách hàng thành công!");
-                    CustomerView customerView = new CustomerView();
-                    Main.Instance.LoadFormIntoPanelCenter(customerView);
+                    this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
                 else

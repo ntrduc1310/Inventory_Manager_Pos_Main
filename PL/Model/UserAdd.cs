@@ -173,8 +173,7 @@ namespace PL.Model
                     if (result)
                     {
                         MessageBox.Show("thêm người dùng thành công!");
-                        UserView userView = new UserView();
-                        Main.Instance.LoadFormIntoPanelCenter(userView);
+                        this.DialogResult = DialogResult.OK;
                         this.Close();
                         isValid = true;
                     }

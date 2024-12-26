@@ -67,6 +67,10 @@ namespace PL.View
         {
             SupplierAdd supplierAdd = new SupplierAdd();
             supplierAdd.ShowDialog();
+            if(supplierAdd.DialogResult == DialogResult.OK)
+            {
+                LoadSuppilerToGridViewFunction();
+            }
         }
 
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -101,8 +105,7 @@ namespace PL.View
                 editSupplierForm editForm = new editSupplierForm(id, name, email, phone, adress);
                 if (editForm.ShowDialog() == DialogResult.OK)
                 {
-                    SupplierView supplierView = new SupplierView();
-                    Main.Instance.LoadFormIntoPanelCenter(supplierView);
+                    LoadSuppilerToGridViewFunction();
                 }
             }
         }
@@ -123,12 +126,11 @@ namespace PL.View
                     if (deleteResult)
                     {
                         MessageBox.Show("Xóa nhà cung cấp thành công!");
-                        SupplierView supplierView = new SupplierView();
-                        Main.Instance.LoadFormIntoPanelCenter(supplierView);
+                        LoadSuppilerToGridViewFunction();
                     }
                     else
                     {
-                        MessageBox.Show("Xóa nhaf cung cấp thất bại!");
+                        MessageBox.Show("Xóa nhà cung cấp thất bại!");
                     }
                 }
                 else

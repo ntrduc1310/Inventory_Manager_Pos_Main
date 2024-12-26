@@ -91,7 +91,7 @@ namespace PL.View
                 if (editForm.ShowDialog() == DialogResult.OK)
                 {
                     // Load lại dữ liệu sau khi chỉnh sửa
-                    guna2DataGridView1.DataSource = await new CategoryBL().LoadCategory();
+                    LoadCategoryToGridViewFunction();   
                 }
             }
         }

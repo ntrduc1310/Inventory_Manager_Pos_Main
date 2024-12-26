@@ -321,8 +321,7 @@ namespace PL.Model
             if (result)
             {
                 MessageBox.Show("Tạo đơn hàng thành công!");
-                SaleView saleView = new SaleView();
-                Main.Instance.LoadFormIntoPanelCenter(saleView);
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
         }
