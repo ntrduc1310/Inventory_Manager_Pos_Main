@@ -236,6 +236,7 @@
             btnBrowse.Size = new Size(166, 55);
             btnBrowse.TabIndex = 40;
             btnBrowse.Text = "Browse";
+            btnBrowse.Click += btnBrowse_Click;
             // 
             // txtPic
             // 

@@ -166,9 +166,9 @@
             guna2HtmlLabel1.ForeColor = Color.FromArgb(95, 71, 204);
             guna2HtmlLabel1.Location = new Point(120, 12);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(786, 61);
+            guna2HtmlLabel1.Size = new Size(599, 61);
             guna2HtmlLabel1.TabIndex = 3;
-            guna2HtmlLabel1.Text = "Hệ Thống Quản Lí Cửa Hàng Tạo Hóa";
+            guna2HtmlLabel1.Text = "Hệ Thống Quản Lí Cửa Hàng ";
             // 
             // CenterPanel
             // 
