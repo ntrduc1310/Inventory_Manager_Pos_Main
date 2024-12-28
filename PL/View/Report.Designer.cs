@@ -203,10 +203,12 @@
             // 
             // listBox1
             // 
+            listBox1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 31;
             listBox1.Location = new Point(179, 480);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(743, 264);
+            listBox1.Size = new Size(743, 252);
             listBox1.TabIndex = 8;
             // 
             // guna2PictureBox1

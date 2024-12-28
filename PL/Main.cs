@@ -264,5 +264,11 @@ namespace PL
             invoice invoice = new invoice();
             LoadFormIntoPanel(invoice, CenterPanel);
         }
+
+        private void Print_Invoice_Click(object sender, EventArgs e)
+        {
+            Invoice_Print invoice_Print = new Invoice_Print();
+            LoadFormIntoPanel(invoice_Print, CenterPanel);
+        }
     }
 }
