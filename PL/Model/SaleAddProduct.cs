@@ -10,6 +10,7 @@ using DTO.Products;
 using DTO.Sale;
 using BL.Purchase;
 using PL.View;
+using static Azure.Core.HttpHeader;
 
 namespace PL.Model
 {
@@ -59,6 +60,7 @@ namespace PL.Model
 
 
         // Thêm sản phẩm vào giỏ hàng
+       
         private async void AddToCart(int productId)
         {
             // Lấy sản phẩm từ database
@@ -94,6 +96,7 @@ namespace PL.Model
                 {
                     // Thêm sản phẩm vào DataGridView (lưu ý thêm ProductID, Name, Quantity, CostPrice, Price, Amount)
                     dataGridViewCart.Rows.Add(product.Name, product.ProductID, 1, product.Price, product.Price, product.CostPrice, product.CostPrice);
+            
 
 
                     // Cập nhật tổng tiền (có thể tính lại tổng tiền ở đây)
@@ -190,6 +193,7 @@ namespace PL.Model
                         {
                             // Nếu số lượng là 1, xóa sản phẩm khỏi giỏ hàng
                             dataGridViewCart.Rows.Remove(row);
+                          
                         }
 
                         UpdateGrandTotal();
@@ -309,6 +313,49 @@ namespace PL.Model
             string createdBy = Main.Instance.username_lbl.Text;
             string notes = txt_notes.Text;
             string status = "";
+            // Danh sách sản phẩm, số lượng, giá
+            List<string> productNameList = new List<string>();
+            List<int> productQuantityList = new List<int>();
+            List<decimal> productPriceList = new List<decimal>();
+
+            // Lặp qua các hàng trong DataGridView
+            foreach (DataGridViewRow row in dataGridViewCart.Rows)
+            {
+                if (row.Cells["dgvProductName"].Value != null &&
+                    row.Cells["dgvQuantity"].Value != null &&
+                    row.Cells["dgvPrice"].Value != null)
+                {
+                    // Lấy tên sản phẩm
+                    string name = row.Cells["dgvProductName"].Value.ToString();
+
+                    // Lấy số lượng
+                    if (int.TryParse(row.Cells["dgvQuantity"].Value.ToString(), out int quantity))
+                    {
+                        // Lấy giá
+                        if (decimal.TryParse(row.Cells["dgvPrice"].Value.ToString(), out decimal price))
+                        {
+                            // Thêm vào danh sách
+                            productNameList.Add(name);
+                            productQuantityList.Add(quantity);
+                            productPriceList.Add(price);
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Giá không hợp lệ cho sản phẩm: {name}");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Số lượng không hợp lệ cho sản phẩm: {name}");
+                    }
+                }
+            }
+
+            // Chuyển danh sách thành chuỗi phân cách bằng dấu phẩy
+            string productNames = string.Join(",", productNameList.Select(name => $"'{name}'")); // Thêm dấu nháy đơn để sử dụng trong SQL
+            string productQuantities = string.Join(",", productQuantityList);
+            string productPrices = string.Join(",", productPriceList);
+
             if (cb_OnOff.Text.Equals("Trực tiếp"))
             {
                 status = "Hoàn thành";
@@ -317,7 +364,8 @@ namespace PL.Model
             {
                 status = "Đang xử lý";
             }
-            bool result = await new SaleBL().AddSale(customerId, total_Amount, status, createdBy, notes,totalCostPrice);
+
+            bool result = await new SaleBL().AddSale(customerId, total_Amount, status, createdBy, notes,totalCostPrice,productNames,productQuantities,productPrices);
             if (result)
             {
                 MessageBox.Show("Tạo đơn hàng thành công!");

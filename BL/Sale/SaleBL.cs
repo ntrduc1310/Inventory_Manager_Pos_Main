@@ -16,10 +16,15 @@ namespace BL.Sale
             return await new SaleDL().LoadSales();
         }
 
-        // Thêm mới Sale
-        public async Task<bool> AddSale(int customerId, decimal totalAmount, string status, string createdBy, string notes, decimal totalCostPrice)
+        public async Task<List<SaleClass>> LoadSalesInvoice()
         {
-            return await new SaleDL().AddSale(customerId, totalAmount, status, createdBy, notes, totalCostPrice);
+            return await new SaleDL().LoadSalesInvoice();
+        }
+
+        // Thêm mới Sale
+        public async Task<bool> AddSale(int customerId, decimal totalAmount, string status, string createdBy, string notes, decimal totalCostPrice, string listNameProduct, string listQuantityProduct, string listPriceProduct)
+        {
+            return await new SaleDL().AddSale(customerId, totalAmount, status, createdBy, notes, totalCostPrice, listNameProduct,listQuantityProduct,listPriceProduct);
         }
 
         // Load danh sách khách hàng cho ComboBox
@@ -35,20 +40,20 @@ namespace BL.Sale
         }
 
         // Lưu thông tin Sale
-        public async Task<bool> SaveSale(int customerId, decimal totalAmount, List<SaleDetail> saleDetails, string notes)
-        {
-            try
-            {
-                // Gọi tới lớp Data Layer để xử lý lưu thông tin
-                return await new SaleDL().SaveSale(customerId, totalAmount, saleDetails, notes);
-            }
-            catch (Exception ex)
-            {
-                // Ghi log lỗi nếu cần thiết
-                Console.WriteLine($"Error saving sale: {ex.Message}");
-                return false;
-            }
-        }
+        //public async Task<bool> SaveSale(int customerId, decimal totalAmount, List<SaleDetail> saleDetails, string notes)
+        //{
+        //    try
+        //    {
+        //        // Gọi tới lớp Data Layer để xử lý lưu thông tin
+        //        return await new SaleDL().SaveSale(customerId, totalAmount, saleDetails, notes);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Ghi log lỗi nếu cần thiết
+        //        Console.WriteLine($"Error saving sale: {ex.Message}");
+        //        return false;
+        //    }
+        //}
 
         // Cập nhật trạng thái Sale
         public async Task<bool> UpdateStatus(string status, int saleId)

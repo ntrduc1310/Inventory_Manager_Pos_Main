@@ -36,8 +36,36 @@ namespace DL.Sale
             }
         }
 
+        public async Task<List<SaleClass>> LoadSalesInvoice()
+        {
+            try
+            {
+                using (var context = new DataProviderEntity()) // DbContext của bạn
+                {
+                    var data = await context.Sale.Select(s => new SaleClass
+                    {
+                        SaleID = s.SaleID,
+                        CustomerID = s.CustomerID,
+                        CreatedAt = s.CreatedAt,
+                        TotalAmount = s.TotalAmount,
+                        CreatedBy = s.CreatedBy,
+                        Status = s.Status,
+                        ProductNameList = s.ProductNameList,
+                        ProductQuantityList = s.ProductQuantityList,
+                        ProductPriceList = s.ProductPriceList
+                    }).ToListAsync();
+
+                    return data;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         // Thêm mới Sale
-        public async Task<bool> AddSale(int customerId, decimal totalAmount,string status, string createdBy, string notes, decimal totalCostPrice)
+        public async Task<bool> AddSale(int customerId, decimal totalAmount,string status, string createdBy, string notes, decimal totalCostPrice, string listNameProduct, string listQuantityProduct, string listPriceProduct)
         {
             try
             {
@@ -52,7 +80,10 @@ namespace DL.Sale
                         CreatedBy = createdBy,
                         Notes = notes,
                         CreatedAt= DateTime.Now,
-                        totalCostPrice = totalCostPrice
+                        totalCostPrice = totalCostPrice,
+                        ProductNameList = listNameProduct,
+                        ProductQuantityList = listQuantityProduct,
+                        ProductPriceList = listPriceProduct
                     };
 
                     context.Sale.Add(newSale);
@@ -68,7 +99,7 @@ namespace DL.Sale
         }
 
         // Lưu thông tin Sale (bao gồm chi tiết sản phẩm)
-        public async Task<bool> SaveSale(int customerId, decimal totalAmount, List<SaleDetail> saleDetails, string notes)
+        public async Task<bool> SaveSale(int customerId, decimal totalAmount, List<SaleDetail> saleDetails, string notes,string listNameProduct, string listQuantityProduct, string listPriceProduct)
         {
             try
             {
@@ -82,7 +113,11 @@ namespace DL.Sale
                         Status = "Đang xử lý",
                         Notes = notes,
                         CreatedAt = DateTime.Now,
-                        CreatedBy = "Hệ thống" // Hoặc thay bằng tên người dùng hiện tại
+                        CreatedBy = "Hệ thống", // Hoặc thay bằng tên người dùng hiện tại
+                        ProductNameList = listNameProduct,
+                        ProductQuantityList = listQuantityProduct,
+                        ProductPriceList = listPriceProduct
+
                     };
 
                     // Thêm Sale vào DbContext
