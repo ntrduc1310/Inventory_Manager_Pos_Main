@@ -23,5 +23,11 @@ namespace DTO.Sale
         public DateTime UpdatedAt { get; set; }
 
         public decimal totalCostPrice { get; set; }
-}
+
+        public string ProductNameList { get; set; }
+
+        public string ProductQuantityList { get; set; }
+
+        public string ProductPriceList { get; set; }
+    }
 }
