@@ -60,17 +60,8 @@
             guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2DataGridView2 = new Guna.UI2.WinForms.Guna2DataGridView();
             guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            dgvId = new DataGridViewTextBoxColumn();
-            dgvProName = new DataGridViewTextBoxColumn();
-            dgvPrice = new DataGridViewTextBoxColumn();
-            dgvQtt = new DataGridViewTextBoxColumn();
-            dgvTTAmount = new DataGridViewTextBoxColumn();
-            dgvDate = new DataGridViewTextBoxColumn();
-            dgvCustomerID = new DataGridViewTextBoxColumn();
-            dgvCreatedBy = new DataGridViewTextBoxColumn();
-            dgvStatus = new DataGridViewTextBoxColumn();
-            dgvPrint = new DataGridViewImageColumn();
+            guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)guna2DataGridView2).BeginInit();
@@ -108,33 +99,9 @@
             guna2GradientPanel1.Margin = new Padding(4);
             guna2GradientPanel1.Name = "guna2GradientPanel1";
             guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2GradientPanel1.Size = new Size(980, 1089);
+            guna2GradientPanel1.Size = new Size(784, 871);
             guna2GradientPanel1.TabIndex = 2;
             guna2GradientPanel1.Paint += guna2GradientPanel1_Paint;
-            // 
-            // guna2HtmlLabel5
-            // 
-            guna2HtmlLabel5.BackColor = Color.Transparent;
-            guna2HtmlLabel5.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel5.ForeColor = Color.FromArgb(95, 71, 204);
-            guna2HtmlLabel5.Location = new Point(54, 1030);
-            guna2HtmlLabel5.Margin = new Padding(4);
-            guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            guna2HtmlLabel5.Size = new Size(449, 40);
-            guna2HtmlLabel5.TabIndex = 75;
-            guna2HtmlLabel5.Text = "Cảm ơn & Hẹn gặp lại Quý khách!";
-            // 
-            // guna2HtmlLabel4
-            // 
-            guna2HtmlLabel4.BackColor = Color.Transparent;
-            guna2HtmlLabel4.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            guna2HtmlLabel4.ForeColor = Color.FromArgb(95, 71, 204);
-            guna2HtmlLabel4.Location = new Point(390, 62);
-            guna2HtmlLabel4.Margin = new Padding(4);
-            guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            guna2HtmlLabel4.Size = new Size(204, 34);
-            guna2HtmlLabel4.TabIndex = 74;
-            guna2HtmlLabel4.Text = "Quản lí Cửa Hàng ";
             // 
             // lb_User
             // 
@@ -259,8 +226,7 @@
             guna2HtmlLabel15.BackColor = Color.Transparent;
             guna2HtmlLabel15.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold | FontStyle.Italic);
             guna2HtmlLabel15.ForeColor = SystemColors.ButtonShadow;
-            guna2HtmlLabel15.Location = new Point(54, 976);
-            guna2HtmlLabel15.Margin = new Padding(4);
+            guna2HtmlLabel15.Location = new Point(43, 781);
             guna2HtmlLabel15.Name = "guna2HtmlLabel15";
             guna2HtmlLabel15.Size = new Size(184, 30);
             guna2HtmlLabel15.TabIndex = 60;
@@ -271,8 +237,7 @@
             guna2HtmlLabel14.BackColor = Color.Transparent;
             guna2HtmlLabel14.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold | FontStyle.Italic);
             guna2HtmlLabel14.ForeColor = SystemColors.ButtonShadow;
-            guna2HtmlLabel14.Location = new Point(590, 976);
-            guna2HtmlLabel14.Margin = new Padding(4);
+            guna2HtmlLabel14.Location = new Point(472, 781);
             guna2HtmlLabel14.Name = "guna2HtmlLabel14";
             guna2HtmlLabel14.Size = new Size(196, 30);
             guna2HtmlLabel14.TabIndex = 59;
@@ -382,8 +347,7 @@
             guna2DataGridView2.ReadOnly = true;
             guna2DataGridView2.RowHeadersVisible = false;
             guna2DataGridView2.RowHeadersWidth = 51;
-            guna2DataGridView2.RowTemplate.Height = 29;
-            guna2DataGridView2.Size = new Size(868, 540);
+            guna2DataGridView2.Size = new Size(694, 432);
             guna2DataGridView2.TabIndex = 52;
             guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -491,22 +455,27 @@
             dgvCreatedBy.ReadOnly = true;
             dgvCreatedBy.Visible = false;
             // 
-            // dgvStatus
+            // guna2HtmlLabel4
             // 
-            dgvStatus.HeaderText = "Trạng thái";
-            dgvStatus.MinimumWidth = 8;
-            dgvStatus.Name = "dgvStatus";
-            dgvStatus.ReadOnly = true;
-            dgvStatus.Visible = false;
+            guna2HtmlLabel4.BackColor = Color.Transparent;
+            guna2HtmlLabel4.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            guna2HtmlLabel4.ForeColor = Color.FromArgb(95, 71, 204);
+            guna2HtmlLabel4.Location = new Point(312, 50);
+            guna2HtmlLabel4.Name = "guna2HtmlLabel4";
+            guna2HtmlLabel4.Size = new Size(169, 30);
+            guna2HtmlLabel4.TabIndex = 74;
+            guna2HtmlLabel4.Text = "Quản lí Cửa Hàng ";
             // 
-            // dgvPrint
+            // guna2HtmlLabel5
             // 
-            dgvPrint.HeaderText = "In hóa đơn";
-            dgvPrint.Image = Properties.Resources.icons8_print_50;
-            dgvPrint.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            dgvPrint.MinimumWidth = 8;
-            dgvPrint.Name = "dgvPrint";
-            dgvPrint.ReadOnly = true;
+            guna2HtmlLabel5.BackColor = Color.Transparent;
+            guna2HtmlLabel5.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel5.ForeColor = Color.FromArgb(95, 71, 204);
+            guna2HtmlLabel5.Location = new Point(43, 824);
+            guna2HtmlLabel5.Name = "guna2HtmlLabel5";
+            guna2HtmlLabel5.Size = new Size(365, 33);
+            guna2HtmlLabel5.TabIndex = 75;
+            guna2HtmlLabel5.Text = "Cảm ơn & Hẹn gặp lại Quý khách!";
             // 
             // invoice
             // 

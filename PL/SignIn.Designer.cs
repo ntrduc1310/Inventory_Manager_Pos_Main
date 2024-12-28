@@ -20,6 +20,7 @@
             base.Dispose(disposing);
         }
 
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -92,7 +93,6 @@
             guna2PictureBox7.SizeMode = PictureBoxSizeMode.StretchImage;
             guna2PictureBox7.TabIndex = 62;
             guna2PictureBox7.TabStop = false;
-            guna2PictureBox7.Click += guna2PictureBox7_Click;
             // 
             // guna2Separator2
             // 
@@ -284,7 +284,7 @@
             Sign_In.Size = new Size(326, 63);
             Sign_In.TabIndex = 43;
             Sign_In.Text = "Đăng Nhập Ngay";
-            Sign_In.Click += SignIn_btn_Click;
+            Sign_In.Click += Sign_In_Click_1;
             // 
             // guna2PictureBox1
             // 
@@ -311,7 +311,6 @@
             btnExit.ShadowDecoration.CustomizableEdges = customizableEdges18;
             btnExit.Size = new Size(39, 34);
             btnExit.TabIndex = 64;
-            btnExit.Click += btnExit_Click;
             // 
             // btnMax
             // 

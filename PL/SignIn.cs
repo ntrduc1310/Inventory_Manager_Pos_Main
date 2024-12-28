@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace PL
 {
@@ -14,18 +15,89 @@ namespace PL
     {
         private readonly ErrorProvider errorProvider1 = new ErrorProvider();
         private bool isPasswordVisible = false;
+        private Guna2WinProgressIndicator progressIndicator;
+        private Guna2Panel loadingPanel;
+        private Guna2ShadowForm shadowForm;
 
         public SignIn()
         {
             InitializeComponent();
+            InitializeLoadingPanel();
+            CustomizeUI();
         }
 
-        private async void SignIn_btn_Click(object sender, EventArgs e)
+        private void InitializeLoadingPanel()
         {
-            await SignInAsync();
+            loadingPanel = new Guna2Panel
+            {
+                Size = new Size(200, 100),
+                FillColor = Color.FromArgb(40, Color.Black),
+                BorderRadius = 10,
+                Visible = false
+            };
+
+            progressIndicator = new Guna2WinProgressIndicator
+            {
+                Size = new Size(50, 50),
+                Location = new Point(75, 10),
+                AutoStart = true,
+                CircleSize = 1.5f,
+                BackColor = Color.Transparent
+            };
+
+            var loadingLabel = new Guna2HtmlLabel
+            {
+                Text = "Đang tải...",
+                ForeColor = Color.White,
+                Font = new Font("Segoe UI", 10, FontStyle.Regular),
+                Location = new Point(65, 70),
+                BackColor = Color.Transparent
+            };
+
+            loadingPanel.Controls.Add(progressIndicator);
+            loadingPanel.Controls.Add(loadingLabel);
+            this.Controls.Add(loadingPanel);
         }
 
-        private async Task SignInAsync()
+        private void CustomizeUI()
+        {
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+            Username_txb.PlaceholderText = "Nhập tên đăng nhập";
+            Password_txb.PlaceholderText = "Nhập mật khẩu";
+
+            Sign_In.BorderRadius = 15;
+            Sign_In.FillColor = Color.FromArgb(95, 71, 204);
+            Sign_In.HoverState.FillColor = Color.FromArgb(94, 81, 200);
+            Sign_In.BorderRadius = 30;
+
+            shadowForm = new Guna2ShadowForm(this);
+            shadowForm.SetShadowForm(this);
+        }
+
+        private void ShowLoading()
+        {
+            loadingPanel.Location = new Point(
+                (this.ClientSize.Width - loadingPanel.Width) / 2,
+                (this.ClientSize.Height - loadingPanel.Height) / 2
+            );
+            loadingPanel.Visible = true;
+            loadingPanel.BringToFront();
+            Application.DoEvents();
+        }
+
+        private void HideLoading()
+        {
+            loadingPanel.Visible = false;
+        }
+
+        private async void Sign_In_Click_1(object sender, EventArgs e)
+        {
+            await PerformSignIn();
+        }
+
+        private async Task PerformSignIn()
         {
             if (!ValidateInputs())
             {
@@ -33,11 +105,15 @@ namespace PL
                 return;
             }
 
-            string username = Username_txb.Text.Trim();
-            string password = Password_txb.Text.Trim();
+            ShowLoading();
 
             try
             {
+                string username = Username_txb.Text.Trim();
+                string password = Password_txb.Text.Trim();
+
+                await Task.Delay(1000);
+
                 var loginBL = new LoginBL();
                 bool loginSuccess = await loginBL.LoginAsync(username, password);
 
@@ -57,6 +133,10 @@ namespace PL
             catch (Exception ex)
             {
                 ShowError($"Đã xảy ra lỗi không xác định: {ex.Message}");
+            }
+            finally
+            {
+                HideLoading();
             }
         }
 
@@ -117,6 +197,7 @@ namespace PL
                 Caption = "Thông báo",
                 Buttons = MessageDialogButtons.OK,
                 Style = MessageDialogStyle.Light,
+                Icon = MessageDialogIcon.Information,
                 Parent = this
             };
             dialog.Show();
@@ -134,15 +215,21 @@ namespace PL
             SignIn_label.Cursor = Cursors.Default;
         }
 
-        private void guna2PictureBox7_Click(object sender, EventArgs e)
+        private void TogglePassword_Click(object sender, EventArgs e)
         {
             isPasswordVisible = !isPasswordVisible;
             Password_txb.PasswordChar = isPasswordVisible ? '\0' : '*';
+            Password_txb.UseSystemPasswordChar = !isPasswordVisible;
         }
 
-        private void guna2PictureBox5_Click(object sender, EventArgs e)
+        private void Exit_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Application.Exit();
+        }
+
+        private void Minimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private bool IsValidPassword(string password)
@@ -159,12 +246,7 @@ namespace PL
             if (string.IsNullOrWhiteSpace(Username_txb.Text) ||
                 string.IsNullOrWhiteSpace(Password_txb.Text))
             {
-                MessageBox.Show(
-                    "Vui lòng nhập đầy đủ thông tin vào tất cả các ô.",
-                    "Thông báo",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
+                ShowError("Vui lòng nhập đầy đủ thông tin vào tất cả các ô.");
                 return false;
             }
 
@@ -187,25 +269,59 @@ namespace PL
             Password_txb.Text = "Ducci123";
         }
 
-        private void Username_txb_KeyDown(object sender, KeyEventArgs e)
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                SignIn_btn_Click(sender, e);
+                Sign_In_Click_1(sender, e);
             }
         }
 
-        private void Password_txb_KeyDown(object sender, KeyEventArgs e)
+        #region Form Dragging
+
+        private Point dragOffset;
+        private bool mouseDown;
+
+        protected override void OnMouseDown(MouseEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            base.OnMouseDown(e);
+            if (e.Button == MouseButtons.Left)
             {
-                SignIn_btn_Click(sender, e);
+                mouseDown = true;
+                dragOffset = new Point(e.X, e.Y);
             }
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        protected override void OnMouseMove(MouseEventArgs e)
         {
-            Application.Exit();
+            base.OnMouseMove(e);
+            if (mouseDown)
+            {
+                Point currentScreenPos = PointToScreen(e.Location);
+                Location = new Point(currentScreenPos.X - dragOffset.X,
+                                   currentScreenPos.Y - dragOffset.Y);
+            }
         }
+
+        protected override void OnMouseUp(MouseEventArgs e)
+        {
+            base.OnMouseUp(e);
+            if (e.Button == MouseButtons.Left)
+            {
+                mouseDown = false;
+            }
+        }
+
+        #endregion
+
+        protected override async void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            ShowLoading();
+            await Task.Delay(1500);
+            HideLoading();
+        }
+
+        
     }
 }
