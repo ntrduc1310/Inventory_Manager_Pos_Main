@@ -344,11 +344,11 @@
             guna2HtmlLabel5.BackColor = Color.Transparent;
             guna2HtmlLabel5.Font = new Font("Segoe UI Black", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel5.ForeColor = Color.DarkSlateBlue;
-            guna2HtmlLabel5.Location = new Point(97, 506);
+            guna2HtmlLabel5.Location = new Point(171, 516);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            guna2HtmlLabel5.Size = new Size(307, 47);
+            guna2HtmlLabel5.Size = new Size(162, 47);
             guna2HtmlLabel5.TabIndex = 67;
-            guna2HtmlLabel5.Text = "Cửa Hàng Tạp Hóa";
+            guna2HtmlLabel5.Text = "Cửa Hàng ";
             // 
             // SignIn
             // 

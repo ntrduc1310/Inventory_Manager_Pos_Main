@@ -220,60 +220,64 @@ namespace PL.Model
         private async void LoadProducts(object sender, EventArgs e)
         {
             var products = await new ProductsBL().LoadProducts();
-            //var products = await new ProductsBL().LoadProducts();
             foreach (var product in products)
             {
-                // Tạo Panel chứa thông tin sản phẩm
+                // Main product panel
                 Panel productPanel = new Panel();
-                productPanel.Width = 120;
-                productPanel.Height = 180;
-                //productPanel.Margin = new Padding(10);
-                productPanel.Padding = new Padding(0, 10, 0, 10);
-                productPanel.BorderStyle = BorderStyle.Fixed3D;
+                productPanel.Width = 150;
+                productPanel.Height = 200;
+                productPanel.Padding = new Padding(5);
+                productPanel.BackColor = Color.White;
+                productPanel.BorderStyle = BorderStyle.FixedSingle;
 
-                // Tạo PictureBox hiển thị hình ảnh sản phẩm
+                // Product Image
                 PictureBox productImage = new PictureBox();
                 productImage.Width = 100;
                 productImage.Height = 100;
                 productImage.SizeMode = PictureBoxSizeMode.Zoom;
+                productImage.Location = new Point((productPanel.Width - productImage.Width) / 2, 10);
                 if (!string.IsNullOrEmpty(product.Image) && File.Exists(product.Image))
                 {
                     productImage.Image = Image.FromFile(product.Image);
                 }
                 productPanel.Controls.Add(productImage);
 
-                // Tạo Label hiển thị tên sản phẩm
+                // Product name
                 Label productName = new Label();
                 productName.Text = product.Name;
+                productName.Font = new Font("Arial", 10, FontStyle.Bold);
                 productName.TextAlign = ContentAlignment.MiddleCenter;
-                productName.Dock = DockStyle.Bottom;
-                Font boldFont = new Font(productName.Font.FontFamily, 9, FontStyle.Bold);
-                productName.Font = boldFont;
+                productName.Size = new Size(productPanel.Width - 10, 25);
+                productName.Location = new Point(5, productImage.Bottom + 10);
                 productPanel.Controls.Add(productName);
 
-                // Tạo Label hiển thị giá sản phẩm
+                // Price
                 Label productPrice = new Label();
-                productPrice.Text = product.Price.ToString("C2"); // Định dạng thành tiền tệ
+                productPrice.Text = product.Price.ToString("N0"); // Just the number without currency
+                productPrice.Font = new Font("Arial", 12, FontStyle.Bold);
                 productPrice.TextAlign = ContentAlignment.MiddleCenter;
-                productPrice.Dock = DockStyle.Bottom;
-                productPrice.Font = boldFont;
+                productPrice.Size = new Size(productPanel.Width - 10, 25);
+                productPrice.Location = new Point(5, productName.Bottom + 5);
                 productPanel.Controls.Add(productPrice);
 
-                // Thêm sự kiện khi click vào sản phẩm
+                // Add click event to the entire panel and all controls
                 var controls = new List<Control> { productPanel, productName, productPrice, productImage };
-
-                // Lặp qua các điều khiển và gắn sự kiện Click
                 foreach (var control in controls)
                 {
-                    control.Click += (s, e) =>
-                    {
-                        AddToCart(product.ProductID);
-                    };
+                    control.Click += (s, evt) => AddToCart(product.ProductID);
+                    control.Cursor = Cursors.Hand;
                 }
-                // Thêm sản phẩm vào FlowLayoutPanel
+
+                // Add hover effect
+                productPanel.MouseEnter += (s, evt) => {
+                    productPanel.BackColor = Color.FromArgb(245, 245, 245);
+                };
+                productPanel.MouseLeave += (s, evt) => {
+                    productPanel.BackColor = Color.White;
+                };
+
+                // Add the product panel to the flow layout
                 flowLayoutPanel1.Controls.Add(productPanel);
-
-
             }
         }
 

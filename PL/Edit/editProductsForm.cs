@@ -124,5 +124,28 @@ namespace PL.Edit
         {
             this.Close();
         }
+        private string filePathnew = null;
+        private void loadImagesByPath()
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Lấy đường dẫn ảnh được chọn
+                    string filePath = openFileDialog.FileName;
+                    filePathnew = filePath;
+
+                    // Hiển thị ảnh trong PictureBox
+                    txtPic.Image = Image.FromFile(filePath);
+                }
+            }
+        }
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            loadImagesByPath();
+        }
     }
 }
