@@ -98,6 +98,42 @@ namespace DL.Sale
             }
         }
 
+        public async Task<int> AddSalegetID(int customerId, decimal totalAmount, string status, string createdBy, string notes,
+                               decimal totalCostPrice, string listNameProduct, string listQuantityProduct, string listPriceProduct)
+        {
+            try
+            {
+                using (var context = new DataProviderEntity())
+                {
+                    var newSale = new SaleClass
+                    {
+                        CustomerID = customerId,
+                        TotalAmount = totalAmount,
+                        Status = status,
+                        CreatedBy = createdBy,
+                        Notes = notes,
+                        CreatedAt = DateTime.Now,
+                        totalCostPrice = totalCostPrice,
+                        ProductNameList = listNameProduct,
+                        ProductQuantityList = listQuantityProduct,
+                        ProductPriceList = listPriceProduct
+                    };
+
+                    context.Sale.Add(newSale);
+
+                    int rowsAffected = await context.SaveChangesAsync();
+
+                    // Trả về ID của bản ghi vừa được thêm
+                    return rowsAffected > 0 ? newSale.SaleID : 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
         // Lưu thông tin Sale (bao gồm chi tiết sản phẩm)
         public async Task<bool> SaveSale(int customerId, decimal totalAmount, List<SaleDetail> saleDetails, string notes,string listNameProduct, string listQuantityProduct, string listPriceProduct)
         {
@@ -110,7 +146,7 @@ namespace DL.Sale
                     {
                         CustomerID = customerId,
                         TotalAmount = totalAmount,
-                        Status = "Đang xử lý",
+                        Status = "Hoàn thành",
                         Notes = notes,
                         CreatedAt = DateTime.Now,
                         CreatedBy = "Hệ thống", // Hoặc thay bằng tên người dùng hiện tại

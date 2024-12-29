@@ -152,7 +152,7 @@ namespace PL.Model
                     decimal cost = decimal.Parse(txt_Cost.Text);
                     decimal salePrice = decimal.Parse(txt_Price.Text);
                     decimal discount = decimal.Parse(txt_Discount.Text);
-                    int quantity = int.Parse(txt_Quantity.Text);
+                    int quantity = 0;
                     int categoryId = (int)cb_Category.SelectedValue;
                     int supplierId = (int)cb_Supplier.SelectedValue;
 
@@ -190,12 +190,6 @@ namespace PL.Model
                         return;
                     }
 
-                    // Kiểm tra số lượng có hợp lệ không
-                    if (!int.TryParse(txt_Quantity.Text, out quantity))
-                    {
-                        MessageBox.Show("Số lượng không hợp lệ.");
-                        return;
-                    }
 
                     // Kiểm tra CategoryId và SupplierId có hợp lệ không
                     if (cb_Category.SelectedValue == null || !int.TryParse(cb_Category.SelectedValue.ToString(), out categoryId))

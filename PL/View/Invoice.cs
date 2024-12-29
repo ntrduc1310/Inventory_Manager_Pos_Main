@@ -16,7 +16,7 @@ namespace PL.View
         public invoice()
         {
             InitializeComponent();
-            this.Load += loadInvoiceToGridView;
+            //this.Load += loadInvoiceToGridView;
         }
 
         private void guna2HtmlLabel2_Click(object sender, EventArgs e)
@@ -34,24 +34,24 @@ namespace PL.View
 
         }
 
-        private async void loadInvoiceToGridView(object sender, EventArgs e)
-        {
-            guna2DataGridView2.AutoGenerateColumns = false;
-            guna2DataGridView2.Columns["dgvId"].DataPropertyName = "SaleID";
-            guna2DataGridView2.Columns["dgvDate"].DataPropertyName = "CreatedAt";
-            guna2DataGridView2.Columns["dgvCustomerID"].DataPropertyName = "CustomerID";
-            guna2DataGridView2.Columns["dgvTTAmount"].DataPropertyName = "TotalAmount";
-            guna2DataGridView2.Columns["dgvCreatedBy"].DataPropertyName = "CreatedBy";
-            guna2DataGridView2.Columns["dgvStatus"].DataPropertyName = "Status";
-            guna2DataGridView2.Columns["dgvProName"].DataPropertyName = "ProductNameList";
-            guna2DataGridView2.Columns["dgvQtt"].DataPropertyName = "ProductQuantityList";
-            guna2DataGridView2.Columns["dgvPrice"].DataPropertyName = "ProductPriceList";
-            var sale = await new BL.Sale.SaleBL().LoadSalesInvoice();
+        //private async void loadInvoiceToGridView(object sender, EventArgs e)
+        //{
+        //    guna2DataGridView2.AutoGenerateColumns = false;
+        //    guna2DataGridView2.Columns["dgvId"].DataPropertyName = "SaleID";
+        //    guna2DataGridView2.Columns["dgvDate"].DataPropertyName = "CreatedAt";
+        //    guna2DataGridView2.Columns["dgvCustomerID"].DataPropertyName = "CustomerID";
+        //    guna2DataGridView2.Columns["dgvTTAmount"].DataPropertyName = "TotalAmount";
+        //    guna2DataGridView2.Columns["dgvCreatedBy"].DataPropertyName = "CreatedBy";
+        //    guna2DataGridView2.Columns["dgvStatus"].DataPropertyName = "Status";
+        //    guna2DataGridView2.Columns["dgvProName"].DataPropertyName = "ProductNameList";
+        //    guna2DataGridView2.Columns["dgvQtt"].DataPropertyName = "ProductQuantityList";
+        //    guna2DataGridView2.Columns["dgvPrice"].DataPropertyName = "ProductPriceList";
+        //    var sale = await new BL.Sale.SaleBL().LoadSalesInvoice();
 
-            guna2DataGridView2.DataSource = sale;
-            guna2DataGridView2.Refresh();
+        //    guna2DataGridView2.DataSource = sale;
+        //    guna2DataGridView2.Refresh();
 
-        }
+        //}
 
         private void guna2DataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

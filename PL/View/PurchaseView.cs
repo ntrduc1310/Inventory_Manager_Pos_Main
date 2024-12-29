@@ -23,8 +23,6 @@ namespace PL.View
             this.Load += loadToPurchaseView;
             guna2DataGridView1.CellClick += guna2DataGridView1_CellClick;
             //guna2DataGridView1.CellClick += DgvCellClickImageColumn;
-            guna2DataGridView1.CellClick += guna2DataGridView_CellClick_Status;
-            guna2DataGridView1.CellFormatting += guna2DataGridView1_CellFormatting_Status;
             guna2DataGridView1.CellFormatting += guna2DataGridView1_CellFormatting_Sr ;
 
 
@@ -79,8 +77,6 @@ namespace PL.View
                 guna2DataGridView1.Columns["dgvSupID"].DataPropertyName = "SupplierID";
                 guna2DataGridView1.Columns["dgvAmount"].DataPropertyName = "TotalAmount";
                 guna2DataGridView1.Columns["dgvCreatedBy"].DataPropertyName = "CreatedBy";
-                guna2DataGridView1.Columns["dgvStatus"].DataPropertyName = "Status";
-
                 // Load dữ liệu
                 var data = await new PurchaseBL().LoadPurchase();
                 guna2DataGridView1.DataSource = data;
@@ -151,81 +147,7 @@ namespace PL.View
 
         }
 
-        private async void guna2DataGridView1_CellFormatting_Status(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            // Kiểm tra nếu là cột "dgvAccepted" hoặc "dgvDontAccepted"
-            if (guna2DataGridView1.Columns[e.ColumnIndex].Name == "dgvAccepted" ||
-                guna2DataGridView1.Columns[e.ColumnIndex].Name == "dgvDontAccepted")
-            {
-                // Lấy trạng thái từ cột trạng thái
-                string status = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvStatus"].Value?.ToString();
-
-                // Kiểm tra trạng thái
-                if (status == "Hoàn thành")
-                {
-                    // Gán hình ảnh "không chọn được"
-                    e.Value = Image.FromFile("D:\\LapTrinhCoSoDuLieu\\Inventory_Manager_Pos\\Inventory_Manager_Pos\\PL\\Resources\\icons8-select-none-50.png");
-
-                }
-            }
-        }
-
-        private async void guna2DataGridView_CellClick_Status(object sender, DataGridViewCellEventArgs e)
-        {
-            // Kiểm tra nếu là cột "dgvAccepted" hoặc "dgvDontAccepted"
-            if (e.RowIndex >= 0 && (guna2DataGridView1.Columns[e.ColumnIndex].Name == "dgvAccepted" ||
-                guna2DataGridView1.Columns[e.ColumnIndex].Name == "dgvDontAccepted"))
-            {
-                // Lấy trạng thái từ cột trạng thái
-                string status = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvStatus"].Value?.ToString();
-
-                // Ngăn click nếu trạng thái là "Hoàn thành" hoặc "Đã hủy"
-                if (status == "Hoàn thành")
-                {
-                    return; // Không thực hiện thêm hành động nào
-                }
-                else
-                {
-                    if (e.RowIndex >= 0 && guna2DataGridView1.Columns[e.ColumnIndex].Name == "dgvAccepted")
-                    {
-                        var resultAccepted = MessageBox.Show("Bạn có chắc chắn đã nhận hàng không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        if (resultAccepted == DialogResult.Yes)
-                        {
-                            if (e.ColumnIndex == guna2DataGridView1.Columns["dgvAccepted"].Index)
-                            {
-                                int id = (int)guna2DataGridView1.Rows[e.RowIndex].Cells["dgvid"].Value;
-                                bool updateStatus = await new PurchaseBL().updateStatus("Hoàn thành", id);
-                                if(updateStatus)
-                                {
-                                    loadtoPurchaseViewFunction();
-                                }    
-                            }
-                        }
-                      
-
-                    }
-                    if (e.RowIndex >= 0 && guna2DataGridView1.Columns[e.ColumnIndex].Name == "dgvDontAccepted")
-                    {
-                        var resultDontAccepted = MessageBox.Show("Bạn có chắc chắn chưa nhận hàng không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        if (resultDontAccepted == DialogResult.Yes)
-                        {
-                            if (e.ColumnIndex == guna2DataGridView1.Columns["dgvDontAccepted"].Index)
-                            {
-                                int id = (int)guna2DataGridView1.Rows[e.RowIndex].Cells["dgvid"].Value;
-                                bool deletePurchase = await new DL.Purchase.PurchaseDL().DeletePurchase(id);
-                                if(deletePurchase)
-                                {
-                                    loadtoPurchaseViewFunction();
-                                }    
-                            }
-                        }
-                       
-                    }
-                }
-
-            }
-
-        }
+    
 
         //private async void DgvCellClickImageColumn(object sender, DataGridViewCellEventArgs e)
         //{

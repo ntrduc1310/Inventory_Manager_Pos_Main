@@ -111,7 +111,7 @@ namespace DL.Purchase
                     {
                         SupplierId = SupplierID,
                         TotalAmount = totalAmount,
-                        Status = "Đang xử lý",
+                        Status = "Hoàn thành",
                         CreatedBy = createdBy,
                         Notes = notes,
                         CreatedAt = purchaseDate

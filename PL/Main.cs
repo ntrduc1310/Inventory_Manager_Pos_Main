@@ -1,4 +1,5 @@
-﻿using DL.Products;
+﻿using BL.ProductsBL;
+using DL.Products;
 using Guna.UI2.WinForms;
 using PL.Edit;
 using PL.Model;
@@ -208,38 +209,23 @@ namespace PL
         {
             try
             {
-                // Lấy tổng lượng hàng tồn kho từ CSDL
-                var productsDL = new ProductsDL();
-                int totalStock = await productsDL.GetTotalStock();
-
-                // Kiểm tra nếu số lượng tồn kho lớn hơn 0
-                if (totalStock > 0)
+                // Lấy danh sách sản phẩm từ CSDL
+                var products = await new ProductsBL().LoadProducts();
+                // Duyệt qua danh sách sản phẩm
+                foreach (var product in products)
                 {
-                    // Sử dụng Guna2MessageDialog để hiển thị thông báo
-                    Guna2MessageDialog stockNotificationDialog = new Guna2MessageDialog
+                    // Kiểm tra nếu số lượng sản phẩm ít hơn 10
+                    if (product.QuantityInStock < 10)
                     {
-                        Text = $"Tổng lượng hàng tồn kho hiện tại: {totalStock} sản phẩm.",
-                        Caption = "Thông báo tồn kho",
-                        Parent = this
-                    };
-                    stockNotificationDialog.Show(); // Hiển thị thông báo
-
-
-
-
-
-                }
-                else
-                {
-                    // Sử dụng Guna2MessageDialog với kiểu thông báo lỗi (tùy chỉnh màu)
-                    Guna2MessageDialog noStockDialog = new Guna2MessageDialog
-                    {
-                        Text = "Hiện không có sản phẩm tồn kho.",
-                        Caption = "Thông báo lỗi",
-                        Style = MessageDialogStyle.Dark, // Sử dụng kiểu Dark để nổi bật
-                        Icon = MessageDialogIcon.Warning // Icon cảnh báo
-                    };
-                    noStockDialog.Show(); // Hiển thị thông báo
+                        // Sử dụng Guna2MessageDialog để hiển thị thông báo
+                        Guna2MessageDialog stockNotificationDialog = new Guna2MessageDialog
+                        {
+                            Text = $"Sản phẩm {product.Name} có số lượng tồn kho ít hơn 10. Vui lòng nhập thêm hàng.",
+                            Caption = "Thông báo nhập hàng",
+                            Parent = this
+                        };
+                        stockNotificationDialog.Show(); // Hiển thị thông báo
+                    }
                 }
             }
             catch (Exception ex)
@@ -267,8 +253,8 @@ namespace PL
 
         private void Print_Invoice_Click(object sender, EventArgs e)
         {
-            Invoice_Print invoice_Print = new Invoice_Print();
-            LoadFormIntoPanel(invoice_Print, CenterPanel);
+            //Invoice_Print invoice_Print = new Invoice_Print();
+            //LoadFormIntoPanel(invoice_Print, CenterPanel);
         }
     }
 }

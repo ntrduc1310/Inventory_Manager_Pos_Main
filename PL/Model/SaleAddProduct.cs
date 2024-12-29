@@ -11,6 +11,10 @@ using DTO.Sale;
 using BL.Purchase;
 using PL.View;
 using static Azure.Core.HttpHeader;
+using DTO.Invoice;
+using BL.Invoice;
+using DL.Sale;
+using Guna.UI2.WinForms;
 
 namespace PL.Model
 {
@@ -37,6 +41,8 @@ namespace PL.Model
             cb_Customer.ValueMember = "CustomerID";
             cb_OnOff.Items.Add("Trực tiếp");
             cb_OnOff.Items.Add("Trực tuyến");
+            cb_Invoice.Items.Add("Có");
+            cb_Invoice.Items.Add("Không");
 
         }
 
@@ -60,7 +66,7 @@ namespace PL.Model
 
 
         // Thêm sản phẩm vào giỏ hàng
-       
+
         private async void AddToCart(int productId)
         {
             // Lấy sản phẩm từ database
@@ -96,7 +102,7 @@ namespace PL.Model
                 {
                     // Thêm sản phẩm vào DataGridView (lưu ý thêm ProductID, Name, Quantity, CostPrice, Price, Amount)
                     dataGridViewCart.Rows.Add(product.Name, product.ProductID, 1, product.Price, product.Price, product.CostPrice, product.CostPrice);
-            
+
 
 
                     // Cập nhật tổng tiền (có thể tính lại tổng tiền ở đây)
@@ -193,7 +199,7 @@ namespace PL.Model
                         {
                             // Nếu số lượng là 1, xóa sản phẩm khỏi giỏ hàng
                             dataGridViewCart.Rows.Remove(row);
-                          
+
                         }
 
                         UpdateGrandTotal();
@@ -269,10 +275,12 @@ namespace PL.Model
                 }
 
                 // Add hover effect
-                productPanel.MouseEnter += (s, evt) => {
+                productPanel.MouseEnter += (s, evt) =>
+                {
                     productPanel.BackColor = Color.FromArgb(245, 245, 245);
                 };
-                productPanel.MouseLeave += (s, evt) => {
+                productPanel.MouseLeave += (s, evt) =>
+                {
                     productPanel.BackColor = Color.White;
                 };
 
@@ -369,10 +377,33 @@ namespace PL.Model
                 status = "Đang xử lý";
             }
 
-            bool result = await new SaleBL().AddSale(customerId, total_Amount, status, createdBy, notes,totalCostPrice,productNames,productQuantities,productPrices);
-            if (result)
+            int saleId = await new SaleBL().AddSalegetID(customerId, total_Amount, status, createdBy, notes, totalCostPrice, productNames, productQuantities, productPrices);
+            if (saleId > 0)
             {
                 MessageBox.Show("Tạo đơn hàng thành công!");
+                bool invoiceId = await new InvoiceBL().AddInvoice(customerId, saleId, total_Amount, productNames, productQuantities, productPrices);
+                foreach (DataGridViewRow row in dataGridViewCart.Rows)
+                {
+                    if (row.Cells["dgvId"].Value != null && row.Cells["dgvQuantity"].Value != null)
+                    {
+                        int productId = Convert.ToInt32(row.Cells["dgvId"].Value);
+                        int quantity = Convert.ToInt32(row.Cells["dgvQuantity"].Value);
+                        // Add your logic here to handle productId and quantity
+                        bool resultAdd = await new ProductsBL().SubtractQuantityProduct(productId, quantity);
+                    }
+                }
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+
+            if(cb_Invoice.Text.Equals("Có"))
+            {
+                var invoice = await new InvoiceBL().SaleIdGetInvoice(saleId);
+                Invoice_Print invoice_Print = new Invoice_Print(invoice);
+                invoice_Print.ShowDialog();
+            }
+            else
+            {
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -418,6 +449,11 @@ namespace PL.Model
         }
 
         private void dataGridViewCart_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

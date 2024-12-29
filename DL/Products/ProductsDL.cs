@@ -26,6 +26,14 @@ namespace DL.Products
                 return await context.Products.FirstOrDefaultAsync(p => p.ProductID == productId);
             }
         }
+
+        public async Task<DTO.Products.Products> getAllProducts()
+        {
+            using (var context = new DataProviderEntity()) // DataProviderEntity là DbContext của bạn
+            {
+                return await context.Products.FirstOrDefaultAsync();
+            }
+        }
         public async Task<int> GetTotalStock()
         {
             using (var context = new DataProviderEntity())
@@ -111,7 +119,7 @@ namespace DL.Products
         }
 
 
-        public async Task<bool> UpdateProduct(int id, string name, string barcode, int categoryID, int quantityInStock, decimal price, decimal costPrice, decimal discount, int supplierId, string description, string image)
+        public async Task<bool> UpdateProduct(int id, string name, string barcode, int categoryID, decimal price, decimal costPrice, decimal discount, int supplierId, string description, string image)
         {
             try
             {
@@ -126,7 +134,6 @@ namespace DL.Products
                         if (string.IsNullOrEmpty(name)) throw new ArgumentException("Tên không được để trống.");
                         if (string.IsNullOrEmpty(barcode)) throw new ArgumentException("Mã vạch không được để trống.");
                         if (categoryID <= 0) throw new ArgumentException("Danh mục phải hợp lệ.");
-                        if (quantityInStock < 0) throw new ArgumentException("Số lượng không được nhỏ hơn 0.");
                         if (price <= 0) throw new ArgumentException("Giá phải lớn hơn 0.");
                         if (costPrice <= 0) throw new ArgumentException("Giá gốc phải lớn hơn 0.");
                         if (discount < 0) throw new ArgumentException("Giảm giá không được âm.");
@@ -136,7 +143,6 @@ namespace DL.Products
                         product.Name = name;
                         product.Barcode = barcode;
                         product.CategoryID = categoryID;
-                        product.QuantityInStock = quantityInStock; // Cộng thêm số lượng nhập vào
                         product.Price = price;
                         product.CostPrice = costPrice;
                         product.Discount = discount;
@@ -291,6 +297,58 @@ namespace DL.Products
                     context.SaveChanges();
 
                     Console.WriteLine($"Cập nhật thành công. Số lượng mới: {category.QuantityProducts}");
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("Không tìm thấy sản phẩm với ID được cung cấp.");
+                    return false;
+                }
+            }
+        }
+
+        public async Task<bool> AddQuantityProduct(int productId, int quantity)
+        {
+            using (var context = new DataProviderEntity())
+            {
+                // Tìm sản phẩm theo ID
+                var product = await context.Products.FirstOrDefaultAsync(p => p.ProductID == productId);
+
+                if (product != null)
+                {
+                    // Cập nhật số lượng
+                    product.QuantityInStock += quantity;
+
+                    // Lưu thay đổi
+                    await context.SaveChangesAsync();
+
+                    Console.WriteLine($"Cập nhật thành công. Số lượng mới: {product.QuantityInStock}");
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("Không tìm thấy sản phẩm với ID được cung cấp.");
+                    return false;
+                }
+            }
+        }
+
+        public async Task<bool> SubtractQuantityProduct(int productId, int quantity)
+        {
+            using (var context = new DataProviderEntity())
+            {
+                // Tìm sản phẩm theo ID
+                var product = await context.Products.FirstOrDefaultAsync(p => p.ProductID == productId);
+
+                if (product != null)
+                {
+                    // Cập nhật số lượng
+                    product.QuantityInStock -= quantity;
+
+                    // Lưu thay đổi
+                    await context.SaveChangesAsync();
+
+                    Console.WriteLine($"Cập nhật thành công. Số lượng mới: {product.QuantityInStock}");
                     return true;
                 }
                 else

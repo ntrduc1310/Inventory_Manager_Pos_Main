@@ -20,7 +20,6 @@ namespace PL.Edit
             productId = id;
             txt_Name.Text = name;
             txt_Barcode.Text = barcode;
-            txt_Quantity.Text = quantityInStock.ToString();
             txt_Price.Text = price.ToString();
             txt_Cost.Text = costPrice.ToString();
             txt_Discount.Text = discount.ToString();
@@ -76,7 +75,6 @@ namespace PL.Edit
                 string barcode = txt_Barcode.Text.Trim();
                 int categoryId = Convert.ToInt32(cb_Category.SelectedValue);
                 int supplierId = Convert.ToInt32(cb_Supplier.SelectedValue);
-                int quantity = int.TryParse(txt_Quantity.Text.Trim(), out int q) ? q : 0;
                 decimal price = decimal.TryParse(txt_Price.Text.Trim(), out decimal p) ? p : 0;
                 decimal cost = decimal.TryParse(txt_Cost.Text.Trim(), out decimal c) ? c : 0;
                 decimal discount = decimal.TryParse(txt_Discount.Text.Trim(), out decimal d) ? d : 0;
@@ -93,14 +91,9 @@ namespace PL.Edit
                     return;
                 }
 
-                if (quantity < 0 || price < 0 || cost < 0)
-                {
-                    MessageBox.Show("Giá hoặc số lượng không thể nhỏ hơn 0!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
 
                 // Gọi hàm UpdateProduct từ Business Logic
-                bool result = await new ProductsBL().UpdateProduct(productId, name, barcode, categoryId, quantity, price, cost, discount, supplierId, description, imagePath);
+                bool result = await new ProductsBL().UpdateProduct(productId, name, barcode, categoryId, price, cost, discount, supplierId, description, imagePath);
 
                 // Kiểm tra kết quả
                 if (result)

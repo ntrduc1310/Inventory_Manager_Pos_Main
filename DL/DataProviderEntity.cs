@@ -8,6 +8,7 @@ using DTO.Customer;
 using System.Security.Cryptography.X509Certificates;
 using DTO.Purchase;
 using DTO.Sale;
+using DTO.Invoice;
 
 
 namespace DL
@@ -43,7 +44,7 @@ namespace DL
 
         public DbSet<SaleDetail> SaleDetail { get; set; }
 
-
+        public DbSet<InvoiceClass> Invoice { get; set; }
 
 
 

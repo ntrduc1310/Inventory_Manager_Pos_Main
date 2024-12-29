@@ -25,11 +25,15 @@ namespace BL.ProductsBL
             return await new ProductsDL().DeleteProducts(ProductId);
         }
 
-        public async Task<bool> UpdateProduct(int id, string name, string barcode, int categoryID, int quantityInStock, decimal price, decimal costPrice, decimal discount, int supplierId, string description, string image)
+        public async Task<bool> UpdateProduct(int id, string name, string barcode, int categoryID, decimal price, decimal costPrice, decimal discount, int supplierId, string description, string image)
         {
-            return await new ProductsDL().UpdateProduct(id, name, barcode, categoryID, quantityInStock, price, costPrice, discount, supplierId, description, image);
+            return await new ProductsDL().UpdateProduct(id, name, barcode, categoryID, price, costPrice, discount, supplierId, description, image);
         }
 
+        public async Task<DTO.Products.Products> getAllProducts()
+        {
+            return await new ProductsDL().getAllProducts();
+        }
         public async Task<object> LoadCategoriesIntoComboBox()
         {
             return await new ProductsDL().LoadCategoriesIntoComboBox();
@@ -38,6 +42,16 @@ namespace BL.ProductsBL
         public async Task<object> LoadSupplierIntoComboBox()
         {
             return await new ProductsDL().LoadSupplierIntoComboBox();
+        }
+
+        public async Task<bool> AddQuantityProduct(int productId, int quantity)
+        {
+            return await new ProductsDL().AddQuantityProduct(productId, quantity);
+        }
+
+        public async Task<bool> SubtractQuantityProduct(int productId, int quantity)
+        {
+            return await new ProductsDL().SubtractQuantityProduct(productId, quantity);
         }
 
         //public async Task<List<DTO.Products.Products>> LoadProductsFromCustomer(int customerId)

@@ -403,11 +403,21 @@ namespace PL.Model
             if (result)
             {
                 MessageBox.Show("Tạo đơn hàng thành công!");
+
+                foreach (DataGridViewRow row in dataGridViewCart.Rows)
+                {
+                    if (row.Cells["dgvId"].Value != null && row.Cells["dgvQuantity"].Value != null)
+                    {
+                        int productId = Convert.ToInt32(row.Cells["dgvId"].Value);
+                        int quantity = Convert.ToInt32(row.Cells["dgvQuantity"].Value);
+                        // Add your logic here to handle productId and quantity
+                        bool resultAdd = await new ProductsBL().AddQuantityProduct(productId, quantity);
+                    }
+                }
+
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
-
-
         }
 
 
@@ -426,5 +436,6 @@ namespace PL.Model
         {
 
         }
+       
     }
 }
