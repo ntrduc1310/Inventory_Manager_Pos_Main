@@ -15,7 +15,29 @@ namespace BL.Category
             return await new CategoryDL().LoadCategory();
         }
 
-        
+        // Thêm phương thức này vào CategoryBL class
+        public async Task<List<DTO.Category.TableCategory>> SearchCategory(string searchText)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(searchText))
+                    return await LoadCategory();
+
+                var categories = await LoadCategory();
+                searchText = searchText.ToLower().Trim();
+
+                return categories.Where(c =>
+                    (c.Name?.ToLower().Contains(searchText) ?? false) ||
+                    c.Id.ToString().Contains(searchText) ||
+                    c.QuantityProducts.ToString().Contains(searchText)
+                ).ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in SearchCategory: {ex.Message}");
+                return new List<DTO.Category.TableCategory>();
+            }
+        }
         // Phương thức thêm mới Category
         public async Task<bool> AddCategory(string Name)
         {

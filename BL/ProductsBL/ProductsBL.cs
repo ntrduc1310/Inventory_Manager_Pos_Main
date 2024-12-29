@@ -62,7 +62,35 @@ namespace BL.ProductsBL
         {
             return await new ProductsDL().subtractQuantityCategory(categoryId, quantity);
         }
+        // Add this method to your ProductsBL class
+        public async Task<List<DTO.Products.Products>> SearchProducts(string searchText)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(searchText))
+                    return await LoadProducts();
 
+                var products = await LoadProducts();
+                searchText = searchText.ToLower().Trim();
+
+                return products.Where(p =>
+                    (p.Name?.ToLower().Contains(searchText) ?? false) ||
+                    (p.Barcode?.ToLower().Contains(searchText) ?? false) ||
+                    (p.Description?.ToLower().Contains(searchText) ?? false) ||
+                    p.ProductID.ToString().Contains(searchText) ||
+                    p.CategoryID.ToString().Contains(searchText) ||
+                    p.SupplierID.ToString().Contains(searchText) ||
+                    p.Price.ToString().Contains(searchText) ||
+                    p.CostPrice.ToString().Contains(searchText) ||
+                    p.QuantityInStock.ToString().Contains(searchText)
+                ).ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in SearchProducts: {ex.Message}");
+                return new List<DTO.Products.Products>();
+            }
+        }
 
         public async Task<DTO.Products.Products> getProducts(int productId)
         {

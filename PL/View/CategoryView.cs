@@ -1,5 +1,6 @@
 ﻿using BL;
 using BL.Category;
+using BL.ProductsBL;
 using PL.Edit;
 using PL.Model;
 using System;
@@ -68,7 +69,7 @@ namespace PL.View
         {
 
         }
-        private void guna2DataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void Guna2DataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex == guna2DataGridView1.Columns["dgvSr"].Index)
             {
@@ -76,7 +77,7 @@ namespace PL.View
                 e.Value = (e.RowIndex + 1).ToString();
             }
         }
-        
+
         private async void guna2DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Kiểm tra nếu click vào cột Edit
@@ -91,7 +92,7 @@ namespace PL.View
                 if (editForm.ShowDialog() == DialogResult.OK)
                 {
                     // Load lại dữ liệu sau khi chỉnh sửa
-                    LoadCategoryToGridViewFunction();   
+                    LoadCategoryToGridViewFunction();
                 }
             }
         }
@@ -132,5 +133,57 @@ namespace PL.View
             LoadCategoryToGridViewFunction();
         }
 
+        // Sửa lại phương thức txtsearch_TextChanged_1 trong CategoryView
+        private async void txtsearch_TextChanged_1(object sender, EventArgs e)
+        {
+            try
+            {
+                string searchText = txtsearch.Text ?? string.Empty;
+                var filteredData = await new CategoryBL().SearchCategory(searchText);
+
+                // Tắt tự động tạo cột
+                guna2DataGridView1.AutoGenerateColumns = false;
+
+                // Ánh xạ cột với dữ liệu từ cơ sở dữ liệu
+                guna2DataGridView1.Columns["dgvid"].DataPropertyName = "Id";
+                guna2DataGridView1.Columns["dgvName"].DataPropertyName = "Name";
+                guna2DataGridView1.Columns["dgvQuantityProducts"].DataPropertyName = "QuantityProducts";
+
+                // Remove existing handler trước khi thêm handler mới để tránh duplicate
+                guna2DataGridView1.CellFormatting -= guna2DataGridView1_CellFormatting;
+
+                // Gán dữ liệu mới
+                guna2DataGridView1.DataSource = filteredData;
+
+                // Thêm handler mới
+                guna2DataGridView1.CellFormatting += guna2DataGridView1_CellFormatting;
+
+                // Refresh DataGridView
+                guna2DataGridView1.Refresh();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Search error: {ex.Message}");
+                MessageBox.Show("An error occurred while searching.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Sửa lại phương thức guna2DataGridView1_CellFormatting để xử lý số thứ tự sau khi search
+        private void guna2DataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0 && e.ColumnIndex == guna2DataGridView1.Columns["dgvSr"].Index)
+                {
+                    // Gán số thứ tự cho cột "#Sr"
+                    e.Value = (e.RowIndex + 1).ToString();
+                    e.FormattingApplied = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"CellFormatting error: {ex.Message}");
+            }
+        }
     }
 }

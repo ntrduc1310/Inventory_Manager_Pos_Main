@@ -42,7 +42,7 @@
             dgvid = new DataGridViewTextBoxColumn();
             dgvName = new DataGridViewTextBoxColumn();
             dgvPhone = new DataGridViewTextBoxColumn();
-            dgvAdress = new DataGridViewTextBoxColumn();
+            dgvAddress = new DataGridViewTextBoxColumn();
             dgvEmail = new DataGridViewTextBoxColumn();
             dgvEdit = new DataGridViewImageColumn();
             dgvDel = new DataGridViewImageColumn();
@@ -96,6 +96,7 @@
             txtsearch.PlaceholderText = "Nhập Vào Tìm Kiếm";
             txtsearch.ShadowDecoration.CustomizableEdges = customizableEdges5;
             txtsearch.Size = new Size(416, 64);
+            txtsearch.TextChanged += txtsearch_TextChanged_1;
             // 
             // guna2HtmlLabel1
             // 
@@ -128,7 +129,7 @@
             guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             guna2DataGridView1.ColumnHeadersHeight = 35;
             guna2DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            guna2DataGridView1.Columns.AddRange(new DataGridViewColumn[] { dgvSr, dgvid, dgvName, dgvPhone, dgvAdress, dgvEmail, dgvEdit, dgvDel });
+            guna2DataGridView1.Columns.AddRange(new DataGridViewColumn[] { dgvSr, dgvid, dgvName, dgvPhone, dgvAddress, dgvEmail, dgvEdit, dgvDel });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
@@ -201,13 +202,13 @@
             dgvPhone.Name = "dgvPhone";
             dgvPhone.ReadOnly = true;
             // 
-            // dgvAdress
+            // dgvAddress
             // 
-            dgvAdress.HeaderText = "Địa Chỉ";
-            dgvAdress.MinimumWidth = 6;
-            dgvAdress.Name = "dgvAdress";
-            dgvAdress.ReadOnly = true;
-            dgvAdress.Visible = false;
+            dgvAddress.HeaderText = "Địa Chỉ";
+            dgvAddress.MinimumWidth = 6;
+            dgvAddress.Name = "dgvAddress";
+            dgvAddress.ReadOnly = true;
+            dgvAddress.Visible = false;
             // 
             // dgvEmail
             // 
@@ -286,15 +287,15 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private DataGridViewTextBoxColumn dgvSr;
         private DataGridViewTextBoxColumn dgvid;
         private DataGridViewTextBoxColumn dgvName;
         private DataGridViewTextBoxColumn dgvPhone;
-        private DataGridViewTextBoxColumn dgvAdress;
+        private DataGridViewTextBoxColumn dgvAddress;
         private DataGridViewTextBoxColumn dgvEmail;
         private DataGridViewImageColumn dgvEdit;
         private DataGridViewImageColumn dgvDel;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
     }
 }

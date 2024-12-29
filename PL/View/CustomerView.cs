@@ -1,4 +1,5 @@
 ﻿using BL;
+using BL.Category;
 using BL.Customer;
 using PL.Edit;
 using PL.Model;
@@ -66,6 +67,7 @@ namespace PL.View
             }
         }
 
+
         private async void Guna2DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Kiểm tra nếu click vào cột Edit
@@ -122,7 +124,7 @@ namespace PL.View
         {
             CustomerAdd customerAdd = new CustomerAdd();
             customerAdd.ShowDialog();
-            if(customerAdd.DialogResult == DialogResult.OK)
+            if (customerAdd.DialogResult == DialogResult.OK)
             {
                 LoadCustomerToGridViewFunction();
             }
@@ -137,6 +139,59 @@ namespace PL.View
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private async void txtsearch_TextChanged_1(object sender, EventArgs e)
+        {
+            try
+            {
+                string searchText = txtsearch.Text ?? string.Empty;
+                var filteredData = await new CustomerBL().SearchCustomer(searchText);
+
+                // Tắt tự động tạo cột
+                guna2DataGridView1.AutoGenerateColumns = false;
+
+                // Ánh xạ cột với dữ liệu từ cơ sở dữ liệu
+                
+                guna2DataGridView1.Columns["dgvName"].DataPropertyName = "Name";
+                guna2DataGridView1.Columns["dgvEmail"].DataPropertyName = "Email";
+                guna2DataGridView1.Columns["dgvPhone"].DataPropertyName = "Phone";
+
+
+
+                // Remove existing handler trước khi thêm handler mới để tránh duplicate
+                guna2DataGridView1.CellFormatting -= guna2DataGridView1_CellFormatting;
+
+                // Gán dữ liệu mới
+                guna2DataGridView1.DataSource = filteredData;
+
+                // Thêm handler mới
+                guna2DataGridView1.CellFormatting += guna2DataGridView1_CellFormatting;
+
+                // Refresh DataGridView
+                guna2DataGridView1.Refresh();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Search error: {ex.Message}");
+                MessageBox.Show("An error occurred while searching.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void guna2DataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0 && e.ColumnIndex == guna2DataGridView1.Columns["dgvSr"].Index)
+                {
+                    // Gán số thứ tự cho cột "#Sr"
+                    e.Value = (e.RowIndex + 1).ToString();
+                    e.FormattingApplied = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"CellFormatting error: {ex.Message}");
+            }
         }
     }
 }

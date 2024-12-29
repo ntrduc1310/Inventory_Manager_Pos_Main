@@ -1,4 +1,5 @@
-﻿using BL.ProductsBL;
+﻿using BL.Customer;
+using BL.ProductsBL;
 using BL.Purchase;
 using DTO.Purchase;
 using PL.Model;
@@ -25,7 +26,7 @@ namespace PL.View
             //guna2DataGridView1.CellClick += DgvCellClickImageColumn;
             guna2DataGridView1.CellClick += guna2DataGridView_CellClick_Status;
             guna2DataGridView1.CellFormatting += guna2DataGridView1_CellFormatting_Status;
-            guna2DataGridView1.CellFormatting += guna2DataGridView1_CellFormatting_Sr ;
+            guna2DataGridView1.CellFormatting += guna2DataGridView1_CellFormatting_Sr;
 
 
 
@@ -195,13 +196,13 @@ namespace PL.View
                             {
                                 int id = (int)guna2DataGridView1.Rows[e.RowIndex].Cells["dgvid"].Value;
                                 bool updateStatus = await new PurchaseBL().updateStatus("Hoàn thành", id);
-                                if(updateStatus)
+                                if (updateStatus)
                                 {
                                     loadtoPurchaseViewFunction();
-                                }    
+                                }
                             }
                         }
-                      
+
 
                     }
                     if (e.RowIndex >= 0 && guna2DataGridView1.Columns[e.ColumnIndex].Name == "dgvDontAccepted")
@@ -213,13 +214,13 @@ namespace PL.View
                             {
                                 int id = (int)guna2DataGridView1.Rows[e.RowIndex].Cells["dgvid"].Value;
                                 bool deletePurchase = await new DL.Purchase.PurchaseDL().DeletePurchase(id);
-                                if(deletePurchase)
+                                if (deletePurchase)
                                 {
                                     loadtoPurchaseViewFunction();
-                                }    
+                                }
                             }
                         }
-                       
+
                     }
                 }
 
@@ -230,11 +231,66 @@ namespace PL.View
         //private async void DgvCellClickImageColumn(object sender, DataGridViewCellEventArgs e)
         //{
 
-            
+
         //}
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private async void txtsearch_TextChanged_1(object sender, EventArgs e)
+        {
+            try
+            {
+                string searchText = txtsearch.Text ?? string.Empty;
+                var filteredData = await new PurchaseBL().SearchPurchase(searchText);
+
+                // Tắt tự động tạo cột
+                guna2DataGridView1.AutoGenerateColumns = false;
+
+                // Ánh xạ cột với dữ liệu từ cơ sở dữ liệu
+
+                guna2DataGridView1.Columns["dgvid"].DataPropertyName = "PurchaseID";
+                guna2DataGridView1.Columns["dgvDate"].DataPropertyName = "CreatedAt";
+                guna2DataGridView1.Columns["dgvSupID"].DataPropertyName = "SupplierID";
+                guna2DataGridView1.Columns["dgvAmount"].DataPropertyName = "TotalAmount";
+                guna2DataGridView1.Columns["dgvCreatedBy"].DataPropertyName = "CreatedBy";
+                guna2DataGridView1.Columns["dgvStatus"].DataPropertyName = "Status";
+
+
+                // Remove existing handler trước khi thêm handler mới để tránh duplicate
+                guna2DataGridView1.CellFormatting -= guna2DataGridView1_CellFormatting;
+
+                // Gán dữ liệu mới
+                guna2DataGridView1.DataSource = filteredData;
+
+                // Thêm handler mới
+                guna2DataGridView1.CellFormatting += guna2DataGridView1_CellFormatting;
+
+                // Refresh DataGridView
+                guna2DataGridView1.Refresh();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Search error: {ex.Message}");
+                MessageBox.Show("An error occurred while searching.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void guna2DataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0 && e.ColumnIndex == guna2DataGridView1.Columns["dgvSr"].Index)
+                {
+                    // Gán số thứ tự cho cột "#Sr"
+                    e.Value = (e.RowIndex + 1).ToString();
+                    e.FormattingApplied = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"CellFormatting error: {ex.Message}");
+            }
         }
     }
 }

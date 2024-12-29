@@ -28,7 +28,7 @@ namespace DL.Suppiler
                     {
                         Name = name,
                         Email = email,
-                        Adress = adress,
+                        Address = adress,
                         Phone = phone
                     };
 
@@ -103,7 +103,7 @@ namespace DL.Suppiler
                         supplier.Name = !string.IsNullOrEmpty(name) ? name : supplier.Name;
                         supplier.Email = !string.IsNullOrEmpty(email) ? email : supplier.Email;
                         supplier.Phone = !string.IsNullOrEmpty(phone) ? phone : supplier.Phone;
-                        supplier.Adress = !string.IsNullOrEmpty(address) ? address : supplier.Adress;
+                        supplier.Address = !string.IsNullOrEmpty(address) ? address : supplier.Address;
 
                         // Lưu thay đổi vào cơ sở dữ liệu
                         int rowsAffected = await context.SaveChangesAsync();

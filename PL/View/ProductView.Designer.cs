@@ -230,7 +230,6 @@
             // 
             // dgvCategory
             // 
-            dgvCategory.FillWeight = 90F;
             dgvCategory.Frozen = true;
             dgvCategory.HeaderText = "Loại";
             dgvCategory.MinimumWidth = 150;
@@ -292,11 +291,13 @@
             // 
             // dgvSupplier
             // 
+            dgvSupplier.FillWeight = 120F;
             dgvSupplier.Frozen = true;
             dgvSupplier.HeaderText = "Supplier";
-            dgvSupplier.MinimumWidth = 100;
+            dgvSupplier.MinimumWidth = 120;
             dgvSupplier.Name = "dgvSupplier";
             dgvSupplier.ReadOnly = true;
+            dgvSupplier.Width = 120;
             // 
             // dgvDescription
             // 
@@ -320,15 +321,15 @@
             // 
             // dgvImageShow
             // 
-            dgvImageShow.FillWeight = 120F;
+            dgvImageShow.FillWeight = 140F;
             dgvImageShow.Frozen = true;
             dgvImageShow.HeaderText = "Hình SP";
             dgvImageShow.Image = Properties.Resources.woman_bag;
             dgvImageShow.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            dgvImageShow.MinimumWidth = 120;
+            dgvImageShow.MinimumWidth = 140;
             dgvImageShow.Name = "dgvImageShow";
             dgvImageShow.ReadOnly = true;
-            dgvImageShow.Width = 120;
+            dgvImageShow.Width = 140;
             // 
             // dgvCreateDate
             // 
@@ -436,6 +437,8 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private DataGridViewTextBoxColumn dgvSr;
         private DataGridViewTextBoxColumn dgvid;
         private DataGridViewTextBoxColumn dgvName;
@@ -457,7 +460,5 @@
         private DataGridViewImageColumn dgvAllInformation;
         private DataGridViewImageColumn dgvEdit;
         private DataGridViewImageColumn dgvDel;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
     }
 }

@@ -60,9 +60,9 @@ namespace PL.View
             // 
             guna2Panel1.Controls.Add(guna2PictureBox1);
             guna2Panel1.Controls.Add(guna2HtmlLabel3);
-            guna2Panel1.Margin = new Padding(5, 5, 5, 5);
+            guna2Panel1.Margin = new Padding(4);
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges3;
-            guna2Panel1.Size = new Size(1314, 260);
+            guna2Panel1.Size = new Size(1051, 208);
             guna2Panel1.Controls.SetChildIndex(guna2HtmlLabel1, 0);
             guna2Panel1.Controls.SetChildIndex(guna2HtmlLabel2, 0);
             guna2Panel1.Controls.SetChildIndex(btnAdd1, 0);
@@ -78,39 +78,41 @@ namespace PL.View
             btnAdd1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnAdd1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnAdd1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdd1.Location = new Point(79, 154);
-            btnAdd1.Margin = new Padding(5, 5, 5, 5);
+            btnAdd1.Location = new Point(63, 123);
+            btnAdd1.Margin = new Padding(4);
             btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnAdd1.Text = "Thêm Mới";
             btnAdd1.Click += btnAdd1_Click_1;
             // 
             // txtsearch
             // 
-            txtsearch.BorderRadius = 39;
+            txtsearch.BorderRadius = 31;
             txtsearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtsearch.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtsearch.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtsearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtsearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtsearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtsearch.Location = new Point(722, 154);
-            txtsearch.Margin = new Padding(5, 6, 5, 6);
+            txtsearch.Location = new Point(578, 123);
+            txtsearch.Margin = new Padding(4, 5, 4, 5);
             txtsearch.PlaceholderText = "Nhập Vào Tìm Kiêms";
             txtsearch.ShadowDecoration.CustomizableEdges = customizableEdges5;
-            txtsearch.Size = new Size(520, 80);
+            txtsearch.Size = new Size(416, 64);
+            txtsearch.TextChanged += txtsearch_TextChanged_1;
             // 
             // guna2HtmlLabel1
             // 
             guna2HtmlLabel1.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel1.Location = new Point(188, 26);
-            guna2HtmlLabel1.Size = new Size(220, 62);
+            guna2HtmlLabel1.Location = new Point(150, 21);
+            guna2HtmlLabel1.Margin = new Padding(2);
+            guna2HtmlLabel1.Size = new Size(185, 52);
             guna2HtmlLabel1.Text = "Danh Sách ";
             // 
             // guna2HtmlLabel2
             // 
-            guna2HtmlLabel2.Location = new Point(722, 106);
-            guna2HtmlLabel2.Margin = new Padding(6, 6, 6, 6);
-            guna2HtmlLabel2.Size = new Size(128, 40);
+            guna2HtmlLabel2.Location = new Point(578, 85);
+            guna2HtmlLabel2.Margin = new Padding(5);
+            guna2HtmlLabel2.Size = new Size(105, 33);
             guna2HtmlLabel2.Text = "Tìm Kiếm";
             // 
             // guna2DataGridView1
@@ -140,14 +142,13 @@ namespace PL.View
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             guna2DataGridView1.GridColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.Location = new Point(79, 286);
-            guna2DataGridView1.Margin = new Padding(4, 4, 4, 4);
+            guna2DataGridView1.Location = new Point(63, 229);
             guna2DataGridView1.Name = "guna2DataGridView1";
             guna2DataGridView1.ReadOnly = true;
             guna2DataGridView1.RowHeadersVisible = false;
             guna2DataGridView1.RowHeadersWidth = 51;
             guna2DataGridView1.RowTemplate.Height = 35;
-            guna2DataGridView1.Size = new Size(1164, 491);
+            guna2DataGridView1.Size = new Size(931, 393);
             guna2DataGridView1.TabIndex = 2;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -247,10 +248,9 @@ namespace PL.View
             // 
             guna2HtmlLabel3.BackColor = Color.Transparent;
             guna2HtmlLabel3.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel3.Location = new Point(188, 82);
-            guna2HtmlLabel3.Margin = new Padding(4, 4, 4, 4);
+            guna2HtmlLabel3.Location = new Point(150, 66);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            guna2HtmlLabel3.Size = new Size(253, 62);
+            guna2HtmlLabel3.Size = new Size(212, 52);
             guna2HtmlLabel3.TabIndex = 6;
             guna2HtmlLabel3.Text = "Khách Hàng";
             guna2HtmlLabel3.Click += guna2HtmlLabel3_Click;
@@ -261,11 +261,10 @@ namespace PL.View
             guna2PictureBox1.CustomizableEdges = customizableEdges1;
             guna2PictureBox1.Image = (Image)resources.GetObject("guna2PictureBox1.Image");
             guna2PictureBox1.ImageRotate = 0F;
-            guna2PictureBox1.Location = new Point(65, 24);
-            guna2PictureBox1.Margin = new Padding(4, 4, 4, 4);
+            guna2PictureBox1.Location = new Point(52, 19);
             guna2PictureBox1.Name = "guna2PictureBox1";
             guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2PictureBox1.Size = new Size(120, 118);
+            guna2PictureBox1.Size = new Size(96, 94);
             guna2PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             guna2PictureBox1.TabIndex = 7;
             guna2PictureBox1.TabStop = false;
@@ -273,9 +272,9 @@ namespace PL.View
             // 
             // CustomerView
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1314, 816);
+            ClientSize = new Size(1051, 653);
             Controls.Add(guna2DataGridView1);
             Name = "CustomerView";
             Text = "CustomerView";

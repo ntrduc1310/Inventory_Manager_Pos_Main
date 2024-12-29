@@ -14,6 +14,30 @@ namespace BL.Purchase
         {
             return await new DL.Purchase.PurchaseDL().LoadPurchase();
         }
+        public async Task<List<DTO.Purchase.PurchaseClass>> SearchPurchase(string searchText)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(searchText))
+                    return await LoadPurchase();
+
+                var PurchaseClass = await LoadPurchase();
+                searchText = searchText.ToLower().Trim();
+
+                return PurchaseClass.Where(c =>
+                       c.SupplierId.ToString().Contains(searchText) ||
+                        (c.CreatedBy?.ToLower().Contains(searchText) ?? false) ||
+                      c.TotalAmount.ToString().Contains(searchText) ||
+                    (c.Status?.ToLower().Contains(searchText) ?? false) ||
+                      c.PurchaseDate.ToString("yyyy-MM-dd").Contains(searchText)
+                ).ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in SearchCustomers: {ex.Message}");
+                return new List<DTO.Purchase.PurchaseClass>();
+            }
+        }
 
         public async Task<bool> addPurchase(int supplierId, decimal totalAmount, string createdBy, string notes)
         {

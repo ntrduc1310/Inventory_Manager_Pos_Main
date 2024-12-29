@@ -133,6 +133,7 @@ namespace PL.View
         }
 
 
+
         private async void LoadProductsToGridViewFunction()
         {
             try
@@ -188,7 +189,7 @@ namespace PL.View
                             }
 
                         }
-                       else if (e.ColumnIndex == guna2DataGridView1.Columns["dgvCategory"].Index)
+                        else if (e.ColumnIndex == guna2DataGridView1.Columns["dgvCategory"].Index)
                         {
                             int id = (int)guna2DataGridView1.Rows[e.RowIndex].Cells["dgvCatID"].Value;
 
@@ -239,14 +240,120 @@ namespace PL.View
 
         }
 
-        private void txtsearch_TextChanged_1(object sender, EventArgs e)
-        {
 
-        }
 
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
+        private async void txtsearch_TextChanged_1(object sender, EventArgs e)
+        {
+            try
+            {
+                string searchText = txtsearch.Text ?? string.Empty;
+                var filteredData = await new ProductsBL().SearchProducts(searchText);
+
+                // Tắt tự động tạo cột
+                guna2DataGridView1.AutoGenerateColumns = false;
+
+                // Ánh xạ cột với dữ liệu từ cơ sở dữ liệu
+                guna2DataGridView1.Columns["dgvid"].DataPropertyName = "ProductId";
+                guna2DataGridView1.Columns["dgvName"].DataPropertyName = "Name";
+                guna2DataGridView1.Columns["dgvCatID"].DataPropertyName = "CategoryID";
+                guna2DataGridView1.Columns["dgvBarcode"].DataPropertyName = "Barcode";
+                guna2DataGridView1.Columns["dgvCost"].DataPropertyName = "CostPrice";
+                guna2DataGridView1.Columns["dgvsalePrice"].DataPropertyName = "Price";
+                guna2DataGridView1.Columns["dgvQuantityInStock"].DataPropertyName = "QuantityInStock";
+                guna2DataGridView1.Columns["dgvDiscount"].DataPropertyName = "Discount";
+                guna2DataGridView1.Columns["dgvSupplierID"].DataPropertyName = "SupplierID";
+                guna2DataGridView1.Columns["dgvDescription"].DataPropertyName = "Description";
+                guna2DataGridView1.Columns["dgvCreateDate"].DataPropertyName = "CreatedAt";
+                guna2DataGridView1.Columns["dgvUpdateDate"].DataPropertyName = "UpdatedAt";
+                guna2DataGridView1.Columns["dgvImage"].DataPropertyName = "Image";
+
+                // Remove existing handler trước khi thêm handler mới để tránh duplicate
+                guna2DataGridView1.CellFormatting -= DataGridView_CellFormatting;
+
+                // Gán dữ liệu mới
+                guna2DataGridView1.DataSource = filteredData;
+
+                // Thêm handler mới
+                guna2DataGridView1.CellFormatting += DataGridView_CellFormatting;
+
+                // Refresh DataGridView
+                guna2DataGridView1.Refresh();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Search error: {ex.Message}");
+                MessageBox.Show("An error occurred while searching.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Handler riêng cho CellFormatting
+        private async void DataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.Value == null) return;
+
+            try
+            {
+                if (e.ColumnIndex == guna2DataGridView1.Columns["dgvImageShow"]?.Index)
+                {
+                    string? imagePath = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvImage"].Value?.ToString()?.Trim();
+
+                    if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
+                    {
+                        try
+                        {
+                            using (var image = Image.FromFile(imagePath))
+                            {
+                                // Tạo một bản sao của hình ảnh để tránh lỗi file access
+                                e.Value = new Bitmap(image);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"Error loading image: {ex.Message}");
+                            e.Value = null;
+                        }
+                    }
+                    else
+                    {
+                        e.Value = null;
+                        Console.WriteLine($"No image found at path: {imagePath}");
+                    }
+                }
+                else if (e.ColumnIndex == guna2DataGridView1.Columns["dgvCategory"]?.Index)
+                {
+                    var cell = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvCatID"];
+                    if (cell?.Value != null && cell.Value is int categoryId && categoryId != 0)
+                    {
+                        string categoryName = await new ProductsBL().GetCategoryNameById(categoryId);
+                        if (!string.IsNullOrEmpty(categoryName))
+                        {
+                            guna2DataGridView1.Rows[e.RowIndex].Cells["dgvCategory"].Value = categoryName;
+                        }
+                    }
+                }
+                else if (e.ColumnIndex == guna2DataGridView1.Columns["dgvSupplier"]?.Index)
+                {
+                    var cell = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvSupplierID"];
+                    if (cell?.Value != null && cell.Value is int supplierId && supplierId != 0)
+                    {
+                        string supplierName = await new ProductsBL().GetSupplierNameById(supplierId);
+                        if (!string.IsNullOrEmpty(supplierName))
+                        {
+                            guna2DataGridView1.Rows[e.RowIndex].Cells["dgvSupplier"].Value = supplierName;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"CellFormatting error: {ex.Message}");
+            }
+        }
+
+
     }
 }

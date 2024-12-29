@@ -100,6 +100,7 @@
             txtsearch.PlaceholderText = "Nhập Vào Tìm Kiếm";
             txtsearch.ShadowDecoration.CustomizableEdges = customizableEdges5;
             txtsearch.Size = new Size(416, 64);
+            txtsearch.TextChanged += txtsearch_TextChanged_1;
             // 
             // guna2HtmlLabel1
             // 

@@ -43,7 +43,7 @@ namespace PL.View
                 guna2DataGridView1.Columns["dgvEmail"].DataPropertyName = "Email";
                 guna2DataGridView1.Columns["dgvPhone"].DataPropertyName = "Phone";
                 guna2DataGridView1.Columns["dgvid"].DataPropertyName = "Id";
-                guna2DataGridView1.Columns["dgvAdress"].DataPropertyName = "Adress";
+                guna2DataGridView1.Columns["dgvAddress"].DataPropertyName = "Address";
 
                 // Đọc dữ liệu từ cơ sở dữ liệu
                 var data = await new BL.Suppiler.SuppilerBL().LoadSuppiler(); // Giả sử LoadUserBL trả về danh sách các đối tượng User
@@ -67,7 +67,7 @@ namespace PL.View
         {
             SupplierAdd supplierAdd = new SupplierAdd();
             supplierAdd.ShowDialog();
-            if(supplierAdd.DialogResult == DialogResult.OK)
+            if (supplierAdd.DialogResult == DialogResult.OK)
             {
                 LoadSuppilerToGridViewFunction();
             }
@@ -97,7 +97,7 @@ namespace PL.View
                 string name = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvName"].Value.ToString();
                 string email = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvEmail"].Value.ToString();
                 string phone = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvPhone"].Value.ToString();
-                string adress = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvAdress"].Value.ToString();
+                string adress = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvAddress"].Value.ToString();
                 // Lấy hình ảnh từ cột dgvPicture
                 // Lấy giá trị từ cột dgvPicture
 
@@ -144,6 +144,44 @@ namespace PL.View
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private async void txtsearch_TextChanged_1(object sender, EventArgs e)
+        {
+            try
+            {
+                string searchText = txtsearch.Text ?? string.Empty;
+
+                // Gọi BL để tìm kiếm dữ liệu
+                var filteredData = await new SuppilerBL().SearchSuppliers(searchText);
+
+                // Tắt tự động tạo cột
+                guna2DataGridView1.AutoGenerateColumns = false;
+
+                // Ánh xạ cột với dữ liệu từ cơ sở dữ liệu
+                guna2DataGridView1.Columns["dgvName"].DataPropertyName = "Name";
+                guna2DataGridView1.Columns["dgvEmail"].DataPropertyName = "Email";
+                guna2DataGridView1.Columns["dgvPhone"].DataPropertyName = "Phone";
+                guna2DataGridView1.Columns["dgvid"].DataPropertyName = "Id";
+                guna2DataGridView1.Columns["dgvAddress"].DataPropertyName = "Address";
+
+                // Xóa handler cũ để tránh bị trùng
+                guna2DataGridView1.CellFormatting -= guna2DataGridView1_CellFormatting;
+
+                // Cập nhật DataSource
+                guna2DataGridView1.DataSource = filteredData;
+
+                // Thêm handler mới
+                guna2DataGridView1.CellFormatting += guna2DataGridView1_CellFormatting;
+
+                // Refresh lại DataGridView
+                guna2DataGridView1.Refresh();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Search error: {ex.Message}");
+                MessageBox.Show("An error occurred while searching.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
