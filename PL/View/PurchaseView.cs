@@ -165,7 +165,7 @@ namespace PL.View
                 if (status == "Hoàn thành")
                 {
                     // Gán hình ảnh "không chọn được"
-                    e.Value = Image.FromFile("C:\\Users\\Yoga\\Source\\Repos\\Inventory_Manager_Pos\\PL\\Resources\\icons8-select-none-50.png");
+                    e.Value = Image.FromFile("D:\\LapTrinhCoSoDuLieu\\Inventory_Manager_Pos\\Inventory_Manager_Pos\\PL\\Resources\\icons8-select-none-50.png");
 
                 }
             }
