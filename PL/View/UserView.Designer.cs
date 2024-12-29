@@ -93,7 +93,7 @@
             txtsearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtsearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtsearch.Location = new Point(578, 123);
-            txtsearch.PlaceholderText = "Nhập Vào Tìm Kiếm\\";
+            txtsearch.PlaceholderText = "Nhập Vào Tìm Kiếm";
             txtsearch.ShadowDecoration.CustomizableEdges = customizableEdges5;
             txtsearch.Size = new Size(416, 64);
             // 

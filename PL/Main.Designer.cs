@@ -43,6 +43,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -63,8 +65,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             btnMax = new Guna.UI2.WinForms.Guna2ControlBox();
             guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             btnExit = new Guna.UI2.WinForms.Guna2ControlBox();
@@ -73,6 +73,7 @@
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             CenterPanel = new Guna.UI2.WinForms.Guna2Panel();
             btn_Customer = new Guna.UI2.WinForms.Guna2Panel();
+            Print_Invoice = new Guna.UI2.WinForms.Guna2Button();
             btn_Invoice = new Guna.UI2.WinForms.Guna2Button();
             btn_Supplier = new Guna.UI2.WinForms.Guna2Button();
             btn_Users = new Guna.UI2.WinForms.Guna2Button();
@@ -85,7 +86,6 @@
             LabelName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             guna2MessageDialog1 = new Guna.UI2.WinForms.Guna2MessageDialog();
-            Print_Invoice = new Guna.UI2.WinForms.Guna2Button();
             guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox2).BeginInit();
             btn_Customer.SuspendLayout();
@@ -211,6 +211,34 @@
             btn_Customer.Size = new Size(296, 864);
             btn_Customer.TabIndex = 4;
             btn_Customer.Paint += guna2Panel3_Paint;
+            // 
+            // Print_Invoice
+            // 
+            Print_Invoice.AutoRoundedCorners = true;
+            Print_Invoice.BackColor = Color.FromArgb(95, 71, 204);
+            Print_Invoice.BorderRadius = 25;
+            Print_Invoice.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            Print_Invoice.CheckedState.FillColor = Color.FromArgb(123, 92, 214);
+            Print_Invoice.CustomizableEdges = customizableEdges13;
+            Print_Invoice.DisabledState.BorderColor = Color.DarkGray;
+            Print_Invoice.DisabledState.CustomBorderColor = Color.DarkGray;
+            Print_Invoice.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            Print_Invoice.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            Print_Invoice.FillColor = Color.FromArgb(95, 71, 204);
+            Print_Invoice.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Print_Invoice.ForeColor = Color.WhiteSmoke;
+            Print_Invoice.Image = (Image)resources.GetObject("Print_Invoice.Image");
+            Print_Invoice.ImageAlign = HorizontalAlignment.Left;
+            Print_Invoice.ImageOffset = new Point(0, -2);
+            Print_Invoice.ImageSize = new Size(30, 30);
+            Print_Invoice.Location = new Point(51, 812);
+            Print_Invoice.Name = "Print_Invoice";
+            Print_Invoice.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            Print_Invoice.Size = new Size(202, 52);
+            Print_Invoice.TabIndex = 12;
+            Print_Invoice.Text = "In Hóa Đơn";
+            Print_Invoice.TextOffset = new Point(8, 0);
+            Print_Invoice.Click += Print_Invoice_Click;
             // 
             // btn_Invoice
             // 
@@ -502,34 +530,6 @@
             guna2MessageDialog1.Parent = null;
             guna2MessageDialog1.Style = Guna.UI2.WinForms.MessageDialogStyle.Default;
             guna2MessageDialog1.Text = null;
-            // 
-            // Print_Invoice
-            // 
-            Print_Invoice.AutoRoundedCorners = true;
-            Print_Invoice.BackColor = Color.FromArgb(95, 71, 204);
-            Print_Invoice.BorderRadius = 25;
-            Print_Invoice.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            Print_Invoice.CheckedState.FillColor = Color.FromArgb(123, 92, 214);
-            Print_Invoice.CustomizableEdges = customizableEdges13;
-            Print_Invoice.DisabledState.BorderColor = Color.DarkGray;
-            Print_Invoice.DisabledState.CustomBorderColor = Color.DarkGray;
-            Print_Invoice.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            Print_Invoice.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            Print_Invoice.FillColor = Color.FromArgb(95, 71, 204);
-            Print_Invoice.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Print_Invoice.ForeColor = Color.WhiteSmoke;
-            Print_Invoice.Image = (Image)resources.GetObject("Print_Invoice.Image");
-            Print_Invoice.ImageAlign = HorizontalAlignment.Left;
-            Print_Invoice.ImageOffset = new Point(0, -2);
-            Print_Invoice.ImageSize = new Size(30, 30);
-            Print_Invoice.Location = new Point(51, 812);
-            Print_Invoice.Name = "Print_Invoice";
-            Print_Invoice.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            Print_Invoice.Size = new Size(202, 52);
-            Print_Invoice.TabIndex = 12;
-            Print_Invoice.Text = "In Hóa Đơn";
-            Print_Invoice.TextOffset = new Point(8, 0);
-            Print_Invoice.Click += Print_Invoice_Click;
             // 
             // Main
             // 

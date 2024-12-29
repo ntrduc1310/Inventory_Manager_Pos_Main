@@ -227,7 +227,7 @@ namespace PL.View
         {
             UserAdd userAdd = new UserAdd();
             userAdd.ShowDialog();
-            if(userAdd.DialogResult == DialogResult.OK)
+            if (userAdd.DialogResult == DialogResult.OK)
             {
                 LoadUsersToGridViewFunction();
             }
@@ -237,5 +237,42 @@ namespace PL.View
         {
 
         }
+
+        //private async void txtsearch_TextChanged_1(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        string searchText = txtsearch.Text ?? string.Empty;
+        //        var filteredData = await new LoadUserBL().SearchUsers(searchText);  // Adjusted for User search
+
+        //        // Turn off auto-generation of columns
+        //        guna2DataGridView1.AutoGenerateColumns = false;
+
+        //        // Map columns to data properties
+        //        guna2DataGridView1.Columns["dgvid"].DataPropertyName = "UserId"; // Adjusted for your model
+        //        guna2DataGridView1.Columns["dgvName"].DataPropertyName = "Name";
+        //        guna2DataGridView1.Columns["dgvUsername"].DataPropertyName = "UserName";
+        //        guna2DataGridView1.Columns["dgvPhone"].DataPropertyName = "Phone";
+        //        guna2DataGridView1.Columns["dgvPass"].DataPropertyName = "Password";
+        //        guna2DataGridView1.Columns["dgvPictureTemp"].DataPropertyName = "ProfilePicture";  // Adjusted
+
+        //        // Remove the existing handler before adding a new one to avoid duplicates
+        //        guna2DataGridView1.CellFormatting -= guna2DataGridView1_CellFormatting;
+
+        //        // Set the new data source to the filtered list
+        //        guna2DataGridView1.DataSource = filteredData;
+
+        //        // Add the new handler
+        //        guna2DataGridView1.CellFormatting += guna2DataGridView1_CellFormatting;
+
+        //        // Refresh the DataGridView to reflect the changes
+        //        guna2DataGridView1.Refresh();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine($"Search error: {ex.Message}");
+        //        MessageBox.Show("An error occurred while searching.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
     }
 }

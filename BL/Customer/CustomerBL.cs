@@ -14,7 +14,28 @@ namespace BL.Customer
         {
             return await new CustomerDL().LoadCustomers();
         }
+        public async Task<List<DTO.Customer.TableCustomer>> SearchCustomer(string searchText)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(searchText))
+                    return await LoadCustomers();
 
+                var categories = await LoadCustomers();
+                searchText = searchText.ToLower().Trim();
+
+                return categories.Where(c =>
+                    (c.Name?.ToLower().Contains(searchText) ?? false) ||
+                    c.Phone.ToString().Contains(searchText) ||
+                    c.Email.ToLower().Contains(searchText)
+                ).ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in SearchCustomers: {ex.Message}");
+                return new List<DTO.Customer.TableCustomer>();
+            }
+        }
         // Phương thức thêm mới khách hàng
         public async Task<bool> AddCustomer(string name, string phone, string email)
         {
