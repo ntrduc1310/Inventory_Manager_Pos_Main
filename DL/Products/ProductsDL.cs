@@ -388,5 +388,32 @@ namespace DL.Products
         }
 
 
+        public async Task<List<DTO.Products.Products>> searchProduct(string searchText)
+        {
+            try
+            {
+                // If no search text is provided, load all products
+                if (string.IsNullOrWhiteSpace(searchText))
+                    return await LoadProducts();
+
+                // Load all products
+                var products = await LoadProducts();
+                searchText = searchText.ToLower().Trim();  // Normalize search text
+
+                // Filter the products based on the search text
+                return products.Where(p =>
+                    p.ProductID.ToString().Contains(searchText) ||
+                    (p.Name?.ToLower().Contains(searchText) ?? false) ||
+                    (p.Barcode?.ToLower().Contains(searchText) ?? false)
+                ).ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in searchProduct: {ex.Message}");
+                return new List<DTO.Products.Products>();  // Return an empty list in case of an error
+            }
+        }
+
+
     }
 }

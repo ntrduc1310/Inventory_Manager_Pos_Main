@@ -139,7 +139,7 @@ namespace PL.View
             try
             {
                 string searchText = txtsearch.Text ?? string.Empty;
-                var filteredData = await new CategoryBL().SearchCategory(searchText);
+                var filteredData = await new CategoryBL().searchCategory(searchText);
 
                 // Tắt tự động tạo cột
                 guna2DataGridView1.AutoGenerateColumns = false;

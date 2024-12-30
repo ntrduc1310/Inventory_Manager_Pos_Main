@@ -94,7 +94,7 @@
             txtsearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtsearch.Location = new Point(722, 154);
             txtsearch.Margin = new Padding(5, 6, 5, 6);
-            txtsearch.PlaceholderText = "Nhập Vào Tìm Kiếm";
+            txtsearch.PlaceholderText = "Nhập Mã Đơn Để Tìm Kiếm";
             txtsearch.ShadowDecoration.CustomizableEdges = customizableEdges5;
             txtsearch.Size = new Size(520, 80);
             // 
@@ -201,10 +201,9 @@
             // 
             // dgvid
             // 
-            dgvid.HeaderText = "id";
+            dgvid.HeaderText = "Mã Đơn";
             dgvid.MinimumWidth = 8;
             dgvid.Name = "dgvid";
-            dgvid.Visible = false;
             // 
             // dgvDate
             // 

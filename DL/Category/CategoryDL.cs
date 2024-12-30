@@ -135,5 +135,31 @@ namespace DL.Category
                 throw; // Ném lại lỗi để thông báo và dừng chương trình
             }
         }
+        public async Task<List<DTO.Category.TableCategory>> SearchCategories(string searchText)
+        {
+            try
+            {
+                // If no search text is provided, load all categories
+                if (string.IsNullOrWhiteSpace(searchText))
+                    return await LoadCategory();
+
+                // Load all categories
+                var categories = await LoadCategory();
+                searchText = searchText.ToLower().Trim();  // Normalize search text
+
+                // Filter the categories based on the search text
+                return categories.Where(c =>
+                    c.Id.ToString().Contains(searchText) ||
+                    (c.Name?.ToLower().Contains(searchText) ?? false)
+                ).ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in SearchCategories: {ex.Message}");
+                return new List<DTO.Category.TableCategory>();  // Return an empty list in case of an error
+            }
+        }
+
+
     }
 }

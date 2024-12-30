@@ -22,15 +22,11 @@ namespace PL
         static Main _obj;
         public Guna.UI2.WinForms.Guna2HtmlLabel username_lbl;
         public Guna.UI2.WinForms.Guna2PictureBox pictureBox;
-
-
         public Main()
         {
-
             InitializeComponent();
             username_lbl = LabelName;
             pictureBox = guna2PictureBox1;
-
         }
         public static Main Instance
         {
@@ -54,13 +50,17 @@ namespace PL
             }
         }
 
-        private void Main_Load(object sender, EventArgs e)
+        SignIn signIn = new SignIn();
+        string role = SignIn.role;
+
+        private async void Main_Load(object sender, EventArgs e)
         {
             _obj = this;
             btnMax.PerformClick();
             _obj.Visible = false;
             btn_DashBoard.PerformClick();
-            LoadStockNotification();
+            await LoadStockNotification();
+            SetRole(role);
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -117,11 +117,32 @@ namespace PL
             CenterPanel.ResumeLayout();
         }
 
-
         private void btn_Users_Click(object sender, EventArgs e)
         {
-            UserView userView = new UserView();
-            LoadFormIntoPanel(userView, CenterPanel);
+            Guna.UI2.WinForms.Guna2Button btn = sender as Guna.UI2.WinForms.Guna2Button;
+
+            if (btn != null && btn.Tag?.ToString() == "Disabled")
+            {
+                Guna2MessageDialog errorDialog = new Guna2MessageDialog
+                {
+                    Text = "Quản lý mới xem được",
+                    Caption = "Lỗi",
+                    Style = MessageDialogStyle.Dark,
+                    Icon = MessageDialogIcon.Error
+                };
+                errorDialog.Show();
+                return;
+            }
+
+            try
+            {
+                UserView userView = new UserView();
+                LoadFormIntoPanel(userView, CenterPanel);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tải form: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void guna2PictureBox1_Click(object sender, EventArgs e)
@@ -143,7 +164,6 @@ namespace PL
         {
             DashBoard dashboard = new DashBoard();
             LoadFormIntoPanelCenter(dashboard);
-
         }
 
         private void guna2Panel3_Paint(object sender, PaintEventArgs e)
@@ -152,39 +172,170 @@ namespace PL
         }
         private void btn_Purchases_Click(object sender, EventArgs e)
         {
-            PurchaseView purchaseView = new PurchaseView();
-            LoadFormIntoPanel(purchaseView, CenterPanel);
+            Guna.UI2.WinForms.Guna2Button btn = sender as Guna.UI2.WinForms.Guna2Button;
+
+            if (btn != null && btn.Tag?.ToString() == "Disabled")
+            {
+                Guna2MessageDialog errorDialog = new Guna2MessageDialog
+                {
+                    Text = "Quản lý mới xem được",
+                    Caption = "Lỗi",
+                    Style = MessageDialogStyle.Dark,
+                    Icon = MessageDialogIcon.Error
+                };
+                errorDialog.Show();
+                return;
+            }
+
+            try
+            {
+                PurchaseView purchaseView = new PurchaseView();
+                LoadFormIntoPanel(purchaseView, CenterPanel);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tải form: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btn_Category_Click(object sender, EventArgs e)
         {
-            CategoryView categoryView = new CategoryView();
-            LoadFormIntoPanel(categoryView, CenterPanel);
+            Guna.UI2.WinForms.Guna2Button btn = sender as Guna.UI2.WinForms.Guna2Button;
+
+            if (btn != null && btn.Tag?.ToString() == "Disabled")
+            {
+                Guna2MessageDialog errorDialog = new Guna2MessageDialog
+                {
+                    Text = "Quản lý mới xem được",
+                    Caption = "Lỗi",
+                    Style = MessageDialogStyle.Dark,
+                    Icon = MessageDialogIcon.Error
+                };
+                errorDialog.Show();
+                return;
+            }
+
+            try
+            {
+                CategoryView categoryView = new CategoryView();
+                LoadFormIntoPanel(categoryView, CenterPanel);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tải form: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btn_Supplier_Click(object sender, EventArgs e)
         {
-            SupplierView supplierView = new SupplierView();
-            LoadFormIntoPanel(supplierView, CenterPanel);
+            Guna.UI2.WinForms.Guna2Button btn = sender as Guna.UI2.WinForms.Guna2Button;
+
+            if (btn != null && btn.Tag?.ToString() == "Disabled")
+            {
+                Guna2MessageDialog errorDialog = new Guna2MessageDialog
+                {
+                    Text = "Quản lý mới xem được",
+                    Caption = "Lỗi",
+                    Style = MessageDialogStyle.Dark,
+                    Icon = MessageDialogIcon.Error
+                };
+                errorDialog.Show();
+                return;
+            }
+
+            try
+            {
+                SupplierView supplierView = new SupplierView();
+                LoadFormIntoPanel(supplierView, CenterPanel);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tải form: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btn_Customers_Click(object sender, EventArgs e)
         {
-            CustomerView customView = new CustomerView();
-            LoadFormIntoPanel(customView, CenterPanel);
+            Guna.UI2.WinForms.Guna2Button btn = sender as Guna.UI2.WinForms.Guna2Button;
+
+            if (btn != null && btn.Tag?.ToString() == "Disabled")
+            {
+                Guna2MessageDialog errorDialog = new Guna2MessageDialog
+                {
+                    Text = "Quản lý mới xem được",
+                    Caption = "Lỗi",
+                    Style = MessageDialogStyle.Dark,
+                    Icon = MessageDialogIcon.Error
+                };
+                errorDialog.Show();
+                return;
+            }
+
+            try
+            {
+                CustomerView customView = new CustomerView();
+                LoadFormIntoPanel(customView, CenterPanel);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tải form: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btn_Products_Click(object sender, EventArgs e)
         {
-            ProductView productView = new ProductView();
-            LoadFormIntoPanel(productView, CenterPanel);
+            Guna.UI2.WinForms.Guna2Button btn = sender as Guna.UI2.WinForms.Guna2Button;
+
+            if (btn != null && btn.Tag?.ToString() == "Disabled")
+            {
+                Guna2MessageDialog errorDialog = new Guna2MessageDialog
+                {
+                    Text = "Quản lý mới xem được",
+                    Caption = "Lỗi",
+                    Style = MessageDialogStyle.Dark,
+                    Icon = MessageDialogIcon.Error
+                };
+                errorDialog.Show();
+                return;
+            }
+
+            try
+            {
+                ProductView productView = new ProductView();
+                LoadFormIntoPanel(productView, CenterPanel);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tải form: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btn_Sales_Click(object sender, EventArgs e)
         {
-            SaleView saleView = new SaleView();
-            LoadFormIntoPanel(saleView, CenterPanel);
+            Guna.UI2.WinForms.Guna2Button btn = sender as Guna.UI2.WinForms.Guna2Button;
 
+            if (btn != null && btn.Tag?.ToString() == "Disabled")
+            {
+                Guna2MessageDialog errorDialog = new Guna2MessageDialog
+                {
+                    Text = "Quản lý mới xem được",
+                    Caption = "Lỗi",
+                    Style = MessageDialogStyle.Dark,
+                    Icon = MessageDialogIcon.Error
+                };
+                errorDialog.Show();
+                return;
+            }
+
+            try
+            {
+                SaleView saleView = new SaleView();
+                LoadFormIntoPanel(saleView, CenterPanel);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tải form: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void guna2PictureBox2_Click(object sender, EventArgs e)
@@ -194,15 +345,37 @@ namespace PL
 
         private void btn_Home_Click(object sender, EventArgs e)
         {
-            Report report = new Report();
-            LoadFormIntoPanel(report, CenterPanel);
+            Guna.UI2.WinForms.Guna2Button btn = sender as Guna.UI2.WinForms.Guna2Button;
+
+            if (btn != null && btn.Tag?.ToString() == "Disabled")
+            {
+                Guna2MessageDialog errorDialog = new Guna2MessageDialog
+                {
+                    Text = "Quản lý mới xem được",
+                    Caption = "Lỗi",
+                    Style = MessageDialogStyle.Dark,
+                    Icon = MessageDialogIcon.Error
+                };
+                errorDialog.Show();
+                return;
+            }
+
+            try
+            {
+                Report report = new Report();
+                LoadFormIntoPanel(report, CenterPanel);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tải form: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
-
 
         // Phương thức hiển thị thông báo tồn kho
         private async Task LoadStockNotification()
@@ -241,20 +414,44 @@ namespace PL
             }
         }
 
-
-
-
-
         private void btn_Invoice_Click(object sender, EventArgs e)
         {
-            invoice invoice = new invoice();
-            LoadFormIntoPanel(invoice, CenterPanel);
+            var result = MessageBox.Show("Bạn có chắc chắn muốn Đăng xuất không?", "Xác nhận Đăng xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.Hide(); // Hide the current form
+                SignIn signInForm = new SignIn();
+                signInForm.ShowDialog(); // Open the SignIn form
+                this.Close(); // Close the current form after SignIn form is closed
+            }
         }
 
         private void Print_Invoice_Click(object sender, EventArgs e)
         {
-            //Invoice_Print invoice_Print = new Invoice_Print();
-            //LoadFormIntoPanel(invoice_Print, CenterPanel);
         }
+
+        public async void SetRole(string role)
+        {
+            Guna.UI2.WinForms.Guna2Button[] buttons = { btn_DashBoard, btn_Users, btn_Purchases, btn_Category, btn_Supplier, btn_Customers, btn_Products, btn_Sales};
+            foreach (var btn in buttons)
+            {
+                btn.Tag = "Disabled";
+            }
+
+            if (role == "Nhân viên")
+            {
+                btn_Products.Tag = "Enabled";
+                btn_Sales.Tag = "Enabled";
+                btn_Customers.Tag = "Enabled";
+            }
+            else if (role == "Quản lý")
+            {
+                foreach (var btn in buttons)
+                {
+                    btn.Tag = "Enabled";
+                }
+            }
+        }
+
     }
 }

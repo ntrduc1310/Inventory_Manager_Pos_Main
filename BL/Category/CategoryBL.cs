@@ -56,5 +56,10 @@ namespace BL.Category
         {
             return await new CategoryDL().UpdateCategory(CategoryId, name);
         }
+
+        public async Task<List<DTO.Category.TableCategory>> searchCategory(string txt)
+        {
+            return await new CategoryDL().SearchCategories(txt);
+        }
     }
 }

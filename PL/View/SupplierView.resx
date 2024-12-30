@@ -121,7 +121,7 @@
   <data name="guna2PictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAAz1JREFUeF7tm71rFEEYh5M7JUS75GJxFsrFXL4IiCFXKKhgFI2EFMYPJAhCYuFf
+        DAAACwwBP0AiyAAAAz1JREFUeF7tm71rFEEYh5M7JUS75GJxFsrFXL4IiCFXKKhgFI2EFMYPJAhCYuFf
         oVaiNpZ2wVYbsQs2KoKF/gFKkGCpjYVio4y/d9hZNjvvnrOzN5vd7DzwwGU+fu87bxNJYp/H4/EYsg/e
         hp8C6TOt7TTO+xqBd+B3KGL+gI9hE+aN877a8An8DWXw8HBDnDh+Ukqf1Xpwhs7SHdc472sWPoV/oOjv
         7xfN5kFx+tQZcfXKyjbPnV0Qhw+15Bk6C//Cl3Ae9hqnfdXgInwH5aVarSZDLpxf1ArEvbiwJNpjE6Je
@@ -162,7 +162,7 @@
   <metadata name="dgvEdit.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="dgvDel.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="dgvDelete.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
 </root>

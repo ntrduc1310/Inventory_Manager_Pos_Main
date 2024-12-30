@@ -10,7 +10,7 @@ namespace DL.User
 {
     public class addUsersDL
     {
-        public bool AddUsers(string name, string username, string password, string phone, string filepathPicture, string role)
+        public async Task<bool> AddUsers(string name, string username, string password, string phone, string filepathPicture, string role)
         {
             try
             {
@@ -37,7 +37,7 @@ namespace DL.User
 
                     // Add and save the new employee
                     context.Users.Add(newEmployee);
-                    int rowsAffected = context.SaveChanges();
+                    int rowsAffected = await context.SaveChangesAsync();
 
                     return rowsAffected > 0; // Return true if save was successful
                 }

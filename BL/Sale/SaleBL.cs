@@ -91,5 +91,10 @@ namespace BL.Sale
         {
             return await new SaleDL().updateStatus(status, saleId);
         }
+
+        public async Task<List<DTO.Sale.SaleClass>> searchSale(string txt)
+        {
+            return await new DL.Sale.SaleDL().searchSale(txt);
+        }
     }
 }

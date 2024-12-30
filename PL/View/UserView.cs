@@ -29,6 +29,7 @@ namespace PL.View
             guna2DataGridView1.CellClick += guna2DataGridView1_CellClick;
             guna2DataGridView1.CellClick += guna2DataGridView1_CellClick_delete;
             gridViewUser = guna2DataGridView1;
+            txtsearch.TextChanged += txtsearch_TextChanged_1;
 
         }
 
@@ -57,7 +58,7 @@ namespace PL.View
         {
 
         }
-        public void LoadUsersToGridViewFunction()
+        public async void LoadUsersToGridViewFunction()
         {
             try
             {
@@ -66,15 +67,15 @@ namespace PL.View
 
                 // Ánh xạ cột với dữ liệu từ cơ sở dữ liệu
                 guna2DataGridView1.Columns["dgvName"].DataPropertyName = "Name";
-                guna2DataGridView1.Columns["dgvUsername"].DataPropertyName = "UserName";
+                guna2DataGridView1.Columns["dgvUserName"].DataPropertyName = "UserName";
                 guna2DataGridView1.Columns["dgvPhone"].DataPropertyName = "Phone";
                 guna2DataGridView1.Columns["dgvid"].DataPropertyName = "Id";
                 guna2DataGridView1.Columns["dgvPass"].DataPropertyName = "Password";
-
+                guna2DataGridView1.Columns["dgvRole"].DataPropertyName = "Role";
                 guna2DataGridView1.Columns["dgvPictureTemp"].DataPropertyName = "Picture";
 
-                // Đọc dữ liệu từ cơ sở dữ liệu
-                var data = new LoadUserBL().loadUser(); // Giả sử LoadUserBL trả về danh sách các đối tượng User
+                // Đọc dữ liệu từ cơ sở dữ liệu,
+                var data =await new LoadUserBL().loadUser(); // Giả sử LoadUserBL trả về danh sách các đối tượng User
                 guna2DataGridView1.DataSource = data;
                 guna2DataGridView1.Refresh();
 
@@ -141,7 +142,7 @@ namespace PL.View
             }
         }
 
-        private void guna2DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private async void guna2DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Kiểm tra nếu click vào cột Edit
             if (e.RowIndex >= 0 && guna2DataGridView1.Columns[e.ColumnIndex].Name == "dgvEdit")
@@ -149,7 +150,7 @@ namespace PL.View
                 // Lấy thông tin từ dòng hiện tại
                 int id = Convert.ToInt32(guna2DataGridView1.Rows[e.RowIndex].Cells["dgvid"].Value);
                 string name = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvName"].Value.ToString();
-                string username = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvUsername"].Value.ToString();
+                string username = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvUserName"].Value.ToString();
                 string phone = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvPhone"].Value.ToString();
                 string password = guna2DataGridView1.Rows[e.RowIndex].Cells["dgvPass"].Value.ToString();
                 // Lấy hình ảnh từ cột dgvPicture
@@ -162,7 +163,7 @@ namespace PL.View
                     image = cellValue.ToString();
                 }
                 // Hiển thị form chỉnh sửa và truyền dữ liệu
-                editUserForm editForm = new editUserForm(id, name, username, password, phone, image);
+                editUserForm editForm =  new editUserForm(id, name, username, password, phone, image);
                 if (editForm.ShowDialog() == DialogResult.OK)
                 {
                     // Load lại dữ liệu sau khi chỉnh sửa
@@ -238,41 +239,46 @@ namespace PL.View
 
         }
 
-        //private async void txtsearch_TextChanged_1(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        string searchText = txtsearch.Text ?? string.Empty;
-        //        var filteredData = await new LoadUserBL().SearchUsers(searchText);  // Adjusted for User search
+        private void guna2DataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
 
-        //        // Turn off auto-generation of columns
-        //        guna2DataGridView1.AutoGenerateColumns = false;
+        }
 
-        //        // Map columns to data properties
-        //        guna2DataGridView1.Columns["dgvid"].DataPropertyName = "UserId"; // Adjusted for your model
-        //        guna2DataGridView1.Columns["dgvName"].DataPropertyName = "Name";
-        //        guna2DataGridView1.Columns["dgvUsername"].DataPropertyName = "UserName";
-        //        guna2DataGridView1.Columns["dgvPhone"].DataPropertyName = "Phone";
-        //        guna2DataGridView1.Columns["dgvPass"].DataPropertyName = "Password";
-        //        guna2DataGridView1.Columns["dgvPictureTemp"].DataPropertyName = "ProfilePicture";  // Adjusted
+        private async void txtsearch_TextChanged_1(object sender, EventArgs e)
+        {
+            try
+            {
+                string searchText = txtsearch.Text ?? string.Empty;
+                var filteredData = await new LoadUserBL().searchUser(searchText);  // Adjusted for User search
 
-        //        // Remove the existing handler before adding a new one to avoid duplicates
-        //        guna2DataGridView1.CellFormatting -= guna2DataGridView1_CellFormatting;
+                // Turn off auto-generation of columns
+                guna2DataGridView1.AutoGenerateColumns = false;
 
-        //        // Set the new data source to the filtered list
-        //        guna2DataGridView1.DataSource = filteredData;
+                // Map columns to data properties
+                guna2DataGridView1.Columns["dgvid"].DataPropertyName = "UserId"; // Adjusted for your model
+                guna2DataGridView1.Columns["dgvName"].DataPropertyName = "Name";
+                guna2DataGridView1.Columns["dgvUsername"].DataPropertyName = "UserName";
+                guna2DataGridView1.Columns["dgvPhone"].DataPropertyName = "Phone";
+                guna2DataGridView1.Columns["dgvPass"].DataPropertyName = "Password";
+                guna2DataGridView1.Columns["dgvPictureTemp"].DataPropertyName = "Picture";  // Adjusted
 
-        //        // Add the new handler
-        //        guna2DataGridView1.CellFormatting += guna2DataGridView1_CellFormatting;
+                // Remove the existing handler before adding a new one to avoid duplicates
+                guna2DataGridView1.CellFormatting -= guna2DataGridView1_CellFormatting;
 
-        //        // Refresh the DataGridView to reflect the changes
-        //        guna2DataGridView1.Refresh();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine($"Search error: {ex.Message}");
-        //        MessageBox.Show("An error occurred while searching.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
+                // Set the new data source to the filtered list
+                guna2DataGridView1.DataSource = filteredData;
+
+                // Add the new handler
+                guna2DataGridView1.CellFormatting += guna2DataGridView1_CellFormatting;
+
+                // Refresh the DataGridView to reflect the changes
+                guna2DataGridView1.Refresh();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Search error: {ex.Message}");
+                MessageBox.Show("An error occurred while searching.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

@@ -96,7 +96,7 @@ namespace PL
         {
             await PerformSignIn();
         }
-
+        public static string role;
         private async Task PerformSignIn()
         {
             if (!ValidateInputs())
@@ -115,9 +115,9 @@ namespace PL
                 await Task.Delay(1000);
 
                 var loginBL = new LoginBL();
-                bool loginSuccess = await loginBL.LoginAsync(username, password);
+                role = await loginBL.GetRoleByUsernamePassword(username, password);
 
-                if (loginSuccess)
+                if (role != null)
                 {
                     await HandleSuccessfulLogin(username, password);
                 }
@@ -158,6 +158,7 @@ namespace PL
 
                 this.Hide();
                 main.FormClosed += (s, args) => this.Close();
+
                 main.ShowDialog();
             }
             catch (Exception ex)
@@ -322,6 +323,9 @@ namespace PL
             HideLoading();
         }
 
-        
+        private void guna2PictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

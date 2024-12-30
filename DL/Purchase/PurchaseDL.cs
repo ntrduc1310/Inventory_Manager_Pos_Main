@@ -1,4 +1,5 @@
 ﻿using DTO.Purchase;
+using DTO.Sale;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -243,7 +244,29 @@ namespace DL.Purchase
             }
         }
 
+        public async Task<List<PurchaseClass>> searchPurchase(string searchText)
+        {
+            try
+            {
+                // If no search text is provided, load all purchases
+                if (string.IsNullOrWhiteSpace(searchText))
+                    return await LoadPurchase();
 
+                // Load all purchases
+                var purchases = await LoadPurchase();
+                searchText = searchText.ToLower().Trim();  // Normalize search text
+
+                // Filter the purchases based on the search text
+                return purchases.Where(p =>
+                    p.PurchaseID.ToString().Contains(searchText)
+                ).ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in searchPurchase: {ex.Message}");
+                return new List<PurchaseClass>();  // Return an empty list in case of an error
+            }
+        }
 
     }
 }

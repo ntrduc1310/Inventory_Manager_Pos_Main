@@ -25,6 +25,7 @@ namespace PL.View
             guna2DataGridView1.CellClick += guna2DataGridView1_CellClick;
             //guna2DataGridView1.CellClick += DgvCellClickImageColumn;
             guna2DataGridView1.CellFormatting += guna2DataGridView1_CellFormatting_Sr ;
+            txtsearch.TextChanged += txtsearch_TextChanged_1;
 
 
 
@@ -164,38 +165,20 @@ namespace PL.View
         {
             try
             {
-                string searchText = txtsearch.Text ?? string.Empty;
-                var filteredData = await new PurchaseBL().SearchPurchase(searchText);
-
-                // Tắt tự động tạo cột
-                guna2DataGridView1.AutoGenerateColumns = false;
-
-                // Ánh xạ cột với dữ liệu từ cơ sở dữ liệu
-
-                guna2DataGridView1.Columns["dgvid"].DataPropertyName = "PurchaseID";
-                guna2DataGridView1.Columns["dgvDate"].DataPropertyName = "CreatedAt";
-                guna2DataGridView1.Columns["dgvSupID"].DataPropertyName = "SupplierID";
-                guna2DataGridView1.Columns["dgvAmount"].DataPropertyName = "TotalAmount";
-                guna2DataGridView1.Columns["dgvCreatedBy"].DataPropertyName = "CreatedBy";
-                guna2DataGridView1.Columns["dgvStatus"].DataPropertyName = "Status";
-
-
-                // Remove existing handler trước khi thêm handler mới để tránh duplicate
-                guna2DataGridView1.CellFormatting -= guna2DataGridView1_CellFormatting;
-
-                // Gán dữ liệu mới
-                guna2DataGridView1.DataSource = filteredData;
-
-                // Thêm handler mới
-                guna2DataGridView1.CellFormatting += guna2DataGridView1_CellFormatting;
-
-                // Refresh DataGridView
-                guna2DataGridView1.Refresh();
+                string searchText = txtsearch.Text.Trim();
+                if (!string.IsNullOrEmpty(searchText))
+                {
+                    var filteredData = await new PurchaseBL().searchPurchase(searchText);
+                    guna2DataGridView1.DataSource = filteredData;
+                }
+                else
+                {
+                    loadtoPurchaseViewFunction();
+                }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Search error: {ex.Message}");
-                MessageBox.Show("An error occurred while searching.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error: {ex.Message}");
             }
         }
         private void guna2DataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

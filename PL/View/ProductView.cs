@@ -27,6 +27,7 @@ namespace PL.View
             guna2DataGridView1.CellClick += guna2DataGridView1_CellClick;
             guna2DataGridView1.CellClick += guna2DataGridView1_CellClick_delete;
             guna2DataGridView1.CellClick += guna2DataGridView1_AllInformation;
+            txtsearch.TextChanged += txtsearch_TextChanged;
 
         }
 
@@ -351,6 +352,49 @@ namespace PL.View
             catch (Exception ex)
             {
                 Console.WriteLine($"CellFormatting error: {ex.Message}");
+            }
+        }
+        private async void txtsearch_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string searchText = txtsearch.Text ?? string.Empty;
+                var filteredData = await new ProductsBL().SearchProducts(searchText);
+
+                // Tắt tự động tạo cột
+                guna2DataGridView1.AutoGenerateColumns = false;
+
+                // Ánh xạ cột với dữ liệu từ cơ sở dữ liệu
+                guna2DataGridView1.Columns["dgvid"].DataPropertyName = "ProductId";
+                guna2DataGridView1.Columns["dgvName"].DataPropertyName = "Name";
+                guna2DataGridView1.Columns["dgvCatID"].DataPropertyName = "CategoryID";
+                guna2DataGridView1.Columns["dgvBarcode"].DataPropertyName = "Barcode";
+                guna2DataGridView1.Columns["dgvCost"].DataPropertyName = "CostPrice";
+                guna2DataGridView1.Columns["dgvsalePrice"].DataPropertyName = "Price";
+                guna2DataGridView1.Columns["dgvQuantityInStock"].DataPropertyName = "QuantityInStock";
+                guna2DataGridView1.Columns["dgvDiscount"].DataPropertyName = "Discount";
+                guna2DataGridView1.Columns["dgvSupplierID"].DataPropertyName = "SupplierID";
+                guna2DataGridView1.Columns["dgvDescription"].DataPropertyName = "Description";
+                guna2DataGridView1.Columns["dgvCreateDate"].DataPropertyName = "CreatedAt";
+                guna2DataGridView1.Columns["dgvUpdateDate"].DataPropertyName = "UpdatedAt";
+                guna2DataGridView1.Columns["dgvImage"].DataPropertyName = "Image";
+
+                // Remove existing handler trước khi thêm handler mới để tránh duplicate
+                guna2DataGridView1.CellFormatting -= DataGridView_CellFormatting;
+
+                // Gán dữ liệu mới
+                guna2DataGridView1.DataSource = filteredData;
+
+                // Thêm handler mới
+                guna2DataGridView1.CellFormatting += DataGridView_CellFormatting;
+
+                // Refresh DataGridView
+                guna2DataGridView1.Refresh();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Search error: {ex.Message}");
+                MessageBox.Show("An error occurred while searching.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

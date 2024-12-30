@@ -115,5 +115,10 @@ namespace BL.ProductsBL
         {
             return await new ProductsDL().LoadProductDetailsByIdAsString(productId);
         }
+
+        public async Task<List<DTO.Products.Products>> searchProduct(string txt)
+        {
+            return await new ProductsDL().searchProduct(txt);
+        }
     }
 }

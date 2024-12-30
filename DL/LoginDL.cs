@@ -37,6 +37,21 @@ namespace DL
                 return user ?? "Unknown"; // Trả về tên nếu tìm thấy, nếu không trả về "Unknown"
             }
         }
+        public async Task<string> GetRoleByUsernamePassword(string username, string password)
+        {
+            using (var context = new DataProviderEntity())
+            {
+                // Lấy vai trò từ cơ sở dữ liệu theo tên đăng nhập và mật khẩu
+                var role = await context.Users
+                                        .Where(c => c.UserName == username && c.Password == password)
+                                        .Select(c => c.Role)
+                                        .FirstOrDefaultAsync();
+
+                return role ?? "Unknown"; // Trả về vai trò nếu tìm thấy, nếu không trả về "Unknown"
+            }
+        }
+
+
 
     }
 }

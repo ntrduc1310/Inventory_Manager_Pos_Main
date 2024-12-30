@@ -131,7 +131,7 @@ namespace PL.Model
 
 
 
-        private void btn_Save_Click(object sender, EventArgs e)
+        private async void btn_Save_Click(object sender, EventArgs e)
         {
             bool isValid = false;
             while (!isValid)
@@ -169,7 +169,7 @@ namespace PL.Model
                     // Lấy mảng byte từ PictureBox
                     string picture = SaveImageToFolder(filePathnew);
                     // Gọi hàm UpdateUser
-                    bool result = new addUsersBL().AddUser(name, userName, password, phone, picture, role);
+                    bool result = await new addUsersBL().AddUser(name, userName, password, phone, picture, role);
                     if (result)
                     {
                         MessageBox.Show("thêm người dùng thành công!");

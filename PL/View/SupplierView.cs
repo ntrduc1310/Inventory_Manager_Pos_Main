@@ -1,5 +1,6 @@
 ﻿using BL;
 using BL.Suppiler;
+using BL.User;
 using DL.Suppiler;
 using PL.Edit;
 using PL.Model;
@@ -24,6 +25,7 @@ namespace PL.View
             guna2DataGridView1.CellFormatting += guna2DataGridView1_CellFormatting;
             guna2DataGridView1.CellClick += guna2DataGridView1_CellClick;
             guna2DataGridView1.CellClick += guna2DataGridView1_CellClick_delete;
+            txtsearch.TextChanged += txtsearch_TextChanged_1;
         }
 
         private void SupplierView_Load(object sender, EventArgs e)
@@ -146,35 +148,38 @@ namespace PL.View
 
         }
 
+        private void guna2DataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
         private async void txtsearch_TextChanged_1(object sender, EventArgs e)
         {
             try
             {
                 string searchText = txtsearch.Text ?? string.Empty;
+                var filteredData = await new SuppilerBL().searchSupplier(searchText);  // Adjusted for Supplier search
 
-                // Gọi BL để tìm kiếm dữ liệu
-                var filteredData = await new SuppilerBL().SearchSuppliers(searchText);
-
-                // Tắt tự động tạo cột
+                // Turn off auto-generation of columns
                 guna2DataGridView1.AutoGenerateColumns = false;
 
-                // Ánh xạ cột với dữ liệu từ cơ sở dữ liệu
+                // Map columns to data properties
+                guna2DataGridView1.Columns["dgvid"].DataPropertyName = "Id"; // Adjusted for your model
                 guna2DataGridView1.Columns["dgvName"].DataPropertyName = "Name";
                 guna2DataGridView1.Columns["dgvEmail"].DataPropertyName = "Email";
                 guna2DataGridView1.Columns["dgvPhone"].DataPropertyName = "Phone";
-                guna2DataGridView1.Columns["dgvid"].DataPropertyName = "Id";
                 guna2DataGridView1.Columns["dgvAddress"].DataPropertyName = "Address";
 
-                // Xóa handler cũ để tránh bị trùng
+                // Remove the existing handler before adding a new one to avoid duplicates
                 guna2DataGridView1.CellFormatting -= guna2DataGridView1_CellFormatting;
 
-                // Cập nhật DataSource
+                // Set the new data source to the filtered list
                 guna2DataGridView1.DataSource = filteredData;
 
-                // Thêm handler mới
+                // Add the new handler
                 guna2DataGridView1.CellFormatting += guna2DataGridView1_CellFormatting;
 
-                // Refresh lại DataGridView
+                // Refresh the DataGridView to reflect the changes
                 guna2DataGridView1.Refresh();
             }
             catch (Exception ex)

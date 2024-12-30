@@ -28,5 +28,11 @@ namespace BL
         {
             return await new LoginDL().GetImagePathByUsernamePasssword(username, password);
         }
+
+        public async Task<string> GetRoleByUsernamePassword(string username, string password)
+        {
+            return await new LoginDL().GetRoleByUsernamePassword(username, password);
+        }
+
     }
 }

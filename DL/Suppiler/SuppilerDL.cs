@@ -125,6 +125,43 @@ namespace DL.Suppiler
                 throw ex;
             }
         }
+        public async Task<List<DTO.Suppiler.TableSuppiler>> SearchSuppliers(string searchText)
+        {
+            using (var context = new DataProviderEntity())
+            {
+                return await context.Suppiler
+                    .Where(s => s.Name.Contains(searchText) || s.Email.Contains(searchText) || s.Phone.Contains(searchText) || s.Address.Contains(searchText))
+                    .ToListAsync();
+            }
+        }
+
+        public async Task<List<DTO.Suppiler.TableSuppiler>> searchSupplier(string searchText)
+        {
+            try
+            {
+                // If no search text is provided, load all suppliers
+                if (string.IsNullOrWhiteSpace(searchText))
+                    return await LoadSuppiler();
+
+                // Load all suppliers
+                var suppliers = await LoadSuppiler();
+                searchText = searchText.ToLower().Trim();  // Normalize search text
+
+                // Filter the suppliers based on the search text
+                return suppliers.Where(s =>
+                    s.Id.ToString().Contains(searchText) ||
+                    (s.Name?.ToLower().Contains(searchText) ?? false) ||
+                    (s.Email?.ToLower().Contains(searchText) ?? false) ||
+                    s.Phone.ToString().Contains(searchText) ||
+                    (s.Address?.ToLower().Contains(searchText) ?? false)
+                ).ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in SearchSuppiler: {ex.Message}");
+                return new List<DTO.Suppiler.TableSuppiler>();  // Return an empty list in case of an error
+            }
+        }
 
 
 

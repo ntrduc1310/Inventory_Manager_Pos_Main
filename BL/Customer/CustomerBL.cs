@@ -53,5 +53,10 @@ namespace BL.Customer
         {
             return await new CustomerDL().UpdateCustomer(id, name, phone, email);
         }
+
+        public async Task<List<DTO.Customer.TableCustomer>> searchCustomer(string txt)
+        {
+            return await new CustomerDL().SearchCustomers(txt);
+        }
     }
 }

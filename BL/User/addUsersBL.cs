@@ -10,9 +10,9 @@ namespace BL.User
 {
     public class addUsersBL
     {
-        public bool AddUser(string name,string username, string password,string phone,string filepathPicture,string role )
+        public async Task<bool> AddUser(string name,string username, string password,string phone,string filepathPicture,string role )
         {
-            return new addUsersDL().AddUsers(name,username,password,phone,filepathPicture,role);
+            return await new addUsersDL().AddUsers(name,username,password,phone,filepathPicture,role);
         }
     }
 }

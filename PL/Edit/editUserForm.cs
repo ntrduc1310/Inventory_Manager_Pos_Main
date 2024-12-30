@@ -36,6 +36,8 @@ namespace PL.Edit
             txt_Phone.Text = phone;
             txt_Password.Text = password;
             string imagePath = piture;
+            cb_Role.Items.AddRange(new string[] { "Quản lý", "Nhân viên", "Khách hàng" });
+
             // Kiểm tra đường dẫn có hợp lệ không
             if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
             {
@@ -49,9 +51,9 @@ namespace PL.Edit
                     throw ex;
                 }
             }
-        
+
         }
-      
+
 
 
         private void txtPic_Click(object sender, EventArgs e)
@@ -146,7 +148,7 @@ namespace PL.Edit
 
 
         // sự kiện nhấn save
-        private void btn_Save_Click(object sender, EventArgs e)
+        private async void btn_Save_Click(object sender, EventArgs e)
         {
             bool isValid = false;
             while (!isValid)
@@ -159,7 +161,7 @@ namespace PL.Edit
                     string userName = txt_UserName.Text.Trim();
                     string password = txt_Password.Text.Trim();
                     string phone = txt_Phone.Text.Trim();
-                    string role = txt_Role.Text.Trim();
+                    string role = cb_Role.Text.Trim();
                     if (string.IsNullOrEmpty(name))
                     {
                         MessageBox.Show("Tên không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -191,7 +193,7 @@ namespace PL.Edit
                     // Lấy mảng byte từ PictureBox
                     string picture = SaveImageToFolder(filePathnew);
                     // Gọi hàm UpdateUser
-                    bool result = new UpdateUsersBL().UpdateUser(Id, name, userName, password, phone, picture,role);
+                    bool result = await new UpdateUsersBL().UpdateUser(Id, name, userName, password, phone, picture, role);
 
                     if (result)
                     {
@@ -215,6 +217,11 @@ namespace PL.Edit
         }
 
         private void guna2Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txt_Role_TextChanged(object sender, EventArgs e)
         {
 
         }

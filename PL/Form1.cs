@@ -11,7 +11,6 @@ namespace PL
         public Form1()
         {
             InitializeComponent();
-            guna2MessageDialog1.Parent = Main.Instance;
         }
 
 

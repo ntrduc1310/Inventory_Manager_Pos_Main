@@ -68,6 +68,11 @@ namespace BL.Purchase
         {
             return await new DL.Purchase.PurchaseDL().DeletePurchase(id);
         }
-    }
+     
+        public async Task<List<DTO.Purchase.PurchaseClass>> searchPurchase(string txt)
+        {
+            return await new DL.Purchase.PurchaseDL().searchPurchase(txt);
+        }
 
+    }
 }

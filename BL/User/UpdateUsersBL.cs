@@ -11,7 +11,7 @@ namespace BL.User
     public class UpdateUsersBL
     {
 
-        public bool UpdateUser(int id, string name, string userName, string password, string phone, string picture, string role)
+        public async Task<bool> UpdateUser(int id, string name, string userName, string password, string phone, string picture, string role)
         {
             try
             {
@@ -19,7 +19,7 @@ namespace BL.User
                 var updater = new updateUser();
 
                 // Gọi phương thức UpdateUser của lớp updateUser
-                bool result = updater.UpdateUser(id, name, userName, password, phone, picture,role);
+                bool result  = await updater.UpdateUser(id, name, userName, password, phone, picture,role);
 
                 return result;
             }

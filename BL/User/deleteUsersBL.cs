@@ -11,9 +11,9 @@ namespace BL.User
 {
     public class deleteUsersBL
     {
-        public Task<bool> DeleteUser(int id)
+        public async Task<bool> DeleteUser(int id)
         {
-            return new deleteUsers().DeleteUsers(id);
+            return await new deleteUsers().DeleteUsers(id);
         }
     }
 }

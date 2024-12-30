@@ -5,7 +5,7 @@ namespace DL.User
 {
     public class updateUser
     {
-        public bool UpdateUser(int id, string name, string userName, string password, string phone, string picture,string role)
+        public async Task<bool> UpdateUser(int id, string name, string userName, string password, string phone, string picture,string role)
         {
             try
             {
@@ -33,7 +33,7 @@ namespace DL.User
                         Console.WriteLine($"Sau khi cập nhật: Name = {user.Name}, UserName = {user.UserName}, Phone = {user.Phone}");
 
                         // Lưu thay đổi vào cơ sở dữ liệu
-                        var rowsAffected = context.SaveChanges();
+                        var  rowsAffected = await context.SaveChangesAsync();
                         Console.WriteLine($"Số bản ghi bị ảnh hưởng: {rowsAffected}");
 
                         return rowsAffected > 0; // Trả về true nếu có thay đổi

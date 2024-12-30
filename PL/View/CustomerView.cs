@@ -146,7 +146,7 @@ namespace PL.View
             try
             {
                 string searchText = txtsearch.Text ?? string.Empty;
-                var filteredData = await new CustomerBL().SearchCustomer(searchText);
+                var filteredData = await new CustomerBL().searchCustomer(searchText);
 
                 // Tắt tự động tạo cột
                 guna2DataGridView1.AutoGenerateColumns = false;

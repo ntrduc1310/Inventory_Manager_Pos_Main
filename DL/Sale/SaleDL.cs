@@ -331,7 +331,31 @@ namespace DL.Sale
             }
         }
 
-       
+     
+        public async Task<List<SaleClass>> searchSale(string searchText)
+        {
+            try
+            {
+                // If no search text is provided, load all sales
+                if (string.IsNullOrWhiteSpace(searchText))
+                    return await LoadSales();
+
+                // Load all sales
+                var sales = await LoadSales();
+                searchText = searchText.ToLower().Trim();  // Normalize search text
+
+                // Filter the sales based on the search text
+                return sales.Where(s =>
+                    s.SaleID.ToString().Contains(searchText)
+                ).ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in searchSale: {ex.Message}");
+                return new List<SaleClass>();  // Return an empty list in case of an error
+            }
+        }
+
 
     }
 }

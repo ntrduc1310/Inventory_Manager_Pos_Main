@@ -25,6 +25,7 @@ namespace PL.View
             //guna2DataGridView1.CellClick += DgvCellClickImageColumn;
             guna2DataGridView1.CellFormatting += guna2DataGridView1_CellFormatting_Sr;
             guna2DataGridView1.CellClick += guna2DataGridView1_CellClick_Print;
+            txtsearch.TextChanged += txtsearch_TextChanged;
 
 
 
@@ -168,9 +169,31 @@ namespace PL.View
 
         }
 
+
+
         private void guna2DataGridView1_CellContentClick_2(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+        private async void txtsearch_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string searchText = txtsearch.Text.Trim();
+                if (!string.IsNullOrEmpty(searchText))
+                {
+                    var data = await new SaleBL().searchSale(searchText);
+                    guna2DataGridView1.DataSource = data;
+                }
+                else
+                {
+                    loadSaleViewFunction();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
         }
     }
 }

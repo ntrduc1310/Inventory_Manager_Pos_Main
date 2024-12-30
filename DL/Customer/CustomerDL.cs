@@ -125,6 +125,34 @@ namespace DL.Customer
                 throw new Exception("Đã xảy ra lỗi khi cập nhật khách hàng.", ex);
             }
         }
+        public async Task<List<TableCustomer>> SearchCustomers(string searchText)
+        {
+            try
+            {
+                // If no search text is provided, load all customers
+                if (string.IsNullOrWhiteSpace(searchText))
+                    return await LoadCustomers();
+
+                // Load all customers
+                var customers = await LoadCustomers();
+                searchText = searchText.ToLower().Trim();  // Normalize search text
+
+                // Filter the customers based on the search text
+                return customers.Where(c =>
+                    c.CustomerID.ToString().Contains(searchText) ||
+                    (c.Name?.ToLower().Contains(searchText) ?? false) ||
+                    c.Phone.ToString().Contains(searchText) ||
+                    (c.Email?.ToLower().Contains(searchText) ?? false)
+                ).ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in SearchCustomers: {ex.Message}");
+                return new List<TableCustomer>();  // Return an empty list in case of an error
+            }
+        }
+
+
 
     }
 }

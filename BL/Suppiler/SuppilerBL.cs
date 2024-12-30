@@ -55,5 +55,10 @@ namespace BL.Suppiler
         {
             return await new SuppilerDL().UpdateSupplier(id,name,email,phone,adress);
         }
+
+      public async Task<List<DTO.Suppiler.TableSuppiler>> searchSupplier(string txt)
+        {
+            return await new DL.Suppiler.SuppilerDL().searchSupplier(txt);
+        }
     }
 }
