@@ -40,6 +40,7 @@
             txt_Name = new Guna.UI2.WinForms.Guna2TextBox();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel1.SuspendLayout();
             guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
@@ -47,19 +48,21 @@
             // 
             // guna2Panel1
             // 
+            guna2Panel1.Controls.Add(guna2HtmlLabel3);
             guna2Panel1.Controls.Add(guna2PictureBox1);
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges3;
             guna2Panel1.Size = new Size(420, 169);
             guna2Panel1.TabIndex = 2;
             guna2Panel1.Controls.SetChildIndex(guna2HtmlLabel1, 0);
             guna2Panel1.Controls.SetChildIndex(guna2PictureBox1, 0);
+            guna2Panel1.Controls.SetChildIndex(guna2HtmlLabel3, 0);
             // 
             // guna2HtmlLabel1
             // 
-            guna2HtmlLabel1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel1.Location = new Point(98, 60);
-            guna2HtmlLabel1.Size = new Size(295, 39);
-            guna2HtmlLabel1.Text = "Chi Tiết Loại Sản Phẩm ";
+            guna2HtmlLabel1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel1.Location = new Point(113, 35);
+            guna2HtmlLabel1.Size = new Size(194, 47);
+            guna2HtmlLabel1.Text = "Chi Tiết Loại ";
             guna2HtmlLabel1.Click += guna2HtmlLabel1_Click;
             // 
             // btn_Close
@@ -137,7 +140,7 @@
             guna2PictureBox1.CustomizableEdges = customizableEdges1;
             guna2PictureBox1.Image = (Image)resources.GetObject("guna2PictureBox1.Image");
             guna2PictureBox1.ImageRotate = 0F;
-            guna2PictureBox1.Location = new Point(12, 39);
+            guna2PictureBox1.Location = new Point(27, 39);
             guna2PictureBox1.Name = "guna2PictureBox1";
             guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2PictureBox1.Size = new Size(80, 75);
@@ -145,6 +148,17 @@
             guna2PictureBox1.TabIndex = 3;
             guna2PictureBox1.TabStop = false;
             guna2PictureBox1.UseTransparentBackground = true;
+            // 
+            // guna2HtmlLabel3
+            // 
+            guna2HtmlLabel3.BackColor = Color.Transparent;
+            guna2HtmlLabel3.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel3.ForeColor = SystemColors.ButtonHighlight;
+            guna2HtmlLabel3.Location = new Point(113, 75);
+            guna2HtmlLabel3.Name = "guna2HtmlLabel3";
+            guna2HtmlLabel3.Size = new Size(157, 47);
+            guna2HtmlLabel3.TabIndex = 4;
+            guna2HtmlLabel3.Text = "Sản Phẩm";
             // 
             // CategoryAdd
             // 
@@ -173,5 +187,6 @@
         public Guna.UI2.WinForms.Guna2TextBox txt_Name;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
     }
 }

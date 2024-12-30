@@ -76,7 +76,7 @@
             btn_Close.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btn_Close.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btn_Close.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            btn_Close.Location = new Point(260, 23);
+            btn_Close.Location = new Point(365, 23);
             btn_Close.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btn_Close.Text = "Đóng";
             // 
@@ -88,7 +88,7 @@
             btn_Save.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btn_Save.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btn_Save.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            btn_Save.Location = new Point(45, 23);
+            btn_Save.Location = new Point(60, 23);
             btn_Save.ShadowDecoration.CustomizableEdges = customizableEdges5;
             btn_Save.Text = "Lưu";
             btn_Save.Click += btn_Save_Click_2;
@@ -128,9 +128,10 @@
             // guna2HtmlLabel3
             // 
             guna2HtmlLabel3.BackColor = Color.Transparent;
+            guna2HtmlLabel3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             guna2HtmlLabel3.Location = new Point(365, 185);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            guna2HtmlLabel3.Size = new Size(96, 22);
+            guna2HtmlLabel3.Size = new Size(130, 30);
             guna2HtmlLabel3.TabIndex = 10;
             guna2HtmlLabel3.Text = "Số Điện Thoại";
             // 
@@ -162,9 +163,10 @@
             // guna2HtmlLabel2
             // 
             guna2HtmlLabel2.BackColor = Color.Transparent;
+            guna2HtmlLabel2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             guna2HtmlLabel2.Location = new Point(60, 185);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(111, 22);
+            guna2HtmlLabel2.Size = new Size(153, 30);
             guna2HtmlLabel2.TabIndex = 9;
             guna2HtmlLabel2.Text = "Tên Khách Hàng ";
             // 
@@ -196,9 +198,10 @@
             // guna2HtmlLabel4
             // 
             guna2HtmlLabel4.BackColor = Color.Transparent;
+            guna2HtmlLabel4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             guna2HtmlLabel4.Location = new Point(60, 294);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            guna2HtmlLabel4.Size = new Size(40, 22);
+            guna2HtmlLabel4.Size = new Size(51, 30);
             guna2HtmlLabel4.TabIndex = 13;
             guna2HtmlLabel4.Text = "Email";
             // 
