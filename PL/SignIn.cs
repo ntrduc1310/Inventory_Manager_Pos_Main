@@ -117,7 +117,7 @@ namespace PL
                 var loginBL = new LoginBL();
                 role = await loginBL.GetRoleByUsernamePassword(username, password);
 
-                if (role != null)
+                if (role != "Unknown")
                 {
                     await HandleSuccessfulLogin(username, password);
                 }
