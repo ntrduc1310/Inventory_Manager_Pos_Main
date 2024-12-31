@@ -53,6 +53,10 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -77,6 +81,8 @@
             guna2GradientPanel5 = new Guna.UI2.WinForms.Guna2GradientPanel();
             guna2GradientPanel6 = new Guna.UI2.WinForms.Guna2GradientPanel();
             guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2GradientPanel7 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            guna2GradientPanel8 = new Guna.UI2.WinForms.Guna2GradientPanel();
             guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox3).BeginInit();
             guna2GradientPanel2.SuspendLayout();
@@ -403,11 +409,37 @@
             guna2HtmlLabel7.TabIndex = 16;
             guna2HtmlLabel7.Text = "Chào Mừng Bạn Đã Trở Lại Hệ Thống";
             // 
+            // guna2GradientPanel7
+            // 
+            guna2GradientPanel7.BorderRadius = 10;
+            guna2GradientPanel7.CustomizableEdges = customizableEdges25;
+            guna2GradientPanel7.FillColor = Color.DarkSlateBlue;
+            guna2GradientPanel7.FillColor2 = Color.Navy;
+            guna2GradientPanel7.Location = new Point(335, 424);
+            guna2GradientPanel7.Name = "guna2GradientPanel7";
+            guna2GradientPanel7.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            guna2GradientPanel7.Size = new Size(27, 347);
+            guna2GradientPanel7.TabIndex = 17;
+            // 
+            // guna2GradientPanel8
+            // 
+            guna2GradientPanel8.BorderRadius = 10;
+            guna2GradientPanel8.CustomizableEdges = customizableEdges27;
+            guna2GradientPanel8.FillColor = Color.DarkSlateBlue;
+            guna2GradientPanel8.FillColor2 = Color.Navy;
+            guna2GradientPanel8.Location = new Point(1301, 424);
+            guna2GradientPanel8.Name = "guna2GradientPanel8";
+            guna2GradientPanel8.ShadowDecoration.CustomizableEdges = customizableEdges28;
+            guna2GradientPanel8.Size = new Size(27, 347);
+            guna2GradientPanel8.TabIndex = 18;
+            // 
             // Report
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1576, 771);
+            Controls.Add(guna2GradientPanel8);
+            Controls.Add(guna2GradientPanel7);
             Controls.Add(guna2HtmlLabel7);
             Controls.Add(guna2GradientPanel6);
             Controls.Add(guna2GradientPanel5);
@@ -468,5 +500,7 @@
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox5;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel6;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
+        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel7;
+        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel8;
     }
 }

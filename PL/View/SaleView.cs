@@ -150,14 +150,29 @@ namespace PL.View
 
         private async void guna2DataGridView1_CellClick_Print(object sender, DataGridViewCellEventArgs e)
         {
-            if (guna2DataGridView1.Columns[e.ColumnIndex].Name == "dgvPrintInvoice")
+            try
             {
-                int id = (int)guna2DataGridView1.Rows[e.RowIndex].Cells["dgvid"].Value;
-                var invoice = await new InvoiceBL().SaleIdGetInvoice(id);
-                Invoice_Print invoice_Print = new Invoice_Print(invoice);
-                invoice_Print.ShowDialog();
+                if (e.RowIndex >= 0 && guna2DataGridView1.Columns[e.ColumnIndex].Name == "dgvPrintInvoice")
+                {
+                    if (guna2DataGridView1.Rows[e.RowIndex].Cells["dgvid"] != null)
+                    {
+                        int id = (int)guna2DataGridView1.Rows[e.RowIndex].Cells["dgvid"].Value;
+                        var invoice = await new InvoiceBL().SaleIdGetInvoice(id);
+                        Invoice_Print invoice_Print = new Invoice_Print(invoice);
+                        invoice_Print.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid ID column.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
             }
         }
+
 
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
         {

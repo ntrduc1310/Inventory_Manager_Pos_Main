@@ -122,7 +122,7 @@
             lbl_TongTienTT.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lbl_TongTienTT.ForeColor = Color.FromArgb(94, 61, 204);
             lbl_TongTienTT.Location = new Point(542, 750);
-            lbl_TongTienTT.Margin = new Padding(2, 2, 2, 2);
+            lbl_TongTienTT.Margin = new Padding(2);
             lbl_TongTienTT.Name = "lbl_TongTienTT";
             lbl_TongTienTT.Size = new Size(44, 30);
             lbl_TongTienTT.TabIndex = 71;
@@ -134,7 +134,7 @@
             lbl_Thue.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lbl_Thue.ForeColor = Color.FromArgb(94, 61, 204);
             lbl_Thue.Location = new Point(542, 719);
-            lbl_Thue.Margin = new Padding(2, 2, 2, 2);
+            lbl_Thue.Margin = new Padding(2);
             lbl_Thue.Name = "lbl_Thue";
             lbl_Thue.Size = new Size(44, 30);
             lbl_Thue.TabIndex = 70;
@@ -146,7 +146,7 @@
             lbl_TongDonHang.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lbl_TongDonHang.ForeColor = Color.FromArgb(94, 61, 204);
             lbl_TongDonHang.Location = new Point(542, 682);
-            lbl_TongDonHang.Margin = new Padding(2, 2, 2, 2);
+            lbl_TongDonHang.Margin = new Padding(2);
             lbl_TongDonHang.Name = "lbl_TongDonHang";
             lbl_TongDonHang.Size = new Size(44, 30);
             lbl_TongDonHang.TabIndex = 69;
@@ -177,7 +177,7 @@
             guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             guna2DataGridView1.GridColor = Color.White;
             guna2DataGridView1.Location = new Point(31, 316);
-            guna2DataGridView1.Margin = new Padding(2, 2, 2, 2);
+            guna2DataGridView1.Margin = new Padding(2);
             guna2DataGridView1.Name = "guna2DataGridView1";
             guna2DataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             guna2DataGridView1.RowHeadersVisible = false;
@@ -439,7 +439,7 @@
             guna2HtmlLabel4.BackColor = Color.Transparent;
             guna2HtmlLabel4.Font = new Font("Segoe UI Black", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel4.ForeColor = Color.DarkSlateGray;
-            guna2HtmlLabel4.Location = new Point(252, 111);
+            guna2HtmlLabel4.Location = new Point(250, 112);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             guna2HtmlLabel4.Size = new Size(145, 47);
             guna2HtmlLabel4.TabIndex = 4;
@@ -450,7 +450,7 @@
             guna2HtmlLabel3.BackColor = Color.Transparent;
             guna2HtmlLabel3.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel3.ForeColor = Color.FromArgb(95, 71, 204);
-            guna2HtmlLabel3.Location = new Point(291, 66);
+            guna2HtmlLabel3.Location = new Point(262, 67);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             guna2HtmlLabel3.Size = new Size(129, 39);
             guna2HtmlLabel3.TabIndex = 3;
@@ -461,7 +461,7 @@
             guna2HtmlLabel2.BackColor = Color.Transparent;
             guna2HtmlLabel2.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel2.ForeColor = Color.FromArgb(95, 71, 204);
-            guna2HtmlLabel2.Location = new Point(230, 19);
+            guna2HtmlLabel2.Location = new Point(201, 20);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             guna2HtmlLabel2.Size = new Size(256, 43);
             guna2HtmlLabel2.TabIndex = 2;
@@ -480,7 +480,7 @@
             button_Print.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
             button_Print.ForeColor = Color.White;
             button_Print.Location = new Point(209, 796);
-            button_Print.Margin = new Padding(2, 2, 2, 2);
+            button_Print.Margin = new Padding(2);
             button_Print.Name = "button_Print";
             button_Print.ShadowDecoration.CustomizableEdges = customizableEdges6;
             button_Print.Size = new Size(100, 47);
@@ -500,7 +500,7 @@
             guna2GradientButton1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
             guna2GradientButton1.ForeColor = Color.White;
             guna2GradientButton1.Location = new Point(350, 796);
-            guna2GradientButton1.Margin = new Padding(2, 2, 2, 2);
+            guna2GradientButton1.Margin = new Padding(2);
             guna2GradientButton1.Name = "guna2GradientButton1";
             guna2GradientButton1.ShadowDecoration.CustomizableEdges = customizableEdges8;
             guna2GradientButton1.Size = new Size(100, 47);

@@ -60,7 +60,7 @@
             // 
             guna2Panel1.Controls.Add(guna2PictureBox1);
             guna2Panel1.Controls.Add(guna2HtmlLabel3);
-            guna2Panel1.Margin = new Padding(4, 4, 4, 4);
+            guna2Panel1.Margin = new Padding(4);
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges3;
             guna2Panel1.Size = new Size(1051, 208);
             guna2Panel1.Paint += guna2Panel1_Paint_1;
@@ -80,7 +80,7 @@
             btnAdd1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnAdd1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdd1.Location = new Point(63, 123);
-            btnAdd1.Margin = new Padding(4, 4, 4, 4);
+            btnAdd1.Margin = new Padding(4);
             btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnAdd1.Text = "Thêm Mới ";
             btnAdd1.Click += btnAdd1_Click_2;
@@ -104,7 +104,7 @@
             // 
             guna2HtmlLabel1.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel1.Location = new Point(150, 21);
-            guna2HtmlLabel1.Margin = new Padding(5, 5, 5, 5);
+            guna2HtmlLabel1.Margin = new Padding(5);
             guna2HtmlLabel1.Size = new Size(185, 52);
             guna2HtmlLabel1.Text = "Danh Sách";
             // 
@@ -147,20 +147,20 @@
             dataGridViewCellStyle1.BackColor = Color.White;
             guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             guna2DataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(96, 71, 204);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = Color.White;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            guna2DataGridView1.ColumnHeadersHeight = 35;
+            guna2DataGridView1.ColumnHeadersHeight = 40;
             guna2DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             guna2DataGridView1.Columns.AddRange(new DataGridViewColumn[] { dgvSr, dgvid, dgvName, dgvUserName, dgvPass, dgvPhone, dgvRole, dgvPicture, dgvEdit, dgvDel, dgvPictureTemp });
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
@@ -168,7 +168,7 @@
             guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             guna2DataGridView1.GridColor = Color.FromArgb(231, 229, 255);
             guna2DataGridView1.Location = new Point(62, 216);
-            guna2DataGridView1.Margin = new Padding(4, 4, 4, 4);
+            guna2DataGridView1.Margin = new Padding(4);
             guna2DataGridView1.Name = "guna2DataGridView1";
             guna2DataGridView1.ReadOnly = true;
             guna2DataGridView1.RowHeadersVisible = false;
@@ -188,7 +188,7 @@
             guna2DataGridView1.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
             guna2DataGridView1.ThemeStyle.HeaderStyle.ForeColor = Color.White;
             guna2DataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            guna2DataGridView1.ThemeStyle.HeaderStyle.Height = 35;
+            guna2DataGridView1.ThemeStyle.HeaderStyle.Height = 40;
             guna2DataGridView1.ThemeStyle.ReadOnly = true;
             guna2DataGridView1.ThemeStyle.RowsStyle.BackColor = Color.White;
             guna2DataGridView1.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
@@ -222,7 +222,7 @@
             // dgvName
             // 
             dgvName.HeaderText = "Tên Người Dùng ";
-            dgvName.MinimumWidth = 6;
+            dgvName.MinimumWidth = 100;
             dgvName.Name = "dgvName";
             dgvName.ReadOnly = true;
             dgvName.SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -230,7 +230,7 @@
             // dgvUserName
             // 
             dgvUserName.HeaderText = "Tên tài khoản";
-            dgvUserName.MinimumWidth = 6;
+            dgvUserName.MinimumWidth = 100;
             dgvUserName.Name = "dgvUserName";
             dgvUserName.ReadOnly = true;
             dgvUserName.SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -238,7 +238,7 @@
             // dgvPass
             // 
             dgvPass.HeaderText = "Mật Khẩu ";
-            dgvPass.MinimumWidth = 6;
+            dgvPass.MinimumWidth = 100;
             dgvPass.Name = "dgvPass";
             dgvPass.ReadOnly = true;
             dgvPass.SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -247,7 +247,7 @@
             // dgvPhone
             // 
             dgvPhone.HeaderText = "Số Điện Thoại";
-            dgvPhone.MinimumWidth = 6;
+            dgvPhone.MinimumWidth = 100;
             dgvPhone.Name = "dgvPhone";
             dgvPhone.ReadOnly = true;
             dgvPhone.SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -255,7 +255,7 @@
             // dgvRole
             // 
             dgvRole.HeaderText = "Vai trò";
-            dgvRole.MinimumWidth = 8;
+            dgvRole.MinimumWidth = 100;
             dgvRole.Name = "dgvRole";
             dgvRole.ReadOnly = true;
             // 
@@ -295,7 +295,7 @@
             // dgvPictureTemp
             // 
             dgvPictureTemp.HeaderText = "pathImage";
-            dgvPictureTemp.MinimumWidth = 8;
+            dgvPictureTemp.MinimumWidth = 100;
             dgvPictureTemp.Name = "dgvPictureTemp";
             dgvPictureTemp.ReadOnly = true;
             dgvPictureTemp.Visible = false;
