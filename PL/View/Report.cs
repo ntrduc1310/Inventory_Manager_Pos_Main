@@ -71,6 +71,12 @@ namespace PL.View
                 listBox1.Items.Add($"Mã đơn hàng: {order.SaleID}, Ngày bán: {order.SaleDate}, Tổng tiền: {order.TotalAmount}");
             }
 
+            // Nếu không có đơn hàng nào
+            if (sales.Count == 0)
+            {
+                listBox1.Items.Add("Không có đơn hàng nào trong ngày được chọn.");
+            }
+
         }
 
         private async void LoadSales30Date()
@@ -82,6 +88,12 @@ namespace PL.View
             foreach (var order in sales)
             {
                 listBox1.Items.Add($"Mã đơn hàng: {order.SaleID}, Ngày bán: {order.SaleDate}, Tổng tiền: {order.TotalAmount}");
+            }
+
+            // Nếu không có đơn hàng nào
+            if (sales.Count == 0)
+            {
+                listBox1.Items.Add("Không có đơn hàng nào trong ngày được chọn.");
             }
         }
         public async void HandleComboBoxSelection(int selectIndex)

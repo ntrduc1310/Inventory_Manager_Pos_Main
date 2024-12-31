@@ -116,7 +116,8 @@ namespace DL.Sale
                         totalCostPrice = totalCostPrice,
                         ProductNameList = listNameProduct,
                         ProductQuantityList = listQuantityProduct,
-                        ProductPriceList = listPriceProduct
+                        ProductPriceList = listPriceProduct,
+                        SaleDate = DateTime.Now
                     };
 
                     context.Sale.Add(newSale);
@@ -152,7 +153,8 @@ namespace DL.Sale
                         CreatedBy = "Hệ thống", // Hoặc thay bằng tên người dùng hiện tại
                         ProductNameList = listNameProduct,
                         ProductQuantityList = listQuantityProduct,
-                        ProductPriceList = listPriceProduct
+                        ProductPriceList = listPriceProduct,
+                        SaleDate = DateTime.Now
 
                     };
 

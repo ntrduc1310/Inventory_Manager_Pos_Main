@@ -167,7 +167,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             guna2DataGridView1.GridColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.Location = new Point(63, 229);
+            guna2DataGridView1.Location = new Point(60, 244);
             guna2DataGridView1.Margin = new Padding(2);
             guna2DataGridView1.Name = "guna2DataGridView1";
             guna2DataGridView1.ReadOnly = true;
@@ -182,7 +182,7 @@
             guna2DataGridView1.RowHeadersVisible = false;
             guna2DataGridView1.RowHeadersWidth = 62;
             guna2DataGridView1.RowTemplate.Height = 33;
-            guna2DataGridView1.Size = new Size(959, 419);
+            guna2DataGridView1.Size = new Size(959, 404);
             guna2DataGridView1.TabIndex = 1;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
