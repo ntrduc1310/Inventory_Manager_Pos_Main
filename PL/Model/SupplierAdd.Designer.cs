@@ -84,7 +84,7 @@
             btn_Close.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btn_Close.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btn_Close.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            btn_Close.Location = new Point(234, 23);
+            btn_Close.Location = new Point(360, 23);
             btn_Close.Margin = new Padding(2);
             btn_Close.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btn_Close.Text = "Đóng ";
@@ -98,7 +98,7 @@
             btn_Save.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btn_Save.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btn_Save.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            btn_Save.Location = new Point(36, 23);
+            btn_Save.Location = new Point(55, 23);
             btn_Save.Margin = new Padding(2);
             btn_Save.ShadowDecoration.CustomizableEdges = customizableEdges5;
             btn_Save.Text = "Lưu";

@@ -140,5 +140,15 @@ namespace PL.Edit
         {
             loadImagesByPath();
         }
+
+        private void txt_Barcode_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

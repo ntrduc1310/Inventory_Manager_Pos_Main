@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,15 +13,20 @@ namespace DL.Report
     {
         public async Task<List<SaleClass>> SaleTodayDL()
         {
-            using (var context = new DataProviderEntity())
+            try
             {
-                // Lấy ngày hôm nay
-                DateTime today = DateTime.Today;
+                using (var context = new DataProviderEntity())
+                {
+                    // Lấy ngày hôm nay
+                    DateTime today = DateTime.Today;
 
-                // Truy vấn các đơn bán hàng của ngày hôm nay
-                return await  context.Sale
-                                         .Where(order => order.SaleDate.Date == today && order.Status == "Hoàn thành")
-                                         .ToListAsync();
+                    // Truy vấn các đơn bán hàng của ngày hôm nay
+                    return await context.Sale
+                                             .Where(order => order.SaleDate.Date == today && order.Status == "Hoàn thành")
+                                             .ToListAsync();
+                }
+            } catch {
+                throw;
             }
         }
         public async Task<List<SaleClass>> Sale7DayDL()
