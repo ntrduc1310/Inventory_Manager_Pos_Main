@@ -1,4 +1,6 @@
-﻿using DTO.Invoice;
+﻿using BL.Invoice;
+using DTO.Invoice;
+using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +23,33 @@ namespace PL.View
             Invoice = invoice;
             this.Load += loadGridviewFunction;
         }
+        private void InitializeQRComponents()
+        {
+
+            button_QRPay.Click += button_QRPay_Click_1;
+
+
+        }
+        private async void button_QRPay_Click_1(object sender, EventArgs e)
+        {
+            using (var qrForm = new QR_Payment(Invoice))
+            {
+                if (qrForm.ShowDialog() == DialogResult.OK)
+                {
+                    var bl = new InvoiceBL();
+                    string qrData = bl.GenerateQRCodeData(Invoice); // Tạo QR data
+                    await bl.UpdatePaymentStatus(Invoice.InvoiceID, "Completed", "QR", qrData);
+                    MessageBox.Show("Thanh toán thành công!", "Thông báo");
+                    await RefreshInvoiceData();
+                }
+            }
+        }
+        private async Task RefreshInvoiceData()
+        {
+            var bl = new InvoiceBL();
+            Invoice = await bl.SaleIdGetInvoice(Invoice.SaleID);
+            loadGridviewFunction(null, EventArgs.Empty);
+        }
 
         private void guna2GradientPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -29,22 +58,28 @@ namespace PL.View
 
         private void loadGridviewFunction(object? sender, EventArgs e)
         {
-            // Assuming 'invoiceName' is a comma-separated string of product names
-            string invoiceName = Invoice.ProductNameList; // This should be passed to the method or class
+            if (Invoice == null)
+            {
+                MessageBox.Show("Dữ liệu hóa đơn không có sẵn.");
+                return;
+            }
+
+            // Giả sử 'invoiceName' là chuỗi tên sản phẩm được phân tách bằng dấu phẩy
+            string invoiceName = Invoice.ProductNameList;
             string invoiceQuantity = Invoice.ProductQuantityList;
             string invoicePrice = Invoice.ProductPriceList;
 
-            // Split the invoice string into individual product names
+            // Tách chuỗi hóa đơn thành các tên sản phẩm riêng lẻ
             string[] productnameList = invoiceName.Split(',').Select(p => p.Trim()).ToArray();
             string[] productQuantityList = invoiceQuantity.Split(',').Select(q => q.Trim()).ToArray();
             string[] productPriceList = invoicePrice.Split(',').Select(p => p.Trim()).ToArray();
 
-            // Show each element in the lists
+            // Hiển thị từng phần tử trong danh sách
 
-            // Clear existing rows
+            // Xóa các hàng hiện có
             guna2DataGridView1.Rows.Clear();
 
-            // Add each product detail as a new row in the DataGridView
+            // Thêm từng chi tiết sản phẩm như một hàng mới trong DataGridView
             for (int i = 0; i < productnameList.Length; i++)
             {
                 int quantity = int.Parse(productQuantityList[i]);
@@ -159,5 +194,7 @@ namespace PL.View
         {
 
         }
+
+     
     }
 }

@@ -160,7 +160,7 @@
             guna2DataGridView1.Columns.AddRange(new DataGridViewColumn[] { dgvSr, dgvid, dgvDate, dgvCustomerID, dgvCustomer, dgvAmount, dgvCreatedBy, dgvAllInformation, dgvPrintInvoice });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
@@ -241,17 +241,17 @@
             // 
             // dgvCustomer
             // 
-            dgvCustomer.FillWeight = 130F;
+            dgvCustomer.FillWeight = 140F;
             dgvCustomer.HeaderText = "Khách Hàng";
-            dgvCustomer.MinimumWidth = 130;
+            dgvCustomer.MinimumWidth = 140;
             dgvCustomer.Name = "dgvCustomer";
             dgvCustomer.ReadOnly = true;
             // 
             // dgvAmount
             // 
-            dgvAmount.FillWeight = 120F;
+            dgvAmount.FillWeight = 140F;
             dgvAmount.HeaderText = "Tổng Tiền";
-            dgvAmount.MinimumWidth = 120;
+            dgvAmount.MinimumWidth = 140;
             dgvAmount.Name = "dgvAmount";
             dgvAmount.ReadOnly = true;
             // 
@@ -273,11 +273,11 @@
             // 
             // dgvPrintInvoice
             // 
-            dgvPrintInvoice.FillWeight = 120F;
+            dgvPrintInvoice.FillWeight = 90F;
             dgvPrintInvoice.HeaderText = "In";
             dgvPrintInvoice.Image = Properties.Resources.icons8_print_50;
             dgvPrintInvoice.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            dgvPrintInvoice.MinimumWidth = 120;
+            dgvPrintInvoice.MinimumWidth = 90;
             dgvPrintInvoice.Name = "dgvPrintInvoice";
             dgvPrintInvoice.ReadOnly = true;
             dgvPrintInvoice.Resizable = DataGridViewTriState.True;

@@ -45,7 +45,12 @@ namespace DL
         public DbSet<SaleDetail> SaleDetail { get; set; }
 
         public DbSet<InvoiceClass> Invoice { get; set; }
-
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<InvoiceClass>()
+                .Property(e => e.PaymentStatus)
+                .HasDefaultValue("Pending");
+        }
 
 
 
