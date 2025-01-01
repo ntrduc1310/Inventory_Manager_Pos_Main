@@ -89,17 +89,7 @@ namespace PL.View
                 {
                     try
                     {
-                        //if (e.ColumnIndex == guna2DataGridView1.Columns["dgvCategory"].Index)
-                        //{
-                        //    int id = (int)guna2DataGridView1.Rows[e.RowIndex].Cells["dgvCatID"].Value;
-
-                        //    if (id != 0)
-                        //    {
-                        //        string categoryName = await new ProductsBL().GetCategoryNameById(id);
-                        //        guna2DataGridView1.Rows[e.RowIndex].Cells["dgvCategory"].Value = categoryName; // Gán giá trị hiển thị vào e.Value
-                        //    }
-                        //}
-                        //else
+                     
 
                         if (e.ColumnIndex == guna2DataGridView1.Columns["dgvCustomer"].Index)
                         {

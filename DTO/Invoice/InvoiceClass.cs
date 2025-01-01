@@ -26,6 +26,11 @@ namespace DTO.Invoice
         public string ProductQuantityList { get; set; }
 
         public string ProductPriceList { get; set; }
+        public string PaymentStatus { get; set; } = "Pending";
+        public string? PaymentMethod { get; set; } = "Cash";
+        public DateTime? PaymentDate { get; set; }
+        public string? QRCodeData { get; set; }
+       
 
     }
           

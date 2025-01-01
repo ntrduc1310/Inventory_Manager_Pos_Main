@@ -18,6 +18,24 @@ namespace DL.Invoice
                 return await context.Invoice.ToListAsync();
             }
         }
+        public async Task<bool> UpdatePaymentStatus(int invoiceId, string status,
+            string method, string qrData)
+        {
+            using (var context = new DataProviderEntity())
+            {
+                var invoice = await context.Invoice
+                    .FirstOrDefaultAsync(i => i.InvoiceID == invoiceId);
+                if (invoice != null)
+                {
+                    invoice.PaymentStatus = status;
+                    invoice.PaymentMethod = method;
+                    invoice.PaymentDate = DateTime.Now;
+                    invoice.QRCodeData = qrData;
+                    return await context.SaveChangesAsync() > 0;
+                }
+                return false;
+            }
+        }
 
         public async Task<bool> AddInvoice(int CustomerId, int SaleId, decimal totalAmount, string productNameList, string productQuantityList, string productPriceList)
         {
@@ -31,7 +49,8 @@ namespace DL.Invoice
                     TotalAmount = totalAmount,
                     ProductNameList = productNameList,
                     ProductQuantityList = productQuantityList,
-                    ProductPriceList = productPriceList
+                    ProductPriceList = productPriceList,
+                    PaymentStatus = "Pending"
                 };
                 context.Invoice.Add(invoice);
 

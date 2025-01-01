@@ -40,6 +40,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             lbl_TongTienTT = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lbl_Thue = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -72,6 +74,7 @@
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             button_Print = new Guna.UI2.WinForms.Guna2GradientButton();
             guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
+            button_QRPay = new Guna.UI2.WinForms.Guna2GradientButton();
             guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
@@ -121,7 +124,7 @@
             lbl_TongTienTT.BackColor = Color.Transparent;
             lbl_TongTienTT.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lbl_TongTienTT.ForeColor = Color.FromArgb(94, 61, 204);
-            lbl_TongTienTT.Location = new Point(542, 750);
+            lbl_TongTienTT.Location = new Point(564, 749);
             lbl_TongTienTT.Margin = new Padding(2);
             lbl_TongTienTT.Name = "lbl_TongTienTT";
             lbl_TongTienTT.Size = new Size(44, 30);
@@ -133,7 +136,7 @@
             lbl_Thue.BackColor = Color.Transparent;
             lbl_Thue.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lbl_Thue.ForeColor = Color.FromArgb(94, 61, 204);
-            lbl_Thue.Location = new Point(542, 719);
+            lbl_Thue.Location = new Point(564, 705);
             lbl_Thue.Margin = new Padding(2);
             lbl_Thue.Name = "lbl_Thue";
             lbl_Thue.Size = new Size(44, 30);
@@ -145,7 +148,7 @@
             lbl_TongDonHang.BackColor = Color.Transparent;
             lbl_TongDonHang.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lbl_TongDonHang.ForeColor = Color.FromArgb(94, 61, 204);
-            lbl_TongDonHang.Location = new Point(542, 682);
+            lbl_TongDonHang.Location = new Point(564, 668);
             lbl_TongDonHang.Margin = new Padding(2);
             lbl_TongDonHang.Name = "lbl_TongDonHang";
             lbl_TongDonHang.Size = new Size(44, 30);
@@ -157,14 +160,14 @@
             dataGridViewCellStyle1.BackColor = Color.White;
             guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.BackColor = Color.SlateBlue;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = Color.White;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            guna2DataGridView1.ColumnHeadersHeight = 27;
+            guna2DataGridView1.ColumnHeadersHeight = 30;
             guna2DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             guna2DataGridView1.Columns.AddRange(new DataGridViewColumn[] { dgvName, dgvQuantity, dgvPrice, dgvAmount });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -176,7 +179,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             guna2DataGridView1.GridColor = Color.White;
-            guna2DataGridView1.Location = new Point(31, 316);
+            guna2DataGridView1.Location = new Point(48, 318);
             guna2DataGridView1.Margin = new Padding(2);
             guna2DataGridView1.Name = "guna2DataGridView1";
             guna2DataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -197,7 +200,7 @@
             guna2DataGridView1.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
             guna2DataGridView1.ThemeStyle.HeaderStyle.ForeColor = Color.White;
             guna2DataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            guna2DataGridView1.ThemeStyle.HeaderStyle.Height = 27;
+            guna2DataGridView1.ThemeStyle.HeaderStyle.Height = 30;
             guna2DataGridView1.ThemeStyle.ReadOnly = false;
             guna2DataGridView1.ThemeStyle.RowsStyle.BackColor = Color.White;
             guna2DataGridView1.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
@@ -296,7 +299,7 @@
             guna2HtmlLabel15.BackColor = Color.Transparent;
             guna2HtmlLabel15.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel15.ForeColor = Color.FromArgb(94, 61, 204);
-            guna2HtmlLabel15.Location = new Point(325, 747);
+            guna2HtmlLabel15.Location = new Point(342, 745);
             guna2HtmlLabel15.Name = "guna2HtmlLabel15";
             guna2HtmlLabel15.Size = new Size(204, 30);
             guna2HtmlLabel15.TabIndex = 18;
@@ -307,7 +310,7 @@
             guna2HtmlLabel14.BackColor = Color.Transparent;
             guna2HtmlLabel14.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             guna2HtmlLabel14.ForeColor = Color.FromArgb(94, 61, 204);
-            guna2HtmlLabel14.Location = new Point(373, 713);
+            guna2HtmlLabel14.Location = new Point(342, 708);
             guna2HtmlLabel14.Name = "guna2HtmlLabel14";
             guna2HtmlLabel14.Size = new Size(76, 27);
             guna2HtmlLabel14.TabIndex = 17;
@@ -319,7 +322,7 @@
             guna2HtmlLabel13.BackColor = Color.Transparent;
             guna2HtmlLabel13.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             guna2HtmlLabel13.ForeColor = Color.FromArgb(94, 61, 204);
-            guna2HtmlLabel13.Location = new Point(342, 677);
+            guna2HtmlLabel13.Location = new Point(342, 668);
             guna2HtmlLabel13.Name = "guna2HtmlLabel13";
             guna2HtmlLabel13.Size = new Size(171, 27);
             guna2HtmlLabel13.TabIndex = 16;
@@ -330,7 +333,7 @@
             guna2HtmlLabel12.BackColor = Color.Transparent;
             guna2HtmlLabel12.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             guna2HtmlLabel12.ForeColor = Color.FromArgb(94, 61, 204);
-            guna2HtmlLabel12.Location = new Point(426, 260);
+            guna2HtmlLabel12.Location = new Point(443, 262);
             guna2HtmlLabel12.Name = "guna2HtmlLabel12";
             guna2HtmlLabel12.Size = new Size(99, 27);
             guna2HtmlLabel12.TabIndex = 15;
@@ -341,7 +344,7 @@
             guna2HtmlLabel11.BackColor = Color.Transparent;
             guna2HtmlLabel11.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             guna2HtmlLabel11.ForeColor = Color.FromArgb(94, 61, 204);
-            guna2HtmlLabel11.Location = new Point(285, 260);
+            guna2HtmlLabel11.Location = new Point(302, 262);
             guna2HtmlLabel11.Name = "guna2HtmlLabel11";
             guna2HtmlLabel11.Size = new Size(71, 27);
             guna2HtmlLabel11.TabIndex = 14;
@@ -352,7 +355,7 @@
             guna2HtmlLabel10.BackColor = Color.Transparent;
             guna2HtmlLabel10.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             guna2HtmlLabel10.ForeColor = Color.FromArgb(94, 61, 204);
-            guna2HtmlLabel10.Location = new Point(142, 260);
+            guna2HtmlLabel10.Location = new Point(159, 262);
             guna2HtmlLabel10.Name = "guna2HtmlLabel10";
             guna2HtmlLabel10.Size = new Size(83, 27);
             guna2HtmlLabel10.TabIndex = 13;
@@ -363,7 +366,7 @@
             guna2HtmlLabel9.BackColor = Color.Transparent;
             guna2HtmlLabel9.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             guna2HtmlLabel9.ForeColor = Color.FromArgb(94, 61, 204);
-            guna2HtmlLabel9.Location = new Point(45, 260);
+            guna2HtmlLabel9.Location = new Point(62, 262);
             guna2HtmlLabel9.Name = "guna2HtmlLabel9";
             guna2HtmlLabel9.Size = new Size(40, 27);
             guna2HtmlLabel9.TabIndex = 12;
@@ -374,7 +377,7 @@
             guna2Separator2.BackColor = Color.WhiteSmoke;
             guna2Separator2.FillColor = Color.DarkSlateBlue;
             guna2Separator2.FillThickness = 8;
-            guna2Separator2.Location = new Point(31, 286);
+            guna2Separator2.Location = new Point(48, 288);
             guna2Separator2.Name = "guna2Separator2";
             guna2Separator2.Size = new Size(560, 23);
             guna2Separator2.TabIndex = 11;
@@ -384,7 +387,7 @@
             guna2Separator1.BackColor = Color.WhiteSmoke;
             guna2Separator1.FillColor = Color.DarkSlateBlue;
             guna2Separator1.FillThickness = 8;
-            guna2Separator1.Location = new Point(30, 241);
+            guna2Separator1.Location = new Point(47, 243);
             guna2Separator1.Name = "guna2Separator1";
             guna2Separator1.Size = new Size(562, 23);
             guna2Separator1.TabIndex = 9;
@@ -448,22 +451,22 @@
             // guna2HtmlLabel3
             // 
             guna2HtmlLabel3.BackColor = Color.Transparent;
-            guna2HtmlLabel3.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel3.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel3.ForeColor = Color.FromArgb(95, 71, 204);
-            guna2HtmlLabel3.Location = new Point(262, 67);
+            guna2HtmlLabel3.Location = new Point(250, 59);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            guna2HtmlLabel3.Size = new Size(129, 39);
+            guna2HtmlLabel3.Size = new Size(156, 47);
             guna2HtmlLabel3.TabIndex = 3;
             guna2HtmlLabel3.Text = "Cửa Hàng";
             // 
             // guna2HtmlLabel2
             // 
             guna2HtmlLabel2.BackColor = Color.Transparent;
-            guna2HtmlLabel2.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel2.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel2.ForeColor = Color.FromArgb(95, 71, 204);
-            guna2HtmlLabel2.Location = new Point(201, 20);
+            guna2HtmlLabel2.Location = new Point(172, 11);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(256, 43);
+            guna2HtmlLabel2.Size = new Size(315, 52);
             guna2HtmlLabel2.TabIndex = 2;
             guna2HtmlLabel2.Text = "Hệ Thống Quản Lí ";
             // 
@@ -476,10 +479,11 @@
             button_Print.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             button_Print.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
             button_Print.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            button_Print.FillColor2 = Color.Purple;
+            button_Print.FillColor = Color.Navy;
+            button_Print.FillColor2 = Color.Indigo;
             button_Print.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
             button_Print.ForeColor = Color.White;
-            button_Print.Location = new Point(209, 796);
+            button_Print.Location = new Point(124, 796);
             button_Print.Margin = new Padding(2);
             button_Print.Name = "button_Print";
             button_Print.ShadowDecoration.CustomizableEdges = customizableEdges6;
@@ -497,9 +501,11 @@
             guna2GradientButton1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             guna2GradientButton1.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
             guna2GradientButton1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2GradientButton1.FillColor = Color.Navy;
+            guna2GradientButton1.FillColor2 = Color.Indigo;
             guna2GradientButton1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
             guna2GradientButton1.ForeColor = Color.White;
-            guna2GradientButton1.Location = new Point(350, 796);
+            guna2GradientButton1.Location = new Point(281, 796);
             guna2GradientButton1.Margin = new Padding(2);
             guna2GradientButton1.Name = "guna2GradientButton1";
             guna2GradientButton1.ShadowDecoration.CustomizableEdges = customizableEdges8;
@@ -508,11 +514,34 @@
             guna2GradientButton1.Text = "Hủy";
             guna2GradientButton1.Click += guna2GradientButton1_Click;
             // 
+            // button_QRPay
+            // 
+            button_QRPay.BorderRadius = 20;
+            button_QRPay.CustomizableEdges = customizableEdges9;
+            button_QRPay.DisabledState.BorderColor = Color.DarkGray;
+            button_QRPay.DisabledState.CustomBorderColor = Color.DarkGray;
+            button_QRPay.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            button_QRPay.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
+            button_QRPay.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            button_QRPay.FillColor = Color.Navy;
+            button_QRPay.FillColor2 = Color.Purple;
+            button_QRPay.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            button_QRPay.ForeColor = Color.White;
+            button_QRPay.Location = new Point(434, 796);
+            button_QRPay.Margin = new Padding(2);
+            button_QRPay.Name = "button_QRPay";
+            button_QRPay.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            button_QRPay.Size = new Size(100, 47);
+            button_QRPay.TabIndex = 3;
+            button_QRPay.Text = "QR Pay";
+            button_QRPay.Click += button_QRPay_Click_1;
+            // 
             // Invoice_Print
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(660, 854);
+            Controls.Add(button_QRPay);
             Controls.Add(guna2GradientButton1);
             Controls.Add(button_Print);
             Controls.Add(guna2GradientPanel1);
@@ -561,5 +590,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel lbl_TongDonHang;
         private Guna.UI2.WinForms.Guna2GradientButton button_Print;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
+        private Guna.UI2.WinForms.Guna2GradientButton button_QRPay;
     }
 }
