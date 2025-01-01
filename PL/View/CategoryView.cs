@@ -63,6 +63,10 @@ namespace PL.View
         {
             CategoryAdd categoryAdd = new CategoryAdd();
             categoryAdd.ShowDialog();
+            if(categoryAdd.DialogResult == DialogResult.OK)
+            {
+                LoadCategoryToGridViewFunction();
+            }
         }
 
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

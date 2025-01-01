@@ -39,6 +39,10 @@ namespace PL.View
         {
             ProductAdd productAdd = new ProductAdd();
             productAdd.ShowDialog();
+            if(productAdd.DialogResult == DialogResult.OK)
+            {
+                LoadProductsToGridViewFunction();
+            }
 
         }
 
@@ -220,6 +224,7 @@ namespace PL.View
                     {
                         Console.WriteLine($"CellFormatting error: {ex.Message}");
                     }
+
                 };
 
 

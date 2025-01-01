@@ -97,8 +97,14 @@ namespace PL.Model
                     }
                 }
 
+                if(product.QuantityInStock == 0)
+                {
+                    MessageBox.Show("Sản phẩm đã hết hàng!");
+                    return;
+                }
+
                 // Nếu sản phẩm chưa có trong giỏ hàng, thêm mới
-                if (!isProductInCart)
+                else if (!isProductInCart)
                 {
                     // Thêm sản phẩm vào DataGridView (lưu ý thêm ProductID, Name, Quantity, CostPrice, Price, Amount)
                     dataGridViewCart.Rows.Add(product.Name, product.ProductID, 1, product.Price, product.Price, product.CostPrice, product.CostPrice);
