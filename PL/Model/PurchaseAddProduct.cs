@@ -17,10 +17,14 @@ namespace PL.Model
             dataGridViewCart.CellClick += AddToCartForClickImageCellClick;
             dataGridViewCart.CellClick += SubtractToCartCellClick;
             ConfigureFlowLayoutPanel();
+            txtsearch.TextChanged += txtsearch_TextChanged;
 
         }
         private void ConfigureFlowLayoutPanel()
         {
+
+
+            // Bật tính năng cuộn
             flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.HorizontalScroll.Enabled = false;
             flowLayoutPanel1.HorizontalScroll.Visible = false;
@@ -67,7 +71,23 @@ namespace PL.Model
 
         private void txtsearch_TextChanged(object sender, EventArgs e)
         {
-
+            string searchText = txtsearch.Text.ToLower();
+            foreach (Control control in flowLayoutPanel1.Controls) // Changed guna2Panel1 to flowLayoutPanel1
+            {
+                if (control is Panel productPanel)
+                {
+                    bool isVisible = false;
+                    foreach (Control panelControl in productPanel.Controls)
+                    {
+                        if (panelControl is Label productNameLabel && productNameLabel.Text.ToLower().Contains(searchText))
+                        {
+                            isVisible = true;
+                            break;
+                        }
+                    }
+                    productPanel.Visible = isVisible;
+                }
+            }
         }
 
         private void guna2HtmlLabel3_Click(object sender, EventArgs e)

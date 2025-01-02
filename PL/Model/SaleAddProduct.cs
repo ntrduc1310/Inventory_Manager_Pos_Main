@@ -18,7 +18,7 @@ namespace PL.Model
             ConfigureFlowLayoutPanel();
             dataGridViewCart.CellClick += AddToCartForClickImageCellClick;
             dataGridViewCart.CellClick += SubtractToCartCellClick;
-
+            txt_Search.TextChanged += txt_Search_TextChanged;
         }
         private void ConfigureFlowLayoutPanel()
         {
@@ -474,7 +474,15 @@ namespace PL.Model
 
         private void txt_Search_TextChanged(object sender, EventArgs e)
         {
-
+            string searchText = txt_Search.Text.ToLower();
+            foreach (Control control in flowLayoutPanel1.Controls)
+            {
+                if (control is Panel productPanel)
+                {
+                    Label productName = productPanel.Controls.OfType<Label>().FirstOrDefault(lbl => lbl.Text.ToLower().Contains(searchText));
+                    productPanel.Visible = productName != null;
+                }
+            }
         }
 
         private void guna2Panel3_Paint(object sender, PaintEventArgs e)

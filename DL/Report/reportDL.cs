@@ -145,6 +145,6 @@ namespace DL.Report
                 return (orderCount, totalSale, totalCostPrice);
             }
         }
-        
+
     }
 }
