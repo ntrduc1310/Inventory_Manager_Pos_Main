@@ -54,7 +54,12 @@ namespace PL.View
             guna2DataGridView1.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
             guna2DataGridView1.BorderStyle = BorderStyle.None;
 
+            guna2DataGridView1.Scroll += Guna2DataGridView1_Scroll;
 
+        }
+        private void Guna2DataGridView1_Scroll(object sender, ScrollEventArgs e)
+        {
+            Console.WriteLine($"Scrolled: Orientation={e.ScrollOrientation}, NewValue={e.NewValue}");
         }
 
         private void SupplierView_Load(object sender, EventArgs e)
