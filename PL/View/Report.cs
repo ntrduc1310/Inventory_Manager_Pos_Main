@@ -50,7 +50,7 @@ namespace PL.View
             listBox1.Items.Clear(); // Xóa dữ liệu cũ
             foreach (var order in sales)
             {
-                listBox1.Items.Add($"Mã đơn hàng: {order.SaleID}, Ngày bán: {order.SaleDate}, Tổng tiền: {order.TotalAmount}");
+                listBox1.Items.Add($"Mã đơn hàng: {order.SaleID}, Ngày bán: {order.SaleDate.Date.ToShortDateString()}, Tổng tiền: {order.TotalAmount}");
             }
 
             // Nếu không có đơn hàng nào
@@ -68,7 +68,7 @@ namespace PL.View
             listBox1.Items.Clear(); // Xóa dữ liệu cũ
             foreach (var order in sales)
             {
-                listBox1.Items.Add($"Mã đơn hàng: {order.SaleID}, Ngày bán: {order.SaleDate}, Tổng tiền: {order.TotalAmount}");
+                listBox1.Items.Add($"Mã đơn hàng: {order.SaleID}, Ngày bán: {order.SaleDate.Date.ToShortDateString()}, Tổng tiền: {order.TotalAmount}");
             }
 
             // Nếu không có đơn hàng nào
@@ -76,7 +76,6 @@ namespace PL.View
             {
                 listBox1.Items.Add("Không có đơn hàng nào trong ngày được chọn.");
             }
-
         }
 
         private async void LoadSales30Date()
@@ -87,7 +86,7 @@ namespace PL.View
             listBox1.Items.Clear(); // Xóa dữ liệu cũ
             foreach (var order in sales)
             {
-                listBox1.Items.Add($"Mã đơn hàng: {order.SaleID}, Ngày bán: {order.SaleDate}, Tổng tiền: {order.TotalAmount}");
+                listBox1.Items.Add($"Mã đơn hàng: {order.SaleID}, Ngày bán: {order.SaleDate.Date.ToShortDateString()}, Tổng tiền: {order.TotalAmount}");
             }
 
             // Nếu không có đơn hàng nào
@@ -222,7 +221,7 @@ namespace PL.View
             listBox1.Items.Clear(); // Xóa dữ liệu cũ
             foreach (var order in sales)
             {
-                listBox1.Items.Add($"Mã đơn hàng: {order.SaleID}, Ngày bán: {order.SaleDate}, Tổng tiền: {order.TotalAmount}");
+                listBox1.Items.Add($"Mã đơn hàng: {order.SaleID}, Ngày bán: {order.SaleDate.Date.ToShortDateString()}, Tổng tiền: {order.TotalAmount}");
             }
 
             // Nếu không có đơn hàng nào
