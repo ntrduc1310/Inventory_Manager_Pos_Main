@@ -26,10 +26,6 @@ namespace PL.View
             guna2DataGridView1.CellFormatting += guna2DataGridView1_CellFormatting_Sr;
             guna2DataGridView1.CellClick += guna2DataGridView1_CellClick_Print;
             txtsearch.TextChanged += txtsearch_TextChanged;
-
-
-
-
         }
         private void ConfigureDataGridView()
         {

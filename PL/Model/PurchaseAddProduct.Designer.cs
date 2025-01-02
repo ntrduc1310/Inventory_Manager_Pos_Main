@@ -40,6 +40,7 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -98,7 +99,7 @@
             btn_Close.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btn_Close.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btn_Close.FillColor = Color.Firebrick;
-            btn_Close.Font = new Font("Segoe UI", 9F);
+            btn_Close.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             btn_Close.ForeColor = Color.White;
             btn_Close.Location = new Point(266, 25);
             btn_Close.Name = "btn_Close";
@@ -120,7 +121,7 @@
             btn_Save.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btn_Save.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btn_Save.FillColor = Color.FromArgb(95, 71, 204);
-            btn_Save.Font = new Font("Segoe UI", 9F);
+            btn_Save.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             btn_Save.ForeColor = Color.White;
             btn_Save.Location = new Point(62, 25);
             btn_Save.Name = "btn_Save";
@@ -134,7 +135,7 @@
             // 
             txtsearch.AutoRoundedCorners = true;
             txtsearch.BorderColor = Color.Transparent;
-            txtsearch.BorderRadius = 22;
+            txtsearch.BorderRadius = 25;
             txtsearch.CustomizableEdges = customizableEdges5;
             txtsearch.DefaultText = "";
             txtsearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -147,14 +148,14 @@
             txtsearch.IconLeft = (Image)resources.GetObject("txtsearch.IconLeft");
             txtsearch.IconLeftOffset = new Point(2, 0);
             txtsearch.IconLeftSize = new Size(30, 30);
-            txtsearch.Location = new Point(755, 143);
+            txtsearch.Location = new Point(1112, 143);
             txtsearch.Margin = new Padding(3, 4, 3, 4);
             txtsearch.Name = "txtsearch";
             txtsearch.PasswordChar = '\0';
-            txtsearch.PlaceholderText = "Type into search";
+            txtsearch.PlaceholderText = "Tìm Kiếm";
             txtsearch.SelectedText = "";
             txtsearch.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            txtsearch.Size = new Size(250, 46);
+            txtsearch.Size = new Size(250, 53);
             txtsearch.TabIndex = 5;
             txtsearch.TextOffset = new Point(10, 0);
             txtsearch.TextChanged += txtsearch_TextChanged;
@@ -163,7 +164,7 @@
             // 
             guna2HtmlLabel2.BackColor = Color.Transparent;
             guna2HtmlLabel2.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel2.Location = new Point(755, 109);
+            guna2HtmlLabel2.Location = new Point(1112, 109);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             guna2HtmlLabel2.Size = new Size(79, 25);
             guna2HtmlLabel2.TabIndex = 4;
@@ -174,7 +175,7 @@
             cb_Supplier.AutoRoundedCorners = true;
             cb_Supplier.BackColor = Color.Transparent;
             cb_Supplier.BorderColor = Color.Transparent;
-            cb_Supplier.BorderRadius = 22;
+            cb_Supplier.BorderRadius = 25;
             cb_Supplier.CustomizableEdges = customizableEdges7;
             cb_Supplier.DrawMode = DrawMode.OwnerDrawFixed;
             cb_Supplier.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -183,11 +184,11 @@
             cb_Supplier.Font = new Font("Segoe UI", 10F);
             cb_Supplier.ForeColor = Color.Gray;
             cb_Supplier.HoverState.BorderColor = Color.FromArgb(96, 71, 204);
-            cb_Supplier.ItemHeight = 40;
+            cb_Supplier.ItemHeight = 47;
             cb_Supplier.Location = new Point(29, 143);
             cb_Supplier.Name = "cb_Supplier";
             cb_Supplier.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            cb_Supplier.Size = new Size(205, 46);
+            cb_Supplier.Size = new Size(230, 53);
             cb_Supplier.TabIndex = 31;
             cb_Supplier.SelectedIndexChanged += cb_Supplier_SelectedIndexChanged;
             // 
@@ -229,13 +230,22 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dataGridViewCart.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewCart.GridColor = Color.FromArgb(194, 201, 231);
-            dataGridViewCart.Location = new Point(1164, 278);
+            dataGridViewCart.Location = new Point(1010, 278);
             dataGridViewCart.Margin = new Padding(2);
             dataGridViewCart.Name = "dataGridViewCart";
+            dataGridViewCart.ReadOnly = true;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dataGridViewCart.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewCart.RowHeadersVisible = false;
             dataGridViewCart.RowHeadersWidth = 62;
             dataGridViewCart.RowTemplate.Height = 33;
-            dataGridViewCart.Size = new Size(379, 538);
+            dataGridViewCart.Size = new Size(533, 538);
             dataGridViewCart.TabIndex = 32;
             dataGridViewCart.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Indigo;
             dataGridViewCart.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(197, 203, 232);
@@ -251,7 +261,7 @@
             dataGridViewCart.ThemeStyle.HeaderStyle.ForeColor = Color.White;
             dataGridViewCart.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCart.ThemeStyle.HeaderStyle.Height = 52;
-            dataGridViewCart.ThemeStyle.ReadOnly = false;
+            dataGridViewCart.ThemeStyle.ReadOnly = true;
             dataGridViewCart.ThemeStyle.RowsStyle.BackColor = Color.FromArgb(216, 220, 239);
             dataGridViewCart.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewCart.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
@@ -263,16 +273,18 @@
             // 
             // dgvProductName
             // 
-            dgvProductName.FillWeight = 88.57001F;
+            dgvProductName.FillWeight = 77.17069F;
             dgvProductName.HeaderText = "Sản Phẩm";
-            dgvProductName.MinimumWidth = 8;
+            dgvProductName.MinimumWidth = 70;
             dgvProductName.Name = "dgvProductName";
+            dgvProductName.ReadOnly = true;
             // 
             // dgvId
             // 
             dgvId.HeaderText = "";
             dgvId.MinimumWidth = 8;
             dgvId.Name = "dgvId";
+            dgvId.ReadOnly = true;
             dgvId.Visible = false;
             // 
             // dgvSupplierId
@@ -280,46 +292,52 @@
             dgvSupplierId.HeaderText = "";
             dgvSupplierId.MinimumWidth = 8;
             dgvSupplierId.Name = "dgvSupplierId";
+            dgvSupplierId.ReadOnly = true;
             dgvSupplierId.Visible = false;
             // 
             // dgvQuantity
             // 
-            dgvQuantity.FillWeight = 52.1720047F;
-            dgvQuantity.HeaderText = "Số Lượng";
-            dgvQuantity.MinimumWidth = 8;
+            dgvQuantity.FillWeight = 30F;
+            dgvQuantity.HeaderText = "SL";
+            dgvQuantity.MinimumWidth = 40;
             dgvQuantity.Name = "dgvQuantity";
+            dgvQuantity.ReadOnly = true;
             // 
             // dgvPrice
             // 
-            dgvPrice.FillWeight = 36.87609F;
+            dgvPrice.FillWeight = 70F;
             dgvPrice.HeaderText = "Giá";
-            dgvPrice.MinimumWidth = 8;
+            dgvPrice.MinimumWidth = 70;
             dgvPrice.Name = "dgvPrice";
+            dgvPrice.ReadOnly = true;
             // 
             // dgvAmount
             // 
-            dgvAmount.FillWeight = 29.494854F;
+            dgvAmount.FillWeight = 70F;
             dgvAmount.HeaderText = "Tổng";
-            dgvAmount.MinimumWidth = 8;
+            dgvAmount.MinimumWidth = 70;
             dgvAmount.Name = "dgvAmount";
+            dgvAmount.ReadOnly = true;
             // 
             // dgvAdd
             // 
-            dgvAdd.FillWeight = 25.3842239F;
+            dgvAdd.FillWeight = 22.1171741F;
             dgvAdd.HeaderText = "";
             dgvAdd.Image = Properties.Resources.icons8_add_50;
             dgvAdd.ImageLayout = DataGridViewImageCellLayout.Zoom;
             dgvAdd.MinimumWidth = 20;
             dgvAdd.Name = "dgvAdd";
+            dgvAdd.ReadOnly = true;
             // 
             // dgvSubtract
             // 
-            dgvSubtract.FillWeight = 27.8439751F;
+            dgvSubtract.FillWeight = 24.2603436F;
             dgvSubtract.HeaderText = "";
             dgvSubtract.Image = Properties.Resources.icons8_minus_50;
             dgvSubtract.ImageLayout = DataGridViewImageCellLayout.Zoom;
             dgvSubtract.MinimumWidth = 20;
             dgvSubtract.Name = "dgvSubtract";
+            dgvSubtract.ReadOnly = true;
             // 
             // guna2GradientPanel1
             // 
@@ -330,11 +348,11 @@
             guna2GradientPanel1.CustomizableEdges = customizableEdges9;
             guna2GradientPanel1.FillColor = Color.FromArgb(95, 71, 204);
             guna2GradientPanel1.FillColor2 = Color.FromArgb(95, 71, 204);
-            guna2GradientPanel1.Location = new Point(1164, 218);
+            guna2GradientPanel1.Location = new Point(1010, 218);
             guna2GradientPanel1.Margin = new Padding(2);
             guna2GradientPanel1.Name = "guna2GradientPanel1";
             guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            guna2GradientPanel1.Size = new Size(379, 56);
+            guna2GradientPanel1.Size = new Size(533, 56);
             guna2GradientPanel1.TabIndex = 33;
             guna2GradientPanel1.Paint += guna2GradientPanel1_Paint;
             // 
@@ -381,7 +399,7 @@
             cb_CreatedBy.AutoRoundedCorners = true;
             cb_CreatedBy.BackColor = Color.Transparent;
             cb_CreatedBy.BorderColor = Color.Transparent;
-            cb_CreatedBy.BorderRadius = 22;
+            cb_CreatedBy.BorderRadius = 25;
             cb_CreatedBy.CustomizableEdges = customizableEdges13;
             cb_CreatedBy.DrawMode = DrawMode.OwnerDrawFixed;
             cb_CreatedBy.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -390,11 +408,11 @@
             cb_CreatedBy.Font = new Font("Segoe UI", 10F);
             cb_CreatedBy.ForeColor = Color.Gray;
             cb_CreatedBy.HoverState.BorderColor = Color.FromArgb(96, 71, 204);
-            cb_CreatedBy.ItemHeight = 40;
-            cb_CreatedBy.Location = new Point(256, 143);
+            cb_CreatedBy.ItemHeight = 47;
+            cb_CreatedBy.Location = new Point(355, 143);
             cb_CreatedBy.Name = "cb_CreatedBy";
             cb_CreatedBy.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            cb_CreatedBy.Size = new Size(205, 46);
+            cb_CreatedBy.Size = new Size(230, 53);
             cb_CreatedBy.TabIndex = 39;
             cb_CreatedBy.SelectedIndexChanged += cb_CreatedBy_SelectedIndexChanged;
             // 
@@ -402,7 +420,7 @@
             // 
             guna2HtmlLabel4.BackColor = Color.Transparent;
             guna2HtmlLabel4.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
-            guna2HtmlLabel4.Location = new Point(256, 112);
+            guna2HtmlLabel4.Location = new Point(355, 112);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             guna2HtmlLabel4.Size = new Size(89, 27);
             guna2HtmlLabel4.TabIndex = 38;
@@ -412,7 +430,7 @@
             // 
             txt_notes.AutoRoundedCorners = true;
             txt_notes.BorderColor = Color.Transparent;
-            txt_notes.BorderRadius = 22;
+            txt_notes.BorderRadius = 25;
             txt_notes.CustomizableEdges = customizableEdges15;
             txt_notes.DefaultText = "";
             txt_notes.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -422,14 +440,14 @@
             txt_notes.FocusedState.BorderColor = Color.FromArgb(95, 71, 204);
             txt_notes.Font = new Font("Segoe UI", 9F);
             txt_notes.HoverState.BorderColor = Color.FromArgb(95, 71, 204);
-            txt_notes.Location = new Point(488, 143);
+            txt_notes.Location = new Point(693, 143);
             txt_notes.Margin = new Padding(3, 4, 3, 4);
             txt_notes.Name = "txt_notes";
             txt_notes.PasswordChar = '\0';
-            txt_notes.PlaceholderText = "";
+            txt_notes.PlaceholderText = "Nhập Ghi Chú (Nếu Có)";
             txt_notes.SelectedText = "";
             txt_notes.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            txt_notes.Size = new Size(205, 46);
+            txt_notes.Size = new Size(312, 53);
             txt_notes.TabIndex = 40;
             txt_notes.Tag = "v";
             txt_notes.TextOffset = new Point(10, 0);
@@ -439,7 +457,7 @@
             // 
             guna2HtmlLabel5.BackColor = Color.Transparent;
             guna2HtmlLabel5.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
-            guna2HtmlLabel5.Location = new Point(505, 112);
+            guna2HtmlLabel5.Location = new Point(693, 112);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             guna2HtmlLabel5.Size = new Size(68, 27);
             guna2HtmlLabel5.TabIndex = 41;
@@ -487,9 +505,9 @@
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Location = new Point(3, 228);
+            flowLayoutPanel1.Location = new Point(3, 218);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1157, 598);
+            flowLayoutPanel1.Size = new Size(1002, 598);
             flowLayoutPanel1.TabIndex = 43;
             // 
             // PurchaseAddProduct
@@ -546,6 +564,8 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
         public Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         public Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private FlowLayoutPanel flowLayoutPanel1;
         private DataGridViewTextBoxColumn dgvProductName;
         private DataGridViewTextBoxColumn dgvId;
         private DataGridViewTextBoxColumn dgvSupplierId;
@@ -554,7 +574,5 @@
         private DataGridViewTextBoxColumn dgvAmount;
         private DataGridViewImageColumn dgvAdd;
         private DataGridViewImageColumn dgvSubtract;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
-        private FlowLayoutPanel flowLayoutPanel1;
     }
 }

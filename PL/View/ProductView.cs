@@ -30,6 +30,7 @@ namespace PL.View
             txtsearch.TextChanged += txtsearch_TextChanged;
             guna2DataGridView1.CellFormatting += guna2DataGridView1_CellFormatting_Sr;
             ConfigureDataGridView();
+            
 
         }
         private void ConfigureDataGridView()
@@ -58,8 +59,24 @@ namespace PL.View
             guna2DataGridView1.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
             guna2DataGridView1.BorderStyle = BorderStyle.None;
 
+            // Thiết lập ScrollBars để tránh xung đột
+            guna2DataGridView1.ScrollBars = ScrollBars.Both;
 
+            // Đảm bảo không gây xung đột khi scroll
+            guna2DataGridView1.AllowUserToResizeRows = false;
+            guna2DataGridView1.AllowUserToResizeColumns = false;
+
+            // Đăng ký sự kiện Scroll để kiểm tra
+            guna2DataGridView1.Scroll += Guna2DataGridView1_Scroll;
         }
+
+        private void Guna2DataGridView1_Scroll(object sender, ScrollEventArgs e)
+        {
+            Console.WriteLine($"Scrolled: Orientation={e.ScrollOrientation}, NewValue={e.NewValue}");
+        }
+
+
+
         private void ProductView_Load(object sender, EventArgs e)
         {
         }

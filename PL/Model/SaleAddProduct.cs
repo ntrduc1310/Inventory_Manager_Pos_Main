@@ -22,7 +22,7 @@ namespace PL.Model
         }
         private void ConfigureFlowLayoutPanel()
         {
-          
+
 
             // Bật tính năng cuộn
             flowLayoutPanel1.AutoScroll = true;
@@ -73,7 +73,7 @@ namespace PL.Model
                 costPrice += Convert.ToDecimal(row.Cells["dgvTotalCostPrice"].Value);
             }
             // Hiển thị tổng tiền lên giao diện
-            lbl_Total.Text = total.ToString("C");
+            lbl_Total.Text = total.ToString("N0") + " VNĐ";
             total_Amount = total;
             totalCostPrice = costPrice;
         }
@@ -111,7 +111,7 @@ namespace PL.Model
                     }
                 }
 
-                if(product.QuantityInStock == 0)
+                if (product.QuantityInStock == 0)
                 {
                     MessageBox.Show("Sản phẩm đã hết hàng!");
                     return;
@@ -249,7 +249,7 @@ namespace PL.Model
             flowLayoutPanel1.Controls.Clear(); // Xóa các controls cũ nếu có
 
             var products = await new ProductsBL().LoadProducts();
-          
+
             foreach (var product in products)
             {
                 // Main product panel
@@ -430,7 +430,7 @@ namespace PL.Model
                 this.Close();
             }
 
-            if(cb_Invoice.Text.Equals("Có"))
+            if (cb_Invoice.Text.Equals("Có"))
             {
                 var invoice = await new InvoiceBL().SaleIdGetInvoice(saleId);
                 Invoice_Print invoice_Print = new Invoice_Print(invoice);
@@ -488,6 +488,11 @@ namespace PL.Model
         }
 
         private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_Total_Click(object sender, EventArgs e)
         {
 
         }

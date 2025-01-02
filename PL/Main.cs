@@ -162,8 +162,7 @@ namespace PL
 
         private void CenterPanel_Paint(object sender, PaintEventArgs e)
         {
-            DashBoard dashboard = new DashBoard();
-            LoadFormIntoPanelCenter(dashboard);
+           
         }
 
         private void guna2Panel3_Paint(object sender, PaintEventArgs e)

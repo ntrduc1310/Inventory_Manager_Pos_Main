@@ -141,11 +141,11 @@
             lbl_turnover.BackColor = Color.Transparent;
             lbl_turnover.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_turnover.ForeColor = Color.Transparent;
-            lbl_turnover.Location = new Point(135, 62);
+            lbl_turnover.Location = new Point(135, 79);
             lbl_turnover.Name = "lbl_turnover";
-            lbl_turnover.Size = new Size(74, 39);
+            lbl_turnover.Size = new Size(35, 39);
             lbl_turnover.TabIndex = 14;
-            lbl_turnover.Text = "00.00";
+            lbl_turnover.Text = "00";
             // 
             // guna2GradientPanel2
             // 
@@ -236,18 +236,18 @@
             lbl_TotalCostPrice.BackColor = Color.Transparent;
             lbl_TotalCostPrice.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_TotalCostPrice.ForeColor = Color.Transparent;
-            lbl_TotalCostPrice.Location = new Point(168, 62);
+            lbl_TotalCostPrice.Location = new Point(157, 62);
             lbl_TotalCostPrice.Name = "lbl_TotalCostPrice";
-            lbl_TotalCostPrice.Size = new Size(74, 39);
+            lbl_TotalCostPrice.Size = new Size(35, 39);
             lbl_TotalCostPrice.TabIndex = 13;
-            lbl_TotalCostPrice.Text = "00.00";
+            lbl_TotalCostPrice.Text = "00";
             // 
             // guna2HtmlLabel3
             // 
             guna2HtmlLabel3.BackColor = Color.Transparent;
             guna2HtmlLabel3.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel3.ForeColor = SystemColors.ButtonHighlight;
-            guna2HtmlLabel3.Location = new Point(168, 17);
+            guna2HtmlLabel3.Location = new Point(157, 17);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             guna2HtmlLabel3.Size = new Size(54, 39);
             guna2HtmlLabel3.TabIndex = 1;
@@ -368,9 +368,9 @@
             lbl_Quantity.ForeColor = Color.Transparent;
             lbl_Quantity.Location = new Point(141, 84);
             lbl_Quantity.Name = "lbl_Quantity";
-            lbl_Quantity.Size = new Size(74, 39);
+            lbl_Quantity.Size = new Size(35, 39);
             lbl_Quantity.TabIndex = 12;
-            lbl_Quantity.Text = "00.00";
+            lbl_Quantity.Text = "00";
             // 
             // guna2GradientPanel5
             // 

@@ -60,7 +60,7 @@ namespace DL.Report
                                     .ToListAsync();
             }
         }
-
+        
         public async Task<(int OrderCount, decimal TotalSale, decimal TotalCostPrice)> GetSalesSummaryTodayDL()
         {
             using (var context = new DataProviderEntity())
@@ -145,6 +145,6 @@ namespace DL.Report
                 return (orderCount, totalSale, totalCostPrice);
             }
         }
-
+        
     }
 }

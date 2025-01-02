@@ -21,28 +21,27 @@ namespace PL.Model
         }
         private void ConfigureFlowLayoutPanel()
         {
-
-
-            // Bật tính năng cuộn
             flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.HorizontalScroll.Enabled = false;
             flowLayoutPanel1.HorizontalScroll.Visible = false;
             flowLayoutPanel1.VerticalScroll.Enabled = true;
             flowLayoutPanel1.VerticalScroll.Visible = true;
 
-            // Cấu hình hiển thị
             flowLayoutPanel1.WrapContents = true;
             flowLayoutPanel1.FlowDirection = FlowDirection.LeftToRight;
-            flowLayoutPanel1.AutoSize = false; // Không cho panel tự động mở rộng
+            flowLayoutPanel1.AutoSize = false;
 
-            // Thiết lập padding và margin
             flowLayoutPanel1.Padding = new Padding(10);
             flowLayoutPanel1.Margin = new Padding(0);
 
-            // Thiết lập style
             flowLayoutPanel1.BorderStyle = BorderStyle.FixedSingle;
             flowLayoutPanel1.BackColor = Color.White;
+
+           
         }
+
+        
+        
 
         private async void LoadToComboBox(object sender, EventArgs e)
         {
@@ -84,7 +83,7 @@ namespace PL.Model
                 total += Convert.ToDecimal(row.Cells["dgvAmount"].Value);
             }
             // Hiển thị tổng tiền lên giao diện
-            lbl_Total.Text = total.ToString("C");
+            lbl_Total.Text = total.ToString("N0") + " VNĐ";
             total_Amount = total;
         }
 
@@ -236,14 +235,6 @@ namespace PL.Model
                 SubtractToCart(productId);
             }
         }
-
-
-
-
-
-
-
-
         private async void cb_Supplier_select(object sender, EventArgs e)
         {
             // Kiểm tra nếu có giá trị được chọn trong ComboBox
@@ -283,13 +274,13 @@ namespace PL.Model
                         productName.Text = product.Name;
                         productName.TextAlign = ContentAlignment.MiddleCenter;
                         productName.Dock = DockStyle.Bottom;
-                        Font boldFont = new Font(productName.Font.FontFamily, 9, FontStyle.Bold);
+                        Font boldFont = new Font(productName.Font.FontFamily, 10, FontStyle.Bold);
                         productName.Font = boldFont;
                         productPanel.Controls.Add(productName);
 
                         // Tạo Label hiển thị giá sản phẩm
                         Label productPrice = new Label();
-                        productPrice.Text = product.CostPrice.ToString("C2"); // Định dạng thành tiền tệ
+                        productPrice.Text = product.CostPrice.ToString("N0") + " VNĐ"; // Định dạng thành tiền tệ
                         productPrice.TextAlign = ContentAlignment.MiddleCenter;
                         productPrice.Dock = DockStyle.Bottom;
                         productPrice.Font = boldFont;
@@ -332,58 +323,66 @@ namespace PL.Model
         {
             flowLayoutPanel1.Controls.Clear(); // Xóa các controls cũ nếu có
 
-            var products = await new PurchaseBL().LoadProductFromSupplier(1);
-            //var products = await new ProductsBL().LoadProducts();
+            // Tải toàn bộ sản phẩm từ cơ sở dữ liệu
+            var products = await new ProductsBL().LoadProducts();
+
             foreach (var product in products)
             {
-                // Main product panel
-                Panel productPanel = new Panel();
-                productPanel.Width = 150;
-                productPanel.Height = 200;
-                productPanel.Padding = new Padding(5);
-                productPanel.BackColor = Color.White;
-                productPanel.BorderStyle = BorderStyle.FixedSingle;
+                // Tạo Panel chính chứa thông tin sản phẩm
+                Panel productPanel = new Panel
+                {
+                    Width = 150,
+                    Height = 200,
+                    Padding = new Padding(5),
+                    BackColor = Color.White,
+                    BorderStyle = BorderStyle.FixedSingle
+                };
 
-                // Product Image
-                PictureBox productImage = new PictureBox();
-                productImage.Width = 100;
-                productImage.Height = 100;
-                productImage.SizeMode = PictureBoxSizeMode.Zoom;
-                productImage.Location = new Point((productPanel.Width - productImage.Width) / 2, 10);
+                // Hình ảnh sản phẩm
+                PictureBox productImage = new PictureBox
+                {
+                    Width = 100,
+                    Height = 100,
+                    SizeMode = PictureBoxSizeMode.Zoom,
+                    Location = new Point((productPanel.Width - 100) / 2, 10)
+                };
+
                 if (!string.IsNullOrEmpty(product.Image) && File.Exists(product.Image))
                 {
                     productImage.Image = Image.FromFile(product.Image);
                 }
                 productPanel.Controls.Add(productImage);
 
-                // Product name
-                Label productName = new Label();
-                productName.Text = product.Name;
-                productName.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-                productName.TextAlign = ContentAlignment.MiddleCenter;
-                productName.Size = new Size(productPanel.Width - 10, 25);
-                productName.Location = new Point(5, productImage.Bottom + 10);
+                // Tên sản phẩm
+                Label productName = new Label
+                {
+                    Text = product.Name,
+                    Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    Size = new Size(productPanel.Width - 10, 25),
+                    Location = new Point(5, productImage.Bottom + 10)
+                };
                 productPanel.Controls.Add(productName);
 
-                // Price
-                Label productPrice = new Label();
-                productPrice.Text = product.Price.ToString("N0") + " VNĐ"; // Thêm đơn vị tiền tệ
-                productPrice.Font = new Font("Segoe UI", 12, FontStyle.Bold);
-                productPrice.ForeColor = Color.FromArgb(94, 71, 204); // Màu tím theo yêu cầu
-                productPrice.TextAlign = ContentAlignment.MiddleCenter;
-                productPrice.Size = new Size(productPanel.Width - 10, 25);
-                productPrice.Location = new Point(5, productName.Bottom + 5);
+                // Giá sản phẩm
+                Label productPrice = new Label
+                {
+                    Text = product.Price.ToString("N0") + " VNĐ",
+                    Font = new Font("Segoe UI", 12, FontStyle.Bold),
+                    ForeColor = Color.FromArgb(94, 71, 204),
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    Size = new Size(productPanel.Width - 10, 25),
+                    Location = new Point(5, productName.Bottom + 5)
+                };
                 productPanel.Controls.Add(productPrice);
 
-                // Add click event to the entire panel and all controls
+                // Gắn sự kiện thêm vào giỏ hàng
                 var controls = new List<Control> { productPanel, productName, productPrice, productImage };
                 foreach (var control in controls)
                 {
                     control.Click += (s, evt) => AddToCart(product.ProductID);
                     control.Cursor = Cursors.Hand;
                 }
-
-
                 // Hiệu ứng hover với màu tím nhạt
                 Color hoverColor = Color.FromArgb(235, 232, 247); // Màu tím nhạt khi hover
                 productPanel.MouseEnter += (s, evt) =>
@@ -402,12 +401,13 @@ namespace PL.Model
                         control.BackColor = Color.White;
                     }
                 };
+
                 // Thêm sản phẩm vào FlowLayoutPanel
                 flowLayoutPanel1.Controls.Add(productPanel);
-
-
             }
         }
+
+
 
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
         {
