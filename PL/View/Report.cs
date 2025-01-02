@@ -187,7 +187,7 @@ namespace PL.View
                     DateTime endDate = endDatePicker.Value.Date;
 
                     // Gọi hàm lấy báo cáo dữ liệu theo khoảng ngày
-                    var report = await new BL.Report.reportBL().GetSalesSummaryByDateRangeBL(startDate,endDate);
+                    var report = await new BL.Report.reportBL().GetSalesSummaryByDateRangeBL(startDate, endDate);
 
                     // Cập nhật các thông số lên UI
                     lbl_turnover.Text = report.TotalSale.ToString();
@@ -217,7 +217,7 @@ namespace PL.View
         private async void LoadSalesByDateRange(DateTime startDate, DateTime endDate)
         {
             // Lấy danh sách đơn hàng theo khoảng ngày
-            var sales = await new BL.Report.reportBL().SaleByDateBL(startDate,endDate);
+            var sales = await new BL.Report.reportBL().SaleByDateBL(startDate, endDate);
             // Hiển thị danh sách trong ListBox
             listBox1.Items.Clear(); // Xóa dữ liệu cũ
             foreach (var order in sales)

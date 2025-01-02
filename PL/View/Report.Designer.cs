@@ -183,11 +183,11 @@
             lbl_Profit.BackColor = Color.Transparent;
             lbl_Profit.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_Profit.ForeColor = Color.Transparent;
-            lbl_Profit.Location = new Point(123, 59);
+            lbl_Profit.Location = new Point(123, 81);
             lbl_Profit.Name = "lbl_Profit";
-            lbl_Profit.Size = new Size(74, 39);
+            lbl_Profit.Size = new Size(35, 39);
             lbl_Profit.TabIndex = 12;
-            lbl_Profit.Text = "00.00";
+            lbl_Profit.Text = "00";
             // 
             // guna2HtmlLabel2
             // 
@@ -236,7 +236,7 @@
             lbl_TotalCostPrice.BackColor = Color.Transparent;
             lbl_TotalCostPrice.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_TotalCostPrice.ForeColor = Color.Transparent;
-            lbl_TotalCostPrice.Location = new Point(157, 62);
+            lbl_TotalCostPrice.Location = new Point(157, 84);
             lbl_TotalCostPrice.Name = "lbl_TotalCostPrice";
             lbl_TotalCostPrice.Size = new Size(35, 39);
             lbl_TotalCostPrice.TabIndex = 13;
