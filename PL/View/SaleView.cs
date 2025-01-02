@@ -20,6 +20,7 @@ namespace PL.View
         public SaleView()
         {
             InitializeComponent();
+            ConfigureDataGridView();
             this.Load += loadToSaleView;
             guna2DataGridView1.CellClick += guna2DataGridView1_CellClick;
             //guna2DataGridView1.CellClick += DgvCellClickImageColumn;
@@ -30,6 +31,52 @@ namespace PL.View
 
 
 
+        }
+        private void ConfigureDataGridView()
+        {
+            // Cấu hình cơ bản cho DGV
+            guna2DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            guna2DataGridView1.ColumnHeadersHeight = 40;
+            guna2DataGridView1.RowTemplate.Height = 60;
+
+            // Theme và màu sắc mới (94,71,204)
+            guna2DataGridView1.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+            guna2DataGridView1.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(94, 71, 204);
+            guna2DataGridView1.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            guna2DataGridView1.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+
+            // Style cho rows
+            guna2DataGridView1.ThemeStyle.RowsStyle.BackColor = Color.White;
+            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(245, 243, 252); // màu nhạt của tím
+            guna2DataGridView1.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
+            guna2DataGridView1.ThemeStyle.RowsStyle.ForeColor = Color.Black;
+            guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(235, 232, 247); // màu tím nhạt khi select
+            guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = Color.Black;
+
+            // Border và Grid
+            guna2DataGridView1.ThemeStyle.BackColor = Color.White;
+            guna2DataGridView1.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
+            guna2DataGridView1.BorderStyle = BorderStyle.None;
+
+            // Căn chỉnh các cột đặc biệt
+            foreach (DataGridViewColumn column in guna2DataGridView1.Columns)
+            {
+                switch (column.Name)
+                {
+                    case "dgvAmount":
+                        column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                        column.DefaultCellStyle.Format = "N0";
+                        column.DefaultCellStyle.Padding = new Padding(0, 0, 10, 0); // Thêm padding bên phải
+                        break;
+                    case "dgvDate":
+                        column.DefaultCellStyle.Format = "dd/MM/yyyy";
+                        break;
+                    case "dgvAllInformation":
+                    case "dgvPrintInvoice":
+                        column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        break;
+                }
+            }
         }
 
         private void PurchaseView_Load(object sender, EventArgs e)
@@ -130,6 +177,15 @@ namespace PL.View
             {
                 // Gán số thứ tự cho cột "#Sr"
                 e.Value = (e.RowIndex + 1).ToString();
+            }
+            // Format cột số tiền
+            if (e.ColumnIndex == guna2DataGridView1.Columns["dgvAmount"].Index && e.Value != null)
+            {
+                if (decimal.TryParse(e.Value.ToString(), out decimal amount))
+                {
+                    e.Value = amount.ToString("N0") + " đ";
+                    e.FormattingApplied = true;
+                }
             }
         }
 

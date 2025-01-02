@@ -28,6 +28,7 @@ namespace PL.View
             guna2DataGridView1.CellClick += guna2DataGridView1_CellClick_delete;
             guna2DataGridView1.CellClick += guna2DataGridView1_AllInformation;
             txtsearch.TextChanged += txtsearch_TextChanged;
+            guna2DataGridView1.CellFormatting += guna2DataGridView1_CellFormatting_Sr;
 
         }
 
@@ -68,7 +69,15 @@ namespace PL.View
             }
         }
 
-
+        private void guna2DataGridView1_CellFormatting_Sr(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == guna2DataGridView1.Columns["dgvSr"].Index)
+            {
+                // Gán số thứ tự cho cột "#Sr"
+                e.Value = (e.RowIndex + 1).ToString();
+            }
+            
+        }
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 

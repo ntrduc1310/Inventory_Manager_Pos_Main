@@ -130,7 +130,7 @@
             guna2Panel1.Controls.Add(guna2HtmlLabel5);
             guna2Panel1.CustomizableEdges = customizableEdges3;
             guna2Panel1.FillColor = Color.FromArgb(95, 71, 204);
-            guna2Panel1.Location = new Point(723, 216);
+            guna2Panel1.Location = new Point(1166, 218);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2Panel1.Size = new Size(379, 56);
@@ -188,13 +188,13 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dataGridViewCart.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewCart.GridColor = Color.FromArgb(194, 201, 231);
-            dataGridViewCart.Location = new Point(723, 278);
+            dataGridViewCart.Location = new Point(1166, 278);
             dataGridViewCart.Name = "dataGridViewCart";
             dataGridViewCart.ReadOnly = true;
             dataGridViewCart.RowHeadersVisible = false;
             dataGridViewCart.RowHeadersWidth = 51;
             dataGridViewCart.RowTemplate.Height = 35;
-            dataGridViewCart.Size = new Size(379, 412);
+            dataGridViewCart.Size = new Size(379, 538);
             dataGridViewCart.TabIndex = 5;
             dataGridViewCart.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             dataGridViewCart.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -307,7 +307,7 @@
             flowLayoutPanel1.BackColor = Color.White;
             flowLayoutPanel1.Location = new Point(3, 218);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(718, 472);
+            flowLayoutPanel1.Size = new Size(1157, 598);
             flowLayoutPanel1.TabIndex = 4;
             flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 
@@ -439,10 +439,10 @@
             guna2Panel2.CustomizableEdges = customizableEdges13;
             guna2Panel2.Dock = DockStyle.Bottom;
             guna2Panel2.FillColor = Color.Gainsboro;
-            guna2Panel2.Location = new Point(0, 696);
+            guna2Panel2.Location = new Point(0, 822);
             guna2Panel2.Name = "guna2Panel2";
             guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            guna2Panel2.Size = new Size(1102, 86);
+            guna2Panel2.Size = new Size(1545, 86);
             guna2Panel2.TabIndex = 44;
             // 
             // guna2HtmlLabel2
@@ -487,7 +487,7 @@
             guna2Panel3.Location = new Point(0, 0);
             guna2Panel3.Name = "guna2Panel3";
             guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            guna2Panel3.Size = new Size(1102, 82);
+            guna2Panel3.Size = new Size(1545, 82);
             guna2Panel3.TabIndex = 48;
             guna2Panel3.Paint += guna2Panel3_Paint;
             // 
@@ -554,7 +554,8 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1102, 782);
+            ClientSize = new Size(1545, 908);
+            Controls.Add(dataGridViewCart);
             Controls.Add(cb_Invoice);
             Controls.Add(guna2HtmlLabel7);
             Controls.Add(guna2Panel3);
@@ -566,7 +567,6 @@
             Controls.Add(txt_Search);
             Controls.Add(guna2HtmlLabel4);
             Controls.Add(flowLayoutPanel1);
-            Controls.Add(dataGridViewCart);
             Controls.Add(guna2Panel1);
             Controls.Add(cb_Customer);
             Controls.Add(guna2HtmlLabel1);

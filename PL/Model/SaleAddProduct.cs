@@ -1,20 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using BL.Sale;
+﻿using BL.Invoice;
 using BL.ProductsBL;
-using DTO.Products;
-using DTO.Sale;
-using BL.Purchase;
+using BL.Sale;
 using PL.View;
-using static Azure.Core.HttpHeader;
-using DTO.Invoice;
-using BL.Invoice;
-using DL.Sale;
-using Guna.UI2.WinForms;
 
 namespace PL.Model
 {
@@ -28,9 +15,36 @@ namespace PL.Model
             InitializeComponent();
             this.Load += LoadCustomers;  // Load khách hàng vào ComboBox
             this.Load += LoadProducts;   // Load sản phẩm vào Panel
+            ConfigureFlowLayoutPanel();
             dataGridViewCart.CellClick += AddToCartForClickImageCellClick;
             dataGridViewCart.CellClick += SubtractToCartCellClick;
+
         }
+        private void ConfigureFlowLayoutPanel()
+        {
+          
+
+            // Bật tính năng cuộn
+            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.HorizontalScroll.Enabled = false;
+            flowLayoutPanel1.HorizontalScroll.Visible = false;
+            flowLayoutPanel1.VerticalScroll.Enabled = true;
+            flowLayoutPanel1.VerticalScroll.Visible = true;
+
+            // Cấu hình hiển thị
+            flowLayoutPanel1.WrapContents = true;
+            flowLayoutPanel1.FlowDirection = FlowDirection.LeftToRight;
+            flowLayoutPanel1.AutoSize = false; // Không cho panel tự động mở rộng
+
+            // Thiết lập padding và margin
+            flowLayoutPanel1.Padding = new Padding(10);
+            flowLayoutPanel1.Margin = new Padding(0);
+
+            // Thiết lập style
+            flowLayoutPanel1.BorderStyle = BorderStyle.FixedSingle;
+            flowLayoutPanel1.BackColor = Color.White;
+        }
+
 
         // Load danh sách khách hàng vào ComboBox
         private async void LoadCustomers(object sender, EventArgs e)
@@ -231,7 +245,11 @@ namespace PL.Model
 
         private async void LoadProducts(object sender, EventArgs e)
         {
+
+            flowLayoutPanel1.Controls.Clear(); // Xóa các controls cũ nếu có
+
             var products = await new ProductsBL().LoadProducts();
+          
             foreach (var product in products)
             {
                 // Main product panel
@@ -257,7 +275,7 @@ namespace PL.Model
                 // Product name
                 Label productName = new Label();
                 productName.Text = product.Name;
-                productName.Font = new Font("Arial", 10, FontStyle.Bold);
+                productName.Font = new Font("Segoe UI", 10, FontStyle.Bold);
                 productName.TextAlign = ContentAlignment.MiddleCenter;
                 productName.Size = new Size(productPanel.Width - 10, 25);
                 productName.Location = new Point(5, productImage.Bottom + 10);
@@ -265,8 +283,9 @@ namespace PL.Model
 
                 // Price
                 Label productPrice = new Label();
-                productPrice.Text = product.Price.ToString("N0"); // Just the number without currency
-                productPrice.Font = new Font("Arial", 12, FontStyle.Bold);
+                productPrice.Text = product.Price.ToString("N0") + " VNĐ"; // Thêm đơn vị tiền tệ
+                productPrice.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+                productPrice.ForeColor = Color.FromArgb(94, 71, 204); // Màu tím theo yêu cầu
                 productPrice.TextAlign = ContentAlignment.MiddleCenter;
                 productPrice.Size = new Size(productPanel.Width - 10, 25);
                 productPrice.Location = new Point(5, productName.Bottom + 5);
@@ -280,21 +299,30 @@ namespace PL.Model
                     control.Cursor = Cursors.Hand;
                 }
 
-                // Add hover effect
+
+                // Hiệu ứng hover với màu tím nhạt
+                Color hoverColor = Color.FromArgb(235, 232, 247); // Màu tím nhạt khi hover
                 productPanel.MouseEnter += (s, evt) =>
                 {
-                    productPanel.BackColor = Color.FromArgb(245, 245, 245);
+                    productPanel.BackColor = hoverColor;
+                    foreach (Control control in productPanel.Controls)
+                    {
+                        control.BackColor = hoverColor;
+                    }
                 };
                 productPanel.MouseLeave += (s, evt) =>
                 {
                     productPanel.BackColor = Color.White;
+                    foreach (Control control in productPanel.Controls)
+                    {
+                        control.BackColor = Color.White;
+                    }
                 };
 
                 // Add the product panel to the flow layout
                 flowLayoutPanel1.Controls.Add(productPanel);
             }
         }
-
 
         // Lưu đơn hàng
         private async void btn_Save_Click(object sender, EventArgs e)
