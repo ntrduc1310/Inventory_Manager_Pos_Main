@@ -146,5 +146,40 @@ namespace DL.Report
             }
         }
 
+        public async Task<List<SaleClass>> SaleByDateDL(DateTime fromDate, DateTime toDate)
+        {
+            using (var context = new DataProviderEntity())
+            {
+                // Truy vấn các đơn hàng trong khoảng thời gian từ fromDate đến toDate
+                return await context.Sale
+                                    .Where(order => order.SaleDate.Date >= fromDate && order.SaleDate.Date <= toDate && order.Status == "Hoàn thành")
+                                    .ToListAsync();
+            }
+        }
+
+        public async Task<(int OrderCount, decimal TotalSale, decimal TotalCostPrice)> GetSalesSummaryByDateRangeDL(DateTime fromDate, DateTime toDate)
+        {
+            using (var context = new DataProviderEntity())
+            {
+                // Truy vấn các đơn hàng trong khoảng thời gian từ fromDate đến toDate
+                var ordersInRange = await context.Sale
+                                                 .Where(order => order.SaleDate.Date >= fromDate &&
+                                                                 order.SaleDate.Date <= toDate &&
+                                                                 order.Status == "Hoàn thành")
+                                                 .ToListAsync();
+
+                // Tính số lượng đơn hàng
+                int orderCount = ordersInRange.Count;
+
+                // Tính tổng doanh thu
+                decimal totalSale = ordersInRange.Sum(order => order.TotalAmount);
+
+                // Tính tổng giá vốn
+                decimal totalCostPrice = ordersInRange.Sum(order => order.totalCostPrice);
+
+                return (orderCount, totalSale, totalCostPrice);
+            }
+        }
+
     }
 }

@@ -131,9 +131,8 @@ namespace PL.View
                     break;
 
                 case 3:
-                    MessageBox.Show("Chọn khoảng ngày");
-                    // Thực hiện logic hiển thị chọn ngày
-                    //ShowDateRangePicker();
+                    //Thực hiện logic hiển thị chọn ngày
+                    ShowDateRangePicker();
                     break;
 
                 default:
@@ -152,62 +151,85 @@ namespace PL.View
 
         }
 
-        //private async void ShowDateRangePicker()
-        //{
-        //    // Hiển thị một hộp thoại chọn khoảng ngày
-        //    using (Form dateRangeForm = new Form())
-        //    {
-        //        // Thiết lập thuộc tính cho form
-        //        dateRangeForm.Text = "Chọn khoảng ngày";
-        //        dateRangeForm.StartPosition = FormStartPosition.CenterParent;
-        //        dateRangeForm.Width = 400;
-        //        dateRangeForm.Height = 300;
-        //        dateRangeForm.FormBorderStyle = FormBorderStyle.FixedDialog;
-        //        dateRangeForm.MaximizeBox = false;
-        //        dateRangeForm.MinimizeBox = false;
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
-        //        // Nhãn và picker cho ngày bắt đầu
-        //        sysLabel lblStartDate = new Label { Text = "Ngày bắt đầu:", Top = 20, Left = 20 };
-        //        DateTimePicker startDatePicker = new DateTimePicker { Top = 40, Left = 20, Width = 250 };
+        }
 
-        //        // Nhãn và picker cho ngày kết thúc
-        //        Label lblEndDate = new Label { Text = "Ngày kết thúc:", Top = 80, Left = 20 };
-        //        DateTimePicker endDatePicker = new DateTimePicker { Top = 100, Left = 20, Width = 250 };
+        private async void ShowDateRangePicker()
+        {
+            // Hiển thị một hộp thoại chọn khoảng ngày
+            using (Form dateRangeForm = new Form())
+            {
+                // Thiết lập thuộc tính cho form
+                dateRangeForm.Text = "Chọn khoảng ngày";
+                dateRangeForm.StartPosition = FormStartPosition.CenterParent;
+                dateRangeForm.Width = 400;
+                dateRangeForm.Height = 300;
+                dateRangeForm.FormBorderStyle = FormBorderStyle.FixedDialog;
+                dateRangeForm.MaximizeBox = false;
+                dateRangeForm.MinimizeBox = false;
 
-        //        // Nút OK để chọn ngày
-        //        Button btnOk = new Button { Text = "OK", Width = 80, Height = 40, Top = 160, Left = 20 };
-        //        btnOk.Click += async (s, e) =>
-        //        {
-        //            // Lấy giá trị khoảng ngày đã chọn
-        //            DateTime startDate = startDatePicker.Value.Date;
-        //            DateTime endDate = endDatePicker.Value.Date;
+                // Nhãn và picker cho ngày bắt đầu
+                Label lblStartDate = new Label { Text = "Ngày bắt đầu:", Top = 20, Left = 20 };
+                DateTimePicker startDatePicker = new DateTimePicker { Top = 40, Left = 20, Width = 250 };
 
-        //            // Gọi hàm lấy báo cáo dữ liệu theo khoảng ngày
-        //            var report2 = await new BL.Report.reportBL().GetSalesSummaryByDateRangeDL(startDate, endDate);
+                // Nhãn và picker cho ngày kết thúc
+                Label lblEndDate = new Label { Text = "Ngày kết thúc:", Top = 80, Left = 20 };
+                DateTimePicker endDatePicker = new DateTimePicker { Top = 100, Left = 20, Width = 250 };
 
-        //            // Cập nhật các thông số lên UI
-        //            lbl_turnover.Text = report2.TotalSale.ToString();
-        //            lbl_TotalCostPrice.Text = report2.TotalCostPrice.ToString();
-        //            lbl_Profit.Text = (report2.TotalSale - report2.TotalCostPrice).ToString();
-        //            lbl_Quantity.Text = report2.OrderCount.ToString();
+                // Nút OK để chọn ngày
+                Button btnOk = new Button { Text = "OK", Width = 80, Height = 40, Top = 160, Left = 20 };
+                btnOk.Click += async (s, e) =>
+                {
+                    // Lấy giá trị khoảng ngày đã chọn
+                    DateTime startDate = startDatePicker.Value.Date;
+                    DateTime endDate = endDatePicker.Value.Date;
 
-        //            // Hiển thị các đơn hàng trong khoảng ngày chọn
-        //            LoadSalesByDateRange(startDate, endDate);
+                    // Gọi hàm lấy báo cáo dữ liệu theo khoảng ngày
+                    var report = await new BL.Report.reportBL().GetSalesSummaryByDateRangeBL(startDate,endDate);
 
-        //            // Đóng form chọn khoảng ngày
-        //            dateRangeForm.Close();
-        //        };
+                    // Cập nhật các thông số lên UI
+                    lbl_turnover.Text = report.TotalSale.ToString();
+                    lbl_TotalCostPrice.Text = report.TotalCostPrice.ToString();
+                    lbl_Profit.Text = (report.TotalSale - report.TotalCostPrice).ToString();
+                    lbl_Quantity.Text = report.OrderCount.ToString();
 
-        //        // Thêm các điều khiển vào form
-        //        dateRangeForm.Controls.Add(lblStartDate);
-        //        dateRangeForm.Controls.Add(startDatePicker);
-        //        dateRangeForm.Controls.Add(lblEndDate);
-        //        dateRangeForm.Controls.Add(endDatePicker);
-        //        dateRangeForm.Controls.Add(btnOk);
+                    // Hiển thị các đơn hàng trong khoảng ngày chọn
+                    LoadSalesByDateRange(startDate, endDate);
 
-        //        // Hiển thị form
-        //        dateRangeForm.ShowDialog();
-        //    }
-        //}
+                    // Đóng form chọn khoảng ngày
+                    dateRangeForm.Close();
+                };
+
+                // Thêm các điều khiển vào form
+                dateRangeForm.Controls.Add(lblStartDate);
+                dateRangeForm.Controls.Add(startDatePicker);
+                dateRangeForm.Controls.Add(lblEndDate);
+                dateRangeForm.Controls.Add(endDatePicker);
+                dateRangeForm.Controls.Add(btnOk);
+
+                // Hiển thị form
+                dateRangeForm.ShowDialog();
+            }
+        }
+
+        private async void LoadSalesByDateRange(DateTime startDate, DateTime endDate)
+        {
+            // Lấy danh sách đơn hàng theo khoảng ngày
+            var sales = await new BL.Report.reportBL().SaleByDateBL(startDate,endDate);
+            // Hiển thị danh sách trong ListBox
+            listBox1.Items.Clear(); // Xóa dữ liệu cũ
+            foreach (var order in sales)
+            {
+                listBox1.Items.Add($"Mã đơn hàng: {order.SaleID}, Ngày bán: {order.SaleDate}, Tổng tiền: {order.TotalAmount}");
+            }
+
+            // Nếu không có đơn hàng nào
+            if (sales.Count == 0)
+            {
+                listBox1.Items.Add("Không có đơn hàng nào trong ngày được chọn.");
+            }
+        }
     }
 }

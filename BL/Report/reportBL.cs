@@ -86,5 +86,22 @@ namespace BL.Report
                 throw;
             }
         }
+
+        public async Task<List<SaleClass>> SaleByDateBL(DateTime fromDate, DateTime toDate)
+        {
+            try
+            {
+                return await _reportDL.SaleByDateDL(fromDate, toDate);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task<(int OrderCount, decimal TotalSale, decimal TotalCostPrice)> GetSalesSummaryByDateRangeBL(DateTime fromDate, DateTime toDate)
+        {
+            return await _reportDL.GetSalesSummaryByDateRangeDL(fromDate, toDate);
+        }
     }
 }
