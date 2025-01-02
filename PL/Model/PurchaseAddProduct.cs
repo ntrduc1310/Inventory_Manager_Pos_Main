@@ -2,6 +2,7 @@
 using BL.Purchase;
 using Guna.UI2.WinForms;
 using PL.View;
+using System.Windows.Forms;
 
 namespace PL.Model
 {
@@ -15,9 +16,32 @@ namespace PL.Model
             cb_Supplier.SelectedIndexChanged += cb_Supplier_select;
             dataGridViewCart.CellClick += AddToCartForClickImageCellClick;
             dataGridViewCart.CellClick += SubtractToCartCellClick;
-            txtsearch.TextChanged += txtsearch_TextChanged;
+            ConfigureFlowLayoutPanel();
+
+        }
+        private void ConfigureFlowLayoutPanel()
+        {
 
 
+            // Bật tính năng cuộn
+            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.HorizontalScroll.Enabled = false;
+            flowLayoutPanel1.HorizontalScroll.Visible = false;
+            flowLayoutPanel1.VerticalScroll.Enabled = true;
+            flowLayoutPanel1.VerticalScroll.Visible = true;
+
+            // Cấu hình hiển thị
+            flowLayoutPanel1.WrapContents = true;
+            flowLayoutPanel1.FlowDirection = FlowDirection.LeftToRight;
+            flowLayoutPanel1.AutoSize = false; // Không cho panel tự động mở rộng
+
+            // Thiết lập padding và margin
+            flowLayoutPanel1.Padding = new Padding(10);
+            flowLayoutPanel1.Margin = new Padding(0);
+
+            // Thiết lập style
+            flowLayoutPanel1.BorderStyle = BorderStyle.FixedSingle;
+            flowLayoutPanel1.BackColor = Color.White;
         }
 
         private async void LoadToComboBox(object sender, EventArgs e)
@@ -246,7 +270,7 @@ namespace PL.Model
                 {
                     var products = await new PurchaseBL().LoadProductFromSupplier(selectedSupplierId);
                     //var products = await new ProductsBL().LoadProducts();
-                    guna2Panel1.Controls.Clear();
+                    flowLayoutPanel1.Controls.Clear();
 
                     foreach (var product in products)
                     {
@@ -299,7 +323,7 @@ namespace PL.Model
                             };
                         }
                         // Thêm sản phẩm vào FlowLayoutPanel
-                        guna2Panel1.Controls.Add(productPanel);
+                        flowLayoutPanel1.Controls.Add(productPanel);
 
 
 
@@ -322,59 +346,80 @@ namespace PL.Model
 
         private async void LoadProducts(object sender, EventArgs e)
         {
+            flowLayoutPanel1.Controls.Clear(); // Xóa các controls cũ nếu có
+
             var products = await new PurchaseBL().LoadProductFromSupplier(1);
             //var products = await new ProductsBL().LoadProducts();
             foreach (var product in products)
             {
-                // Tạo Panel chứa thông tin sản phẩm
+                // Main product panel
                 Panel productPanel = new Panel();
-                productPanel.Width = 120;
-                productPanel.Height = 180;
-                //productPanel.Margin = new Padding(10);
-                productPanel.Padding = new Padding(0, 10, 0, 10);
-                productPanel.BorderStyle = BorderStyle.Fixed3D;
+                productPanel.Width = 150;
+                productPanel.Height = 200;
+                productPanel.Padding = new Padding(5);
+                productPanel.BackColor = Color.White;
+                productPanel.BorderStyle = BorderStyle.FixedSingle;
 
-                // Tạo PictureBox hiển thị hình ảnh sản phẩm
+                // Product Image
                 PictureBox productImage = new PictureBox();
                 productImage.Width = 100;
                 productImage.Height = 100;
                 productImage.SizeMode = PictureBoxSizeMode.Zoom;
+                productImage.Location = new Point((productPanel.Width - productImage.Width) / 2, 10);
                 if (!string.IsNullOrEmpty(product.Image) && File.Exists(product.Image))
                 {
                     productImage.Image = Image.FromFile(product.Image);
                 }
                 productPanel.Controls.Add(productImage);
 
-                // Tạo Label hiển thị tên sản phẩm
+                // Product name
                 Label productName = new Label();
                 productName.Text = product.Name;
+                productName.Font = new Font("Segoe UI", 10, FontStyle.Bold);
                 productName.TextAlign = ContentAlignment.MiddleCenter;
-                productName.Dock = DockStyle.Bottom;
-                Font boldFont = new Font(productName.Font.FontFamily, 9, FontStyle.Bold);
-                productName.Font = boldFont;
+                productName.Size = new Size(productPanel.Width - 10, 25);
+                productName.Location = new Point(5, productImage.Bottom + 10);
                 productPanel.Controls.Add(productName);
 
-                // Tạo Label hiển thị giá sản phẩm
+                // Price
                 Label productPrice = new Label();
-                productPrice.Text = product.CostPrice.ToString("C2"); // Định dạng thành tiền tệ
+                productPrice.Text = product.Price.ToString("N0") + " VNĐ"; // Thêm đơn vị tiền tệ
+                productPrice.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+                productPrice.ForeColor = Color.FromArgb(94, 71, 204); // Màu tím theo yêu cầu
                 productPrice.TextAlign = ContentAlignment.MiddleCenter;
-                productPrice.Dock = DockStyle.Bottom;
-                productPrice.Font = boldFont;
+                productPrice.Size = new Size(productPanel.Width - 10, 25);
+                productPrice.Location = new Point(5, productName.Bottom + 5);
                 productPanel.Controls.Add(productPrice);
 
-                // Thêm sự kiện khi click vào sản phẩm
+                // Add click event to the entire panel and all controls
                 var controls = new List<Control> { productPanel, productName, productPrice, productImage };
-
-                // Lặp qua các điều khiển và gắn sự kiện Click
                 foreach (var control in controls)
                 {
-                    control.Click += (s, e) =>
-                    {
-                        AddToCart(product.ProductID);
-                    };
+                    control.Click += (s, evt) => AddToCart(product.ProductID);
+                    control.Cursor = Cursors.Hand;
                 }
+
+
+                // Hiệu ứng hover với màu tím nhạt
+                Color hoverColor = Color.FromArgb(235, 232, 247); // Màu tím nhạt khi hover
+                productPanel.MouseEnter += (s, evt) =>
+                {
+                    productPanel.BackColor = hoverColor;
+                    foreach (Control control in productPanel.Controls)
+                    {
+                        control.BackColor = hoverColor;
+                    }
+                };
+                productPanel.MouseLeave += (s, evt) =>
+                {
+                    productPanel.BackColor = Color.White;
+                    foreach (Control control in productPanel.Controls)
+                    {
+                        control.BackColor = Color.White;
+                    }
+                };
                 // Thêm sản phẩm vào FlowLayoutPanel
-                guna2Panel1.Controls.Add(productPanel);
+                flowLayoutPanel1.Controls.Add(productPanel);
 
 
             }

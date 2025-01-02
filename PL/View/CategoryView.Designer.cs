@@ -148,6 +148,7 @@
             guna2DataGridView1.ReadOnly = true;
             guna2DataGridView1.RowHeadersVisible = false;
             guna2DataGridView1.RowHeadersWidth = 51;
+            guna2DataGridView1.ScrollBars = ScrollBars.Horizontal;
             guna2DataGridView1.Size = new Size(931, 393);
             guna2DataGridView1.TabIndex = 4;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
