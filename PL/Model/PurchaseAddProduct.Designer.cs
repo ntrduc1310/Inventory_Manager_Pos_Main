@@ -70,7 +70,6 @@
             guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             lbl_Total = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2Panel1 = new FlowLayoutPanel();
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             cb_CreatedBy = new Guna.UI2.WinForms.Guna2ComboBox();
             guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -79,6 +78,7 @@
             guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)dataGridViewCart).BeginInit();
             guna2GradientPanel1.SuspendLayout();
             guna2Panel2.SuspendLayout();
@@ -229,13 +229,13 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dataGridViewCart.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewCart.GridColor = Color.FromArgb(194, 201, 231);
-            dataGridViewCart.Location = new Point(723, 278);
+            dataGridViewCart.Location = new Point(1164, 278);
             dataGridViewCart.Margin = new Padding(2);
             dataGridViewCart.Name = "dataGridViewCart";
             dataGridViewCart.RowHeadersVisible = false;
             dataGridViewCart.RowHeadersWidth = 62;
             dataGridViewCart.RowTemplate.Height = 33;
-            dataGridViewCart.Size = new Size(379, 412);
+            dataGridViewCart.Size = new Size(379, 538);
             dataGridViewCart.TabIndex = 32;
             dataGridViewCart.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Indigo;
             dataGridViewCart.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(197, 203, 232);
@@ -330,7 +330,7 @@
             guna2GradientPanel1.CustomizableEdges = customizableEdges9;
             guna2GradientPanel1.FillColor = Color.FromArgb(95, 71, 204);
             guna2GradientPanel1.FillColor2 = Color.FromArgb(95, 71, 204);
-            guna2GradientPanel1.Location = new Point(723, 218);
+            guna2GradientPanel1.Location = new Point(1164, 218);
             guna2GradientPanel1.Margin = new Padding(2);
             guna2GradientPanel1.Name = "guna2GradientPanel1";
             guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges10;
@@ -363,16 +363,6 @@
             guna2HtmlLabel1.TabIndex = 34;
             guna2HtmlLabel1.Text = "Tổng giá ";
             // 
-            // guna2Panel1
-            // 
-            guna2Panel1.BackColor = SystemColors.Window;
-            guna2Panel1.Location = new Point(3, 218);
-            guna2Panel1.Margin = new Padding(2);
-            guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.Size = new Size(718, 472);
-            guna2Panel1.TabIndex = 34;
-            guna2Panel1.Paint += guna2Panel1_Paint_1;
-            // 
             // guna2Panel2
             // 
             guna2Panel2.Controls.Add(btn_Save);
@@ -380,10 +370,10 @@
             guna2Panel2.CustomizableEdges = customizableEdges11;
             guna2Panel2.Dock = DockStyle.Bottom;
             guna2Panel2.FillColor = Color.Gainsboro;
-            guna2Panel2.Location = new Point(0, 693);
+            guna2Panel2.Location = new Point(0, 819);
             guna2Panel2.Name = "guna2Panel2";
             guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            guna2Panel2.Size = new Size(1102, 89);
+            guna2Panel2.Size = new Size(1545, 89);
             guna2Panel2.TabIndex = 35;
             // 
             // cb_CreatedBy
@@ -466,7 +456,7 @@
             guna2Panel3.Location = new Point(0, 0);
             guna2Panel3.Name = "guna2Panel3";
             guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            guna2Panel3.Size = new Size(1102, 82);
+            guna2Panel3.Size = new Size(1545, 82);
             guna2Panel3.TabIndex = 42;
             // 
             // guna2PictureBox1
@@ -495,19 +485,26 @@
             guna2HtmlLabel6.TabIndex = 0;
             guna2HtmlLabel6.Text = "Nhập hàng";
             // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Location = new Point(3, 228);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(1157, 598);
+            flowLayoutPanel1.TabIndex = 43;
+            // 
             // PurchaseAddProduct
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(1102, 782);
+            ClientSize = new Size(1545, 908);
+            Controls.Add(flowLayoutPanel1);
             Controls.Add(guna2Panel3);
             Controls.Add(txt_notes);
             Controls.Add(guna2HtmlLabel5);
             Controls.Add(cb_CreatedBy);
             Controls.Add(guna2HtmlLabel4);
             Controls.Add(guna2Panel2);
-            Controls.Add(guna2Panel1);
             Controls.Add(guna2GradientPanel1);
             Controls.Add(dataGridViewCart);
             Controls.Add(cb_Supplier);
@@ -542,7 +539,6 @@
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel lbl_Total;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
-        private FlowLayoutPanel guna2Panel1;
         public Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2ComboBox cb_CreatedBy;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
@@ -559,5 +555,6 @@
         private DataGridViewImageColumn dgvAdd;
         private DataGridViewImageColumn dgvSubtract;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }

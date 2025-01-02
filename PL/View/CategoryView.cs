@@ -24,6 +24,39 @@ namespace PL.View
             guna2DataGridView1.CellFormatting += guna2DataGridView1_CellFormatting;
             guna2DataGridView1.CellClick += guna2DataGridView1_CellClick;
             guna2DataGridView1.CellClick += guna2DataGridView1_CellClick_delete;
+            ConfigureDataGridView();
+            guna2DataGridView1.ScrollBars = ScrollBars.Both;
+
+
+
+        }
+        private void ConfigureDataGridView()
+        {
+            // Cấu hình cơ bản cho DGV
+            guna2DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            guna2DataGridView1.ColumnHeadersHeight = 40;
+            guna2DataGridView1.RowTemplate.Height = 60;
+
+            // Theme và màu sắc mới (94,71,204)
+            guna2DataGridView1.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+            guna2DataGridView1.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(94, 71, 204);
+            guna2DataGridView1.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            guna2DataGridView1.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+
+            // Style cho rows
+            guna2DataGridView1.ThemeStyle.RowsStyle.BackColor = Color.White;
+            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(245, 243, 252); // màu nhạt của tím
+            guna2DataGridView1.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            guna2DataGridView1.ThemeStyle.RowsStyle.ForeColor = Color.Black;
+            guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(235, 232, 247); // màu tím nhạt khi select
+            guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = Color.Black;
+
+            // Border và Grid
+            guna2DataGridView1.ThemeStyle.BackColor = Color.White;
+            guna2DataGridView1.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
+            guna2DataGridView1.BorderStyle = BorderStyle.None;
+
+
         }
         private void loadGridView(object sender, EventArgs e)
         {

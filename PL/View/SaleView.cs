@@ -23,7 +23,6 @@ namespace PL.View
             ConfigureDataGridView();
             this.Load += loadToSaleView;
             guna2DataGridView1.CellClick += guna2DataGridView1_CellClick;
-            //guna2DataGridView1.CellClick += DgvCellClickImageColumn;
             guna2DataGridView1.CellFormatting += guna2DataGridView1_CellFormatting_Sr;
             guna2DataGridView1.CellClick += guna2DataGridView1_CellClick_Print;
             txtsearch.TextChanged += txtsearch_TextChanged;
@@ -48,7 +47,7 @@ namespace PL.View
             // Style cho rows
             guna2DataGridView1.ThemeStyle.RowsStyle.BackColor = Color.White;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(245, 243, 252); // màu nhạt của tím
-            guna2DataGridView1.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
+            guna2DataGridView1.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             guna2DataGridView1.ThemeStyle.RowsStyle.ForeColor = Color.Black;
             guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(235, 232, 247); // màu tím nhạt khi select
             guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = Color.Black;
@@ -58,25 +57,7 @@ namespace PL.View
             guna2DataGridView1.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
             guna2DataGridView1.BorderStyle = BorderStyle.None;
 
-            // Căn chỉnh các cột đặc biệt
-            foreach (DataGridViewColumn column in guna2DataGridView1.Columns)
-            {
-                switch (column.Name)
-                {
-                    case "dgvAmount":
-                        column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                        column.DefaultCellStyle.Format = "N0";
-                        column.DefaultCellStyle.Padding = new Padding(0, 0, 10, 0); // Thêm padding bên phải
-                        break;
-                    case "dgvDate":
-                        column.DefaultCellStyle.Format = "dd/MM/yyyy";
-                        break;
-                    case "dgvAllInformation":
-                    case "dgvPrintInvoice":
-                        column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                        break;
-                }
-            }
+            
         }
 
         private void PurchaseView_Load(object sender, EventArgs e)
