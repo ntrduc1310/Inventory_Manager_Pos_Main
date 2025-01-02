@@ -15,7 +15,7 @@ namespace PL.Model
             cb_Supplier.SelectedIndexChanged += cb_Supplier_select;
             dataGridViewCart.CellClick += AddToCartForClickImageCellClick;
             dataGridViewCart.CellClick += SubtractToCartCellClick;
-
+            txtsearch.TextChanged += txtsearch_TextChanged;
 
 
         }
@@ -44,7 +44,23 @@ namespace PL.Model
 
         private void txtsearch_TextChanged(object sender, EventArgs e)
         {
-
+            string searchText = txtsearch.Text.ToLower();
+            foreach (Control control in guna2Panel1.Controls)
+            {
+                if (control is Panel productPanel)
+                {
+                    bool isVisible = false;
+                    foreach (Control panelControl in productPanel.Controls)
+                    {
+                        if (panelControl is Label productNameLabel && productNameLabel.Text.ToLower().Contains(searchText))
+                        {
+                            isVisible = true;
+                            break;
+                        }
+                    }
+                    productPanel.Visible = isVisible;
+                }
+            }
         }
 
         private void guna2HtmlLabel3_Click(object sender, EventArgs e)
