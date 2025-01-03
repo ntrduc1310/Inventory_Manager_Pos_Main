@@ -35,8 +35,8 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SaleAddProduct));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SaleAddProduct));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -60,15 +60,6 @@
             lbl_Total = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             dataGridViewCart = new Guna.UI2.WinForms.Guna2DataGridView();
-            dgvProductName = new DataGridViewTextBoxColumn();
-            dgvId = new DataGridViewTextBoxColumn();
-            dgvQuantity = new DataGridViewTextBoxColumn();
-            dgvPrice = new DataGridViewTextBoxColumn();
-            dgvAmount = new DataGridViewTextBoxColumn();
-            dgvCostPrice = new DataGridViewTextBoxColumn();
-            dgvTotalCostPrice = new DataGridViewTextBoxColumn();
-            dgvAdd = new DataGridViewImageColumn();
-            dgvSubtract = new DataGridViewImageColumn();
             flowLayoutPanel1 = new FlowLayoutPanel();
             txt_Search = new Guna.UI2.WinForms.Guna2TextBox();
             guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -84,6 +75,15 @@
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             cb_Invoice = new Guna.UI2.WinForms.Guna2ComboBox();
             guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            dgvProductName = new DataGridViewTextBoxColumn();
+            dgvId = new DataGridViewTextBoxColumn();
+            dgvQuantity = new DataGridViewTextBoxColumn();
+            dgvPrice = new DataGridViewTextBoxColumn();
+            dgvAmount = new DataGridViewTextBoxColumn();
+            dgvCostPrice = new DataGridViewTextBoxColumn();
+            dgvTotalCostPrice = new DataGridViewTextBoxColumn();
+            dgvAdd = new DataGridViewImageColumn();
+            dgvSubtract = new DataGridViewImageColumn();
             guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewCart).BeginInit();
             guna2Panel2.SuspendLayout();
@@ -219,88 +219,6 @@
             dataGridViewCart.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewCart.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCart.CellContentClick += dataGridViewCart_CellContentClick;
-            // 
-            // dgvProductName
-            // 
-            dgvProductName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvProductName.FillWeight = 120F;
-            dgvProductName.HeaderText = "Sản Phẩm";
-            dgvProductName.MinimumWidth = 140;
-            dgvProductName.Name = "dgvProductName";
-            dgvProductName.ReadOnly = true;
-            // 
-            // dgvId
-            // 
-            dgvId.HeaderText = "ID";
-            dgvId.MinimumWidth = 100;
-            dgvId.Name = "dgvId";
-            dgvId.ReadOnly = true;
-            dgvId.Visible = false;
-            // 
-            // dgvQuantity
-            // 
-            dgvQuantity.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dgvQuantity.FillWeight = 80F;
-            dgvQuantity.HeaderText = "SL";
-            dgvQuantity.MinimumWidth = 80;
-            dgvQuantity.Name = "dgvQuantity";
-            dgvQuantity.ReadOnly = true;
-            dgvQuantity.Width = 80;
-            // 
-            // dgvPrice
-            // 
-            dgvPrice.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dgvPrice.HeaderText = "Giá";
-            dgvPrice.MinimumWidth = 100;
-            dgvPrice.Name = "dgvPrice";
-            dgvPrice.ReadOnly = true;
-            dgvPrice.Width = 125;
-            // 
-            // dgvAmount
-            // 
-            dgvAmount.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dgvAmount.HeaderText = "Tổng ";
-            dgvAmount.MinimumWidth = 100;
-            dgvAmount.Name = "dgvAmount";
-            dgvAmount.ReadOnly = true;
-            dgvAmount.Width = 125;
-            // 
-            // dgvCostPrice
-            // 
-            dgvCostPrice.HeaderText = "";
-            dgvCostPrice.MinimumWidth = 8;
-            dgvCostPrice.Name = "dgvCostPrice";
-            dgvCostPrice.ReadOnly = true;
-            dgvCostPrice.Visible = false;
-            // 
-            // dgvTotalCostPrice
-            // 
-            dgvTotalCostPrice.HeaderText = "";
-            dgvTotalCostPrice.MinimumWidth = 8;
-            dgvTotalCostPrice.Name = "dgvTotalCostPrice";
-            dgvTotalCostPrice.ReadOnly = true;
-            dgvTotalCostPrice.Visible = false;
-            // 
-            // dgvAdd
-            // 
-            dgvAdd.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dgvAdd.FillWeight = 50F;
-            dgvAdd.HeaderText = "";
-            dgvAdd.Image = (Image)resources.GetObject("dgvAdd.Image");
-            dgvAdd.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            dgvAdd.MinimumWidth = 50;
-            dgvAdd.Name = "dgvAdd";
-            dgvAdd.ReadOnly = true;
-            dgvAdd.Width = 50;
-            // 
-            // dgvSubtract
-            // 
-            dgvSubtract.HeaderText = "";
-            dgvSubtract.Image = Properties.Resources.z6147039092675_2b418c28f01e35951760454c1a1d3309;
-            dgvSubtract.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            dgvSubtract.MinimumWidth = 6;
-            dgvSubtract.Name = "dgvSubtract";
-            dgvSubtract.ReadOnly = true;
             // 
             // flowLayoutPanel1
             // 
@@ -548,6 +466,89 @@
             guna2HtmlLabel7.Size = new Size(123, 27);
             guna2HtmlLabel7.TabIndex = 50;
             guna2HtmlLabel7.Text = "Xuất Hóa  Đơn";
+            // 
+            // dgvProductName
+            // 
+            dgvProductName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvProductName.FillWeight = 120F;
+            dgvProductName.HeaderText = "Sản Phẩm";
+            dgvProductName.MinimumWidth = 140;
+            dgvProductName.Name = "dgvProductName";
+            dgvProductName.ReadOnly = true;
+            // 
+            // dgvId
+            // 
+            dgvId.HeaderText = "ID";
+            dgvId.MinimumWidth = 100;
+            dgvId.Name = "dgvId";
+            dgvId.ReadOnly = true;
+            dgvId.Visible = false;
+            // 
+            // dgvQuantity
+            // 
+            dgvQuantity.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dgvQuantity.FillWeight = 80F;
+            dgvQuantity.HeaderText = "SL";
+            dgvQuantity.MinimumWidth = 80;
+            dgvQuantity.Name = "dgvQuantity";
+            dgvQuantity.ReadOnly = true;
+            dgvQuantity.Width = 80;
+            // 
+            // dgvPrice
+            // 
+            dgvPrice.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dgvPrice.HeaderText = "Giá";
+            dgvPrice.MinimumWidth = 100;
+            dgvPrice.Name = "dgvPrice";
+            dgvPrice.ReadOnly = true;
+            dgvPrice.Width = 125;
+            // 
+            // dgvAmount
+            // 
+            dgvAmount.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dgvAmount.HeaderText = "Tổng ";
+            dgvAmount.MinimumWidth = 100;
+            dgvAmount.Name = "dgvAmount";
+            dgvAmount.ReadOnly = true;
+            dgvAmount.Width = 125;
+            // 
+            // dgvCostPrice
+            // 
+            dgvCostPrice.HeaderText = "";
+            dgvCostPrice.MinimumWidth = 8;
+            dgvCostPrice.Name = "dgvCostPrice";
+            dgvCostPrice.ReadOnly = true;
+            dgvCostPrice.Visible = false;
+            // 
+            // dgvTotalCostPrice
+            // 
+            dgvTotalCostPrice.HeaderText = "";
+            dgvTotalCostPrice.MinimumWidth = 8;
+            dgvTotalCostPrice.Name = "dgvTotalCostPrice";
+            dgvTotalCostPrice.ReadOnly = true;
+            dgvTotalCostPrice.Visible = false;
+            // 
+            // dgvAdd
+            // 
+            dgvAdd.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dgvAdd.FillWeight = 30F;
+            dgvAdd.HeaderText = "";
+            dgvAdd.Image = Properties.Resources.z6147039092781_0934f9c304b863b2c298d7f2e44baba5;
+            dgvAdd.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvAdd.MinimumWidth = 30;
+            dgvAdd.Name = "dgvAdd";
+            dgvAdd.ReadOnly = true;
+            dgvAdd.Width = 30;
+            // 
+            // dgvSubtract
+            // 
+            dgvSubtract.FillWeight = 30F;
+            dgvSubtract.HeaderText = "";
+            dgvSubtract.Image = Properties.Resources.z6147039092675_2b418c28f01e35951760454c1a1d3309;
+            dgvSubtract.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvSubtract.MinimumWidth = 30;
+            dgvSubtract.Name = "dgvSubtract";
+            dgvSubtract.ReadOnly = true;
             // 
             // SaleAddProduct
             // 

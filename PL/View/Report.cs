@@ -152,7 +152,7 @@ namespace PL.View
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+    
         }
 
         private async void ShowDateRangePicker()

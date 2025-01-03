@@ -141,48 +141,10 @@
   <metadata name="dgvAdd.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="dgvAdd.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
   <metadata name="dgvSubtract.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="txt_Search.IconLeft" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL

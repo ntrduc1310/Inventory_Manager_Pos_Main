@@ -56,10 +56,16 @@ namespace PL.View
 
         }
 
+        public static string NormalizeText(string input)
+        {
+            return string.IsNullOrEmpty(input) ? input : input.Normalize(NormalizationForm.FormC);
+        }
+
         private void loadGridviewFunction(object? sender, EventArgs e)
         {
             if (Invoice == null)
             {
+
                 MessageBox.Show("Dữ liệu hóa đơn không có sẵn.");
                 return;
             }
@@ -82,11 +88,12 @@ namespace PL.View
             // Thêm từng chi tiết sản phẩm như một hàng mới trong DataGridView
             for (int i = 0; i < productnameList.Length; i++)
             {
+                string productName = NormalizeText(productnameList[i]);
                 int quantity = int.Parse(productQuantityList[i]);
                 decimal price = decimal.Parse(productPriceList[i]);
                 decimal total = quantity * price;
 
-                guna2DataGridView1.Rows.Add(productnameList[i], price, quantity, total);
+                guna2DataGridView1.Rows.Add(productName, price, quantity, total);
             }
 
             lbl_MaDH.Text = "Mã Đơn Hàng: " + Invoice.SaleID.ToString();

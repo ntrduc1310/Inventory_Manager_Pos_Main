@@ -269,54 +269,79 @@ namespace PL.Model
 
                     foreach (var product in products)
                     {
-                        // Tạo Panel chứa thông tin sản phẩm
-                        Panel productPanel = new Panel();
-                        productPanel.Controls.Clear();
-                        productPanel.Width = 120;
-                        productPanel.Height = 180;
-                        //productPanel.Margin = new Padding(10);
-                        productPanel.Padding = new Padding(0, 10, 0, 10);
-                        productPanel.BorderStyle = BorderStyle.Fixed3D;
+                        // Tạo Panel chính chứa thông tin sản phẩm
+                        Panel productPanel = new Panel
+                        {
+                            Width = 150,
+                            Height = 200,
+                            Padding = new Padding(5),
+                            BackColor = Color.White,
+                            BorderStyle = BorderStyle.FixedSingle
+                        };
 
-                        // Tạo PictureBox hiển thị hình ảnh sản phẩm
-                        PictureBox productImage = new PictureBox();
-                        productImage.Width = 100;
-                        productImage.Height = 100;
-                        productImage.SizeMode = PictureBoxSizeMode.Zoom;
+                        // Hình ảnh sản phẩm
+                        PictureBox productImage = new PictureBox
+                        {
+                            Width = 100,
+                            Height = 100,
+                            SizeMode = PictureBoxSizeMode.Zoom,
+                            Location = new Point((productPanel.Width - 100) / 2, 10)
+                        };
+
                         if (!string.IsNullOrEmpty(product.Image) && File.Exists(product.Image))
                         {
                             productImage.Image = Image.FromFile(product.Image);
                         }
                         productPanel.Controls.Add(productImage);
 
-                        // Tạo Label hiển thị tên sản phẩm
-                        Label productName = new Label();
-                        productName.Text = product.Name;
-                        productName.TextAlign = ContentAlignment.MiddleCenter;
-                        productName.Dock = DockStyle.Bottom;
-                        Font boldFont = new Font(productName.Font.FontFamily, 10, FontStyle.Bold);
-                        productName.Font = boldFont;
+                        // Tên sản phẩm
+                        Label productName = new Label
+                        {
+                            Text = product.Name,
+                            Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                            TextAlign = ContentAlignment.MiddleCenter,
+                            Size = new Size(productPanel.Width - 10, 25),
+                            Location = new Point(5, productImage.Bottom + 10)
+                        };
                         productPanel.Controls.Add(productName);
 
-                        // Tạo Label hiển thị giá sản phẩm
-                        Label productPrice = new Label();
-                        productPrice.Text = product.CostPrice.ToString("N0") + " VNĐ"; // Định dạng thành tiền tệ
-                        productPrice.TextAlign = ContentAlignment.MiddleCenter;
-                        productPrice.Dock = DockStyle.Bottom;
-                        productPrice.Font = boldFont;
+                        // Giá sản phẩm
+                        Label productPrice = new Label
+                        {
+                            Text = product.Price.ToString("N0") + " VNĐ",
+                            Font = new Font("Segoe UI", 12, FontStyle.Bold),
+                            ForeColor = Color.FromArgb(94, 71, 204),
+                            TextAlign = ContentAlignment.MiddleCenter,
+                            Size = new Size(productPanel.Width - 10, 25),
+                            Location = new Point(5, productName.Bottom + 5)
+                        };
                         productPanel.Controls.Add(productPrice);
 
-                        // Thêm sự kiện khi click vào sản phẩm
+                        // Gắn sự kiện thêm vào giỏ hàng
                         var controls = new List<Control> { productPanel, productName, productPrice, productImage };
-
-                        // Lặp qua các điều khiển và gắn sự kiện Click
                         foreach (var control in controls)
                         {
-                            control.Click += (s, e) =>
-                            {
-                                AddToCart(product.ProductID);
-                            };
+                            control.Click += (s, evt) => AddToCart(product.ProductID);
+                            control.Cursor = Cursors.Hand;
                         }
+                        // Hiệu ứng hover với màu tím nhạt
+                        Color hoverColor = Color.FromArgb(235, 232, 247); // Màu tím nhạt khi hover
+                        productPanel.MouseEnter += (s, evt) =>
+                        {
+                            productPanel.BackColor = hoverColor;
+                            foreach (Control control in productPanel.Controls)
+                            {
+                                control.BackColor = hoverColor;
+                            }
+                        };
+                        productPanel.MouseLeave += (s, evt) =>
+                        {
+                            productPanel.BackColor = Color.White;
+                            foreach (Control control in productPanel.Controls)
+                            {
+                                control.BackColor = Color.White;
+                            }
+                        };
                         // Thêm sản phẩm vào FlowLayoutPanel
                         flowLayoutPanel1.Controls.Add(productPanel);
 

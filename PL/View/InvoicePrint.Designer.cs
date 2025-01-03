@@ -124,7 +124,7 @@
             lbl_TongTienTT.BackColor = Color.Transparent;
             lbl_TongTienTT.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lbl_TongTienTT.ForeColor = Color.FromArgb(94, 61, 204);
-            lbl_TongTienTT.Location = new Point(564, 749);
+            lbl_TongTienTT.Location = new Point(551, 745);
             lbl_TongTienTT.Margin = new Padding(2);
             lbl_TongTienTT.Name = "lbl_TongTienTT";
             lbl_TongTienTT.Size = new Size(44, 30);
@@ -136,7 +136,7 @@
             lbl_Thue.BackColor = Color.Transparent;
             lbl_Thue.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lbl_Thue.ForeColor = Color.FromArgb(94, 61, 204);
-            lbl_Thue.Location = new Point(564, 705);
+            lbl_Thue.Location = new Point(551, 705);
             lbl_Thue.Margin = new Padding(2);
             lbl_Thue.Name = "lbl_Thue";
             lbl_Thue.Size = new Size(44, 30);
@@ -148,7 +148,7 @@
             lbl_TongDonHang.BackColor = Color.Transparent;
             lbl_TongDonHang.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lbl_TongDonHang.ForeColor = Color.FromArgb(94, 61, 204);
-            lbl_TongDonHang.Location = new Point(564, 668);
+            lbl_TongDonHang.Location = new Point(551, 668);
             lbl_TongDonHang.Margin = new Padding(2);
             lbl_TongDonHang.Name = "lbl_TongDonHang";
             lbl_TongDonHang.Size = new Size(44, 30);
@@ -161,7 +161,7 @@
             guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.SlateBlue;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = Color.White;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
