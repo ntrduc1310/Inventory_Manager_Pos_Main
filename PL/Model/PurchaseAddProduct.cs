@@ -41,11 +41,11 @@ namespace PL.Model
             flowLayoutPanel1.BorderStyle = BorderStyle.FixedSingle;
             flowLayoutPanel1.BackColor = Color.White;
 
-           
+
         }
 
-        
-        
+
+
 
         private async void LoadToComboBox(object sender, EventArgs e)
         {
@@ -489,24 +489,34 @@ namespace PL.Model
             int supplierId = (int)cb_Supplier.SelectedValue;
             string createdBy = cb_CreatedBy.Text;
             string notes = txt_notes.Text;
-            bool result = await new BL.Purchase.PurchaseBL().addPurchase(supplierId, total_Amount, createdBy, notes);
-            if (result)
+
+            // Hỏi quản lý xác nhận đã nhận hàng chưa
+            DialogResult confirmResult = MessageBox.Show("Quản lý đã xác nhận nhận hàng chưa?", "Xác nhận", MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
             {
-                MessageBox.Show("Tạo đơn hàng thành công!");
-
-                foreach (DataGridViewRow row in dataGridViewCart.Rows)
+                bool result = await new BL.Purchase.PurchaseBL().addPurchase(supplierId, total_Amount, createdBy, notes);
+                if (result)
                 {
-                    if (row.Cells["dgvId"].Value != null && row.Cells["dgvQuantity"].Value != null)
-                    {
-                        int productId = Convert.ToInt32(row.Cells["dgvId"].Value);
-                        int quantity = Convert.ToInt32(row.Cells["dgvQuantity"].Value);
-                        // Add your logic here to handle productId and quantity
-                        bool resultAdd = await new ProductsBL().AddQuantityProduct(productId, quantity);
-                    }
-                }
+                    MessageBox.Show("Tạo đơn hàng thành công!");
 
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                    foreach (DataGridViewRow row in dataGridViewCart.Rows)
+                    {
+                        if (row.Cells["dgvId"].Value != null && row.Cells["dgvQuantity"].Value != null)
+                        {
+                            int productId = Convert.ToInt32(row.Cells["dgvId"].Value);
+                            int quantity = Convert.ToInt32(row.Cells["dgvQuantity"].Value);
+                            // Add your logic here to handle productId and quantity
+                            bool resultAdd = await new ProductsBL().AddQuantityProduct(productId, quantity);
+                        }
+                    }
+
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Quản lý chưa xác nhận nhận hàng. Không thể tạo đơn hàng.");
             }
         }
 
@@ -526,6 +536,10 @@ namespace PL.Model
         {
 
         }
-       
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

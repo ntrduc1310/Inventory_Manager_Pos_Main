@@ -54,8 +54,6 @@ namespace PL.Model
             cb_Customer.DataSource = customers;
             cb_Customer.DisplayMember = "Name";
             cb_Customer.ValueMember = "CustomerID";
-            cb_OnOff.Items.Add("Trực tiếp");
-            cb_OnOff.Items.Add("Trực tuyến");
             cb_Invoice.Items.Add("Có");
             cb_Invoice.Items.Add("Không");
 
@@ -372,10 +370,11 @@ namespace PL.Model
                 return;
             }
 
-            // Kiểm tra nếu chưa chọn hình thức mua hàng
-            if (string.IsNullOrEmpty(cb_OnOff.Text))
+            // Kiểm tra nếu chưa nhận tiền
+            var result = MessageBox.Show("Nhân viên hãy nhận tiền trước khi tạo đơn hàng!", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result != DialogResult.Yes)
             {
-                ShowGunaMessageDialog("Vui lòng chọn hình thức mua hàng!", "Thông báo", MessageDialogIcon.Warning);
+                ShowGunaMessageDialog("Vui lòng nhận tiền trước khi tạo đơn hàng!", "Thông báo", MessageDialogIcon.Warning);
                 return;
             }
 
@@ -396,7 +395,7 @@ namespace PL.Model
                 int customerId = (int)cb_Customer.SelectedValue;
                 string createdBy = Main.Instance.username_lbl.Text;
                 string notes = txt_notes.Text;
-                string status = cb_OnOff.Text.Equals("Trực tiếp") ? "Hoàn thành" : "Đang xử lý";
+                string status = "Hoàn thành";
 
                 // Danh sách sản phẩm
                 List<string> productNameList = new List<string>();
@@ -563,6 +562,11 @@ namespace PL.Model
         }
 
         private void lbl_Total_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cb_OnOff_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

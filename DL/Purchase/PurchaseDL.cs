@@ -115,7 +115,8 @@ namespace DL.Purchase
                         Status = "Hoàn thành",
                         CreatedBy = createdBy,
                         Notes = notes,
-                        CreatedAt = purchaseDate
+                        CreatedAt = DateTime.Now,
+                        PurchaseDate = DateTime.Now
 
                     };
                     // Thêm nhà cung cấp vào DbSet

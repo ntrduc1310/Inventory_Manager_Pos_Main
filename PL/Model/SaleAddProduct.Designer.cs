@@ -46,14 +46,12 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             cb_Customer = new Guna.UI2.WinForms.Guna2ComboBox();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
@@ -77,8 +75,6 @@
             txt_notes = new Guna.UI2.WinForms.Guna2TextBox();
             guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            cb_OnOff = new Guna.UI2.WinForms.Guna2ComboBox();
             guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -410,7 +406,7 @@
             txt_notes.FocusedState.BorderColor = Color.FromArgb(95, 71, 204);
             txt_notes.Font = new Font("Segoe UI", 9F);
             txt_notes.HoverState.BorderColor = Color.FromArgb(95, 71, 204);
-            txt_notes.Location = new Point(740, 144);
+            txt_notes.Location = new Point(530, 145);
             txt_notes.Margin = new Padding(3, 4, 3, 4);
             txt_notes.Name = "txt_notes";
             txt_notes.PasswordChar = '\0';
@@ -427,7 +423,7 @@
             // 
             guna2HtmlLabel6.BackColor = Color.Transparent;
             guna2HtmlLabel6.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
-            guna2HtmlLabel6.Location = new Point(740, 110);
+            guna2HtmlLabel6.Location = new Point(530, 111);
             guna2HtmlLabel6.Name = "guna2HtmlLabel6";
             guna2HtmlLabel6.Size = new Size(68, 27);
             guna2HtmlLabel6.TabIndex = 43;
@@ -446,48 +442,17 @@
             guna2Panel2.Size = new Size(1545, 86);
             guna2Panel2.TabIndex = 44;
             // 
-            // guna2HtmlLabel2
-            // 
-            guna2HtmlLabel2.BackColor = Color.Transparent;
-            guna2HtmlLabel2.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
-            guna2HtmlLabel2.Location = new Point(229, 113);
-            guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(182, 27);
-            guna2HtmlLabel2.TabIndex = 45;
-            guna2HtmlLabel2.Text = "Trực tiếp/ trực tuyến";
-            // 
-            // cb_OnOff
-            // 
-            cb_OnOff.AutoRoundedCorners = true;
-            cb_OnOff.BackColor = Color.Transparent;
-            cb_OnOff.BorderColor = Color.Black;
-            cb_OnOff.BorderRadius = 24;
-            cb_OnOff.CustomizableEdges = customizableEdges15;
-            cb_OnOff.DrawMode = DrawMode.OwnerDrawFixed;
-            cb_OnOff.DropDownStyle = ComboBoxStyle.DropDownList;
-            cb_OnOff.FocusedColor = Color.FromArgb(94, 148, 255);
-            cb_OnOff.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cb_OnOff.Font = new Font("Segoe UI", 10F);
-            cb_OnOff.ForeColor = Color.FromArgb(68, 88, 112);
-            cb_OnOff.ItemHeight = 45;
-            cb_OnOff.Location = new Point(238, 146);
-            cb_OnOff.Name = "cb_OnOff";
-            cb_OnOff.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            cb_OnOff.Size = new Size(173, 51);
-            cb_OnOff.Sorted = true;
-            cb_OnOff.TabIndex = 47;
-            // 
             // guna2Panel3
             // 
             guna2Panel3.Controls.Add(guna2PictureBox1);
             guna2Panel3.Controls.Add(guna2HtmlLabel3);
-            guna2Panel3.CustomizableEdges = customizableEdges19;
+            guna2Panel3.CustomizableEdges = customizableEdges17;
             guna2Panel3.Dock = DockStyle.Top;
             guna2Panel3.FillColor = Color.FromArgb(95, 71, 204);
             guna2Panel3.ForeColor = SystemColors.ControlText;
             guna2Panel3.Location = new Point(0, 0);
             guna2Panel3.Name = "guna2Panel3";
-            guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges18;
             guna2Panel3.Size = new Size(1545, 82);
             guna2Panel3.TabIndex = 48;
             guna2Panel3.Paint += guna2Panel3_Paint;
@@ -495,12 +460,12 @@
             // guna2PictureBox1
             // 
             guna2PictureBox1.BackColor = Color.Transparent;
-            guna2PictureBox1.CustomizableEdges = customizableEdges17;
+            guna2PictureBox1.CustomizableEdges = customizableEdges15;
             guna2PictureBox1.Image = (Image)resources.GetObject("guna2PictureBox1.Image");
             guna2PictureBox1.ImageRotate = 0F;
             guna2PictureBox1.Location = new Point(33, 3);
             guna2PictureBox1.Name = "guna2PictureBox1";
-            guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges16;
             guna2PictureBox1.Size = new Size(86, 66);
             guna2PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             guna2PictureBox1.TabIndex = 1;
@@ -524,7 +489,7 @@
             cb_Invoice.BackColor = Color.Transparent;
             cb_Invoice.BorderColor = Color.Black;
             cb_Invoice.BorderRadius = 24;
-            cb_Invoice.CustomizableEdges = customizableEdges21;
+            cb_Invoice.CustomizableEdges = customizableEdges19;
             cb_Invoice.DrawMode = DrawMode.OwnerDrawFixed;
             cb_Invoice.DropDownStyle = ComboBoxStyle.DropDownList;
             cb_Invoice.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -532,9 +497,9 @@
             cb_Invoice.Font = new Font("Segoe UI", 10F);
             cb_Invoice.ForeColor = Color.FromArgb(68, 88, 112);
             cb_Invoice.ItemHeight = 45;
-            cb_Invoice.Location = new Point(486, 146);
+            cb_Invoice.Location = new Point(252, 146);
             cb_Invoice.Name = "cb_Invoice";
-            cb_Invoice.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            cb_Invoice.ShadowDecoration.CustomizableEdges = customizableEdges20;
             cb_Invoice.Size = new Size(169, 51);
             cb_Invoice.Sorted = true;
             cb_Invoice.TabIndex = 49;
@@ -544,7 +509,7 @@
             // 
             guna2HtmlLabel7.BackColor = Color.Transparent;
             guna2HtmlLabel7.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
-            guna2HtmlLabel7.Location = new Point(486, 113);
+            guna2HtmlLabel7.Location = new Point(252, 113);
             guna2HtmlLabel7.Name = "guna2HtmlLabel7";
             guna2HtmlLabel7.Size = new Size(123, 27);
             guna2HtmlLabel7.TabIndex = 50;
@@ -560,8 +525,6 @@
             Controls.Add(cb_Invoice);
             Controls.Add(guna2HtmlLabel7);
             Controls.Add(guna2Panel3);
-            Controls.Add(cb_OnOff);
-            Controls.Add(guna2HtmlLabel2);
             Controls.Add(guna2Panel2);
             Controls.Add(txt_notes);
             Controls.Add(guna2HtmlLabel6);
@@ -604,8 +567,6 @@
         private DataGridViewTextBoxColumn dgvProduct;
         private DataGridViewTextBoxColumn dgvqty;
         public Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
-        private Guna.UI2.WinForms.Guna2ComboBox cb_OnOff;
         public Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         public Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
