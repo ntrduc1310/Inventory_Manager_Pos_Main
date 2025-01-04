@@ -1,6 +1,7 @@
 ﻿using BL.Invoice;
 using BL.ProductsBL;
 using BL.Sale;
+using Guna.UI2.WinForms;
 using PL.View;
 
 namespace PL.Model
@@ -348,100 +349,161 @@ namespace PL.Model
 
         private async void btn_Save_Click_1(object sender, EventArgs e)
         {
+            // Kiểm tra nếu khách hàng chưa được chọn
             if (cb_Customer.SelectedValue == null)
             {
-                MessageBox.Show("Vui lòng chọn khách hàng!");
+                ShowGunaMessageDialog("Vui lòng chọn khách hàng!", "Thông báo", MessageDialogIcon.Warning);
                 return;
             }
 
-            int customerId = (int)cb_Customer.SelectedValue;
-
-            string createdBy = Main.Instance.username_lbl.Text;
-            string notes = txt_notes.Text;
-            string status = "";
-            // Danh sách sản phẩm, số lượng, giá
-            List<string> productNameList = new List<string>();
-            List<int> productQuantityList = new List<int>();
-            List<decimal> productPriceList = new List<decimal>();
-
-            // Lặp qua các hàng trong DataGridView
-            foreach (DataGridViewRow row in dataGridViewCart.Rows)
+            // Kiểm tra giỏ hàng có sản phẩm không
+            if (dataGridViewCart.Rows.Count == 0 || !dataGridViewCart.Rows.Cast<DataGridViewRow>()
+                .Any(row => row.Cells["dgvProductName"].Value != null))
             {
-                if (row.Cells["dgvProductName"].Value != null &&
-                    row.Cells["dgvQuantity"].Value != null &&
-                    row.Cells["dgvPrice"].Value != null)
-                {
-                    // Lấy tên sản phẩm
-                    string name = row.Cells["dgvProductName"].Value.ToString();
+                ShowGunaMessageDialog("Vui lòng thêm sản phẩm vào đơn hàng trước khi chọn hình thức thanh toán!",
+                    "Thông báo", MessageDialogIcon.Warning);
+                return;
+            }
 
-                    // Lấy số lượng
-                    if (int.TryParse(row.Cells["dgvQuantity"].Value.ToString(), out int quantity))
+            // Kiểm tra nếu chưa chọn hình thức in hóa đơn
+            if (string.IsNullOrEmpty(cb_Invoice.Text))
+            {
+                ShowGunaMessageDialog("Vui lòng chọn hình thức in hóa đơn!", "Thông báo", MessageDialogIcon.Warning);
+                return;
+            }
+
+            // Kiểm tra nếu chưa chọn hình thức mua hàng
+            if (string.IsNullOrEmpty(cb_OnOff.Text))
+            {
+                ShowGunaMessageDialog("Vui lòng chọn hình thức mua hàng!", "Thông báo", MessageDialogIcon.Warning);
+                return;
+            }
+
+            // Hiển thị hiệu ứng loading
+            var loadingIndicator = new Guna.UI2.WinForms.Guna2ProgressIndicator
+            {
+                Location = new Point(this.Width / 2 - 25, this.Height / 2 - 25),
+                Size = new Size(50, 50),
+                ProgressColor = Color.DodgerBlue,
+                Visible = true
+            };
+            this.Controls.Add(loadingIndicator);
+            loadingIndicator.BringToFront();
+            loadingIndicator.Start();
+
+            try
+            {
+                int customerId = (int)cb_Customer.SelectedValue;
+                string createdBy = Main.Instance.username_lbl.Text;
+                string notes = txt_notes.Text;
+                string status = cb_OnOff.Text.Equals("Trực tiếp") ? "Hoàn thành" : "Đang xử lý";
+
+                // Danh sách sản phẩm
+                List<string> productNameList = new List<string>();
+                List<int> productQuantityList = new List<int>();
+                List<decimal> productPriceList = new List<decimal>();
+
+                foreach (DataGridViewRow row in dataGridViewCart.Rows)
+                {
+                    if (row.Cells["dgvProductName"].Value != null &&
+                        row.Cells["dgvQuantity"].Value != null &&
+                        row.Cells["dgvPrice"].Value != null)
                     {
-                        // Lấy giá
-                        if (decimal.TryParse(row.Cells["dgvPrice"].Value.ToString(), out decimal price))
+                        string name = row.Cells["dgvProductName"].Value.ToString();
+
+                        if (int.TryParse(row.Cells["dgvQuantity"].Value.ToString(), out int quantity) &&
+                            decimal.TryParse(row.Cells["dgvPrice"].Value.ToString(), out decimal price))
                         {
-                            // Thêm vào danh sách
                             productNameList.Add(name);
                             productQuantityList.Add(quantity);
                             productPriceList.Add(price);
                         }
-                        else
+                    }
+                }
+
+                string productNames = string.Join(",", productNameList.Select(name => $"'{name}'"));
+                string productQuantities = string.Join(",", productQuantityList);
+                string productPrices = string.Join(",", productPriceList);
+
+                // Thêm đơn hàng
+                int saleId = await new SaleBL().AddSalegetID(customerId, total_Amount, status, createdBy, notes, totalCostPrice, productNames, productQuantities, productPrices);
+
+                if (saleId > 0)
+                {
+                    // Xử lý invoice và cập nhật số lượng sản phẩm
+                    await new InvoiceBL().AddInvoice(customerId, saleId, total_Amount, productNames, productQuantities, productPrices);
+
+                    foreach (DataGridViewRow row in dataGridViewCart.Rows)
+                    {
+                        if (row.Cells["dgvId"].Value != null && row.Cells["dgvQuantity"].Value != null)
                         {
-                            Console.WriteLine($"Giá không hợp lệ cho sản phẩm: {name}");
+                            int productId = Convert.ToInt32(row.Cells["dgvId"].Value);
+                            int quantity = Convert.ToInt32(row.Cells["dgvQuantity"].Value);
+                            await new ProductsBL().SubtractQuantityProduct(productId, quantity);
                         }
                     }
-                    else
+
+                    if (cb_Invoice.Text.Equals("Có"))
                     {
-                        Console.WriteLine($"Số lượng không hợp lệ cho sản phẩm: {name}");
+                        var invoice = await new InvoiceBL().SaleIdGetInvoice(saleId);
+                        Invoice_Print invoice_Print = new Invoice_Print(invoice);
+                        invoice_Print.ShowDialog();
                     }
+
+                    // Hiển thị thông báo và đợi nó đóng
+                    await ShowGunaMessageDialog("Tạo đơn hàng thành công!", "Thành công", MessageDialogIcon.Information);
+
+                    // Đóng form sau khi thông báo đã được xử lý
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
                 }
             }
-
-            // Chuyển danh sách thành chuỗi phân cách bằng dấu phẩy
-            string productNames = string.Join(",", productNameList.Select(name => $"'{name}'")); // Thêm dấu nháy đơn để sử dụng trong SQL
-            string productQuantities = string.Join(",", productQuantityList);
-            string productPrices = string.Join(",", productPriceList);
-
-            if (cb_OnOff.Text.Equals("Trực tiếp"))
+            catch (Exception ex)
             {
-                status = "Hoàn thành";
+                await ShowGunaMessageDialog($"Có lỗi xảy ra: {ex.Message}", "Lỗi", MessageDialogIcon.Error);
             }
-            else
+            finally
             {
-                status = "Đang xử lý";
-            }
-
-            int saleId = await new SaleBL().AddSalegetID(customerId, total_Amount, status, createdBy, notes, totalCostPrice, productNames, productQuantities, productPrices);
-            if (saleId > 0)
-            {
-                MessageBox.Show("Tạo đơn hàng thành công!");
-                bool invoiceId = await new InvoiceBL().AddInvoice(customerId, saleId, total_Amount, productNames, productQuantities, productPrices);
-                foreach (DataGridViewRow row in dataGridViewCart.Rows)
-                {
-                    if (row.Cells["dgvId"].Value != null && row.Cells["dgvQuantity"].Value != null)
-                    {
-                        int productId = Convert.ToInt32(row.Cells["dgvId"].Value);
-                        int quantity = Convert.ToInt32(row.Cells["dgvQuantity"].Value);
-                        // Add your logic here to handle productId and quantity
-                        bool resultAdd = await new ProductsBL().SubtractQuantityProduct(productId, quantity);
-                    }
-                }
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-            }
-
-            if (cb_Invoice.Text.Equals("Có"))
-            {
-                var invoice = await new InvoiceBL().SaleIdGetInvoice(saleId);
-                Invoice_Print invoice_Print = new Invoice_Print(invoice);
-                invoice_Print.ShowDialog();
-            }
-            else
-            {
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                loadingIndicator.Stop();
+                this.Controls.Remove(loadingIndicator);
             }
         }
+
+        private async Task ShowGunaMessageDialog(string message, string title, MessageDialogIcon icon, int autoCloseTime = 2000)
+        {
+            var tcs = new TaskCompletionSource<bool>();
+
+            // Chạy trên UI thread
+            this.BeginInvoke(new Action(async () =>
+            {
+                // Tạo đối tượng Guna2MessageDialog
+                using (var gunaMessageDialog = new Guna.UI2.WinForms.Guna2MessageDialog
+                {
+                    Text = message,
+                    Caption = title,
+                    Buttons = MessageDialogButtons.OK,
+                    Icon = icon,
+                    Style = MessageDialogStyle.Dark
+                })
+                {
+                    // Hiển thị hộp thoại
+                    gunaMessageDialog.Show();
+
+                    // Chờ trong khoảng thời gian autoCloseTime
+                    await Task.Delay(autoCloseTime);
+
+                    // Tự động đóng dialog
+                    SendKeys.Send("{ENTER}");
+
+                    // Đánh dấu task đã hoàn thành
+                    tcs.SetResult(true);
+                }
+            }));
+
+            // Đợi cho đến khi dialog được đóng
+            await tcs.Task;
+        }
+
 
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)

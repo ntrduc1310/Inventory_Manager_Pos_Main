@@ -49,13 +49,13 @@ namespace PL.View
 
         private void SetupUI()
         {
-            lbl_Amount.Text = $"Số tiền: {Invoice.TotalAmount:N0} $";
+            lbl_Amount.Text = $"Số tiền: {Invoice.TotalAmount:N0} VNĐ";
             lbl_InvoiceId.Text = $"Mã hóa đơn: {Invoice.InvoiceID}";
             lbl_Amount.Font = new Font("Segoe UI", 12, FontStyle.Bold | FontStyle.Regular);
             lbl_InvoiceId.Font = new Font("Segoe UI", 12, FontStyle.Bold | FontStyle.Regular);
         }
 
-        private async void btn_Verify_Click(object sender, EventArgs e)
+        private async void btn_Verify_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -78,5 +78,7 @@ namespace PL.View
         {
             this.Close();
         }
+
+       
     }
 }

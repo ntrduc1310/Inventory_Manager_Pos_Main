@@ -415,13 +415,26 @@ namespace PL
 
         private void btn_Invoice_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Bạn có chắc chắn muốn Đăng xuất không?", "Xác nhận Đăng xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            // Tạo hộp thoại Guna2MessageDialog
+            Guna.UI2.WinForms.Guna2MessageDialog gunaMessageDialog = new Guna.UI2.WinForms.Guna2MessageDialog
+            {
+                Text = "Bạn có chắc chắn muốn Đăng xuất không?",
+                Caption = "Xác nhận Đăng xuất",
+                Buttons = MessageDialogButtons.YesNo,
+                Icon = MessageDialogIcon.Question,
+                Style = MessageDialogStyle.Light // Thiết lập kiểu sáng
+            };
+
+            // Hiển thị hộp thoại
+            var result = gunaMessageDialog.Show();
+
             if (result == DialogResult.Yes)
             {
-                this.Hide(); // Hide the current form
+                this.Hide(); // Ẩn form hiện tại
                 SignIn signInForm = new SignIn();
-                signInForm.ShowDialog(); // Open the SignIn form
-                this.Close(); // Close the current form after SignIn form is closed
+                signInForm.StartPosition = FormStartPosition.CenterScreen; // Hiển thị form ở chính giữa màn hình
+                signInForm.ShowDialog(); // Mở form Đăng nhập
+                this.Close(); // Đóng form hiện tại sau khi form Đăng nhập được đóng
             }
         }
 

@@ -97,6 +97,7 @@
             btn_Verify.Size = new Size(233, 59);
             btn_Verify.TabIndex = 3;
             btn_Verify.Text = "Xác Minh";
+            btn_Verify.Click += btn_Verify_Click_1;
             // 
             // guna2Button1
             // 
