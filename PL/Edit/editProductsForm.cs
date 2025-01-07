@@ -136,6 +136,8 @@ namespace PL.Edit
                 if (result)
                 {
                     ShowMessage("Cập nhật sản phẩm thành công!", "Thành công", MessageDialogIcon.Information);
+                    bool updateCat = await new ProductsBL().addQuantityCategory(categoryId, 1);
+                    bool updateSubtractCat = await new ProductsBL().subtractQuantityCategory(originalCategoryId, 1);
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
