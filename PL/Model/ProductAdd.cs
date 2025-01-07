@@ -146,92 +146,103 @@ namespace PL.Model
                 try
                 {
                     var productDL = new ProductsDL();
-                    string name = txt_Name.Text;
-                    string barcode = txt_Barcode.Text;
-                    string description = txt_Description.Text;
-                    decimal cost = decimal.Parse(txt_Cost.Text);
-                    decimal salePrice = decimal.Parse(txt_Price.Text);
-                    decimal discount = decimal.Parse(txt_Discount.Text);
+                    string name = txt_Name.Text.Trim();
+                    string barcode = txt_Barcode.Text.Trim();
+                    string description = txt_Description.Text.Trim();
+                    decimal cost = decimal.TryParse(txt_Cost.Text, out decimal c) ? c : 0;
+                    decimal salePrice = decimal.TryParse(txt_Price.Text, out decimal p) ? p : 0;
+                    decimal discount = decimal.TryParse(txt_Discount.Text, out decimal d) ? d : 0;
                     int quantity = 0;
-                    int categoryId = (int)cb_Category.SelectedValue;
-                    int supplierId = (int)cb_Supplier.SelectedValue;
+                    int categoryId = (int)(cb_Category.SelectedValue ?? 0);
+                    int supplierId = (int)(cb_Supplier.SelectedValue ?? 0);
 
-                    // Validate fields
+                    // Kiểm tra dữ liệu nhập vào
                     if (string.IsNullOrEmpty(name))
                     {
-                        ShowMessage("Tên sản phẩm không được để trống.");
+                        ShowMessage("Tên sản phẩm không được để trống.", "Lỗi", Guna.UI2.WinForms.MessageDialogIcon.Warning);
                         return;
                     }
 
                     if (string.IsNullOrEmpty(barcode))
                     {
-                        ShowMessage("Mã vạch không được để trống.");
+                        ShowMessage("Mã vạch không được để trống.", "Lỗi", Guna.UI2.WinForms.MessageDialogIcon.Warning);
                         return;
                     }
 
-                    if (!decimal.TryParse(txt_Cost.Text, out cost))
+                    if (cost <= 0)
                     {
-                        ShowMessage("Giá nhập không hợp lệ.");
+                        ShowMessage("Giá nhập phải lớn hơn 0.", "Lỗi", Guna.UI2.WinForms.MessageDialogIcon.Warning);
                         return;
                     }
 
-                    if (!decimal.TryParse(txt_Price.Text, out salePrice))
+                    if (salePrice <= 0)
                     {
-                        ShowMessage("Giá bán không hợp lệ.");
+                        ShowMessage("Giá bán phải lớn hơn 0.", "Lỗi", Guna.UI2.WinForms.MessageDialogIcon.Warning);
                         return;
                     }
 
-                    if (!decimal.TryParse(txt_Discount.Text, out discount))
+                    if (discount < 0 || discount > 100)
                     {
-                        ShowMessage("Chiết khấu không hợp lệ.");
+                        ShowMessage("Chiết khấu phải trong khoảng 0-100%.", "Lỗi", Guna.UI2.WinForms.MessageDialogIcon.Warning);
                         return;
                     }
 
-                    if (cb_Category.SelectedValue == null || !int.TryParse(cb_Category.SelectedValue.ToString(), out categoryId))
+                    if (categoryId == 0)
                     {
-                        ShowMessage("Danh mục không hợp lệ.");
+                        ShowMessage("Danh mục không hợp lệ.", "Lỗi", Guna.UI2.WinForms.MessageDialogIcon.Warning);
                         return;
                     }
 
-                    if (cb_Supplier.SelectedValue == null || !int.TryParse(cb_Supplier.SelectedValue.ToString(), out supplierId))
+                    if (supplierId == 0)
                     {
-                        ShowMessage("Nhà cung cấp không hợp lệ.");
+                        ShowMessage("Nhà cung cấp không hợp lệ.", "Lỗi", Guna.UI2.WinForms.MessageDialogIcon.Warning);
                         return;
                     }
 
+                    // Lưu ảnh (nếu có)
                     string image = SaveImageToFolder(filePathnew);
 
-                    bool result = await new BL.ProductsBL.ProductsBL().AddProducts(name, barcode, categoryId, quantity, salePrice, cost, discount, supplierId, description, image);
+                    // Gọi logic thêm sản phẩm
+                    bool result = await new BL.ProductsBL.ProductsBL().AddProducts(
+                        name, barcode, categoryId, quantity, salePrice, cost, discount, supplierId, description, image
+                    );
+
                     if (result)
                     {
-                        ShowMessage("Thêm sản phẩm thành công!");
-                        bool updateCat = await new ProductsBL().addQuantityCategory(categoryId, 1);
+                        ShowMessage("Thêm sản phẩm thành công!", "Thành công", Guna.UI2.WinForms.MessageDialogIcon.Information);
+                        await new ProductsBL().addQuantityCategory(categoryId, 1);
                         this.DialogResult = DialogResult.OK;
                         this.Close();
                         isValid = true;
                     }
                     else
                     {
-                        ShowMessage("Sản phẩm đã tồn tại.");
+                        ShowMessage("Sản phẩm đã tồn tại. Vui lòng kiểm tra lại!", "Thông báo", Guna.UI2.WinForms.MessageDialogIcon.Warning);
                         isValid = true;
                     }
                 }
                 catch (Exception ex)
                 {
-                    ShowMessage($"Đã xảy ra lỗi: {ex.Message}");
+                    ShowMessage($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", Guna.UI2.WinForms.MessageDialogIcon.Error);
                 }
             }
         }
 
-        private void ShowMessage(string message)
+        private void ShowMessage(string message, string title, Guna.UI2.WinForms.MessageDialogIcon icon)
         {
-            Guna.UI2.WinForms.Guna2MessageDialog messageDialog = new Guna.UI2.WinForms.Guna2MessageDialog();
-            messageDialog.Text = message;  // Sử dụng Text thay vì Message
-            messageDialog.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
-            messageDialog.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
+            Guna.UI2.WinForms.Guna2MessageDialog messageDialog = new Guna.UI2.WinForms.Guna2MessageDialog
+            {
+                Caption = title,
+                Text = message,
+                Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                Icon = icon,
+                Style = Guna.UI2.WinForms.MessageDialogStyle.Default,
+                Parent = this
+            };
 
             messageDialog.Show();
         }
+
 
         private void cb_Category_SelectedIndexChanged(object sender, EventArgs e)
         {

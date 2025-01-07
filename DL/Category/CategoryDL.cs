@@ -72,28 +72,32 @@ namespace DL.Category
             {
                 using (var context = new DataProviderEntity())
                 {
-                    // Sử dụng await để đợi kết quả trả về từ FirstOrDefaultAsync
-                    var categoryToDelete = await context.Category.FirstOrDefaultAsync(c => c.Id == categoryId);
+                    // Xóa tất cả các bản ghi liên quan trong bảng Products
+                    var relatedProducts = context.Products.Where(p => p.CategoryID == categoryId);
+                    context.Products.RemoveRange(relatedProducts);
 
+                    // Tìm danh mục cần xóa
+                    var categoryToDelete = await context.Category.FirstOrDefaultAsync(c => c.Id == categoryId);
                     if (categoryToDelete != null)
                     {
-                        // Xóa đối tượng Category
+                        // Xóa danh mục
                         context.Category.Remove(categoryToDelete);
 
                         // Lưu thay đổi vào cơ sở dữ liệu
-                        int affectedRows = await context.SaveChangesAsync(); // Cần await với SaveChangesAsync để làm việc với bất đồng bộ
+                        int affectedRows = await context.SaveChangesAsync();
                         return affectedRows > 0;
                     }
 
-                    return false; // Nếu không tìm thấy category để xóa
+                    return false;
                 }
             }
             catch (Exception ex)
             {
-                // Có thể thêm log hoặc xử lý lỗi theo cách khác
-                throw ex;
+                Console.WriteLine($"Error deleting category: {ex.Message}");
+                throw;
             }
         }
+
 
         public async Task<bool> UpdateCategory(int categoryId, string name)
         {
