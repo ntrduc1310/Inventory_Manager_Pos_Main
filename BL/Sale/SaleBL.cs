@@ -39,6 +39,7 @@ namespace BL.Sale
             return await new SaleDL().LoadSaleDetailsByIdAsString(saleId);
         }
 
+
         public Task<int> AddSalegetID(int customerId, decimal totalAmount, string status, string createdBy, string notes, decimal totalCostPrice, string listNameProduct, string listQuantityProduct, string listPriceProduct)
         {
             return new SaleDL().AddSalegetID(customerId, totalAmount, status, createdBy, notes, totalCostPrice, listNameProduct, listQuantityProduct, listPriceProduct);

@@ -77,7 +77,7 @@ namespace DL.Purchase
 
                 // Biểu diễn thông tin giao dịch thành chuỗi, mỗi thông tin một hàng
                 string result = $"Ngày hoàn thành đơn: {purchase.PurchaseDate:dd/MM/yyyy}\n" +
-                                $"Tổng tiền: {purchase.TotalAmount:#,##0.00} VNĐ\n" +
+                                $"Tổng tiền: {purchase.TotalAmount:#,##} VNĐ\n" +
                                 $"Trạng thái: {purchase.Status}\n" +
                                 $"Người tạo: {purchase.CreatedBy}\n" +
                                 $"Ghi chú: {purchase.Notes}\n" +

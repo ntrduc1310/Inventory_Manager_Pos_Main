@@ -378,8 +378,8 @@ namespace DL.Products
                     $"Tên sản phẩm: {product.Name}\n" +
                     $"Mã vạch: {product.Barcode}\n" +
                     $"Số lượng trong kho: {product.QuantityInStock}\n" +
-                    $"Giá bán: {product.Price:C2}\n" +
-                    $"Giá nhập: {product.CostPrice:C2}\n" +
+                    $"Giá bán: {Math.Round(product.Price, 2)} VNĐ\n" +
+                    $"Giá nhập: {Math.Round(product.CostPrice, 2)} VNĐ\n" +
                     $"Giảm giá: {product.Discount}%\n" +
                     $"Miêu tả: {product.Description}\n";
 

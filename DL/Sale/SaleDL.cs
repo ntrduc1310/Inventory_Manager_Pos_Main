@@ -240,12 +240,13 @@ namespace DL.Sale
                     return "Không tìm thấy giao dịch nào với ID đã cho.";
                 }
 
-                string result = $"Sale Date: {sale.CreatedAt:dd/MM/yyyy}\n" +
-                                $"Total Amount: {sale.TotalAmount:C2}\n" +
-                                $"Status: {sale.Status}\n" +
-                                $"Created By: {sale.CreatedBy}\n" +
-                                $"Notes: {sale.Notes}\n" +
-                                $"Updated Date: {sale.UpdatedAt:dd/MM/yyyy HH:mm:ss}";
+                string result = $"Ngày bán: {sale.CreatedAt:dd/MM/yyyy}\n" +
+                                $"Tổng số tiền: {sale.TotalAmount.ToString("N0")} VNĐ\n" +
+                                $"Trạng thái: {sale.Status}\n" +
+                                $"Người tạo: {sale.CreatedBy}\n" +
+                                $"Ghi chú: {sale.Notes}\n" +
+                                $"Ngày cập nhật: {sale.UpdatedAt:dd/MM/yyyy HH:mm:ss}";
+
 
                 return result;
             }

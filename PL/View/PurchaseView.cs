@@ -91,13 +91,25 @@ namespace PL.View
 
                     // Lấy thông tin chi tiết của Purchase từ ID
                     string details = await new PurchaseBL().LoadPurchaseDetailsByIdAsString(id);
+                    // Sử dụng Guna2MessageDialog thay cho MessageBox
+                    Guna.UI2.WinForms.Guna2MessageDialog messageDialog = new Guna.UI2.WinForms.Guna2MessageDialog();
+                    messageDialog.Text = details;  // Sử dụng Text thay cho Message
+                    messageDialog.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+                    messageDialog.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
+                    messageDialog.Show();
 
-                    MessageBox.Show(details);
+                  
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error in CellClick: {ex.Message}");
+                // Thông báo lỗi với Guna2MessageDialog
+                Guna.UI2.WinForms.Guna2MessageDialog errorDialog = new Guna.UI2.WinForms.Guna2MessageDialog();
+                errorDialog.Text = "Đã xảy ra lỗi khi lấy thông tin. Vui lòng thử lại.";  // Sử dụng Text thay cho Message
+                errorDialog.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+                errorDialog.Icon = Guna.UI2.WinForms.MessageDialogIcon.Error;
+                errorDialog.Show();
             }
         }
 
