@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;  // Đảm bảo rằng thư viện này được thêm vào
 
 namespace PL.Edit
 {
@@ -37,35 +38,47 @@ namespace PL.Edit
 
                 if (string.IsNullOrEmpty(name))
                 {
-                    MessageBox.Show("Tên danh mục không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    ShowMessage("Tên danh mục không được để trống!", "Lỗi", MessageDialogIcon.Warning);
                     txt_Name.Focus();
                     return;
                 }
-
 
                 // Gọi hàm UpdateCategory
                 bool result = await new CategoryBL().UpdateCategory(id, name);
 
                 if (result)
                 {
-                    MessageBox.Show("Cập nhật danh mục thành công!");
-                    this.DialogResult = DialogResult.OK;    
+                    ShowMessage("Cập nhật danh mục thành công!", "Thông báo", MessageDialogIcon.Information);
+                    this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Không có danh mục hoặc thông tin không được thay đổi.");
+                    ShowMessage("Không có danh mục hoặc thông tin không được thay đổi.", "Lỗi", MessageDialogIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}");
+                ShowMessage($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageDialogIcon.Error);
             }
         }
 
         private void btn_Close_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        // Phương thức hiển thị thông báo
+        private void ShowMessage(string message, string title, MessageDialogIcon icon)
+        {
+            Guna2MessageDialog messageDialog = new Guna2MessageDialog();
+            messageDialog.Caption = title;  // Sử dụng Caption cho tiêu đề
+            messageDialog.Text = message;   // Sử dụng Text cho nội dung thông báo
+            messageDialog.Icon = icon;
+            messageDialog.Buttons = MessageDialogButtons.OK;
+            messageDialog.Show();
+            messageDialog.Style = MessageDialogStyle.Default;  // Thêm style
+            messageDialog.Parent = this;  // Set parent là form hiện tại
         }
 
         private void guna2HtmlLabel1_Click(object sender, EventArgs e)

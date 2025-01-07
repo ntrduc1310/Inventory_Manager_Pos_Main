@@ -122,18 +122,7 @@ namespace PL.View
                 {
                     try
                     {
-                        //if (e.ColumnIndex == guna2DataGridView1.Columns["dgvCategory"].Index)
-                        //{
-                        //    int id = (int)guna2DataGridView1.Rows[e.RowIndex].Cells["dgvCatID"].Value;
-
-                        //    if (id != 0)
-                        //    {
-                        //        string categoryName = await new ProductsBL().GetCategoryNameById(id);
-                        //        guna2DataGridView1.Rows[e.RowIndex].Cells["dgvCategory"].Value = categoryName; // Gán giá trị hiển thị vào e.Value
-                        //    }
-                        //}
-                        //else
-
+                        
                         if (e.ColumnIndex == guna2DataGridView1.Columns["dgvSupplier"].Index)
                         {
 
@@ -174,6 +163,15 @@ namespace PL.View
             {
                 // Gán số thứ tự cho cột "#Sr"
                 e.Value = (e.RowIndex + 1).ToString();
+            }
+            // Format cột số tiền
+            if (e.ColumnIndex == guna2DataGridView1.Columns["dgvAmount"].Index && e.Value != null)
+            {
+                if (decimal.TryParse(e.Value.ToString(), out decimal amount))
+                {
+                    e.Value = amount.ToString("N0") + " VNĐ";
+                    e.FormattingApplied = true;
+                }
             }
         }
 

@@ -14,7 +14,7 @@ using DL.Products;
 using DL.Suppiler;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using BL.ProductsBL;
-
+using Guna.UI2.WinForms;
 
 namespace PL.Model
 {
@@ -156,68 +156,55 @@ namespace PL.Model
                     int categoryId = (int)cb_Category.SelectedValue;
                     int supplierId = (int)cb_Supplier.SelectedValue;
 
-                    // Kiểm tra nếu trường không rỗng hoặc null
+                    // Validate fields
                     if (string.IsNullOrEmpty(name))
                     {
-                        MessageBox.Show("Tên sản phẩm không được để trống.");
+                        ShowMessage("Tên sản phẩm không được để trống.");
                         return;
                     }
 
                     if (string.IsNullOrEmpty(barcode))
                     {
-                        MessageBox.Show("Mã vạch không được để trống.");
+                        ShowMessage("Mã vạch không được để trống.");
                         return;
                     }
 
-                    // Kiểm tra giá nhập có hợp lệ không
                     if (!decimal.TryParse(txt_Cost.Text, out cost))
                     {
-                        MessageBox.Show("Giá nhập không hợp lệ.");
+                        ShowMessage("Giá nhập không hợp lệ.");
                         return;
                     }
 
-                    // Kiểm tra giá bán có hợp lệ không
                     if (!decimal.TryParse(txt_Price.Text, out salePrice))
                     {
-                        MessageBox.Show("Giá bán không hợp lệ.");
+                        ShowMessage("Giá bán không hợp lệ.");
                         return;
                     }
 
-                    // Kiểm tra chiết khấu có hợp lệ không
                     if (!decimal.TryParse(txt_Discount.Text, out discount))
                     {
-                        MessageBox.Show("Chiết khấu không hợp lệ.");
+                        ShowMessage("Chiết khấu không hợp lệ.");
                         return;
                     }
 
-
-                    // Kiểm tra CategoryId và SupplierId có hợp lệ không
                     if (cb_Category.SelectedValue == null || !int.TryParse(cb_Category.SelectedValue.ToString(), out categoryId))
                     {
-                        MessageBox.Show("Danh mục không hợp lệ.");
+                        ShowMessage("Danh mục không hợp lệ.");
                         return;
                     }
 
                     if (cb_Supplier.SelectedValue == null || !int.TryParse(cb_Supplier.SelectedValue.ToString(), out supplierId))
                     {
-                        MessageBox.Show("Nhà cung cấp không hợp lệ.");
+                        ShowMessage("Nhà cung cấp không hợp lệ.");
                         return;
                     }
 
-                    // Nếu tất cả các trường hợp kiểm tra hợp lệ, tiếp tục xử lý dữ liệu
-                    // Chẳng hạn thêm sản phẩm vào cơ sở dữ liệu
-
-                    // Tiến hành các xử lý tiếp theo nếu mọi trường hợp đều hợp lệ
-
-
-                    // Lấy mảng byte từ PictureBox
                     string image = SaveImageToFolder(filePathnew);
-
 
                     bool result = await new BL.ProductsBL.ProductsBL().AddProducts(name, barcode, categoryId, quantity, salePrice, cost, discount, supplierId, description, image);
                     if (result)
                     {
-                        MessageBox.Show("thêm sản phẩm thành công!");
+                        ShowMessage("Thêm sản phẩm thành công!");
                         bool updateCat = await new ProductsBL().addQuantityCategory(categoryId, 1);
                         this.DialogResult = DialogResult.OK;
                         this.Close();
@@ -225,15 +212,25 @@ namespace PL.Model
                     }
                     else
                     {
-                        MessageBox.Show("Sản Phẩm đã tồn tại.");
+                        ShowMessage("Sản phẩm đã tồn tại.");
                         isValid = true;
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}");
+                    ShowMessage($"Đã xảy ra lỗi: {ex.Message}");
                 }
             }
+        }
+
+        private void ShowMessage(string message)
+        {
+            Guna.UI2.WinForms.Guna2MessageDialog messageDialog = new Guna.UI2.WinForms.Guna2MessageDialog();
+            messageDialog.Text = message;  // Sử dụng Text thay vì Message
+            messageDialog.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            messageDialog.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
+
+            messageDialog.Show();
         }
 
         private void cb_Category_SelectedIndexChanged(object sender, EventArgs e)

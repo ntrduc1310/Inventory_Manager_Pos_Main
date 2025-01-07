@@ -8,35 +8,60 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
 
 namespace PL.Edit
 {
     public partial class editProductsForm : Form
     {
-        int productId;
-        public editProductsForm(int id, string name, string barcode, int categoryID, int quantityInStock, decimal price, decimal costPrice, decimal discount, int supplierId, string description, string image)
+        private int productId;
+        private string originalName;
+        private string originalBarcode;
+        private int originalCategoryId;
+        private int originalSupplierId;
+        private decimal originalPrice;
+        private decimal originalCost;
+        private decimal originalDiscount;
+        private string originalDescription;
+        private string originalImagePath;
+
+        public editProductsForm(int id, string name, string barcode, int categoryID, int quantityInStock,
+            decimal price, decimal costPrice, decimal discount, int supplierId, string description, string image)
         {
             InitializeComponent();
+
+            // Lưu giá trị ban đầu
             productId = id;
+            originalName = name;
+            originalBarcode = barcode;
+            originalCategoryId = categoryID;
+            originalSupplierId = supplierId;
+            originalPrice = price;
+            originalCost = costPrice;
+            originalDiscount = discount;
+            originalDescription = description;
+            originalImagePath = image;
+
+            // Set giá trị cho controls
             txt_Name.Text = name;
             txt_Barcode.Text = barcode;
             txt_Price.Text = price.ToString();
             txt_Cost.Text = costPrice.ToString();
             txt_Discount.Text = discount.ToString();
             txt_Description.Text = description;
-            string imagePath = image;
+
             this.Load += LoadToComboBox;
-            // Kiểm tra đường dẫn có hợp lệ không
-            if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
+
+            if (!string.IsNullOrEmpty(image) && File.Exists(image))
             {
                 try
                 {
-                    // Tải hình ảnh và gán vào PictureBox
-                    txtPic.Image = Image.FromFile(imagePath);
+                    txtPic.Image = Image.FromFile(image);
+                    txtPic.ImageLocation = image;
                 }
                 catch (Exception ex)
                 {
-                    throw ex;
+                    ShowMessage($"Lỗi tải ảnh: {ex.Message}", "Lỗi", MessageDialogIcon.Error);
                 }
             }
         }
@@ -70,7 +95,6 @@ namespace PL.Edit
         {
             try
             {
-                // Lấy thông tin từ các TextBox và ComboBox
                 string name = txt_Name.Text.Trim();
                 string barcode = txt_Barcode.Text.Trim();
                 int categoryId = Convert.ToInt32(cb_Category.SelectedValue);
@@ -79,39 +103,65 @@ namespace PL.Edit
                 decimal cost = decimal.TryParse(txt_Cost.Text.Trim(), out decimal c) ? c : 0;
                 decimal discount = decimal.TryParse(txt_Discount.Text.Trim(), out decimal d) ? d : 0;
                 string description = txt_Description.Text.Trim();
+                string imagePath = filePathnew ?? originalImagePath; // Sử dụng ảnh mới nếu có, không thì giữ ảnh cũ
 
-                // Lấy đường dẫn hình ảnh
-                string imagePath = txtPic.ImageLocation;
-
-                // Kiểm tra tính hợp lệ của dữ liệu
+                // Kiểm tra dữ liệu trống
                 if (string.IsNullOrEmpty(name))
                 {
-                    MessageBox.Show("Tên sản phẩm không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    ShowMessage("Tên sản phẩm không được để trống!", "Lỗi", MessageDialogIcon.Warning);
                     txt_Name.Focus();
                     return;
                 }
 
+                // Kiểm tra có thay đổi không
+                bool hasChanges = name != originalName ||
+                                barcode != originalBarcode ||
+                                categoryId != originalCategoryId ||
+                                supplierId != originalSupplierId ||
+                                price != originalPrice ||
+                                cost != originalCost ||
+                                discount != originalDiscount ||
+                                description != originalDescription ||
+                                (filePathnew != null && filePathnew != originalImagePath);
 
-                // Gọi hàm UpdateProduct từ Business Logic
-                bool result = await new ProductsBL().UpdateProduct(productId, name, barcode, categoryId, price, cost, discount, supplierId, description, imagePath);
+                if (!hasChanges)
+                {
+                    ShowMessage("Không có thông tin nào được thay đổi!", "Thông báo", MessageDialogIcon.Information);
+                    return;
+                }
 
-                // Kiểm tra kết quả
+                bool result = await new ProductsBL().UpdateProduct(productId, name, barcode, categoryId,
+                    price, cost, discount, supplierId, description, imagePath);
+
                 if (result)
                 {
-                    MessageBox.Show("Cập nhật sản phẩm thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ShowMessage("Cập nhật sản phẩm thành công!", "Thành công", MessageDialogIcon.Information);
                     this.DialogResult = DialogResult.OK;
-                    this.Close(); // Đóng form sau khi lưu thành công
+                    this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Không có thay đổi nào được lưu. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ShowMessage("Không thể cập nhật sản phẩm. Vui lòng thử lại!", "Thông báo", MessageDialogIcon.Warning);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowMessage($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageDialogIcon.Error);
             }
         }
+
+        private void ShowMessage(string message, string title, MessageDialogIcon icon)
+        {
+            Guna2MessageDialog messageDialog = new Guna2MessageDialog();
+            messageDialog.Caption = title;
+            messageDialog.Text = message;
+            messageDialog.Icon = icon;
+            messageDialog.Buttons = MessageDialogButtons.OK;
+            messageDialog.Style = MessageDialogStyle.Default;
+            messageDialog.Parent = this;
+            messageDialog.Show();
+        }
+
 
         private void btn_Close_Click(object sender, EventArgs e)
         {

@@ -14,6 +14,7 @@ using System.Linq;
 using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
+using Guna.UI2.WinForms;
 using System.Windows.Forms;
 
 namespace PL.View
@@ -30,7 +31,7 @@ namespace PL.View
             txtsearch.TextChanged += txtsearch_TextChanged;
             guna2DataGridView1.CellFormatting += guna2DataGridView1_CellFormatting_Sr;
             ConfigureDataGridView();
-            
+
 
         }
         private void ConfigureDataGridView()
@@ -85,7 +86,7 @@ namespace PL.View
         {
             ProductAdd productAdd = new ProductAdd();
             productAdd.ShowDialog();
-            if(productAdd.DialogResult == DialogResult.OK)
+            if (productAdd.DialogResult == DialogResult.OK)
             {
                 LoadProductsToGridViewFunction();
             }
@@ -105,12 +106,24 @@ namespace PL.View
                     // Lấy thông tin chi tiết của Purchase từ ID
                     string details = await new ProductsBL().LoadProductDetailsByIdAsString(id);
 
-                    MessageBox.Show(details);
+                    // Sử dụng Guna2MessageDialog thay cho MessageBox
+                    Guna.UI2.WinForms.Guna2MessageDialog messageDialog = new Guna.UI2.WinForms.Guna2MessageDialog();
+                    messageDialog.Text = details;  // Sử dụng Text thay cho Message
+                    messageDialog.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+                    messageDialog.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
+                    messageDialog.Show();
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error in CellClick: {ex.Message}");
+
+                // Thông báo lỗi với Guna2MessageDialog
+                Guna.UI2.WinForms.Guna2MessageDialog errorDialog = new Guna.UI2.WinForms.Guna2MessageDialog();
+                errorDialog.Text = "Đã xảy ra lỗi khi lấy thông tin. Vui lòng thử lại.";  // Sử dụng Text thay cho Message
+                errorDialog.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+                errorDialog.Icon = Guna.UI2.WinForms.MessageDialogIcon.Error;
+                errorDialog.Show();
             }
         }
 
@@ -121,7 +134,7 @@ namespace PL.View
                 // Gán số thứ tự cho cột "#Sr"
                 e.Value = (e.RowIndex + 1).ToString();
             }
-            
+
         }
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -161,7 +174,12 @@ namespace PL.View
             if (e.RowIndex >= 0 && guna2DataGridView1.Columns[e.ColumnIndex].Name == "dgvDel")
             {
                 // Hiển thị hộp thoại xác nhận trước khi xóa
-                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa danh mục này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                Guna.UI2.WinForms.Guna2MessageDialog confirmDialog = new Guna.UI2.WinForms.Guna2MessageDialog();
+                confirmDialog.Text = "Bạn có chắc chắn muốn xóa danh mục này?";  // Sử dụng Text thay cho Message
+                confirmDialog.Buttons = Guna.UI2.WinForms.MessageDialogButtons.YesNo;
+                confirmDialog.Icon = Guna.UI2.WinForms.MessageDialogIcon.Question;
+
+                var result = confirmDialog.Show();
 
                 if (result == DialogResult.Yes) // Nếu người dùng chọn "Yes"
                 {
@@ -170,7 +188,12 @@ namespace PL.View
 
                     if (deleteResult)
                     {
-                        MessageBox.Show("Xóa danh mục thành công!");
+                        // Hiển thị thông báo thành công
+                        Guna.UI2.WinForms.Guna2MessageDialog successDialog = new Guna.UI2.WinForms.Guna2MessageDialog();
+                        successDialog.Text = "Xóa danh mục thành công!";  // Sử dụng Text thay cho Message
+                        successDialog.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+                        successDialog.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
+                        successDialog.Show();
                         int categoryId = Convert.ToInt32(guna2DataGridView1.Rows[e.RowIndex].Cells["dgvcatID"].Value);
                         bool updateCat = await new ProductsBL().subtractQuantityCategory(categoryId, 1);
                         if (updateCat)
@@ -180,13 +203,22 @@ namespace PL.View
                     }
                     else
                     {
-                        MessageBox.Show("Xóa danh mục thất bại!");
+                        // Thông báo thất bại
+                        Guna.UI2.WinForms.Guna2MessageDialog failureDialog = new Guna.UI2.WinForms.Guna2MessageDialog();
+                        failureDialog.Text = "Xóa danh mục thất bại!";  // Sử dụng Text thay cho Message
+                        failureDialog.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+                        failureDialog.Icon = Guna.UI2.WinForms.MessageDialogIcon.Error;
+                        failureDialog.Show();
                     }
                 }
                 else
                 {
                     // Nếu người dùng chọn "No", không thực hiện xóa
-                    MessageBox.Show("Hành động xóa đã bị hủy.");
+                    Guna.UI2.WinForms.Guna2MessageDialog cancelDialog = new Guna.UI2.WinForms.Guna2MessageDialog();
+                    cancelDialog.Text = "Hành động xóa đã bị hủy.";  // Sử dụng Text thay cho Message
+                    cancelDialog.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+                    cancelDialog.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
+                    cancelDialog.Show();
                 }
             }
         }
@@ -331,13 +363,13 @@ namespace PL.View
                 guna2DataGridView1.Columns["dgvUpdateDate"].DataPropertyName = "UpdatedAt";
                 guna2DataGridView1.Columns["dgvImage"].DataPropertyName = "Image";
 
-                // Remove existing handler trước khi thêm handler mới để tránh duplicate
+                // Remove existing handler before adding a new one to avoid duplicates
                 guna2DataGridView1.CellFormatting -= DataGridView_CellFormatting;
 
                 // Gán dữ liệu mới
                 guna2DataGridView1.DataSource = filteredData;
 
-                // Thêm handler mới
+                // Add the new handler
                 guna2DataGridView1.CellFormatting += DataGridView_CellFormatting;
 
                 // Refresh DataGridView
@@ -412,51 +444,8 @@ namespace PL.View
             {
                 Console.WriteLine($"CellFormatting error: {ex.Message}");
             }
+
+
         }
-        private async void txtsearch_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                string searchText = txtsearch.Text ?? string.Empty;
-                var filteredData = await new ProductsBL().SearchProducts(searchText);
-
-                // Tắt tự động tạo cột
-                guna2DataGridView1.AutoGenerateColumns = false;
-
-                // Ánh xạ cột với dữ liệu từ cơ sở dữ liệu
-                guna2DataGridView1.Columns["dgvid"].DataPropertyName = "ProductId";
-                guna2DataGridView1.Columns["dgvName"].DataPropertyName = "Name";
-                guna2DataGridView1.Columns["dgvCatID"].DataPropertyName = "CategoryID";
-                guna2DataGridView1.Columns["dgvBarcode"].DataPropertyName = "Barcode";
-                guna2DataGridView1.Columns["dgvCost"].DataPropertyName = "CostPrice";
-                guna2DataGridView1.Columns["dgvsalePrice"].DataPropertyName = "Price";
-                guna2DataGridView1.Columns["dgvQuantityInStock"].DataPropertyName = "QuantityInStock";
-                guna2DataGridView1.Columns["dgvDiscount"].DataPropertyName = "Discount";
-                guna2DataGridView1.Columns["dgvSupplierID"].DataPropertyName = "SupplierID";
-                guna2DataGridView1.Columns["dgvDescription"].DataPropertyName = "Description";
-                guna2DataGridView1.Columns["dgvCreateDate"].DataPropertyName = "CreatedAt";
-                guna2DataGridView1.Columns["dgvUpdateDate"].DataPropertyName = "UpdatedAt";
-                guna2DataGridView1.Columns["dgvImage"].DataPropertyName = "Image";
-
-                // Remove existing handler trước khi thêm handler mới để tránh duplicate
-                guna2DataGridView1.CellFormatting -= DataGridView_CellFormatting;
-
-                // Gán dữ liệu mới
-                guna2DataGridView1.DataSource = filteredData;
-
-                // Thêm handler mới
-                guna2DataGridView1.CellFormatting += DataGridView_CellFormatting;
-
-                // Refresh DataGridView
-                guna2DataGridView1.Refresh();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Search error: {ex.Message}");
-                MessageBox.Show("An error occurred while searching.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-
     }
 }

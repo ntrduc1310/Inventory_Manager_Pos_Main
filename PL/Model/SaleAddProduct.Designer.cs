@@ -143,7 +143,6 @@
             lbl_Total.TabIndex = 1;
             lbl_Total.Text = "0.00";
             lbl_Total.TextAlignment = ContentAlignment.MiddleCenter;
-            lbl_Total.Click += lbl_Total_Click;
             // 
             // guna2HtmlLabel5
             // 
@@ -155,7 +154,6 @@
             guna2HtmlLabel5.Size = new Size(97, 33);
             guna2HtmlLabel5.TabIndex = 0;
             guna2HtmlLabel5.Text = "Tổng Giá";
-            guna2HtmlLabel5.Click += guna2HtmlLabel5_Click;
             // 
             // dataGridViewCart
             // 
@@ -306,7 +304,6 @@
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(1002, 598);
             flowLayoutPanel1.TabIndex = 4;
-            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 
             // txt_Search
             // 
@@ -455,7 +452,6 @@
             guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges18;
             guna2Panel3.Size = new Size(1545, 82);
             guna2Panel3.TabIndex = 48;
-            guna2Panel3.Paint += guna2Panel3_Paint;
             // 
             // guna2PictureBox1
             // 

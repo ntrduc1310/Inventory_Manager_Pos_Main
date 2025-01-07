@@ -10,6 +10,8 @@ namespace PL.Model
     {
         private decimal total_Amount = 0;
         private decimal totalCostPrice = 0;
+        private Guna2Panel loadingPanel;
+        private Guna2WinProgressIndicator progressIndicator;
 
         public SaleAddProduct()
         {
@@ -20,7 +22,41 @@ namespace PL.Model
             dataGridViewCart.CellClick += AddToCartForClickImageCellClick;
             dataGridViewCart.CellClick += SubtractToCartCellClick;
             txt_Search.TextChanged += txt_Search_TextChanged;
+            InitializeLoadingComponents();
         }
+        private void InitializeLoadingComponents()
+        {
+            loadingPanel = new Guna2Panel
+            {
+                Size = new Size(200, 100),
+                FillColor = Color.FromArgb(40, Color.Black),
+                BorderRadius = 10,
+                Visible = false
+            };
+
+            progressIndicator = new Guna2WinProgressIndicator
+            {
+                Size = new Size(50, 50),
+                Location = new Point(75, 10),
+                AutoStart = true,
+                CircleSize = 1.5f,
+                BackColor = Color.Transparent
+            };
+
+            var loadingLabel = new Guna2HtmlLabel
+            {
+                Text = "Đang tải...",
+                ForeColor = Color.White,
+                Font = new Font("Segoe UI", 10, FontStyle.Regular),
+                Location = new Point(65, 70),
+                BackColor = Color.Transparent
+            };
+
+            loadingPanel.Controls.Add(progressIndicator);
+            loadingPanel.Controls.Add(loadingLabel);
+            this.Controls.Add(loadingPanel);
+        }
+
         private void ConfigureFlowLayoutPanel()
         {
 
@@ -370,28 +406,30 @@ namespace PL.Model
                 return;
             }
 
-            // Kiểm tra nếu chưa nhận tiền
-            var result = MessageBox.Show("Nhân viên hãy nhận tiền trước khi tạo đơn hàng!", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            // Sử dụng ShowGunaMessageDialogYesNo cho xác nhận nhận tiền
+            var result = await ShowGunaMessageDialogYesNo(
+               "Nhân viên hãy nhận tiền trước khi tạo đơn hàng!",
+               "Xác nhận",
+               MessageDialogIcon.Question);
+
             if (result != DialogResult.Yes)
             {
-                ShowGunaMessageDialog("Vui lòng nhận tiền trước khi tạo đơn hàng!", "Thông báo", MessageDialogIcon.Warning);
-                return;
+                await ShowGunaMessageDialog("Vui lòng nhận tiền trước khi tạo đơn hàng!", "Thông báo", MessageDialogIcon.Warning);
+                return; // Dừng việc tạo đơn hàng nếu không nhận tiền
             }
 
-            // Hiển thị hiệu ứng loading
-            var loadingIndicator = new Guna.UI2.WinForms.Guna2ProgressIndicator
-            {
-                Location = new Point(this.Width / 2 - 25, this.Height / 2 - 25),
-                Size = new Size(50, 50),
-                ProgressColor = Color.DodgerBlue,
-                Visible = true
-            };
-            this.Controls.Add(loadingIndicator);
-            loadingIndicator.BringToFront();
-            loadingIndicator.Start();
+            // Hiển thị loading panel
+            loadingPanel.Location = new Point(
+                (this.ClientSize.Width - loadingPanel.Width) / 2,
+                (this.ClientSize.Height - loadingPanel.Height) / 2
+            );
+            loadingPanel.Visible = true;
+            loadingPanel.BringToFront();
+            progressIndicator.Start();
 
             try
             {
+                // Thực hiện các bước thêm đơn hàng
                 int customerId = (int)cb_Customer.SelectedValue;
                 string createdBy = Main.Instance.username_lbl.Text;
                 string notes = txt_notes.Text;
@@ -463,14 +501,14 @@ namespace PL.Model
             }
             finally
             {
-                loadingIndicator.Stop();
-                this.Controls.Remove(loadingIndicator);
+                progressIndicator.Stop();
+                loadingPanel.Visible = false;
             }
         }
 
-        private async Task ShowGunaMessageDialog(string message, string title, MessageDialogIcon icon, int autoCloseTime = 2000)
+        private async Task<DialogResult> ShowGunaMessageDialogYesNo(string message, string title, MessageDialogIcon icon, int autoCloseTime = 2000)
         {
-            var tcs = new TaskCompletionSource<bool>();
+            var tcs = new TaskCompletionSource<DialogResult>();
 
             // Chạy trên UI thread
             this.BeginInvoke(new Action(async () =>
@@ -480,43 +518,72 @@ namespace PL.Model
                 {
                     Text = message,
                     Caption = title,
-                    Buttons = MessageDialogButtons.OK,
+                    Buttons = MessageDialogButtons.YesNo,
                     Icon = icon,
                     Style = MessageDialogStyle.Dark
                 })
                 {
                     // Hiển thị hộp thoại
-                    gunaMessageDialog.Show();
-
+                    var result = gunaMessageDialog.Show();
                     // Chờ trong khoảng thời gian autoCloseTime
                     await Task.Delay(autoCloseTime);
-
                     // Tự động đóng dialog
                     SendKeys.Send("{ENTER}");
-
-                    // Đánh dấu task đã hoàn thành
-                    tcs.SetResult(true);
+                    // Đánh dấu task đã hoàn thành với kết quả
+                    tcs.SetResult(result);
                 }
             }));
+
+            // Đợi cho đến khi dialog được đóng và trả về kết quả
+            return await tcs.Task;
+        }
+
+
+        private async Task ShowGunaMessageDialog(string message, string title, MessageDialogIcon icon, int autoCloseTime = 2000)
+        {
+            var tcs = new TaskCompletionSource<bool>();
+
+            // Đảm bảo form đã sẵn sàng và có window handle hợp lệ
+            if (this.IsHandleCreated)
+            {
+                // Chạy trên UI thread
+                this.Invoke(new Action(async () =>
+                {
+                    // Tạo đối tượng Guna2MessageDialog
+                    using (var gunaMessageDialog = new Guna.UI2.WinForms.Guna2MessageDialog
+                    {
+                        Text = message,
+                        Caption = title,
+                        Buttons = MessageDialogButtons.OK,
+                        Icon = icon,
+                        Style = MessageDialogStyle.Dark
+                    })
+                    {
+                        // Hiển thị hộp thoại
+                        gunaMessageDialog.Show();
+
+                        // Chờ trong khoảng thời gian autoCloseTime
+                        await Task.Delay(autoCloseTime);
+
+                        // Tự động đóng dialog
+                        SendKeys.Send("{ENTER}");
+
+                        // Đánh dấu task đã hoàn thành
+                        tcs.SetResult(true);
+                    }
+                }));
+            }
+            else
+            {
+                // Nếu form chưa sẵn sàng, chờ đến khi handle được tạo ra
+                await Task.Delay(100);
+                await ShowGunaMessageDialog(message, title, icon, autoCloseTime); // Gọi lại phương thức sau khi form đã hoàn tất khởi tạo
+            }
 
             // Đợi cho đến khi dialog được đóng
             await tcs.Task;
         }
 
-
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-
-        }
-
-
-
-        private void guna2HtmlLabel5_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void guna2HtmlLabel2_Click(object sender, EventArgs e)
         {
@@ -546,10 +613,7 @@ namespace PL.Model
             }
         }
 
-        private void guna2Panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+    
 
         private void dataGridViewCart_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -557,11 +621,6 @@ namespace PL.Model
         }
 
         private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbl_Total_Click(object sender, EventArgs e)
         {
 
         }

@@ -160,7 +160,7 @@ namespace PL.View
             {
                 if (decimal.TryParse(e.Value.ToString(), out decimal amount))
                 {
-                    e.Value = amount.ToString("N0") + " đ";
+                    e.Value = amount.ToString("N0") + " VNĐ";
                     e.FormattingApplied = true;
                 }
             }
