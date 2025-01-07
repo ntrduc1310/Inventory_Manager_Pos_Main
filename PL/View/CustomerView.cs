@@ -1,6 +1,7 @@
 ﻿using BL;
 using BL.Category;
 using BL.Customer;
+using Guna.UI2.WinForms;
 using PL.Edit;
 using PL.Model;
 using System;
@@ -128,7 +129,7 @@ namespace PL.View
             if (e.RowIndex >= 0 && guna2DataGridView1.Columns[e.ColumnIndex].Name == "dgvDel")
             {
                 // Hiển thị hộp thoại xác nhận trước khi xóa
-                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa khách hàng này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                var result = ShowConfirmationMessage("Bạn có chắc chắn muốn xóa khách hàng này?", "Xác nhận xóa");
 
                 if (result == DialogResult.Yes) // Nếu người dùng chọn "Yes"
                 {
@@ -137,21 +138,56 @@ namespace PL.View
 
                     if (deleteResult)
                     {
-                        MessageBox.Show("Xóa khách hàng thành công!");
+                        ShowMessage("Xóa khách hàng thành công!", "Thông báo", MessageDialogIcon.Information);
                         LoadCustomerToGridViewFunction();
                     }
                     else
                     {
-                        MessageBox.Show("Xóa khách hàng thất bại!");
+                        ShowMessage("Xóa khách hàng thất bại!", "Lỗi", MessageDialogIcon.Error);
                     }
                 }
                 else
                 {
                     // Nếu người dùng chọn "No", không thực hiện xóa
-                    MessageBox.Show("Hành động xóa đã bị hủy.");
+                    ShowMessage("Hành động xóa đã bị hủy.", "Thông báo", MessageDialogIcon.Information);
                 }
             }
         }
+
+        // Phương thức hiển thị thông báo thông thường
+        // Phương thức hiển thị thông báo thông thường
+        private void ShowMessage(string message, string title, MessageDialogIcon icon)
+        {
+            Guna.UI2.WinForms.Guna2MessageDialog messageDialog = new Guna.UI2.WinForms.Guna2MessageDialog
+            {
+                Caption = title,
+                Text = message,
+                Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                Icon = icon,
+                Style = Guna.UI2.WinForms.MessageDialogStyle.Default
+            };
+
+            messageDialog.Show();  // Không cần đặt Parent nữa
+        }
+
+        // Phương thức hiển thị thông báo xác nhận
+        private DialogResult ShowConfirmationMessage(string message, string title)
+        {
+            Guna.UI2.WinForms.Guna2MessageDialog messageDialog = new Guna.UI2.WinForms.Guna2MessageDialog
+            {
+                Caption = title,
+                Text = message,
+                Buttons = Guna.UI2.WinForms.MessageDialogButtons.YesNo,
+                Icon = MessageDialogIcon.Question,
+                Style = Guna.UI2.WinForms.MessageDialogStyle.Default
+            };
+
+            messageDialog.Show();  // Không cần đặt Parent nữa
+
+            return DialogResult.None;  // Lý do trả về DialogResult.None là bạn không cần kết quả trong trường hợp này
+        }
+
+
 
         private void btnAdd1_Click_1(object sender, EventArgs e)
         {
@@ -185,7 +221,7 @@ namespace PL.View
                 guna2DataGridView1.AutoGenerateColumns = false;
 
                 // Ánh xạ cột với dữ liệu từ cơ sở dữ liệu
-                
+
                 guna2DataGridView1.Columns["dgvName"].DataPropertyName = "Name";
                 guna2DataGridView1.Columns["dgvEmail"].DataPropertyName = "Email";
                 guna2DataGridView1.Columns["dgvPhone"].DataPropertyName = "Phone";
@@ -225,6 +261,27 @@ namespace PL.View
             {
                 Console.WriteLine($"CellFormatting error: {ex.Message}");
             }
+        }
+
+        private void usermanual_Click(object sender, EventArgs e)
+        {
+            // Tạo và cấu hình Guna2MessageDialog
+            Guna.UI2.WinForms.Guna2MessageDialog messageDialog = new Guna.UI2.WinForms.Guna2MessageDialog
+            {
+                Caption = "Chức năng quản lý khách hàng",
+                Text = "Chức năng dùng để quản lý thông tin khách hàng một cách hiệu quả.\n" +
+                       "Chức năng bao gồm:\n" +
+                       "- Thêm: Thêm mới một khách hàng.\n" +
+                       "- Xóa: Xóa các khách hàng không còn giao dịch.\n" +
+                       "- Sửa: Thay đổi thông tin khách hàng hiện có.\n\n" +
+                       "Ngoài ra, chức năng tìm kiếm giúp dễ dàng tìm kiếm thông tin khách hàng theo tên, email hoặc số điện thoại.",
+                Buttons = MessageDialogButtons.OK,
+                Icon = MessageDialogIcon.Information, // Biểu tượng thông tin
+                Style = MessageDialogStyle.Light // Phong cách sáng mặc định
+            };
+
+            // Hiển thị hộp thoại
+            messageDialog.Show();
         }
     }
 }

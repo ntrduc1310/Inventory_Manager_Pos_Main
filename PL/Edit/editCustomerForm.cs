@@ -1,4 +1,5 @@
 ﻿using BL.Customer;
+using Guna.UI2.WinForms;
 using PL.View;
 using System;
 using System.Collections.Generic;
@@ -30,7 +31,7 @@ namespace PL.Edit
 
         }
 
-        
+
 
         private void btn_Close_Click(object sender, EventArgs e)
         {
@@ -55,21 +56,21 @@ namespace PL.Edit
                 // Kiểm tra nếu các trường rỗng
                 if (string.IsNullOrEmpty(name))
                 {
-                    MessageBox.Show("Tên khách hàng không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    ShowMessage("Tên khách hàng không được để trống!", "Lỗi", MessageDialogIcon.Warning);
                     txt_Name.Focus();
                     return;
                 }
 
                 if (string.IsNullOrEmpty(phone))
                 {
-                    MessageBox.Show("Số điện thoại không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    ShowMessage("Số điện thoại không được để trống!", "Lỗi", MessageDialogIcon.Warning);
                     txt_Phone.Focus();
                     return;
                 }
 
                 if (string.IsNullOrEmpty(email))
                 {
-                    MessageBox.Show("Email không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    ShowMessage("Email không được để trống!", "Lỗi", MessageDialogIcon.Warning);
                     txt_Email.Focus();
                     return;
                 }
@@ -79,20 +80,40 @@ namespace PL.Edit
 
                 if (result)
                 {
-                    MessageBox.Show("Cập nhật khách hàng thành công!");
+                    ShowMessage("Cập nhật khách hàng thành công!", "Thông báo", MessageDialogIcon.Information);
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Không có khách hàng hoặc thông tin không được thay đổi.");
+                    ShowMessage("Không có khách hàng hoặc thông tin không được thay đổi.", "Lỗi", MessageDialogIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}");
+                ShowMessage($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageDialogIcon.Error);
             }
+        }
 
+        private void ShowMessage(string message, string title, MessageDialogIcon icon)
+        {
+            Guna.UI2.WinForms.Guna2MessageDialog messageDialog = new Guna.UI2.WinForms.Guna2MessageDialog
+            {
+                Caption = title,
+                Text = message,
+                Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                Icon = icon,
+                Style = Guna.UI2.WinForms.MessageDialogStyle.Default,
+                Parent = this
+            };
+
+            messageDialog.Show();
+        }
+
+
+        private void btn_Close_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

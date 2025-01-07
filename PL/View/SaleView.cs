@@ -11,6 +11,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Guna.UI2.WinForms;
 using System.Windows.Forms;
 
 namespace PL.View
@@ -53,7 +54,7 @@ namespace PL.View
             guna2DataGridView1.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
             guna2DataGridView1.BorderStyle = BorderStyle.None;
 
-            
+
         }
 
         private void PurchaseView_Load(object sender, EventArgs e)
@@ -113,7 +114,7 @@ namespace PL.View
                 {
                     try
                     {
-                     
+
 
                         if (e.ColumnIndex == guna2DataGridView1.Columns["dgvCustomer"].Index)
                         {
@@ -232,6 +233,27 @@ namespace PL.View
             {
                 MessageBox.Show($"Error: {ex.Message}");
             }
+        }
+
+        private void usermanual_Click(object sender, EventArgs e)
+        {
+            // Tạo và cấu hình Guna2MessageDialog
+            Guna.UI2.WinForms.Guna2MessageDialog messageDialog = new Guna.UI2.WinForms.Guna2MessageDialog
+            {
+                Caption = "Chức năng quản lý bán hàng",
+                Text = "Chức năng dùng để quản lý các giao dịch bán hàng.\n" +
+                       "Chức năng bao gồm:\n" +
+                       "- Thêm: Thêm mới một giao dịch bán hàng.\n" +
+                       "- Xóa: Xóa các giao dịch không còn sử dụng.\n" +
+                       "- Sửa: Thay đổi thông tin các giao dịch hiện có.\n\n" +
+                       "Ngoài ra, chức năng hiển thị chi tiết các giao dịch, giúp dễ dàng quản lý và theo dõi.",
+                Buttons = MessageDialogButtons.OK,
+                Icon = MessageDialogIcon.Information, // Biểu tượng thông tin
+                Style = MessageDialogStyle.Light // Phong cách sáng mặc định
+            };
+
+            // Hiển thị hộp thoại
+            messageDialog.Show();
         }
     }
 }

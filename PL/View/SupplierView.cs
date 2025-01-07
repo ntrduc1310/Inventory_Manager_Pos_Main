@@ -5,6 +5,7 @@ using DL.Suppiler;
 using PL.Edit;
 using PL.Model;
 using System;
+using Guna.UI2.WinForms;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -89,10 +90,9 @@ namespace PL.View
             catch (Exception ex)
             {
                 Console.WriteLine($"Error loading data into DataGridView: {ex.Message}");
-                MessageBox.Show("An error occurred while loading the data. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowGunaMessageDialog("An error occurred while loading the data. Please try again.", "Error", MessageDialogIcon.Error);
             }
         }
-
 
         private void loadGridView(object sender, EventArgs e)
         {
@@ -149,10 +149,10 @@ namespace PL.View
         private async void guna2DataGridView1_CellClick_delete(object sender, DataGridViewCellEventArgs e)
         {
             // Kiểm tra nếu click vào cột Edit
-            if (e.RowIndex >= 0 && guna2DataGridView1.Columns[e.ColumnIndex].Name == "dgvDel")
+            if (e.RowIndex >= 0 && guna2DataGridView1.Columns[e.ColumnIndex].Name == "dgvDelete")
             {
                 // Hiển thị hộp thoại xác nhận trước khi xóa
-                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa nhà cung cấp này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = ShowGunaMessageDialog("Bạn có chắc chắn muốn xóa nhà cung cấp này?", "Xác nhận xóa", MessageDialogIcon.Question, MessageDialogButtons.YesNo);
 
                 if (result == DialogResult.Yes) // Nếu người dùng chọn "Yes"
                 {
@@ -161,18 +161,18 @@ namespace PL.View
 
                     if (deleteResult)
                     {
-                        MessageBox.Show("Xóa nhà cung cấp thành công!");
+                        ShowGunaMessageDialog("Xóa nhà cung cấp thành công!", "Success", MessageDialogIcon.Information);
                         LoadSuppilerToGridViewFunction();
                     }
                     else
                     {
-                        MessageBox.Show("Xóa nhà cung cấp thất bại!");
+                        ShowGunaMessageDialog("Xóa nhà cung cấp thất bại!", "Error", MessageDialogIcon.Error);
                     }
                 }
                 else
                 {
                     // Nếu người dùng chọn "No", không thực hiện xóa
-                    MessageBox.Show("Hành động xóa đã bị hủy.");
+                    ShowGunaMessageDialog("Hành động xóa đã bị hủy.", "Canceled", MessageDialogIcon.Information);
                 }
             }
         }
@@ -219,8 +219,43 @@ namespace PL.View
             catch (Exception ex)
             {
                 Console.WriteLine($"Search error: {ex.Message}");
-                MessageBox.Show("An error occurred while searching.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowGunaMessageDialog("An error occurred while searching.", "Error", MessageDialogIcon.Error);
             }
+        }
+
+        private void usermanual_Click(object sender, EventArgs e)
+        {
+            // Tạo và cấu hình Guna2MessageDialog
+            Guna.UI2.WinForms.Guna2MessageDialog messageDialog = new Guna.UI2.WinForms.Guna2MessageDialog
+            {
+                Caption = "Chức năng quản lý nhà cung cấp",
+                Text = "Chức năng dùng để quản lý các nhà cung cấp.\n" +
+                       "Chức năng bao gồm:\n" +
+                       "- Thêm: Thêm mới một nhà cung cấp.\n" +
+                       "- Xóa: Xóa các nhà cung cấp không còn sử dụng.\n" +
+                       "- Sửa: Thay đổi thông tin các nhà cung cấp hiện có.\n\n" +
+                       "Ngoài ra, chức năng hiển thị chi tiết các nhà cung cấp, giúp dễ dàng quản lý và theo dõi.",
+                Buttons = MessageDialogButtons.OK,
+                Icon = MessageDialogIcon.Information, // Biểu tượng thông tin
+                Style = MessageDialogStyle.Light // Phong cách sáng mặc định
+            };
+
+            // Hiển thị hộp thoại
+            messageDialog.Show();
+        }
+
+        private DialogResult ShowGunaMessageDialog(string text, string caption, MessageDialogIcon icon, MessageDialogButtons buttons = MessageDialogButtons.OK)
+        {
+            Guna2MessageDialog messageDialog = new Guna2MessageDialog
+            {
+                Text = text,
+                Caption = caption,
+                Buttons = buttons,
+                Icon = icon,
+                Style = MessageDialogStyle.Light
+            };
+            messageDialog.Show(); // Correct method to show the dialog
+            return DialogResult.OK; // Return a default DialogResult
         }
     }
 }

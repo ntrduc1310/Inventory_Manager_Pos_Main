@@ -273,8 +273,33 @@ namespace PL.View
 
         private void guna2HtmlLabel4_Click(object sender, EventArgs e)
         {
-            ShowGunaMessageDialog("Chức năng dùng để tạo các phân loại sản Phẩm để dễ quản lí\n chức năng bao gồm thêm xóa và sửa tên các loại sản phẩm\n hiển thị số lượng sản phẩm thuộc loại đó ","Chức năng phân loại sản phẩm", MessageDialogIcon.Information);
+            ShowGunaMessageDialog("Chức năng dùng để tạo các phân loại sản Phẩm để dễ quản lí\n chức năng bao gồm thêm xóa và sửa tên các loại sản phẩm\n hiển thị số lượng sản phẩm thuộc loại đó ", "Chức năng phân loại sản phẩm", MessageDialogIcon.Information);
 
         }
+
+        private void usermanual_Click(object sender, EventArgs e)
+        {
+            // Tạo và cấu hình Guna2MessageDialog
+            Guna.UI2.WinForms.Guna2MessageDialog messageDialog = new Guna.UI2.WinForms.Guna2MessageDialog
+            {
+                Caption = "Chức năng phân loại sản phẩm",
+                Text = "Chức năng dùng để tạo các phân loại sản phẩm để dễ quản lý.\n" +
+                       "Chức năng bao gồm:\n" +
+                       "- Thêm: Thêm mới một danh mục sản phẩm.\n" +
+                       "- Xóa: Xóa các danh mục không còn sử dụng.\n" +
+                       "- Sửa: Thay đổi tên các danh mục hiện có.\n\n" +
+                       "Ngoài ra, chức năng hiển thị số lượng sản phẩm thuộc từng loại, giúp dễ dàng quản lý và theo dõi.",
+                Buttons = MessageDialogButtons.OK,
+                Icon = MessageDialogIcon.Information, // Biểu tượng thông tin
+                Style = MessageDialogStyle.Light // Phong cách sáng mặc định
+            };
+
+            // Hiển thị hộp thoại
+            messageDialog.Show();
+        }
+
+
+
+
     }
 }

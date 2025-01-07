@@ -447,5 +447,26 @@ namespace PL.View
 
 
         }
+
+        private void usermanual_Click(object sender, EventArgs e)
+        {
+            // Tạo và cấu hình Guna2MessageDialog
+            Guna.UI2.WinForms.Guna2MessageDialog messageDialog = new Guna.UI2.WinForms.Guna2MessageDialog
+            {
+                Caption = "Chức năng quản lý sản phẩm",
+                Text = "Chức năng dùng để quản lý thông tin sản phẩm một cách hiệu quả.\n" +
+                       "Chức năng bao gồm:\n" +
+                       "- Thêm: Thêm mới một sản phẩm.\n" +
+                       "- Xóa: Xóa các sản phẩm không còn kinh doanh.\n" +
+                       "- Sửa: Thay đổi thông tin sản phẩm hiện có.\n\n" +
+                       "Ngoài ra, chức năng tìm kiếm giúp dễ dàng tìm kiếm thông tin sản phẩm theo tên, mã vạch hoặc danh mục.",
+                Buttons = MessageDialogButtons.OK,
+                Icon = MessageDialogIcon.Information, // Biểu tượng thông tin
+                Style = MessageDialogStyle.Light // Phong cách sáng mặc định
+            };
+
+            // Hiển thị hộp thoại
+            messageDialog.Show();
+        }
     }
 }

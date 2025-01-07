@@ -11,6 +11,7 @@ using System.Collections;
 using System.IO;
 using Microsoft.VisualBasic.ApplicationServices;
 using BL;
+using Guna.UI2.WinForms;
 using DL;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using PL.View;
@@ -47,39 +48,52 @@ namespace PL.Model
             {
                 try
                 {
-                    string Name = txt_Name.Text;
+                    string name = txt_Name.Text.Trim();
 
-                    // Kiểm tra nếu trường không rỗng hoặc null
-                    if (string.IsNullOrEmpty(Name))
+                    // Kiểm tra nếu trường Name không rỗng hoặc null
+                    if (string.IsNullOrEmpty(name))
                     {
-                        MessageBox.Show("Tên danh mục không được để trống.");
+                        ShowMessage("Tên danh mục không được để trống.", "Lỗi", MessageDialogIcon.Warning);
                         return;
                     }
 
-                   
-
                     // Thêm danh mục và kiểm tra kết quả
-                    bool result = await new CategoryBL().AddCategory(Name);
+                    bool result = await new CategoryBL().AddCategory(name);
                     if (result)
                     {
-                        MessageBox.Show("Thêm danh mục thành công!");
-                        this.DialogResult = DialogResult.OK;    
+                        ShowMessage("Thêm danh mục thành công!", "Thành công", MessageDialogIcon.Information);
+                        this.DialogResult = DialogResult.OK;
                         this.Close();
                         isValid = true; // Đánh dấu là hợp lệ và thoát khỏi vòng lặp
                     }
                     else
                     {
-                        MessageBox.Show("Danh mục đã tồn tại.");
-                        // Yêu cầu người dùng nhập lại thông tin
+                        ShowMessage("Danh mục đã tồn tại. Vui lòng thử lại!", "Thông báo", MessageDialogIcon.Warning);
                         isValid = true; // Không hợp lệ, tiếp tục vòng lặp
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}");
+                    ShowMessage($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageDialogIcon.Error);
                 }
             }
         }
+
+        private void ShowMessage(string message, string title, MessageDialogIcon icon)
+        {
+            Guna.UI2.WinForms.Guna2MessageDialog messageDialog = new Guna.UI2.WinForms.Guna2MessageDialog
+            {
+                Caption = title,
+                Text = message,
+                Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                Icon = icon,
+                Style = Guna.UI2.WinForms.MessageDialogStyle.Default,
+                Parent = this
+            };
+
+            messageDialog.Show();
+        }
+
 
         private void btn_Close_Click_1(object sender, EventArgs e)
         {

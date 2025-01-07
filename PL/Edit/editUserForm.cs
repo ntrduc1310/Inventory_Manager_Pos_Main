@@ -106,6 +106,12 @@ namespace PL.Edit
                     // Hiển thị ảnh trong PictureBox
                     txtPic.Image = Image.FromFile(filePath);
                 }
+                if (string.IsNullOrEmpty(filePathnew))
+                {
+                    ShowMessage("Vui lòng chọn ảnh người dùng.", "Lỗi", MessageDialogIcon.Error);
+                    return;
+                }
+
             }
         }
 
@@ -162,58 +168,70 @@ namespace PL.Edit
                     string password = txt_Password.Text.Trim();
                     string phone = txt_Phone.Text.Trim();
                     string role = cb_Role.Text.Trim();
+
                     if (string.IsNullOrEmpty(name))
                     {
-                        MessageBox.Show("Tên không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        ShowMessage("Tên không được để trống!", "Lỗi", MessageDialogIcon.Error);
                         txt_Name.Focus();
                         return;
                     }
 
                     if (string.IsNullOrEmpty(userName))
                     {
-                        MessageBox.Show("Tên người dùng không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        ShowMessage("Tên người dùng không được để trống!", "Lỗi", MessageDialogIcon.Error);
                         txt_UserName.Focus();
                         return;
                     }
 
                     if (string.IsNullOrEmpty(password))
                     {
-                        MessageBox.Show("Mật khẩu không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        ShowMessage("Mật khẩu không được để trống!", "Lỗi", MessageDialogIcon.Error);
                         txt_Password.Focus();
                         return;
                     }
 
                     if (string.IsNullOrEmpty(role))
                     {
-                        MessageBox.Show("Mật khẩu không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        txt_Password.Focus();
+                        ShowMessage("Vai trò không được để trống!", "Lỗi", MessageDialogIcon.Error);
+                        cb_Role.Focus();
                         return;
                     }
 
                     // Lấy mảng byte từ PictureBox
                     string picture = SaveImageToFolder(filePathnew);
+
                     // Gọi hàm UpdateUser
                     bool result = await new UpdateUsersBL().UpdateUser(Id, name, userName, password, phone, picture, role);
 
                     if (result)
                     {
-                        MessageBox.Show("Cập nhật thành công!");
+                        ShowMessage("Cập nhật thành công!", "Thành công", MessageDialogIcon.Information);
                         this.DialogResult = DialogResult.OK;
                         this.Close();
                         isValid = true;
                     }
                     else
                     {
-                        MessageBox.Show("Không có người dùng hoặc thông tin không được thay đổi.");
+                        ShowMessage("Không có người dùng hoặc thông tin không được thay đổi.", "Lỗi", MessageDialogIcon.Error);
                         isValid = true;
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}");
+                    ShowMessage($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageDialogIcon.Error);
                 }
             }
+        }
 
+        private void ShowMessage(string message, string title, MessageDialogIcon icon)
+        {
+            Guna2MessageDialog messageDialog = new Guna2MessageDialog();
+            messageDialog.Caption = title;
+            messageDialog.Text = message;
+            messageDialog.Icon = icon;
+            messageDialog.Buttons = MessageDialogButtons.OK;
+            messageDialog.Style = MessageDialogStyle.Default;
+            messageDialog.Show();
         }
 
         private void guna2Panel2_Paint(object sender, PaintEventArgs e)

@@ -10,6 +10,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using Guna.UI2.WinForms;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -24,7 +25,7 @@ namespace PL.View
             this.Load += loadToPurchaseView;
             guna2DataGridView1.CellClick += guna2DataGridView1_CellClick;
             //guna2DataGridView1.CellClick += DgvCellClickImageColumn;
-            guna2DataGridView1.CellFormatting += guna2DataGridView1_CellFormatting_Sr ;
+            guna2DataGridView1.CellFormatting += guna2DataGridView1_CellFormatting_Sr;
             txtsearch.TextChanged += txtsearch_TextChanged_1;
             ConfigureDataGridView();
 
@@ -122,10 +123,8 @@ namespace PL.View
                 {
                     try
                     {
-                        
                         if (e.ColumnIndex == guna2DataGridView1.Columns["dgvSupplier"].Index)
                         {
-
                             int cellValue = (int)guna2DataGridView1.Rows[e.RowIndex].Cells["dgvSupID"].Value;
                             if (cellValue != 0)
                             {
@@ -134,10 +133,17 @@ namespace PL.View
                             }
                             else
                             {
-                                MessageBox.Show("Invalid Supplier ID");
+                                Guna.UI2.WinForms.Guna2MessageDialog messageDialog = new Guna.UI2.WinForms.Guna2MessageDialog
+                                {
+                                    Caption = "Error",
+                                    Text = "Invalid Supplier ID",
+                                    Buttons = MessageDialogButtons.OK,
+                                    Icon = MessageDialogIcon.Error,
+                                    Style = MessageDialogStyle.Light
+                                };
+                                messageDialog.Show();
                             }
                         }
-
                     }
                     catch (Exception ex)
                     {
@@ -147,7 +153,15 @@ namespace PL.View
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error: {ex.Message}");
+                Guna.UI2.WinForms.Guna2MessageDialog messageDialog = new Guna.UI2.WinForms.Guna2MessageDialog
+                {
+                    Caption = "Error",
+                    Text = $"Error: {ex.Message}",
+                    Buttons = MessageDialogButtons.OK,
+                    Icon = MessageDialogIcon.Error,
+                    Style = MessageDialogStyle.Light
+                };
+                messageDialog.Show();
                 throw ex;
             }
         }
@@ -180,7 +194,7 @@ namespace PL.View
 
         }
 
-    
+
 
         //private async void DgvCellClickImageColumn(object sender, DataGridViewCellEventArgs e)
         //{
@@ -227,6 +241,27 @@ namespace PL.View
             {
                 Console.WriteLine($"CellFormatting error: {ex.Message}");
             }
+        }
+
+        private void usermanual_Click(object sender, EventArgs e)
+        {
+            // Tạo và cấu hình Guna2MessageDialog
+            Guna.UI2.WinForms.Guna2MessageDialog messageDialog = new Guna.UI2.WinForms.Guna2MessageDialog
+            {
+                Caption = "Chức năng quản lý nhập hàng",
+                Text = "Chức năng dùng để quản lý các giao dịch nhập hàng.\n" +
+                       "Chức năng bao gồm:\n" +
+                       "- Thêm: Thêm mới một giao dịch nhập hàng.\n" +
+                       "- Xóa: Xóa các giao dịch không còn sử dụng.\n" +
+                       "- Sửa: Thay đổi thông tin các giao dịch hiện có.\n\n" +
+                       "Ngoài ra, chức năng hiển thị chi tiết các giao dịch, giúp dễ dàng quản lý và theo dõi.",
+                Buttons = MessageDialogButtons.OK,
+                Icon = MessageDialogIcon.Information, // Biểu tượng thông tin
+                Style = MessageDialogStyle.Light // Phong cách sáng mặc định
+            };
+
+            // Hiển thị hộp thoại
+            messageDialog.Show();
         }
     }
 }

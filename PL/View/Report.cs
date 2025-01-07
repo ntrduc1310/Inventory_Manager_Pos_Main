@@ -5,8 +5,10 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Globalization; 
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
 
 namespace PL.View
 {
@@ -50,7 +52,7 @@ namespace PL.View
             listBox1.Items.Clear(); // Xóa dữ liệu cũ
             foreach (var order in sales)
             {
-                listBox1.Items.Add($"Mã đơn hàng: {order.SaleID}, Ngày bán: {order.SaleDate.Date.ToShortDateString()}, Tổng tiền: {order.TotalAmount}");
+                listBox1.Items.Add($"Mã đơn hàng: {order.SaleID}, Ngày bán: {order.SaleDate.Date.ToShortDateString()}, Tổng tiền: {order.TotalAmount:N0} VNĐ");
             }
 
             // Nếu không có đơn hàng nào
@@ -68,7 +70,7 @@ namespace PL.View
             listBox1.Items.Clear(); // Xóa dữ liệu cũ
             foreach (var order in sales)
             {
-                listBox1.Items.Add($"Mã đơn hàng: {order.SaleID}, Ngày bán: {order.SaleDate.Date.ToShortDateString()}, Tổng tiền: {order.TotalAmount}");
+                listBox1.Items.Add($"Mã đơn hàng: {order.SaleID}, Ngày bán: {order.SaleDate.Date.ToShortDateString()}, Tổng tiền: {order.TotalAmount:N0} VNĐ");
             }
 
             // Nếu không có đơn hàng nào
@@ -86,7 +88,7 @@ namespace PL.View
             listBox1.Items.Clear(); // Xóa dữ liệu cũ
             foreach (var order in sales)
             {
-                listBox1.Items.Add($"Mã đơn hàng: {order.SaleID}, Ngày bán: {order.SaleDate.Date.ToShortDateString()}, Tổng tiền: {order.TotalAmount}");
+                listBox1.Items.Add($"Mã đơn hàng: {order.SaleID}, Ngày bán: {order.SaleDate.Date.ToShortDateString()}, Tổng tiền: {order.TotalAmount:N0} VNĐ");
             }
 
             // Nếu không có đơn hàng nào
@@ -97,46 +99,50 @@ namespace PL.View
         }
         public async void HandleComboBoxSelection(int selectIndex)
         {
-            //ComboBox comboBox = sender as ComboBox;
-            //if (selectIndex)
-            //{
             switch (selectIndex)
             {
                 case 0:
                     var report = await new BL.Report.reportBL().GetSalesSummaryTodayBL();
-                    lbl_turnover.Text = report.TotalSale.ToString();
-                    lbl_TotalCostPrice.Text = report.TotalCostPrice.ToString();
-                    lbl_Profit.Text = (report.TotalSale - report.TotalCostPrice).ToString();
+                    if (decimal.TryParse(report.TotalSale.ToString(), out decimal totalSaleToday))
+                    {
+                        lbl_turnover.Text = totalSaleToday.ToString("N0") + " VNĐ";
+                    }
+                    lbl_TotalCostPrice.Text = report.TotalCostPrice.ToString("N0") + " VNĐ";
+                    lbl_Profit.Text = (report.TotalSale - report.TotalCostPrice).ToString("N0") + " VNĐ";
                     lbl_Quantity.Text = report.OrderCount.ToString();
                     LoadSalesByDate();
                     break;
 
                 case 1:
                     var report1 = await new BL.Report.reportBL().GetSalesSummaryLast7DaysBL();
-                    lbl_turnover.Text = report1.TotalSale.ToString();
-                    lbl_TotalCostPrice.Text = report1.TotalCostPrice.ToString();
-                    lbl_Profit.Text = (report1.TotalSale - report1.TotalCostPrice).ToString();
+                    if (decimal.TryParse(report1.TotalSale.ToString(), out decimal totalSale7Days))
+                    {
+                        lbl_turnover.Text = totalSale7Days.ToString("N0") + " VNĐ";
+                    }
+                    lbl_TotalCostPrice.Text = report1.TotalCostPrice.ToString("N0") + " VNĐ";
+                    lbl_Profit.Text = (report1.TotalSale - report1.TotalCostPrice).ToString("N0") + " VNĐ";
                     lbl_Quantity.Text = report1.OrderCount.ToString();
                     LoadSales7Date();
                     break;
 
                 case 2:
                     var report2 = await new BL.Report.reportBL().GetSalesSummaryLast30DaysBL();
-                    lbl_turnover.Text = report2.TotalSale.ToString();
-                    lbl_TotalCostPrice.Text = report2.TotalCostPrice.ToString();
-                    lbl_Profit.Text = (report2.TotalSale - report2.TotalCostPrice).ToString();
+                    if (decimal.TryParse(report2.TotalSale.ToString(), out decimal totalSale30Days))
+                    {
+                        lbl_turnover.Text = totalSale30Days.ToString("N0") + " VNĐ";
+                    }
+                    lbl_TotalCostPrice.Text = report2.TotalCostPrice.ToString("N0") + " VNĐ";
+                    lbl_Profit.Text = (report2.TotalSale - report2.TotalCostPrice).ToString("N0") + " VNĐ";
                     lbl_Quantity.Text = report2.OrderCount.ToString();
                     LoadSales30Date();
                     break;
 
                 case 3:
-                    //Thực hiện logic hiển thị chọn ngày
                     ShowDateRangePicker();
                     break;
 
                 default:
                     break;
-
             }
         }
 
@@ -152,7 +158,7 @@ namespace PL.View
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-    
+
         }
 
         private async void ShowDateRangePicker()
@@ -189,9 +195,9 @@ namespace PL.View
                     var report = await new BL.Report.reportBL().GetSalesSummaryByDateRangeBL(startDate, endDate);
 
                     // Cập nhật các thông số lên UI
-                    lbl_turnover.Text = report.TotalSale.ToString();
-                    lbl_TotalCostPrice.Text = report.TotalCostPrice.ToString();
-                    lbl_Profit.Text = (report.TotalSale - report.TotalCostPrice).ToString();
+                    lbl_turnover.Text = report.TotalSale.ToString("N0") + " VNĐ";
+                    lbl_TotalCostPrice.Text = report.TotalCostPrice.ToString("N0") + " VNĐ";
+                    lbl_Profit.Text = (report.TotalSale - report.TotalCostPrice).ToString("N0") + " VNĐ";
                     lbl_Quantity.Text = report.OrderCount.ToString();
 
                     // Hiển thị các đơn hàng trong khoảng ngày chọn
@@ -210,6 +216,7 @@ namespace PL.View
 
                 // Hiển thị form
                 dateRangeForm.ShowDialog();
+
             }
         }
 
@@ -221,7 +228,7 @@ namespace PL.View
             listBox1.Items.Clear(); // Xóa dữ liệu cũ
             foreach (var order in sales)
             {
-                listBox1.Items.Add($"Mã đơn hàng: {order.SaleID}, Ngày bán: {order.SaleDate.Date.ToShortDateString()}, Tổng tiền: {order.TotalAmount}");
+                listBox1.Items.Add($"Mã đơn hàng: {order.SaleID}, Ngày bán: {order.SaleDate.Date.ToShortDateString()}, Tổng tiền: {order.TotalAmount:N0} VNĐ");
             }
 
             // Nếu không có đơn hàng nào
@@ -229,6 +236,28 @@ namespace PL.View
             {
                 listBox1.Items.Add("Không có đơn hàng nào trong ngày được chọn.");
             }
+        }
+
+        private void usermanual_Click(object sender, EventArgs e)
+        {
+            // Tạo và cấu hình Guna2MessageDialog
+            Guna.UI2.WinForms.Guna2MessageDialog messageDialog = new Guna.UI2.WinForms.Guna2MessageDialog
+            {
+                Caption = "Chức năng báo cáo",
+                Text = "Chức năng dùng để xem báo cáo doanh thu và đơn hàng.\n" +
+                       "Chức năng bao gồm:\n" +
+                       "- Hôm nay: Xem báo cáo doanh thu và đơn hàng trong ngày.\n" +
+                       "- 7 ngày qua: Xem báo cáo doanh thu và đơn hàng trong 7 ngày qua.\n" +
+                       "- 30 ngày qua: Xem báo cáo doanh thu và đơn hàng trong 30 ngày qua.\n" +
+                       "- Chọn khoảng ngày: Xem báo cáo doanh thu và đơn hàng trong khoảng ngày tùy chọn.\n\n" +
+                       "Ngoài ra, chức năng hiển thị chi tiết các đơn hàng, giúp dễ dàng quản lý và theo dõi.",
+                Buttons = MessageDialogButtons.OK,
+                Icon = MessageDialogIcon.Information, // Biểu tượng thông tin
+                Style = MessageDialogStyle.Light // Phong cách sáng mặc định
+            };
+
+            // Hiển thị hộp thoại
+            messageDialog.Show();
         }
     }
 }

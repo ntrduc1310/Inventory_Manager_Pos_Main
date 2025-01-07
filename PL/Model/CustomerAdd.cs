@@ -18,6 +18,7 @@ using DL;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Xml.Linq;
 using BL.Category;
+using Guna.UI2.WinForms;
 
 namespace PL.Model
 {
@@ -88,75 +89,8 @@ namespace PL.Model
             }
         }
 
-        //private async void btn_Save_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        string name = txt_Name.Text.Trim();
-        //        string phone = txt_Phone.Text.Trim();
-        //        string email = txt_Email.Text.Trim();
-
-        //        // Kiểm tra nếu các trường không rỗng hoặc null
-        //        if (string.IsNullOrEmpty(name))
-        //        {
-        //            MessageBox.Show("Tên khách hàng không được để trống.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //            txt_Name.Focus();
-        //            return;
-        //        }
-
-        //        if (string.IsNullOrEmpty(phone))
-        //        {
-        //            MessageBox.Show("Số điện thoại không được để trống.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //            txt_Phone.Focus();
-        //            return;
-        //        }
-
-        //        if (string.IsNullOrEmpty(email))
-        //        {
-        //            MessageBox.Show("Email không được để trống.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //            txt_Email.Focus();
-        //            return;
-        //        }
-
-        //        // Kiểm tra định dạng email hợp lệ
-        //        if (!email.Contains("@") || !email.Contains("."))
-        //        {
-        //            MessageBox.Show("Email không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //            txt_Email.Focus();
-        //            return;
-        //        }
-
-        //        // Kiểm tra số điện thoại chỉ chứa chữ số
-        //        if (!phone.All(char.IsDigit))
-        //        {
-        //            MessageBox.Show("Số điện thoại chỉ được chứa các chữ số.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //            txt_Phone.Focus();
-        //            return;
-        //        }
-
-        //        // Thêm khách hàng và kiểm tra kết quả
-        //        bool result = await new CustomerBL().AddCustomer(name, phone, email);
-        //        if (result)
-        //        {
-        //            MessageBox.Show("Thêm khách hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //            CustomerView customerView = new CustomerView(); // Mở trang khách hàng
-        //            Main.Instance.LoadFormIntoPanelCenter(customerView);
-        //            this.Close();
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Khách hàng đã tồn tại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
         private async void btn_Save_Click_2(object sender, EventArgs e)
         {
-
             try
             {
                 string name = txt_Name.Text.Trim();
@@ -166,21 +100,21 @@ namespace PL.Model
                 // Kiểm tra nếu các trường không rỗng hoặc null
                 if (string.IsNullOrEmpty(name))
                 {
-                    MessageBox.Show("Tên khách hàng không được để trống.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    ShowMessage("Tên khách hàng không được để trống.", "Lỗi", MessageDialogIcon.Warning);
                     txt_Name.Focus();
                     return;
                 }
 
                 if (string.IsNullOrEmpty(phone))
                 {
-                    MessageBox.Show("Số điện thoại không được để trống.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    ShowMessage("Số điện thoại không được để trống.", "Lỗi", MessageDialogIcon.Warning);
                     txt_Phone.Focus();
                     return;
                 }
 
                 if (string.IsNullOrEmpty(email))
                 {
-                    MessageBox.Show("Email không được để trống.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    ShowMessage("Email không được để trống.", "Lỗi", MessageDialogIcon.Warning);
                     txt_Email.Focus();
                     return;
                 }
@@ -188,7 +122,7 @@ namespace PL.Model
                 // Kiểm tra định dạng email hợp lệ
                 if (!email.Contains("@") || !email.Contains("."))
                 {
-                    MessageBox.Show("Email không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    ShowMessage("Email không hợp lệ.", "Lỗi", MessageDialogIcon.Warning);
                     txt_Email.Focus();
                     return;
                 }
@@ -196,7 +130,7 @@ namespace PL.Model
                 // Kiểm tra số điện thoại chỉ chứa chữ số
                 if (!phone.All(char.IsDigit))
                 {
-                    MessageBox.Show("Số điện thoại chỉ được chứa các chữ số.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    ShowMessage("Số điện thoại chỉ được chứa các chữ số.", "Lỗi", MessageDialogIcon.Warning);
                     txt_Phone.Focus();
                     return;
                 }
@@ -205,20 +139,35 @@ namespace PL.Model
                 bool result = await new CustomerBL().AddCustomer(name, phone, email);
                 if (result)
                 {
-                    MessageBox.Show("Thêm khách hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ShowMessage("Thêm khách hàng thành công!", "Thông báo", MessageDialogIcon.Information);
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Khách hàng đã tồn tại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    ShowMessage("Khách hàng đã tồn tại.", "Thông báo", MessageDialogIcon.Warning);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowMessage($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageDialogIcon.Error);
             }
-
         }
+
+        private void ShowMessage(string message, string title, MessageDialogIcon icon)
+        {
+            Guna.UI2.WinForms.Guna2MessageDialog messageDialog = new Guna.UI2.WinForms.Guna2MessageDialog
+            {
+                Caption = title,
+                Text = message,
+                Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                Icon = icon,
+                Style = Guna.UI2.WinForms.MessageDialogStyle.Default,
+                Parent = this
+            };
+
+            messageDialog.Show();
+        }
+
     }
 }

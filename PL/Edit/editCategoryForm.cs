@@ -71,14 +71,16 @@ namespace PL.Edit
         // Phương thức hiển thị thông báo
         private void ShowMessage(string message, string title, MessageDialogIcon icon)
         {
-            Guna2MessageDialog messageDialog = new Guna2MessageDialog();
-            messageDialog.Caption = title;  // Sử dụng Caption cho tiêu đề
-            messageDialog.Text = message;   // Sử dụng Text cho nội dung thông báo
-            messageDialog.Icon = icon;
-            messageDialog.Buttons = MessageDialogButtons.OK;
+            Guna.UI2.WinForms.Guna2MessageDialog messageDialog = new Guna.UI2.WinForms.Guna2MessageDialog
+            {
+                Caption = title,
+                Text = message,
+                Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                Icon = icon,
+                Style = Guna.UI2.WinForms.MessageDialogStyle.Default,
+                Parent = this
+            };
             messageDialog.Show();
-            messageDialog.Style = MessageDialogStyle.Default;  // Thêm style
-            messageDialog.Parent = this;  // Set parent là form hiện tại
         }
 
         private void guna2HtmlLabel1_Click(object sender, EventArgs e)

@@ -108,7 +108,7 @@ namespace PL.View
                 guna2DataGridView1.Columns["dgvPictureTemp"].DataPropertyName = "Picture";
 
                 // Đọc dữ liệu từ cơ sở dữ liệu,
-                var data =await new LoadUserBL().loadUser(); // Giả sử LoadUserBL trả về danh sách các đối tượng User
+                var data = await new LoadUserBL().loadUser(); // Giả sử LoadUserBL trả về danh sách các đối tượng User
                 guna2DataGridView1.DataSource = data;
                 guna2DataGridView1.Refresh();
 
@@ -154,9 +154,11 @@ namespace PL.View
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error loading data into DataGridView: {ex.Message}");
-                MessageBox.Show("An error occurred while loading the data. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine($"Lỗi khi tải dữ liệu vào DataGridView: {ex.Message}");
+                ShowMessage("Đã xảy ra lỗi khi tải dữ liệu. Vui lòng thử lại.", "Lỗi", MessageDialogIcon.Error);
             }
+            
+
         }
 
 
@@ -196,7 +198,7 @@ namespace PL.View
                     image = cellValue.ToString();
                 }
                 // Hiển thị form chỉnh sửa và truyền dữ liệu
-                editUserForm editForm =  new editUserForm(id, name, username, password, phone, image);
+                editUserForm editForm = new editUserForm(id, name, username, password, phone, image);
                 if (editForm.ShowDialog() == DialogResult.OK)
                 {
                     // Load lại dữ liệu sau khi chỉnh sửa
@@ -208,11 +210,11 @@ namespace PL.View
 
         private async void guna2DataGridView1_CellClick_delete(object sender, DataGridViewCellEventArgs e)
         {
-            // Kiểm tra nếu click vào cột Edit
+            // Kiểm tra nếu click vào cột Delete
             if (e.RowIndex >= 0 && guna2DataGridView1.Columns[e.ColumnIndex].Name == "dgvDel")
             {
                 // Hiển thị hộp thoại xác nhận trước khi xóa
-                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa người dùng này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = ShowMessage("Bạn có chắc chắn muốn xóa người dùng này?", "Xác nhận xóa", MessageDialogIcon.Question);
 
                 if (result == DialogResult.Yes) // Nếu người dùng chọn "Yes"
                 {
@@ -221,23 +223,21 @@ namespace PL.View
 
                     if (deleteResult)
                     {
-                        MessageBox.Show("Xóa người dùng thành công!");
+                        ShowMessage("Xóa người dùng thành công!", "Success", MessageDialogIcon.Information);
                         LoadUsersToGridViewFunction();
                     }
                     else
                     {
-                        MessageBox.Show("Xóa người dùng thất bại!");
+                        ShowMessage("Xóa người dùng thất bại!", "Error", MessageDialogIcon.Error);
                     }
                 }
                 else
                 {
                     // Nếu người dùng chọn "No", không thực hiện xóa
-                    MessageBox.Show("Hành động xóa đã bị hủy.");
+                    ShowMessage("Hành động xóa đã bị hủy.", "Canceled", MessageDialogIcon.Information);
                 }
             }
         }
-
-
 
 
 
@@ -307,11 +307,54 @@ namespace PL.View
                 // Refresh the DataGridView to reflect the changes
                 guna2DataGridView1.Refresh();
             }
+           
             catch (Exception ex)
             {
-                Console.WriteLine($"Search error: {ex.Message}");
-                MessageBox.Show("An error occurred while searching.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine($"Lỗi tìm kiếm: {ex.Message}");
+                ShowMessage("Đã xảy ra lỗi khi tìm kiếm.", "Lỗi", MessageDialogIcon.Error);
             }
+        }
+        private DialogResult ShowMessage(string message, string title, MessageDialogIcon icon)
+        {
+            // Tạo đối tượng Guna2MessageDialog
+            Guna2MessageDialog messageDialog = new Guna2MessageDialog
+            {
+                Caption = title,
+                Text = message,
+                Icon = icon,
+                Buttons = MessageDialogButtons.YesNo,  // Đặt Yes/No cho các nút
+                Style = MessageDialogStyle.Default
+            };
+
+            // Hiển thị hộp thoại
+            messageDialog.Show();
+
+            // Trả về một giá trị mặc định, bạn có thể điều chỉnh thêm nếu cần.
+            return DialogResult.None; // Thay thế bằng giá trị DialogResult mong muốn
+        }
+
+
+
+
+        private void usermanual_Click(object sender, EventArgs e)
+        {
+            // Tạo và cấu hình Guna2MessageDialog
+            Guna.UI2.WinForms.Guna2MessageDialog messageDialog = new Guna.UI2.WinForms.Guna2MessageDialog
+            {
+                Caption = "Chức năng quản lý người dùng",
+                Text = "Chức năng này dùng để quản lý các giao dịch người dùng.\n" +
+                       "Chức năng bao gồm:\n" +
+                       "- Thêm: Thêm mới một giao dịch người dùng.\n" +
+                       "- Xóa: Xóa các giao dịch không còn sử dụng.\n" +
+                       "- Sửa: Thay đổi thông tin các giao dịch hiện có.\n\n" +
+                       "Ngoài ra, chức năng hiển thị chi tiết các giao dịch, giúp dễ dàng quản lý và theo dõi.",
+                Buttons = MessageDialogButtons.OK,
+                Icon = MessageDialogIcon.Information, // Biểu tượng thông tin
+                Style = MessageDialogStyle.Light // Phong cách sáng mặc định
+            };
+
+            // Hiển thị hộp thoại
+            messageDialog.Show();
         }
     }
 }

@@ -16,6 +16,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using DL;
 using System.Security.Cryptography;
 using BL.User;
+using Guna.UI2.WinForms;
 
 namespace PL.Model
 {
@@ -56,6 +57,11 @@ namespace PL.Model
 
                     // Hiển thị ảnh trong PictureBox
                     txtPic.Image = Image.FromFile(filePath);
+                }
+                if (string.IsNullOrEmpty(filePathnew))
+                {
+                    ShowMessage("Vui lòng chọn ảnh người dùng.", "Lỗi", MessageDialogIcon.Error);
+                    return;
                 }
             }
         }
@@ -99,9 +105,9 @@ namespace PL.Model
                 }
                 catch (Exception ex)
                 {
-                    // Xử lý lỗi nếu có
-                    MessageBox.Show("Error copying file: " + ex.Message);
+                    ShowMessage($"Đã xảy ra lỗi khi sao chép file: {ex.Message}", "Lỗi", MessageDialogIcon.Error);
                 }
+
 
                 // Trả về đường dẫn file đích
                 return destinationFilePath;
@@ -144,50 +150,60 @@ namespace PL.Model
                     string password = txt_Password.Text.Trim();
                     string phone = txt_Phone.Text.Trim();
                     string role = cb_Role.Text;
+
                     // Kiểm tra nếu trường không rỗng hoặc null
-                    if (string.IsNullOrEmpty(Name))
+                    if (string.IsNullOrEmpty(name))
                     {
-                        MessageBox.Show("Tên không được để trống.");
+                        ShowMessage("Tên không được để trống.", "Lỗi", MessageDialogIcon.Error);
                         return;
                     }
 
                     if (string.IsNullOrEmpty(userName))
                     {
-                        MessageBox.Show("Tên tài khoản không được để trống.");
+                        ShowMessage("Tên tài khoản không được để trống.", "Lỗi", MessageDialogIcon.Error);
                         return;
                     }
 
                     if (string.IsNullOrEmpty(password))
                     {
-                        MessageBox.Show("Mật khẩu không được để trống.");
+                        ShowMessage("Mật khẩu không được để trống.", "Lỗi", MessageDialogIcon.Error);
                         return;
                     }
 
-                    // Tiến hành các xử lý tiếp theo nếu mọi trường hợp đều hợp lệ
-
-
                     // Lấy mảng byte từ PictureBox
                     string picture = SaveImageToFolder(filePathnew);
-                    // Gọi hàm UpdateUser
+
+                    // Gọi hàm AddUser
                     bool result = await new addUsersBL().AddUser(name, userName, password, phone, picture, role);
                     if (result)
                     {
-                        MessageBox.Show("thêm người dùng thành công!");
+                        ShowMessage("Thêm người dùng thành công!", "Thành công", MessageDialogIcon.Information);
                         this.DialogResult = DialogResult.OK;
                         this.Close();
                         isValid = true;
                     }
                     else
                     {
-                        MessageBox.Show("Người dùng đã tồn tại.");
+                        ShowMessage("Người dùng đã tồn tại.", "Lỗi", MessageDialogIcon.Error);
                         isValid = true;
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}");
+                    ShowMessage($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageDialogIcon.Error);
                 }
             }
+        }
+
+        private void ShowMessage(string message, string title, MessageDialogIcon icon)
+        {
+            Guna2MessageDialog messageDialog = new Guna2MessageDialog();
+            messageDialog.Caption = title;
+            messageDialog.Text = message;
+            messageDialog.Icon = icon;
+            messageDialog.Buttons = MessageDialogButtons.OK;
+            messageDialog.Style = MessageDialogStyle.Default;
+            messageDialog.Show();
         }
 
 

@@ -121,12 +121,11 @@ namespace PL.Model
                     // Kiểm tra ProductID trong giỏ hàng
                     if ((int)row.Cells["dgvSupplierId"].Value != 0 && (int)row.Cells["dgvSupplierId"].Value != product.SupplierID)
                     {
-
-                        //MessageBox.Show("Không thể thêm sản phẩm khác nhà cung cấp để tạo đơn hàng!");
-                        NotificationShow.ShowMessageDialog("Không thể thêm sản phẩm khác nhà cung cấp để tạo đơn hàng");
+                        ShowMessage("Không thể thêm sản phẩm khác nhà cung cấp để tạo đơn hàng", "Lỗi", MessageDialogIcon.Error);
                         isProductInCart = false;
                         return;
                     }
+
                     else if (row.Cells["dgvId"].Value != null && (int)row.Cells["dgvId"].Value == product.ProductID)
                     {
                         // Nếu có, cập nhật số lượng và Amount
@@ -352,17 +351,27 @@ namespace PL.Model
                 }
                 else
                 {
-                    Console.WriteLine("Selected value is not of expected type.");
+                        ShowMessage("Giá trị được chọn không phải là loại mong đợi.", "Lỗi", MessageDialogIcon.Error);
+                    
                 }
             }
             else
             {
-                Console.WriteLine("No supplier selected.");
+                ShowMessage("Không có nhà cung cấp nào được chọn.", "Lỗi", MessageDialogIcon.Error);
             }
         }
 
-
-
+        private void ShowMessage(string message, string title, MessageDialogIcon icon)
+        {
+            Guna2MessageDialog messageDialog = new Guna2MessageDialog();
+            messageDialog.Caption = title;
+            messageDialog.Text = message;
+            messageDialog.Icon = icon;
+            messageDialog.Buttons = MessageDialogButtons.OK;
+            messageDialog.Style = MessageDialogStyle.Default;
+            messageDialog.Parent = this;
+            messageDialog.Show();
+        }
 
         private async void LoadProducts(object sender, EventArgs e)
         {
@@ -497,7 +506,7 @@ namespace PL.Model
                 bool result = await new BL.Purchase.PurchaseBL().addPurchase(supplierId, total_Amount, createdBy, notes);
                 if (result)
                 {
-                    MessageBox.Show("Tạo đơn hàng thành công!");
+                    ShowMessage("Tạo đơn hàng thành công!", "Thông báo", MessageDialogIcon.Information);
 
                     foreach (DataGridViewRow row in dataGridViewCart.Rows)
                     {
@@ -513,10 +522,11 @@ namespace PL.Model
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
+
             }
             else
             {
-                MessageBox.Show("Quản lý chưa xác nhận nhận hàng. Không thể tạo đơn hàng.");
+                ShowMessage("Quản lý chưa xác nhận nhận hàng. Không thể tạo đơn hàng.", "Cảnh báo", MessageDialogIcon.Warning);
             }
         }
 

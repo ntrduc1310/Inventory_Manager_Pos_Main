@@ -28,16 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SaleView));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SaleView));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -50,17 +52,20 @@
             dgvCreatedBy = new DataGridViewTextBoxColumn();
             dgvAllInformation = new DataGridViewTextBoxColumn();
             dgvPrintInvoice = new DataGridViewImageColumn();
+            usermanual = new Guna.UI2.WinForms.Guna2PictureBox();
             guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)usermanual).BeginInit();
             SuspendLayout();
             // 
             // guna2Panel1
             // 
+            guna2Panel1.Controls.Add(usermanual);
             guna2Panel1.Controls.Add(guna2PictureBox1);
             guna2Panel1.Controls.Add(guna2HtmlLabel3);
             guna2Panel1.Margin = new Padding(4);
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges3;
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges5;
             guna2Panel1.Size = new Size(1051, 208);
             guna2Panel1.Paint += guna2Panel1_Paint;
             guna2Panel1.Controls.SetChildIndex(guna2HtmlLabel1, 0);
@@ -69,6 +74,7 @@
             guna2Panel1.Controls.SetChildIndex(txtsearch, 0);
             guna2Panel1.Controls.SetChildIndex(guna2HtmlLabel3, 0);
             guna2Panel1.Controls.SetChildIndex(guna2PictureBox1, 0);
+            guna2Panel1.Controls.SetChildIndex(usermanual, 0);
             // 
             // btnAdd1
             // 
@@ -80,7 +86,7 @@
             btnAdd1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdd1.Location = new Point(63, 123);
             btnAdd1.Margin = new Padding(4);
-            btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnAdd1.Text = "Thêm Mới";
             btnAdd1.Click += btnAdd1_Click_1;
             // 
@@ -96,7 +102,7 @@
             txtsearch.Location = new Point(578, 123);
             txtsearch.Margin = new Padding(4, 5, 4, 5);
             txtsearch.PlaceholderText = "Nhập Mã Đơn Để Tìm Kiếm";
-            txtsearch.ShadowDecoration.CustomizableEdges = customizableEdges5;
+            txtsearch.ShadowDecoration.CustomizableEdges = customizableEdges7;
             txtsearch.Size = new Size(416, 64);
             // 
             // guna2HtmlLabel1
@@ -127,12 +133,12 @@
             // guna2PictureBox1
             // 
             guna2PictureBox1.BackColor = Color.Transparent;
-            guna2PictureBox1.CustomizableEdges = customizableEdges1;
+            guna2PictureBox1.CustomizableEdges = customizableEdges3;
             guna2PictureBox1.Image = (Image)resources.GetObject("guna2PictureBox1.Image");
             guna2PictureBox1.ImageRotate = 0F;
             guna2PictureBox1.Location = new Point(60, 21);
             guna2PictureBox1.Name = "guna2PictureBox1";
-            guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2PictureBox1.Size = new Size(96, 94);
             guna2PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             guna2PictureBox1.TabIndex = 7;
@@ -283,6 +289,20 @@
             dgvPrintInvoice.Resizable = DataGridViewTriState.True;
             dgvPrintInvoice.SortMode = DataGridViewColumnSortMode.Automatic;
             // 
+            // usermanual
+            // 
+            usermanual.CustomizableEdges = customizableEdges1;
+            usermanual.Image = (Image)resources.GetObject("usermanual.Image");
+            usermanual.ImageRotate = 0F;
+            usermanual.Location = new Point(1002, 131);
+            usermanual.Name = "usermanual";
+            usermanual.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            usermanual.Size = new Size(48, 46);
+            usermanual.SizeMode = PictureBoxSizeMode.StretchImage;
+            usermanual.TabIndex = 10;
+            usermanual.TabStop = false;
+            usermanual.Click += usermanual_Click;
+            // 
             // SaleView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -297,6 +317,7 @@
             guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)usermanual).EndInit();
             ResumeLayout(false);
         }
 
@@ -313,5 +334,6 @@
         private DataGridViewTextBoxColumn dgvCreatedBy;
         private DataGridViewTextBoxColumn dgvAllInformation;
         private DataGridViewImageColumn dgvPrintInvoice;
+        private Guna.UI2.WinForms.Guna2PictureBox usermanual;
     }
 }

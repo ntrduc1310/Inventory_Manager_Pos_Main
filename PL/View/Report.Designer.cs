@@ -57,6 +57,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -83,6 +85,7 @@
             guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2GradientPanel7 = new Guna.UI2.WinForms.Guna2GradientPanel();
             guna2GradientPanel8 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            usermanual = new Guna.UI2.WinForms.Guna2PictureBox();
             guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox3).BeginInit();
             guna2GradientPanel2.SuspendLayout();
@@ -92,6 +95,7 @@
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             guna2GradientPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)usermanual).BeginInit();
             SuspendLayout();
             // 
             // guna2HtmlLabel1
@@ -99,7 +103,7 @@
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel1.ForeColor = SystemColors.ButtonHighlight;
-            guna2HtmlLabel1.Location = new Point(135, 17);
+            guna2HtmlLabel1.Location = new Point(123, 17);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(133, 39);
             guna2HtmlLabel1.TabIndex = 0;
@@ -118,7 +122,7 @@
             guna2GradientPanel1.Location = new Point(113, 214);
             guna2GradientPanel1.Name = "guna2GradientPanel1";
             guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2GradientPanel1.Size = new Size(287, 139);
+            guna2GradientPanel1.Size = new Size(319, 139);
             guna2GradientPanel1.TabIndex = 1;
             // 
             // guna2PictureBox3
@@ -127,7 +131,7 @@
             guna2PictureBox3.CustomizableEdges = customizableEdges1;
             guna2PictureBox3.Image = (Image)resources.GetObject("guna2PictureBox3.Image");
             guna2PictureBox3.ImageRotate = 0F;
-            guna2PictureBox3.Location = new Point(19, 10);
+            guna2PictureBox3.Location = new Point(3, 12);
             guna2PictureBox3.Name = "guna2PictureBox3";
             guna2PictureBox3.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2PictureBox3.Size = new Size(101, 101);
@@ -141,7 +145,7 @@
             lbl_turnover.BackColor = Color.Transparent;
             lbl_turnover.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_turnover.ForeColor = Color.Transparent;
-            lbl_turnover.Location = new Point(135, 79);
+            lbl_turnover.Location = new Point(123, 84);
             lbl_turnover.Name = "lbl_turnover";
             lbl_turnover.Size = new Size(35, 39);
             lbl_turnover.TabIndex = 14;
@@ -157,10 +161,10 @@
             guna2GradientPanel2.CustomizableEdges = customizableEdges7;
             guna2GradientPanel2.FillColor = Color.FromArgb(96, 61, 200);
             guna2GradientPanel2.FillColor2 = Color.FromArgb(94, 71, 204);
-            guna2GradientPanel2.Location = new Point(1226, 217);
+            guna2GradientPanel2.Location = new Point(1193, 214);
             guna2GradientPanel2.Name = "guna2GradientPanel2";
             guna2GradientPanel2.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2GradientPanel2.Size = new Size(287, 139);
+            guna2GradientPanel2.Size = new Size(319, 139);
             guna2GradientPanel2.TabIndex = 2;
             // 
             // guna2PictureBox5
@@ -169,7 +173,7 @@
             guna2PictureBox5.CustomizableEdges = customizableEdges5;
             guna2PictureBox5.Image = (Image)resources.GetObject("guna2PictureBox5.Image");
             guna2PictureBox5.ImageRotate = 0F;
-            guna2PictureBox5.Location = new Point(16, 14);
+            guna2PictureBox5.Location = new Point(3, 17);
             guna2PictureBox5.Name = "guna2PictureBox5";
             guna2PictureBox5.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2PictureBox5.Size = new Size(101, 101);
@@ -183,7 +187,7 @@
             lbl_Profit.BackColor = Color.Transparent;
             lbl_Profit.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_Profit.ForeColor = Color.Transparent;
-            lbl_Profit.Location = new Point(123, 81);
+            lbl_Profit.Location = new Point(110, 84);
             lbl_Profit.Name = "lbl_Profit";
             lbl_Profit.Size = new Size(35, 39);
             lbl_Profit.TabIndex = 12;
@@ -194,7 +198,7 @@
             guna2HtmlLabel2.BackColor = Color.Transparent;
             guna2HtmlLabel2.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel2.ForeColor = SystemColors.ButtonHighlight;
-            guna2HtmlLabel2.Location = new Point(123, 14);
+            guna2HtmlLabel2.Location = new Point(108, 12);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             guna2HtmlLabel2.Size = new Size(142, 39);
             guna2HtmlLabel2.TabIndex = 1;
@@ -210,10 +214,10 @@
             guna2GradientPanel3.CustomizableEdges = customizableEdges11;
             guna2GradientPanel3.FillColor = Color.FromArgb(96, 61, 200);
             guna2GradientPanel3.FillColor2 = Color.FromArgb(94, 71, 204);
-            guna2GradientPanel3.Location = new Point(852, 214);
+            guna2GradientPanel3.Location = new Point(833, 214);
             guna2GradientPanel3.Name = "guna2GradientPanel3";
             guna2GradientPanel3.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            guna2GradientPanel3.Size = new Size(287, 139);
+            guna2GradientPanel3.Size = new Size(319, 139);
             guna2GradientPanel3.TabIndex = 3;
             // 
             // guna2PictureBox4
@@ -222,7 +226,7 @@
             guna2PictureBox4.CustomizableEdges = customizableEdges9;
             guna2PictureBox4.Image = (Image)resources.GetObject("guna2PictureBox4.Image");
             guna2PictureBox4.ImageRotate = 0F;
-            guna2PictureBox4.Location = new Point(39, 17);
+            guna2PictureBox4.Location = new Point(0, 17);
             guna2PictureBox4.Name = "guna2PictureBox4";
             guna2PictureBox4.ShadowDecoration.CustomizableEdges = customizableEdges10;
             guna2PictureBox4.Size = new Size(101, 101);
@@ -236,7 +240,7 @@
             lbl_TotalCostPrice.BackColor = Color.Transparent;
             lbl_TotalCostPrice.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_TotalCostPrice.ForeColor = Color.Transparent;
-            lbl_TotalCostPrice.Location = new Point(157, 84);
+            lbl_TotalCostPrice.Location = new Point(127, 84);
             lbl_TotalCostPrice.Name = "lbl_TotalCostPrice";
             lbl_TotalCostPrice.Size = new Size(35, 39);
             lbl_TotalCostPrice.TabIndex = 13;
@@ -247,7 +251,7 @@
             guna2HtmlLabel3.BackColor = Color.Transparent;
             guna2HtmlLabel3.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel3.ForeColor = SystemColors.ButtonHighlight;
-            guna2HtmlLabel3.Location = new Point(157, 17);
+            guna2HtmlLabel3.Location = new Point(127, 17);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             guna2HtmlLabel3.Size = new Size(54, 39);
             guna2HtmlLabel3.TabIndex = 1;
@@ -313,7 +317,7 @@
             guna2HtmlLabel5.BackColor = Color.Transparent;
             guna2HtmlLabel5.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel5.ForeColor = SystemColors.ButtonHighlight;
-            guna2HtmlLabel5.Location = new Point(141, 12);
+            guna2HtmlLabel5.Location = new Point(133, 17);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             guna2HtmlLabel5.Size = new Size(124, 39);
             guna2HtmlLabel5.TabIndex = 12;
@@ -330,10 +334,10 @@
             guna2GradientPanel4.CustomizableEdges = customizableEdges19;
             guna2GradientPanel4.FillColor = Color.FromArgb(96, 61, 200);
             guna2GradientPanel4.FillColor2 = Color.FromArgb(94, 71, 204);
-            guna2GradientPanel4.Location = new Point(483, 214);
+            guna2GradientPanel4.Location = new Point(477, 214);
             guna2GradientPanel4.Name = "guna2GradientPanel4";
             guna2GradientPanel4.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            guna2GradientPanel4.Size = new Size(287, 139);
+            guna2GradientPanel4.Size = new Size(319, 139);
             guna2GradientPanel4.TabIndex = 13;
             // 
             // guna2PictureBox2
@@ -342,7 +346,7 @@
             guna2PictureBox2.CustomizableEdges = customizableEdges17;
             guna2PictureBox2.Image = (Image)resources.GetObject("guna2PictureBox2.Image");
             guna2PictureBox2.ImageRotate = 0F;
-            guna2PictureBox2.Location = new Point(18, 17);
+            guna2PictureBox2.Location = new Point(3, 17);
             guna2PictureBox2.Name = "guna2PictureBox2";
             guna2PictureBox2.ShadowDecoration.CustomizableEdges = customizableEdges18;
             guna2PictureBox2.Size = new Size(101, 101);
@@ -356,7 +360,7 @@
             guna2HtmlLabel6.BackColor = Color.Transparent;
             guna2HtmlLabel6.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel6.ForeColor = SystemColors.ButtonHighlight;
-            guna2HtmlLabel6.Location = new Point(141, 50);
+            guna2HtmlLabel6.Location = new Point(133, 51);
             guna2HtmlLabel6.Name = "guna2HtmlLabel6";
             guna2HtmlLabel6.Size = new Size(132, 39);
             guna2HtmlLabel6.TabIndex = 13;
@@ -367,7 +371,7 @@
             lbl_Quantity.BackColor = Color.Transparent;
             lbl_Quantity.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_Quantity.ForeColor = Color.Transparent;
-            lbl_Quantity.Location = new Point(141, 84);
+            lbl_Quantity.Location = new Point(133, 84);
             lbl_Quantity.Name = "lbl_Quantity";
             lbl_Quantity.Size = new Size(35, 39);
             lbl_Quantity.TabIndex = 12;
@@ -434,11 +438,26 @@
             guna2GradientPanel8.Size = new Size(27, 347);
             guna2GradientPanel8.TabIndex = 18;
             // 
+            // usermanual
+            // 
+            usermanual.CustomizableEdges = customizableEdges29;
+            usermanual.Image = (Image)resources.GetObject("usermanual.Image");
+            usermanual.ImageRotate = 0F;
+            usermanual.Location = new Point(1464, 108);
+            usermanual.Name = "usermanual";
+            usermanual.ShadowDecoration.CustomizableEdges = customizableEdges30;
+            usermanual.Size = new Size(48, 46);
+            usermanual.SizeMode = PictureBoxSizeMode.StretchImage;
+            usermanual.TabIndex = 19;
+            usermanual.TabStop = false;
+            usermanual.Click += usermanual_Click;
+            // 
             // Report
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1576, 771);
+            ClientSize = new Size(1608, 771);
+            Controls.Add(usermanual);
             Controls.Add(guna2GradientPanel8);
             Controls.Add(guna2GradientPanel7);
             Controls.Add(guna2HtmlLabel7);
@@ -471,6 +490,7 @@
             guna2GradientPanel4.ResumeLayout(false);
             guna2GradientPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)usermanual).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -503,5 +523,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel7;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel8;
+        private Guna.UI2.WinForms.Guna2PictureBox usermanual;
     }
 }

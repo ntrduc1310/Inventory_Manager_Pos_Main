@@ -28,18 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoryView));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoryView));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             dgvSr = new DataGridViewTextBoxColumn();
             dgvid = new DataGridViewTextBoxColumn();
@@ -50,22 +52,23 @@
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            usermanual = new Guna.UI2.WinForms.Guna2PictureBox();
             guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)usermanual).BeginInit();
             SuspendLayout();
             // 
             // guna2Panel1
             // 
             guna2Panel1.BorderRadius = 3;
-            guna2Panel1.Controls.Add(guna2HtmlLabel4);
+            guna2Panel1.Controls.Add(usermanual);
             guna2Panel1.Controls.Add(chart1);
             guna2Panel1.Controls.Add(guna2HtmlLabel3);
             guna2Panel1.Controls.Add(guna2PictureBox1);
             guna2Panel1.Margin = new Padding(1, 4, 1, 4);
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges3;
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges5;
             guna2Panel1.Size = new Size(1051, 208);
             guna2Panel1.Controls.SetChildIndex(guna2HtmlLabel1, 0);
             guna2Panel1.Controls.SetChildIndex(guna2HtmlLabel2, 0);
@@ -74,7 +77,7 @@
             guna2Panel1.Controls.SetChildIndex(guna2PictureBox1, 0);
             guna2Panel1.Controls.SetChildIndex(guna2HtmlLabel3, 0);
             guna2Panel1.Controls.SetChildIndex(chart1, 0);
-            guna2Panel1.Controls.SetChildIndex(guna2HtmlLabel4, 0);
+            guna2Panel1.Controls.SetChildIndex(usermanual, 0);
             // 
             // btnAdd1
             // 
@@ -86,7 +89,7 @@
             btnAdd1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdd1.Location = new Point(63, 122);
             btnAdd1.Margin = new Padding(4);
-            btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnAdd1.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnAdd1.Text = "Thêm Mới";
             btnAdd1.Click += btnAdd1_Click_1;
             // 
@@ -99,10 +102,10 @@
             txtsearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtsearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtsearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtsearch.Location = new Point(578, 122);
+            txtsearch.Location = new Point(576, 116);
             txtsearch.Margin = new Padding(4, 5, 4, 5);
             txtsearch.PlaceholderText = "Nhập Vào Tìm Kiếm";
-            txtsearch.ShadowDecoration.CustomizableEdges = customizableEdges5;
+            txtsearch.ShadowDecoration.CustomizableEdges = customizableEdges7;
             txtsearch.Size = new Size(416, 64);
             txtsearch.TextChanged += txtsearch_TextChanged_1;
             // 
@@ -237,12 +240,12 @@
             // guna2PictureBox1
             // 
             guna2PictureBox1.BackColor = Color.Transparent;
-            guna2PictureBox1.CustomizableEdges = customizableEdges1;
+            guna2PictureBox1.CustomizableEdges = customizableEdges3;
             guna2PictureBox1.Image = (Image)resources.GetObject("guna2PictureBox1.Image");
             guna2PictureBox1.ImageRotate = 0F;
             guna2PictureBox1.Location = new Point(48, 21);
             guna2PictureBox1.Name = "guna2PictureBox1";
-            guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2PictureBox1.Size = new Size(96, 94);
             guna2PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             guna2PictureBox1.TabIndex = 4;
@@ -275,18 +278,19 @@
             chart1.TabIndex = 6;
             chart1.Text = "chart1";
             // 
-            // guna2HtmlLabel4
+            // usermanual
             // 
-            guna2HtmlLabel4.BackColor = Color.Transparent;
-            guna2HtmlLabel4.BorderStyle = BorderStyle.Fixed3D;
-            guna2HtmlLabel4.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            guna2HtmlLabel4.Location = new Point(1001, 46);
-            guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            guna2HtmlLabel4.Padding = new Padding(1, 2, 1, 6);
-            guna2HtmlLabel4.Size = new Size(18, 42);
-            guna2HtmlLabel4.TabIndex = 7;
-            guna2HtmlLabel4.Text = "?";
-            guna2HtmlLabel4.Click += guna2HtmlLabel4_Click;
+            usermanual.CustomizableEdges = customizableEdges1;
+            usermanual.Image = (Image)resources.GetObject("usermanual.Image");
+            usermanual.ImageRotate = 0F;
+            usermanual.Location = new Point(999, 122);
+            usermanual.Name = "usermanual";
+            usermanual.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            usermanual.Size = new Size(48, 46);
+            usermanual.SizeMode = PictureBoxSizeMode.StretchImage;
+            usermanual.TabIndex = 8;
+            usermanual.TabStop = false;
+            usermanual.Click += usermanual_Click;
             // 
             // CategoryView
             // 
@@ -304,6 +308,7 @@
             ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)chart1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)usermanual).EndInit();
             ResumeLayout(false);
         }
 
@@ -319,6 +324,6 @@
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
+        private Guna.UI2.WinForms.Guna2PictureBox usermanual;
     }
 }
