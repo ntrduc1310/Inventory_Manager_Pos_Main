@@ -1,6 +1,7 @@
 ﻿using BL;
 using BL.Category;
 using BL.ProductsBL;
+using Guna.UI2.WinForms;
 using PL.Edit;
 using PL.Model;
 using System;
@@ -17,6 +18,7 @@ namespace PL.View
 {
     public partial class CategoryView : SampleView
     {
+
         public CategoryView()
         {
             InitializeComponent();
@@ -96,7 +98,7 @@ namespace PL.View
         {
             CategoryAdd categoryAdd = new CategoryAdd();
             categoryAdd.ShowDialog();
-            if(categoryAdd.DialogResult == DialogResult.OK)
+            if (categoryAdd.DialogResult == DialogResult.OK)
             {
                 LoadCategoryToGridViewFunction();
             }
@@ -221,6 +223,58 @@ namespace PL.View
             {
                 Console.WriteLine($"CellFormatting error: {ex.Message}");
             }
+        }
+
+        private async Task ShowGunaMessageDialog(string message, string title, MessageDialogIcon icon, int autoCloseTime = 2000)
+        {
+            var tcs = new TaskCompletionSource<bool>();
+
+            // Đảm bảo form đã sẵn sàng và có window handle hợp lệ
+            if (this.IsHandleCreated)
+            {
+                // Chạy trên UI thread
+                this.Invoke(new Action(async () =>
+                {
+                    // Tạo đối tượng Guna2MessageDialog
+                    using (var gunaMessageDialog = new Guna.UI2.WinForms.Guna2MessageDialog
+                    {
+                        Text = message,
+                        Caption = title,
+                        Buttons = MessageDialogButtons.OK,
+                        Icon = icon,
+                        Style = MessageDialogStyle.Dark
+                    })
+                    {
+                        // Hiển thị hộp thoại
+                        gunaMessageDialog.Show();
+
+                        // Chờ trong khoảng thời gian autoCloseTime
+                        await Task.Delay(autoCloseTime);
+
+                        // Tự động đóng dialog
+                        SendKeys.Send("{ENTER}");
+
+                        // Đánh dấu task đã hoàn thành
+                        tcs.SetResult(true);
+                    }
+                }));
+            }
+            else
+            {
+                // Nếu form chưa sẵn sàng, chờ đến khi handle được tạo ra
+                await Task.Delay(100);
+                await ShowGunaMessageDialog(message, title, icon, autoCloseTime); // Gọi lại phương thức sau khi form đã hoàn tất khởi tạo
+            }
+
+            // Đợi cho đến khi dialog được đóng
+            await tcs.Task;
+        }
+
+
+        private void guna2HtmlLabel4_Click(object sender, EventArgs e)
+        {
+            ShowGunaMessageDialog("Chức năng dùng để tạo các phân loại sản Phẩm để dễ quản lí\n chức năng bao gồm thêm xóa và sửa tên các loại sản phẩm\n hiển thị số lượng sản phẩm thuộc loại đó ","Chức năng phân loại sản phẩm", MessageDialogIcon.Information);
+
         }
     }
 }

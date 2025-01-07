@@ -304,6 +304,7 @@
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(1002, 598);
             flowLayoutPanel1.TabIndex = 4;
+            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 
             // txt_Search
             // 

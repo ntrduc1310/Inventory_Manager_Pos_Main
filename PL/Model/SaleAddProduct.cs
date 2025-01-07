@@ -613,7 +613,7 @@ namespace PL.Model
             }
         }
 
-    
+
 
         private void dataGridViewCart_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -626,6 +626,11 @@ namespace PL.Model
         }
 
         private void cb_OnOff_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

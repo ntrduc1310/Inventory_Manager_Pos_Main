@@ -50,6 +50,7 @@
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
@@ -58,10 +59,12 @@
             // 
             // guna2Panel1
             // 
+            guna2Panel1.BorderRadius = 3;
+            guna2Panel1.Controls.Add(guna2HtmlLabel4);
             guna2Panel1.Controls.Add(chart1);
             guna2Panel1.Controls.Add(guna2HtmlLabel3);
             guna2Panel1.Controls.Add(guna2PictureBox1);
-            guna2Panel1.Margin = new Padding(4);
+            guna2Panel1.Margin = new Padding(1, 4, 1, 4);
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges3;
             guna2Panel1.Size = new Size(1051, 208);
             guna2Panel1.Controls.SetChildIndex(guna2HtmlLabel1, 0);
@@ -71,6 +74,7 @@
             guna2Panel1.Controls.SetChildIndex(guna2PictureBox1, 0);
             guna2Panel1.Controls.SetChildIndex(guna2HtmlLabel3, 0);
             guna2Panel1.Controls.SetChildIndex(chart1, 0);
+            guna2Panel1.Controls.SetChildIndex(guna2HtmlLabel4, 0);
             // 
             // btnAdd1
             // 
@@ -271,6 +275,19 @@
             chart1.TabIndex = 6;
             chart1.Text = "chart1";
             // 
+            // guna2HtmlLabel4
+            // 
+            guna2HtmlLabel4.BackColor = Color.Transparent;
+            guna2HtmlLabel4.BorderStyle = BorderStyle.Fixed3D;
+            guna2HtmlLabel4.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            guna2HtmlLabel4.Location = new Point(1001, 46);
+            guna2HtmlLabel4.Name = "guna2HtmlLabel4";
+            guna2HtmlLabel4.Padding = new Padding(1, 2, 1, 6);
+            guna2HtmlLabel4.Size = new Size(18, 42);
+            guna2HtmlLabel4.TabIndex = 7;
+            guna2HtmlLabel4.Text = "?";
+            guna2HtmlLabel4.Click += guna2HtmlLabel4_Click;
+            // 
             // CategoryView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -302,5 +319,6 @@
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
     }
 }
