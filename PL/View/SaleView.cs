@@ -83,7 +83,18 @@ namespace PL.View
                     // Lấy thông tin chi tiết của Purchase từ ID
                     string details = await new SaleBL().LoadSaleDetailsByIdAsString(id);
 
-                    MessageBox.Show(details);
+                    // Tạo và cấu hình Guna2MessageDialog
+                    Guna.UI2.WinForms.Guna2MessageDialog messageDialog = new Guna.UI2.WinForms.Guna2MessageDialog
+                    {
+                        Caption = "Sale Details",
+                        Text = details,
+                        Buttons = MessageDialogButtons.OK,
+                        Icon = MessageDialogIcon.Information,
+                        Style = MessageDialogStyle.Light
+                    };
+
+                    // Hiển thị hộp thoại
+                    messageDialog.Show();
                 }
             }
             catch (Exception ex)

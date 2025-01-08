@@ -43,6 +43,7 @@
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
+            usermanual = new Guna.UI2.WinForms.Guna2PictureBox();
             dgvSr = new DataGridViewTextBoxColumn();
             dgvid = new DataGridViewTextBoxColumn();
             dgvDate = new DataGridViewTextBoxColumn();
@@ -50,9 +51,8 @@
             dgvCustomer = new DataGridViewTextBoxColumn();
             dgvAmount = new DataGridViewTextBoxColumn();
             dgvCreatedBy = new DataGridViewTextBoxColumn();
-            dgvAllInformation = new DataGridViewTextBoxColumn();
+            dgvAllInformation = new DataGridViewImageColumn();
             dgvPrintInvoice = new DataGridViewImageColumn();
-            usermanual = new Guna.UI2.WinForms.Guna2PictureBox();
             guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).BeginInit();
@@ -213,6 +213,20 @@
             guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             guna2DataGridView1.CellContentClick += guna2DataGridView1_CellContentClick_2;
             // 
+            // usermanual
+            // 
+            usermanual.CustomizableEdges = customizableEdges1;
+            usermanual.Image = (Image)resources.GetObject("usermanual.Image");
+            usermanual.ImageRotate = 0F;
+            usermanual.Location = new Point(1002, 131);
+            usermanual.Name = "usermanual";
+            usermanual.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            usermanual.Size = new Size(48, 46);
+            usermanual.SizeMode = PictureBoxSizeMode.StretchImage;
+            usermanual.TabIndex = 10;
+            usermanual.TabStop = false;
+            usermanual.Click += usermanual_Click;
+            // 
             // dgvSr
             // 
             dgvSr.FillWeight = 40F;
@@ -271,9 +285,9 @@
             // 
             // dgvAllInformation
             // 
-            dgvAllInformation.FillWeight = 101.980057F;
             dgvAllInformation.HeaderText = "";
-            dgvAllInformation.MinimumWidth = 8;
+            dgvAllInformation.Image = (Image)resources.GetObject("dgvAllInformation.Image");
+            dgvAllInformation.MinimumWidth = 6;
             dgvAllInformation.Name = "dgvAllInformation";
             dgvAllInformation.ReadOnly = true;
             // 
@@ -288,20 +302,6 @@
             dgvPrintInvoice.ReadOnly = true;
             dgvPrintInvoice.Resizable = DataGridViewTriState.True;
             dgvPrintInvoice.SortMode = DataGridViewColumnSortMode.Automatic;
-            // 
-            // usermanual
-            // 
-            usermanual.CustomizableEdges = customizableEdges1;
-            usermanual.Image = (Image)resources.GetObject("usermanual.Image");
-            usermanual.ImageRotate = 0F;
-            usermanual.Location = new Point(1002, 131);
-            usermanual.Name = "usermanual";
-            usermanual.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            usermanual.Size = new Size(48, 46);
-            usermanual.SizeMode = PictureBoxSizeMode.StretchImage;
-            usermanual.TabIndex = 10;
-            usermanual.TabStop = false;
-            usermanual.Click += usermanual_Click;
             // 
             // SaleView
             // 
@@ -325,6 +325,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
+        private Guna.UI2.WinForms.Guna2PictureBox usermanual;
         private DataGridViewTextBoxColumn dgvSr;
         private DataGridViewTextBoxColumn dgvid;
         private DataGridViewTextBoxColumn dgvDate;
@@ -332,8 +333,7 @@
         private DataGridViewTextBoxColumn dgvCustomer;
         private DataGridViewTextBoxColumn dgvAmount;
         private DataGridViewTextBoxColumn dgvCreatedBy;
-        private DataGridViewTextBoxColumn dgvAllInformation;
+        private DataGridViewImageColumn dgvAllInformation;
         private DataGridViewImageColumn dgvPrintInvoice;
-        private Guna.UI2.WinForms.Guna2PictureBox usermanual;
     }
 }
