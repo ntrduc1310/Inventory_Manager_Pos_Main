@@ -266,8 +266,8 @@ namespace PL
 
         private void SignIn_Load(object sender, EventArgs e)
         {
-            Username_txb.Text = "Ducci1310";
-            Password_txb.Text = "Ducci12345";
+            Username_txb.Text = "Ducci";
+            Password_txb.Text = "Ducci123";
         }
 
         private void TextBox_KeyDown(object sender, KeyEventArgs e)

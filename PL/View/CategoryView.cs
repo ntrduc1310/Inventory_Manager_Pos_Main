@@ -69,26 +69,20 @@ namespace PL.View
         {
             try
             {
-                // Tắt tự động tạo cột
                 guna2DataGridView1.AutoGenerateColumns = false;
-
-                // Ánh xạ cột với dữ liệu từ cơ sở dữ liệu
                 guna2DataGridView1.Columns["dgvid"].DataPropertyName = "Id";
                 guna2DataGridView1.Columns["dgvName"].DataPropertyName = "Name";
                 guna2DataGridView1.Columns["dgvQuantityProducts"].DataPropertyName = "QuantityProducts";
 
-                // Đọc dữ liệu từ cơ sở dữ liệu
-                var data = await new CategoryBL().LoadCategory(); // Giả sử LoadCategory trả về danh sách các đối tượng Category
+                var data = await new CategoryBL().LoadCategory();
                 guna2DataGridView1.DataSource = data;
                 guna2DataGridView1.Refresh();
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error loading data into DataGridView: {ex.Message}");
-                MessageBox.Show("An error occurred while loading the data. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                await ShowGunaMessageDialog("Đã xảy ra lỗi khi tải dữ liệu. Vui lòng thử lại.", "Lỗi", MessageDialogIcon.Error);
             }
         }
-
         private void CategoryView_Load(object sender, EventArgs e)
         {
 
@@ -138,31 +132,37 @@ namespace PL.View
 
         private async void guna2DataGridView1_CellClick_delete(object sender, DataGridViewCellEventArgs e)
         {
-            // Kiểm tra nếu click vào cột Delete
             if (e.RowIndex >= 0 && guna2DataGridView1.Columns[e.ColumnIndex].Name == "dgvDel")
             {
-                // Hiển thị hộp thoại xác nhận trước khi xóa
-                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa danh mục này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                var messageDialog = new Guna.UI2.WinForms.Guna2MessageDialog
+                {
+                    Text = "Bạn có chắc chắn muốn xóa danh mục này?",
+                    Caption = "Xác nhận xóa",
+                    Buttons = MessageDialogButtons.YesNo,
+                    Icon = MessageDialogIcon.Question,
+                    Style = MessageDialogStyle.Dark
+                };
 
-                if (result == DialogResult.Yes) // Nếu người dùng chọn "Yes"
+                DialogResult result = messageDialog.Show();
+
+                if (result == DialogResult.Yes)
                 {
                     int id = Convert.ToInt32(guna2DataGridView1.Rows[e.RowIndex].Cells["dgvid"].Value);
                     bool deleteResult = await new CategoryBL().DeleteCategory(id);
 
                     if (deleteResult)
                     {
-                        MessageBox.Show("Xóa danh mục thành công!");
+                        await ShowGunaMessageDialog("Xóa danh mục thành công!", "Success", MessageDialogIcon.Information);
                         LoadCategoryToGridViewFunction();
                     }
                     else
                     {
-                        MessageBox.Show("Xóa danh mục thất bại!");
+                        await ShowGunaMessageDialog("Xóa danh mục thất bại!", "Error", MessageDialogIcon.Error);
                     }
                 }
                 else
                 {
-                    // Nếu người dùng chọn "No", không thực hiện xóa
-                    MessageBox.Show("Hành động xóa đã bị hủy.");
+                    await ShowGunaMessageDialog("Hành động xóa đã bị hủy.", "Canceled", MessageDialogIcon.Warning);
                 }
             }
         }
@@ -271,11 +271,7 @@ namespace PL.View
         }
 
 
-        private void guna2HtmlLabel4_Click(object sender, EventArgs e)
-        {
-            ShowGunaMessageDialog("Chức năng dùng để tạo các phân loại sản Phẩm để dễ quản lí\n chức năng bao gồm thêm xóa và sửa tên các loại sản phẩm\n hiển thị số lượng sản phẩm thuộc loại đó ", "Chức năng phân loại sản phẩm", MessageDialogIcon.Information);
-
-        }
+       
 
         private void usermanual_Click(object sender, EventArgs e)
         {
