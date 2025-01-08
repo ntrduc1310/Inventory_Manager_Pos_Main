@@ -58,7 +58,6 @@ namespace PL
             _obj = this;
             btnMax.PerformClick();
             _obj.Visible = false;
-            btn_DashBoard.PerformClick();
             await LoadStockNotification();
             SetRole(role);
         }
@@ -454,6 +453,7 @@ namespace PL
             {
                 btn_Sales.Tag = "Enabled";
                 btn_Customers.Tag = "Enabled";
+                btn_Sales.PerformClick();
             }
             else if (role == "Quản lý")
             {
@@ -461,6 +461,8 @@ namespace PL
                 {
                     btn.Tag = "Enabled";
                 }
+                btn_DashBoard.PerformClick();
+
             }
         }
 
