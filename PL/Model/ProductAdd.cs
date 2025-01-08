@@ -199,6 +199,8 @@ namespace PL.Model
                         return;
                     }
 
+
+
                     // Lưu ảnh (nếu có)
                     string image = SaveImageToFolder(filePathnew);
 

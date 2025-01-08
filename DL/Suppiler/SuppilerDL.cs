@@ -22,6 +22,7 @@ namespace DL.Suppiler
         {
             try
             {
+
                 using (var context = new DataProviderEntity())
                 {
                     var newSuppiler = new DTO.Suppiler.TableSuppiler
@@ -33,7 +34,7 @@ namespace DL.Suppiler
                     };
 
                     // Kiểm tra nếu email đã tồn tại
-                    bool exists = await context.Suppiler.AnyAsync(a => a.Email == email);
+                    bool exists = await context.Suppiler.AnyAsync(a => a.Email == email || a.Phone == phone);
                     if (exists)
                     {
                         return false; // Trả về false nếu nhà cung cấp đã tồn tại
@@ -95,6 +96,11 @@ namespace DL.Suppiler
                 {
                     // Tìm nhà cung cấp có ID = id
                     var supplier = await context.Suppiler.FindAsync(id);
+                    bool exists = await context.Suppiler.AnyAsync(a => a.Email == email || a.Phone == phone);
+                    if (exists)
+                    {
+                        return false; // Trả về false nếu nhà cung cấp đã tồn tại
+                    }
 
                     // Kiểm tra nếu nhà cung cấp tồn tại
                     if (supplier != null)

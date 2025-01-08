@@ -109,6 +109,11 @@ namespace DL.Category
                     // Tìm người dùng có ID = id
 
                     var user = context.Category.Find(categoryId);
+                    bool exists = await context.Category.AnyAsync(c => c.Name == name);
+                    if (exists)
+                    {
+                        return false; // Trả về false nếu danh mục đã tồn tại
+                    }
 
                     // Kiểm tra nếu người dùng tồn tại
                     if (user != null)

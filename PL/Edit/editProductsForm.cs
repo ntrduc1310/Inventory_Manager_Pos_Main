@@ -130,6 +130,8 @@ namespace PL.Edit
                     return;
                 }
 
+
+
                 bool result = await new ProductsBL().UpdateProduct(productId, name, barcode, categoryId,
                     price, cost, discount, supplierId, description, imagePath);
 

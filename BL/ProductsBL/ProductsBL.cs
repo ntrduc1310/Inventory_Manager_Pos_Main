@@ -120,5 +120,6 @@ namespace BL.ProductsBL
         {
             return await new ProductsDL().searchProduct(txt);
         }
+
     }
 }

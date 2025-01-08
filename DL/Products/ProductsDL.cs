@@ -48,7 +48,7 @@ namespace DL.Products
             {
                 using (var context = new DataProviderEntity())
                 {
-
+                  
 
                     // Kiểm tra nếu email đã tồn tại
                     bool exists = await context.Products.AnyAsync(a => a.Barcode == barcode);
@@ -125,6 +125,11 @@ namespace DL.Products
             {
                 using (var context = new DataProviderEntity())
                 {
+                    bool exists = await context.Products.AnyAsync(a => a.Barcode == barcode);
+                    if (exists)
+                    {
+                        return false; // Trả về false nếu nhà cung cấp đã tồn tại
+                    }
                     // Tìm sản phẩm có ID = id
                     var product = await context.Products.FindAsync(id);
 
@@ -413,6 +418,8 @@ namespace DL.Products
                 return new List<DTO.Products.Products>();  // Return an empty list in case of an error
             }
         }
+
+     
 
 
     }

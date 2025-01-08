@@ -14,7 +14,14 @@ namespace DL.User
                 {
                     // Tìm người dùng có ID = id
 
+
                     var user = context.Users.Find(id);
+                    bool exists = context.Users.Any(a => a.UserName == userName || a.Phone == phone);
+                    if (exists)
+                    {
+                        // If username already exists, return false
+                        return false;
+                    }
 
                     // Kiểm tra nếu người dùng tồn tại
                     if (user != null)

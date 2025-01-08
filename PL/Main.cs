@@ -452,7 +452,6 @@ namespace PL
 
             if (role == "Nhân viên")
             {
-                btn_Products.Tag = "Enabled";
                 btn_Sales.Tag = "Enabled";
                 btn_Customers.Tag = "Enabled";
             }

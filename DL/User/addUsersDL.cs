@@ -17,7 +17,7 @@ namespace DL.User
                 using (var context = new DataProviderEntity())
                 {
                     // Check if the username already exists
-                    bool exists = context.Users.Any(a => a.UserName == username);
+                    bool exists = context.Users.Any(a => a.UserName == username || a.Phone == phone);
                     if (exists)
                     {
                         // If username already exists, return false
