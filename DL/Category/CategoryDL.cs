@@ -91,6 +91,12 @@ namespace DL.Category
                     return false;
                 }
             }
+            catch (DbUpdateException dbEx)
+            {
+                // Log lỗi ràng buộc nếu cần
+                Console.WriteLine($"Database update error: {dbEx.Message}");
+                return false; // Trả về false nếu xảy ra lỗi ràng buộc
+            }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error deleting category: {ex.Message}");
