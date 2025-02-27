@@ -1,4 +1,4 @@
-# Store Management System Using Multi-Layer Architecture
+📊# Store Management System Using Multi-Layer Architecture📊
 
 ## Introduction
 The store management system is developed to optimize the management process of goods, transactions, personnel, and revenue reporting for retail stores. The system applies a multi-layer architecture to ensure modularity, maintainability, and scalability.
