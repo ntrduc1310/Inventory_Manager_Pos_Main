@@ -11,7 +11,6 @@ The store management system is developed to optimize the management process of g
 - **Version Control**: GitHub
 - **Development Tools**: Visual Studio 2022
 
-## System Architecture![Screenshot 2025-01-02 184015](https://github.com/user-attachments/assets/3b22b4bb-ee25-4cae-ad53-590aaed4c93a)
 
 The system is built using a **4-layer architecture**:
 1. **Presentation Layer (PL)**: User interface with Windows Forms
@@ -24,23 +23,30 @@ The system is built using a **4-layer architecture**:
 - Add, edit, delete products
 - Manage product categories
 - Track inventory levels
+![Screenshot 2025-01-02 183024](https://github.com/user-attachments/assets/09241844-3c54-4a0d-88ec-3cd2e14acade)
 
 ### 2. Sales Management
 - Generate sales invoices
 - QR code scanning for payments
 - Print invoices
+- ![Screenshot 2025-01-02 211421](https://github.com/user-attachments/assets/c40e67ec-9d03-4144-846c-18e2c4ba1f34)
+
 
 ### 3. Purchase Management
 - Manage supplier purchases
 - Track purchase history
+![Screenshot 2025-01-02 183156](https://github.com/user-attachments/assets/b899d80c-9cc4-4aad-8221-8789b3e13a5e)
 
 ### 4. Employee and Role Management
 - Add, edit, delete employee accounts
 - Assign roles and permissions
+![Screenshot 2025-01-02 183844](https://github.com/user-attachments/assets/2cf75fbf-8908-46f8-bc9a-c7bb3c6b21b0)
 
 ### 5. Reporting & Data Analysis
 - Revenue and profit statistics
 - Reports on sold products
+  ![Screenshot 2025-01-02 220802](https://github.com/user-attachments/assets/7a541710-b964-474b-ad57-02be7e1c6718)
+
 
 ## Database Design
 - **ERD Diagram**: Describes main tables and relationships
