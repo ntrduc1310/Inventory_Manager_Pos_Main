@@ -11,7 +11,8 @@ The store management system is developed to optimize the management process of g
 - **Version Control**: GitHub
 - **Development Tools**: Visual Studio 2022
 
-## System Architecture
+## System Architecture![Screenshot 2025-01-02 184015](https://github.com/user-attachments/assets/3b22b4bb-ee25-4cae-ad53-590aaed4c93a)
+
 The system is built using a **4-layer architecture**:
 1. **Presentation Layer (PL)**: User interface with Windows Forms
 2. **Business Logic Layer (BL)**: Business logic processing
